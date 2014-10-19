@@ -1,0 +1,544 @@
+Effet 1;Vous pouvez jouer Amidamaru seulement si vous êtes Yoh. Si vous la contre-attaque de la zone Amidamaru, il charge.
+Effet 2;Vert ==> 1 interception.
+Effet 3;Rouge ==> 2 intercepter ou 2 Force.
+Effet 4;Votre grèves ont une interception.
+Effet 5;Immédiate. Avant de retournement de votre prochaine carte, piochez deux cartes. Placez une sur le dessus de votre deck et l'autre dans votre pile de défausse.
+Effet 6;Votre grèves ont -2 interception et 2 Force.
+Effet 7;Votre grèves ont une force.
+Effet 8;Immédiate. Vous pouvez déplacer un travail d'équipe à une zone vide contrôlée par le même joueur.
+Effet 9;Tactique: Vert.
+Effet 10;Votre grèves ont une force. Dans la zone rouge de votre adversaire, votre grèves ont force -4.
+Effet 11;Lorsque vous mettez cela dans votre région un avantage, choisissez l'une: Votre grèves ont une interception et de la Force -1, ou vos grèves ont -1 et 1 interception Force.
+Effet 12;Vous pouvez jouer Lee Pai-Long seulement si vous êtes juin Vert ==> Si vous contre-attaquer dans la zone Lee Pai-Long, mettez un marqueur sur lui. Utilisez une seule fois. Retirez un marqueur de Lee Pai-Long ==> Votre grève dans la zone Lee Pai-Long devient une force.
+Effet 13;Éliminer Lililala ==> Avant de retournement, tirer trois cartes. Placez deux dans votre pile de défausse et une sur le dessus de votre deck.
+Effet 14;Groupe -3 ==> Si vous la contre-attaque de la zone Lyserg avec cette grève, il charge.
+Effet 15;-2 Intercept ==> Si votre contre-attaque de la zone Marco avec cette grève, ajoutez un furyoku vert. Utilisez une seule fois.
+Effet 16;Vous pouvez jouer Roar Nergal seulement si vous êtes Duncan. Vert ==> 1 Force ou une interception.
+Effet 17;Tactique: Vert. Votre grèves ont Intercept -3 et 3 Force.
+Effet 18;Rouge ==> 4 Intercept. Utilisez une seule fois.
+Effet 19;Pas ==> ajouter deux verts furyoku.
+Effet 20;Lorsque basculé dans une zone avec un travail d'équipe, avant-Unis ont "tactique:. Vert"
+Effet 21;Deux vert ==> Si vous la contre-attaque de la zone de Rio, votre attaque commence dans la zone jaune de votre adversaire.
+Effet 22;Votre adversaire ne peut pas jouer son coup de signature ou de frais.
+Effet 23;Votre grèves dans la zone Tao Fr ont -2 interception et 2 Force.
+Effet 24;Votre grèves ont une interception. Dans la zone rouge de votre adversaire, votre grèves ont force -3.
+Effet 25;Vert ==> Votre grève dans la zone Venster a 2 Intercept et de la Force -2. Utilisez une seule fois.
+Effet 26;Deux jaunes ==> Si vous la contre-attaque de la zone de Zeke, éliminer un travail d'équipe.
+Effet 27;Vous pouvez jouer Hijinks seulement si vous êtes Lola. Votre adversaire ne peut pas se concentrer, de charge, la hauteur, ou de jouer son coup de signature.
+Effet 28;Vos coups départ dans la zone jaune de votre adversaire.
+Effet 29;Dans votre zone rouge, votre grèves ont deux Intercept.
+Effet 30;Vert ==> 1 interception. Utilisez une seule fois.
+Effet 31;Immédiate. Regardez les trois cartes du dessus de votre deck et les remettre sur le dessus dans n'importe quel ordre.
+Effet 32;Si votre adversaire contre-attaques de sa zone verte, acquérir une furyoku jaune.
+Effet 33;Chaque fois que votre adversaire joue un non-grève, une force.
+Effet 34;Votre grèves ont une interception. et 1 Force.
+Effet 35;Déplacer un furyoku jaune à votre zone verte ==> Si vous contre-attaquer avec la pluie de Bones, responsable de cette zone.
+Effet 36;Chaque fois que votre adversaire se concentre, Force -1.
+Effet 37;Si vous contre-attaquer avec Ponchi Punch, votre adversaire perd un rouge furyoku.
+Effet 38;Immédiate. Ajouter un furyoku jaune. Vous ne facturez pas de jouer dix autres sit-ups.
+Effet 39;Tactique: Vert. Lorsque vous contre-attaquer avec Tandem bouffonnerie, d'éliminer l'un des furyoku de votre adversaire.
+Effet 40;-2 Intercept ==> 2 Force. Utilisez une seule fois.
+Effet 41;Si vous contre-attaquer avec Strafe, vous pouvez éliminer un travail d'équipe.
+Effet 42;Immédiate. Ajoutez deux jaunes furyoku. Vous ne facturez pas de jouer Détendez-vous.
+Effet 43;Pas ==> Mettez ceci dans votre région avantage. Votre grèves ont une interception.
+Effet 44;Interception -3 ==> Si vous contre-attaquer avec Appartenant!, Ajoutez un furyoku jaune.
+Effet 45;Si vous contre-attaquer avec des lames de rodage, vous pouvez déplacer un furyoku jaune à votre zone rouge.
+Effet 46;vous pouvez jouer ou de tangage Assault Icicle seulement si vous êtes Trey. Pas ==> Ajoutez deux furyoku à cette zone.
+Effet 47;Immédiate. Éliminer toutes les cartes dans tous les domaines avantage: Pour chaque carte éliminée, ajouter un furyoku vert.
+Effet 48;Vert ==> Si vous la contre-attaque de la zone Kanna, votre adversaire n'a pas reconstituer furyoku de la même couleur que la zone de Kanna.
+Effet 49;Chaque fois que votre adversaire se concentre, une force.
+Effet 50;Elilminate une furyoku vous contrôlez ==> Vous pouvez éliminer un furyoku de la même couleur si vous la contre-attaque de la zone de Mari. Utilisez une seule fois.
+Effet 51;Immédiate. Au lieu de facturer cette zone, toute zone de charge à la place.
+Effet 52;Immédiate. Votre adversaire choisit et uncharges une de ses zones chargées. Au lieu de facturer cette zone, toute zone de charge à la place.
+Effet 53;Votre adversaire ajoute un rouge furyoku.
+Effet 54;Deux Jaune ==> 2 Intercept, 2 Force. Utilisez une seule fois.
+Effet 55;Chaque fois que votre adversaire joue un non-grève, de force -2.
+Effet 56;Si l'attaque de votre adversaire est de 3 force ou moins, 4 Force.
+Effet 57;Pas ==> Déplacer un travail d'équipe que vous contrôlez l'un de vos zones vides.
+Effet 58;Vous pouvez jouer Captivate seulement si vous êtes Lyserg. Déplacer le travail d'équipe d'un adversaire à cette zone.
+Effet 59;Si vous avez au moins un avantage dans votre région avantage, 2 Force.
+Effet 60;Pas ==> Votre adversaire perd un furyoku jaune.
+Effet 61;Pas ==> Déplacer un furyoku jaune à votre zone rouge.
+Effet 62;Si vous contre-attaquer avec Necrawakening, responsable de cette zone.
+Effet 63;Vous pouvez jouer Spirit of Fire seulement si vous êtes Zeke. Votre esprit de grèves dans la zone d'incendie ont Intercept -1 et 2 Force.
+Effet 64;Vous ne pouvez pas jouer à des grèves dans votre zone jaune ou verte. Votre grèves ont deux forces.
+Effet 65;Vous ne pouvez pas attention à ce tour. Votre grèves ont deux forces.
+Effet 66;-1 Intercept ==> 1 Force.
+Effet 67;Pour chaque équipe de votre adversaire a en jeu, une force.
+Effet 68;Vous pouvez jouer viatique que si vous êtes Jeanne.
+Effet 69;Vous pouvez jouer ou de tangage Charge de cavalerie Ultra seulement si vous êtes Len. Pas ==> Chercher au cours des trois cartes du dessus de votre deck et les remettre sur le dessus dans n'importe quel ordre.
+Effet 70;Immédiate. Eliminer un des furyoku de votre adversaire.
+Effet 71;Vous ne pouvez pas concentrer Smoldering confiance.
+Effet 72;Immédiate. Ajoutez deux rouges furyoku. Vous ne facturez pas de jouer Instinct farouche.
+Effet 73;Foray aveuglantes commence dans la zone jaune de votre adversaire.
+Effet 74;Si vous contre-attaquer avec infaillible Garrot, vous pouvez éliminer un travail d'équipe.
+Effet 75;Votre adversaire perd un vert furyoku.
+Effet 76;Si vous la contre-attaque de la zone de Duncan, chaque fois que votre adversaire joue une grève non, votre attaque devient une force.
+Effet 77;Rouge, Vert ==> Si vous contre-attaquer avec Snowdrift, éliminer toutes les Teamworks.
+Effet 78;Dans la zone Faust VIII, vous pouvez payer les frais rouge et jaune furyoku.
+Effet 79;Immédiate. Avant de renverser la carte suivante, tirer trois cartes. Placez une sur le dessus de votre deck et mettez le reste dans votre pile de défausse.
+Effet 80;Jaune ==> 4 et 1 interception Force. Utilisez une seule fois.
+Effet 81;Immédiate. Vous pouvez éliminer un travail d'équipe.
+Effet 82;-3 Intercept ==> Si vous la contre-attaque de la zone de Jeanne, ajouter un furyoku jaune.
+Effet 83;Dans la zone Joco, vous pouvez payer les frais de jaune de vert furyoku.
+Effet 84;Votre grèves dans la zone Mikihasa ont «tactique:. Vert"
+Effet 85;Tous Teamworks dans la zone de Milly ont «Pitch ==> Mettez ce travail d'équipe dans une de vos zones de vide."
+Effet 86;Si l'attaque de votre adversaire est de 3 force ou moins, 2 Force.
+Effet 87;Si vous contre-attaquer avec l'Armée de l'os, responsable de cette zone.
+Effet 88;Si vous jouez une grève dans la zone Silva, éliminer Silva. Avant de feuilleter une carte, piochez deux cartes. Placez une pile de défausse dans votre et l'autre sur le dessus de votre deck.
+Effet 89;Pas n'importe quelle carte dans la zone de Jun ==> Ajoutez deux furyoku à cette zone. Vous pouvez faire cela seulement si vous en avez un ou moins furyoku dans la zone de Jun.
+Effet 90;Vert ==> Votre grève dans la zone Venster a -2 interception et 2 Force.
+Effet 91;Vous ne pouvez pas se concentrer dans la zone de Yohmei. Avant de retournement dans sa zone, regardez les deux cartes du dessus de votre deck et de les remettre sur le dessus dans n'importe quel ordre.
+Effet 92;Votre adversaire frappe le coût d'un vert plus furyoku à jouer dans une zone sans un travail d'équipe.
+Effet 93;Si vous la contre-attaque de la zone d'Anna avec une grève qui a rouge ou jaune de son coût, ajoutez un vert furyoku.
+Effet 94;Retournez votre Chaman de l'arrière vers l'avant Groupe ==> 3 interception et 3.
+Effet 95;Dans la zone verte de votre adversaire, 4 Force.
+Effet 96;Si votre adversaire n'a pas joué une grève non à son tour, 5 Force.
+Effet 97;Votre adversaire frappe le coût un vert furyoku plus si il n'a pas joué une grève non à son tour.
+Effet 98;Si vous la contre-attaque de la zone de Matti, votre adversaire perd un vert furyoku.
+Effet 99;Chaque fois que votre adversaire se concentre, Force -2.
+Effet 100;Lorsque votre adversaire contre-attaques, uncharge la zone à partir de laquelle il a contre-attaques.
+Effet 101;Immédiate. Eliminer un des furyoku verts ou jaunes de votre adversaire.
+Effet 102;Tactique: Vert. Pas ==> Mettez ceci dans votre région avantage. Votre grèves ont une force.
+Effet 103;Vert, -5 Groupe ==> 5 Intercept. Utilisez une seule fois.
+Effet 104;Immédiate. Votre adversaire chosses un travail d'équipe, il contrôle et l'élimine.
+Effet 105;Immédiate. Si vous défendez dans votre zone jaune, vous êtes maintenant défendre dans votre zone verte. Si vous défendez dans votre zone rouge, vous êtes maintenant défendre dans votre zone jaune.
+Effet 106;Votre grèves dans la zone de Turbine ont une force.
+Effet 107;Lorsque vous contre-attaquer avec Cut de directeur, vous pouvez déplacer un travail d'équipe que vous contrôlez l'un de vos zones vides.
+Effet 108;Si vous contre-attaquer avec Ascendance foncé, ajoutez deux furyoku à cette zone.
+Effet 109;Rouge ==> Si vous contre-attaquer avec Apparitions Ancestral, chargé toute la zone.
+Effet 110;Si cette zone a un travail d'équipe, deux forces.
+Effet 111;Si vous avez plus Teamworks en jeu que votre adversaire, 3 Force.
+Effet 112;Dans la zone verte de votre adversaire, 2 Force.
+Effet 113;-2 Intercept ==> Si vous contre-attaquer avec Bird ferroviaire, ajouter un furyoku jaune.
+Effet 114;-3 Intercept ==> Si vous contre-attaquer avec Rouge Shot, uncharge n'importe quelle zone.
+Effet 115;Immédiate. Ajoutez deux rouges furyoku. Vous ne facturez pas de jouer Savvy Bestial.
+Effet 116;Votre grèves dans la zone Big Bill ont une interception.
+Effet 117;Votre Teamworks ne peuvent pas être éliminés.
+Effet 118;verte ==> 1 Force. Utilisez une seule fois.
+Effet 119;Si votre adversaire contre-attaques de sa zone verte, le gain d'un rouge furyoku.
+Effet 120;Uncharge cette zone ==> 4 interception et 2 Force.
+Effet 121;Immédiate. Au lieu de défendre dans cette zone, vous êtes maintenant défendre dans votre zone verte.
+Effet 122;Crackback commence dans la zone jaune de votre adversaire.
+Effet 123;Votre adversaire ne peut pas se concentrer ou de tangage.
+Effet 124;Si votre contre-attaque de la zone rouge, ajoutez deux rouges furyoku.
+Effet 125;-1 Intercept ==> Si vous contre-attaquer avec Grab Stalefish, ajouter un vert furyoku.
+Effet 126;Si vous contre-attaquer avec Point Blank, regarder la carte du dessus de votre deck. Vous pouvez le mettre dans votre pile de défausse.
+Effet 127;Pour chaque équipe de votre adversaire a en jeu, 2 Intercept.
+Effet 128;Vous pouvez jouer ou de tangage Baby Steps seulement si vous êtes Matti. Pas ==> Mettez ceci dans votre région avantage. Votre grèves ont une force et une interception.
+Effet 129;Uncharge un de vos autres zones ==> lorsque vous la contre-attaque de la zone de Toph, chargé sa zone.
+Effet 130;Dans la zone princesse Azula, vos grèves ont une force, tandis que son zone est chargée.
+Effet 131;Immédiate. Ajouter une énergie verte pour chaque allié que vous avez.
+Effet 132;Votre adversaire ne peut pas jouer des avantages ou des alliés dans la zone verte de son.
+Effet 133;Lorsque vous contre-attaque, vous pouvez réorganiser les alliés dans vos espaces allié.
+Effet 134;Pas ==> Chaque joueur élimine un de ses alliés.
+Effet 135;-3 Intercept ==> lorsque vous la contre-attaque, charge toute la zone.
+Effet 136;Chaque fois que votre adversaire les frais d'une des zones de son, Roll Boulder obtient une force.
+Effet 137;Lorsque vous contre-attaque contre une grève qui a force 3 ou moins, Blazing Kick Axe obtient 3 Force.
+Effet 138;Lorsque vous contre-attaque contre une grève qui a force 3 ou moins, Boiling Point reçoit 3 Force.
+Effet 139;quand vous la contre-attaque, votre adversaire uncharges une des zones de son.
+Effet 140;Interception -4 ==> Quand vous la contre-attaque, votre adversaire uncharges de ses zones.
+Effet 141;Jaune ==> 4 Force. Utilisez une seule fois.
+Effet 142;Élimine un de vos alliés ==> 1 interception. Utilisez une seule fois.
+Effet 143;Lorsque vous contre-attaque, vous pouvez éliminer une énergie verte.
+Effet 144;Lorsque vous contre-attaque, vous pouvez éliminer jusqu'à deux énergies vertes.
+Effet 145;Lorsque vous contre-attaque contre une grève qui a force 3 ou moins, la goutte de la Flamme reçoit 3 Force.
+Effet 146;Rouge ==> Choisissez un: Terrain Jagged obtient 2 Intercept
+Effet 147;Reflip: Vert. Chaque fois que votre adversaire se concentre, il ou elle élimine l'un des ses énergies vertes.
+Effet 148;Chaque fois que votre adversaire se concentre, il ou elle éliminer un de ses énergies vertes.
+Effet 149;-4 Intercept ==> Lorsque vous contre-attaque, éliminer toutes de l'énergie verte de votre adversaire.
+Effet 150;Lorsque vous contre-attaque, votre adversaire élimine un de ses alliés.
+Effet 151;d'éliminer l'un de vos alliés ==> lorsque vous la contre-attaque, éliminer un maximum de deux énergies vertes.
+Effet 152;Éliminer un de vos alliés ==> lorsque vous la contre-attaque, votre adversaire élimine un de ses alliés. Utilisez une seule fois.
+Effet 153;Interception -4 ==> Lorsque vous contre-attaque, votre adversaire élimine un de ses alliés. Utilisez une seule fois.
+Effet 154;-1 Intercept ==> Lorsque vous contre-attaquer, se déplacer d'une partie de votre énergie verte à votre zone jaune.
+Effet 155;Lorsque vous contre-attaque, regardez les deux cartes du dessus de votre deck. Mettez un sur le dessus de votre deck et l'autre dans votre pile de défausse.
+Effet 156;Alors que votre adversaire se défend, les zones de son ne peut pas être chargée.
+Effet 157;Lorsque vous contre-attaque, vous pouvez déplacer une partie de votre énergie jaune à votre zone rouge.
+Effet 158;Reflip: Vert. Votre adversaire frappe le coût d'une énergie additionnelle jaune à jouer.
+Effet 159;Votre adversaire frappe le coût d'une énergie additionnelle jaune à jouer.
+Effet 160;Lorsque vous contre-attaque, vous pouvez déplacer un allié au sommet du pont de son propriétaire.
+Effet 161;Chaque fois que votre adversaire se concentre, Cyclone hurlant obtient -2 Force.
+Effet 162;Chaque fois que votre adversaire se concentre, Squall Hurlant obtient -1 Force.
+Effet 163;Chaque fois que votre adversaire se concentre, le vent hurlant obtient -1 Force.
+Effet 164;-4 Intercept ==> Lorsque vous contre-attaquer, se déplacer d'un allié au sommet du pont de son propriétaire.
+Effet 165;-3 Intercept ==> Lorsque vous contre-attaquer, se déplacer d'une partie de votre énergie jaune à votre zone rouge.
+Effet 166;Rouge ==> 2 Intercept. Utilisez une seule fois.
+Effet 167;-2 Intercept ==> Tant que votre adversaire se défend, les zones de son ne peut pas être chargée.
+Effet 168;Votre adversaire ne peut pas jouer déplace signature.
+Effet 169;Lorsque vous contre-attaque, vous pouvez déplacer une partie de votre énergie verte à votre zone jaune.
+Effet 170;Lorsque vous contre-attaquer à partir d'une zone chargée, ajoutez une énergie verte.
+Effet 171;Votre adversaire saute défendre dans la zone verte de son.
+Effet 172;Interception -4 ==> Lorsque vous contre-attaque, votre adversaire se déplace un de ses alliés à un de vos espaces vides allié.
+Effet 173;Bien que cette zone est chargée brumes danse a deux Intercept.
+Effet 174;Pour chaque allié que vous avez, double crête a une force.
+Effet 175;quand vous la contre-attaque d'une zone chargée, ajoutez une énergie verte.
+Effet 176;-2 Intercept ==> Lorsque vous contre-attaque, responsable de cette zone. Utilisez une seule fois.
+Effet 177;Reflip: Vert. Lorsque vous contre-attaque, responsable de cette zone.
+Effet 178;Lorsque vous contre-attaque, responsable de cette zone.
+Effet 179;Alors que votre adversaire se défend, vos alliés ne peuvent pas être déplacés ou être éliminés.
+Effet 180;Lorsque vous contre-attaque, ajoutez une énergie verte pour chaque zone que vous avez chargée.
+Effet 181;-1 Intercept ==> Lorsque vous contre-attaque, ajoutez une énergie verte.
+Effet 182;Même si vous avez un allié dans cette zone, l'attaque en tandem a deux forces.
+Effet 183;-2 Intercept ==> Lorsque vous contre-attaquer à partir d'une zone chargée, ajoutez une énergie jaune.
+Effet 184;Deux rouges ==> 3 interception et 3 Force. Utilisez une seule fois.
+Effet 185;Alors que votre adversaire se défend, vos zones ne peuvent pas être déchargées.
+Effet 186;Rouge ==> 5 Force. Utilisez une seule fois.
+Effet 187;quand vous la contre-attaque, votre adversaire uncharges une des zones de son.
+Effet 188;Lorsque vous contre-attaque, vous pouvez déplacer l'un des alliés de votre adversaire à l'un des espaces de ce joueur allié vide.
+Effet 189;Rouge, Vert ==> 2 interception et 2 Force. Utilisez une seule fois.
+Effet 190;Lorsque vous contre-attaque, votre adversaire élimine un de ses énergies.
+Effet 191;Reflip: Vert.
+Effet 192;Votre grèves ont deux Intercept.
+Effet 193;Votre grèves ont une interception alors que dans l'une de vos zones chargées.
+Effet 194;Votre adversaire ne peut pas se concentrer ou de tangage.
+Effet 195;Alors que votre adversaire se défend dans la zone verte de son, votre grèves ont deux forces.
+Effet 196;Votre grèves ont une interception et une force alors que dans l'une de vos zones chargées.
+Effet 197;Votre grèves ont une force alors que dans l'une de vos zones chargées.
+Effet 198;Alors que votre adversaire se défend, vos zones ne peuvent être chargées et vos alliés ne peuvent pas être déplacés ou éliminés.
+Effet 199;Immédiate. Votre adversaire se déplace un de ses alliés à un de vos espaces vides allié.
+Effet 200;Immédiate. Regardez les deux cartes du dessus de votre deck. Mettez-les revenir dans n'importe quel ordre.
+Effet 201;Immédiate. Votre adversaire tourne la carte du dessus du visage de son deck en place. Vous pouvez avoir votre adversaire mettez cette carte dans sa pile de défausse.
+Effet 202;Immédiate. Regardez les trois cartes du dessus de votre deck. Mettez tehm retour dans n'importe quel ordre.
+Effet 203;Alors que Pai Sho maîtrise est un avantage dans votre région, vos cartes sont "Reflip: Éliminer Pai Sho maîtrise."
+Effet 204;Immédiate. Vous pouvez déplacer n'importe quel joueur allié à l'un des espaces de ce joueur allié vide.
+Effet 205;Comme vous jouez la flamme sculptée, choisissez l'une: Votre grèves ont une interception et de la Force -1
+Effet 206;Chaque fois que vous retournez une carte, mettez la carte du dessus de votre visage jusqu'à le pont.
+Effet 207;Lorsque vous contre-attaque, vous pouvez uncharge une de vos zones. Si vous le faites, chargé l'un de vos zones.
+Effet 208;Immédiate. Vous êtes maintenant défendre jusqu'à une zone.
+Effet 209;Immédiate. Si cette zone est déjà chargée, vous pouvez uncharge n'importe quelle zone.
+Effet 210;Immédiate. Vous pouvez facturer n'importe quelle zone.
+Effet 211;Lorsque vous contre-attaque, ajoutez une énergie jaune.
+Effet 212;Immédiate. Vous pouvez éliminer un de vos alliés. Si vous le faites, d'éliminer l'un des alliés de votre adversaire.
+Effet 213;Reflip: Vert. Immédiate. Vous pouvez éliminer un allié.
+Effet 214;Immédiate. Si cette zone est déjà chargée, vous pouvez percevoir toute la zone.
+Effet 215;Immédiate. Ajouter une énergie rouge.
+Effet 216;Reflip: Vert. Immédiate. Vous pouvez uncharge n'importe quelle zone.
+Effet 217;Lorsque votre adversaire contre-attaques de la zone de son vert, vous ajoutez deux énergies vertes.
+Effet 218;Immédiate. Vous pouvez éliminer une énergie dans cette zone. Si vous le faites, d'éliminer un des énergies de votre adversaire de la même couleur.
+Effet 219;Immédiate. Votre adversaire uncharges une des zones de son.
+Effet 220;Votre grèves ont -1 et 1 interception Force.
+Effet 221;Votre grèves ont une interception dans votre zone rouge.
+Effet 222;Immédiate. Regardez la carte du dessus de votre deck. Vous pouvez mettre dans votre pile de défausse.
+Effet 223;Immédiate. Votre adversaire élimine un de ses alliés.
+Effet 224;Dans la zone Aang, vos grèves ont une interception.
+Effet 225;Chaque fois que vous retournez une carte dans la zone de l'APPA, vous pouvez échanger Appa avec un allié dans un de vos autres zones.
+Effet 226;Jaune ==> Quand vous la contre-attaque de la zone de Katara, responsable de cette zone. Utilisez une seule fois par tour.
+Effet 227;Dans la zone Roi Bumi, vos grèves ont «Chaque fois que votre adversaire se concentre, cette grève devient une force alors qu'il est dans la zone du Roi Bumi."
+Effet 228;Lorsque vous contre-attaquer à partir de Momo zone, chaque joueur ajoute une énergie verte.
+Effet 229;Chaque fois que vous retournez une carte dans la zone Monk Gyatso au tour de la carte du dessus de votre visage jusqu'à le pont.
+Effet 230;Lorsque vous la contre-attaque de la zone de Jet, chaque joueur élimine un de ses alliés.
+Effet 231;Reflip: Vert. Lorsque vous la contre-attaque de la zone de Jojo, d'éliminer l'une des énergies vertes de votre adversaire, et vous ajoutez une énergie verte.
+Effet 232;Deux vert ==> Dans la zone de Malu, vos grèves ont «Votre adversaire saute défendre dans ses zones vertes».
+Effet 233;Lorsque vous la contre-attaque de la zone Pirate Capitaine, regardez la carte du dessus de votre deck. Vous pouvez mettre dans votre pile de défausse.
+Effet 234;Éliminer une énergie dans la zone du Prince Zuko ==> lorsque vous la contre-attaque de la zone Prince Zuko, éliminer une énergie de la même couleur. Utilisez une seule fois par tour.
+Effet 235;Chaque fois que vous retournez une carte dans la zone oncle Iroh, vous pouvez d'abord regarder les deux cartes du dessus de votre deck. Si vous le faites, les remettre dans n'importe quel ordre.
+Effet 236;Lorsque vous la contre-attaque de la zone afiko, vous pouvez éliminer un de vos alliés. Si vous le faites, votre adversaire les frais l'un de vos zones.
+Effet 237;Votre grèves dans la zone Commandant Zhao ont une force.
+Effet 238;Lorsque vous la contre-attaque de la zone d'élite Nation du Feu, votre adversaire tourne la carte du dessus du visage de son deck en place. vous pouvez avoir votre adversaire mettez cette carte dans sa pile de défausse.
+Effet 239;Lorsque vous la contre-attaque de la zone kinto, vous pouvez éliminer un de vos alliés. Si vous le faites, votre adversaire uncharges une des zones de son.
+Effet 240;Rouge ==> lorsque vous la contre-attaque de la zone gardien de prison, votre adversaire élimine un de ses alliés. Utilisez une seule fois par tour.
+Effet 241;Vert ==> Quand vous la contre-attaque de la zone de garde Zhao, éliminer la Garde Zhao et jusqu'à deux énergies vertes. Utilisez une seule fois par tour.
+Effet 242;Lorsque vous la contre-attaque de la zone marchande de choux, vous pouvez éliminer les marchands de choux. Si vous le faites, ajoutez une énergie verte.
+Effet 243;Chaque fois que vous retournez une carte dans la zone du canyon guide, votre adversaire tourne la carte du dessus du visage de son deck en place.
+Effet 244;Vert ==> Dans la zone Gan Jin Treibe, vous avez une frappe intercepter. Utilisez une seule fois par tour.
+Effet 245;Dans la zone herboristerie, vos grèves ont "Reflip:. Vert"
+Effet 246;Vert ==> Dans la zone Zhang tribu, vos grèves ont une force. Utilisez une seule fois par tour.
+Effet 247;Lorsque vous retournez scooter de l'air dans une zone sans un allié, vous pouvez déplacer un de vos alliés dans cette zone.
+Effet 248;Déplacer l'absorption chi bas une zone ==> ajouter une énergie jaune. (utiliser uniquement en défendant dans votre zone verte ou jaune)
+Effet 249;Déplacer la poussière entonnoirs bas une zone ==> ajouter deux énergies vertes. (utiliser uniquement en défendant dans votre zone verte ou jaune.)
+Effet 250;Deux verte ==> Déplacer bond gracieux jusqu'à une zone (utiliser uniquement en défendant dans votre zone jaune ou rouge).
+Effet 251;Déplacer ouvert palmiers refoulement à votre zone rouge ==> votre adversaire saute défendre dans la zone verte de son. (Utilisez uniquement en défendant dans votre zone verte ou jaune.)
+Effet 252;Deux vert ==> Déplacer Zoom! jusqu'à une zone (utiliser uniquement en défendant dans votre zone jaune ou rouge).
+Effet 253;Chaque fois que votre adversaire se concentre, Boulder Smash obtient une force.
+Effet 254;Lorsque votre adversaire contre-attaques d'une zone, éliminer un allié dans cette zone.
+Effet 255;lorsque votre adversaire contre-attaques d'une zone, uncharge cette zone.
+Effet 256;Lorsque votre adversaire contre-attaques d'une zone, uncharge cette zone, d'éliminer un allié dans cette zone, et d'éliminer une énergie dans celui-là.
+Effet 257;Reflip: Vert. Chaque fois que votre adversaire se concentre, écraser la carrière devient une force.
+Effet 258;Lorsque votre adversaire contre-attaques d'une zone, éliminer une énergie dans cette zone.
+Effet 259;Lorsque vous contre-attaque, vous pouvez éliminer une énergie jaune. Pas ==> éliminer une énergie jaune.
+Effet 260;Quand votre contre-attaque, responsable de cette zone. Pas de charge ==> cette zone.
+Effet 261;Pas ==> éliminer jusqu'à deux énergies vertes.
+Effet 262;Pas de charge ==> cette zone.
+Effet 263;Vert, Pitch ==> Votre adversaire élimine un de ses alliés.
+Effet 264;Lorsque vous contre-attaque, votre adversaire élimine un ou de ses alliés. Vert, Pitch ==> Votre adversaire élimine un de ses alliés.
+Effet 265;Lorsque vous contre-attaquer à partir d'une zone chargée, vous pouvez percevoir toute la zone.
+Effet 266;Rouge ==> lorsque vous la contre-attaque, charge toute la zone. Utilisez une seule fois.
+Effet 267;Uncharge cette zone ==> lorsque vous la contre-attaque, charge toute la zone.
+Effet 268;Exclusif - Aang
+Effet 269;Exclusif - Katara. Uncharge zone de Sokka est ==> Si vous avez une grève dans la zone Sokka, choisissez l'une: Cette grève obtient une interception
+Effet 270;Exclusif - Le Roi Bumi. Dans la zone Flopsie, vos grèves ont Intercept -1 et 2 Force.
+Effet 271;Exclusif - jojo. Lorsque vous contre-attaquer à partir d'une zone, ajoutez une énergie à cette zone et d'éliminer l'une des énergies de votre adversaire de la même couleur.
+Effet 272;Exclusif - Malu. Votre adversaire saute défendre dans ses zones vertes et jaunes.
+Effet 273;Exclusif - Prince Zuko. Lorsque vous contre-attaquer ==> vous pouvez éliminer une énergie.
+Effet 274;Exclusif - Oncle Iroh. Pas ==> Regardez les trois cartes du dessus de votre deck. Mettez un sur le dessus de votre deck et le reste dans votre pile de défausse.
+Effet 275;Exclusif - Afiko. Transformez votre carte de chambre de l'arrière vers l'avant ==> 3 interception et 3 Force.
+Effet 276;Exclusif - Commandant Zhao. Lorsque vous contre-attaque, vous pouvez éliminer un allié.
+Effet 277;Exclusif - Kinto. Votre adversaire frappe le coût d'une énergie additionnelle rouges à jouer.
+Effet 278;Immédiate. Vous pouvez réorganiser vos alliés. (Vous pouvez avoir qu'un seul allié dans chacune de vos zones.)
+Effet 279;Bien que cette zone est chargée, courage Sokka a une interception et une force.
+Effet 280;aller jusqu'à trois de vos furyoku vert à votre zone jaune.
+Effet 281;Déplacer tous vos furyoku jaune à votre zone rouge. Déplacer tous vos furyoku vert à votre zone jaune.
+Effet 282;-2 Intercept ==> Votre adversaire ne peut pas se concentrer ou de tangage.
+Effet 283;Cette grève commence dans la zone jaune de votre adversaire.
+Effet 284;Votre adversaire ne peut pas payer ou jouer son coup de signature.
+Effet 285;-1 Interception, d'éliminer l'un des jaunes de votre adversaire furyoku ==> Ajouter un furyoku jaune.
+Effet 286;-1 Intercept ==> Ajouter un rouge furyoku, ou une force.
+Effet 287;-2 Interception, d'éliminer l'un des rouges d'un adversaire furyoku ==> Ajouter un rouge furyoku.
+Effet 288;-1 Intercept ==> Ajouter un rouge furyoku.
+Effet 289;Votre adversaire gagne un point ==> 3 Force.
+Effet 290;Charge d'une zone de votre choix.
+Effet 291;Jaune ==> 1 Force.
+Effet 292;Vert ==> 1 Force. Super bujin commence dans la zone jaune de votre adversaire.
+Effet 293;Votre adversaire doit se défausser d'Teamworks et avantages.
+Effet 294;Si l'attaque de votre adversaire est de 3 force ou moins, vous pouvez éliminer jusqu'à trois furyoku.
+Effet 295;Éliminer toutes Teamworks de votre adversaire.
+Effet 296;Mettez n'importe quel nombre de Teamworks sur le dessus du pont de leurs propriétaires.
+Effet 297;Interception Shooting Star est égale à la force d'attaque de votre adversaire.
+Effet 298;Vous pouvez éliminer un travail d'équipe.
+Effet 299;Avalement Groupe Helix et intercepter égale la force d'attaque de votre adversaire.
+Effet 300;-8 Intercept ==> 8 Force.
+Effet 301;-1 Intercept ==> Mettez la carte du dessus de votre deck dans votre pile de défausse. Si c'est un travail d'équipe, une force
+Effet 302;Regardez les cinq cartes du dessus de votre deck et les remettre dans n'importe quel ordre.
+Effet 303;Mettez un travail d'équipe vous permet de contrôler sur le dessus du pont de son propriétaire ==> 1 Force, 1 interception.
+Effet 304;Mettez un travail d'équipe sur le dessus du pont de son propriétaire.
+Effet 305;Votre adversaire doit se défausser d'avantages.
+Effet 306;Si l'attaque de votre adversaire est de 3 force ou moins, 3 Force.
+Effet 307;Débiter commence dans la zone jaune de votre adversaire.
+Effet 308;Pumpkin Dumpkin commence dans la zone rouge de votre adversaire.
+Effet 309;Si aucune de vos zones n'a pas furyoku, ajoutez un furyoku à cette zone.
+Effet 310;Ajoutez trois furyoku jaune.
+Effet 311;Retirez toutes vos cartes de travail d'équipe. Placez chaque dans une zone vide, vous contrôle.
+Effet 312;Vous pouvez déplacer le travail d'équipe d'un adversaire à l'un de vos zones vides.
+Effet 313;Ajoutez deux rouges furyoku.
+Effet 314;Grande lame Halo débute dans la zone jaune de votre adversaire. Pour chaque travail d'équipe que vous avez dans le jeu, une force.
+Effet 315;Uncharge toutes les zones de votre adversaire. Pour chaque zone non chargées de cette façon, une force.
+Effet 316;Thwap Overhead commence dans la zone jaune de votre adversaire.
+Effet 317;Ajoutez deux verts furyoku, deux jaunes furyoku, et deux rouges furyoku.
+Effet 318;Eliminer un des Teamworks votre adversaire ==> 2 Force. Utilisez une seule fois.
+Effet 319;Eliminer un des Teamworks votre adversaire ==> 2 Force.
+Effet 320;Ajouter un furyoku rouge et votre adversaire perd un rouge furyoku.
+Effet 321;Vous pouvez soit ajouter un furyoku rouge ou d'éliminer un des rouges de votre adversaire furyoku.
+Effet 322;Charge toutes les zones de votre adversaire. Pour chaque charge de cette façon, deux forces.
+Effet 323;Lorsque vous contre-attaque, vous pouvez chercher dans votre deck une carte allié nommée Appa. Vous pouvez mettre cette carte dans n'importe quel espace vide alliée.
+Effet 324;Lorsque vous contre-attaque, vous pouvez éliminer un allié.
+Effet 325;Lorsque vous contre-attaque, vous pouvez éliminer tous les alliés de votre adversaire.
+Effet 326;Lorsque vous contre-attaque, chaque joueur charges zone de son rouge.
+Effet 327;Lorsque vous contre-attaque, chaque joueur choisit une de ses zones. Chargez cette zone.
+Effet 328;Chaque fois que votre adversaire se concentre, Traîneau Penguin obtient -1 Force.
+Effet 329;Chaque fois que votre adversaire se concentre, Apprivoiser l'Unagi obtient -2 Force.
+Effet 330;Lorsque vous contre-attaque, vous pouvez réorganiser vos alliés. (Vous pouvez seulement avoir sur l'allié dans chacune de vos zones.)
+Effet 331;Lorsque vous contre-attaque, ajoutez une énergie à chacune de vos zones.
+Effet 332;Lorsque vous contre-attaquer, d'éliminer toute votre énergie
+Effet 333;Lorsque vous contre-attaque, recharger votre zone jaune.
+Effet 334;Lorsque vous contre-attaque, ajoutez deux énergie rouge.
+Effet 335;Lorsque vous contre-attaque, ajoutez une énergie rouge.
+Effet 336;Vert ==> Lorsque vous contre-attaque, chaque joueur d'une des zones les frais de son.
+Effet 337;Chaque fois que votre adversaire se concentre Omashu Dodgeball obtient une force.
+Effet 338;Chaque fois que votre adversaire se concentre talon pierre du Roi reçoit une force.
+Effet 339;Cartes de votre adversaire a "Reflip: Vert"
+Effet 340;Votre adversaire grèves ont «vert ==> 1 interception."
+Effet 341;Chaque fois que votre adversaire joue une carte dans une zone, éliminer une énergie dans cette zone.
+Effet 342;Jaune ==> Lorsque vous contre-attaquer, se déplacer d'un allié au sommet du pont c'est propriétaire.
+Effet 343;Lorsque vous contre-attaque, éliminer l'un des énergies de votre adversaire et vous ajoutez une énergie rouge.
+Effet 344;Lorsque vous contre-attaque, votre adversaire élimine un de ses énergies, et vous ajoutez une énergie verte.
+Effet 345;Chaque fois que votre adversaire se concentre dans une zone, vous ajoutez une énergie de la même couleur que cette zone.
+Effet 346;Votre adversaire saute défendre dans ses zones vertes et jaunes.
+Effet 347;Lorsque vous contre-attaquer, Stream Slingshot obtient la Force X, où X est la force de frapper votre adversaire.
+Effet 348;Lorsque vous contre-attaque, vous pouvez éliminer une énergie.
+Effet 349;Lorsque vous contre-attaque, vous pouvez éliminer jusqu'à deux énergies.
+Effet 350;Lorsque vous contre-attaque, vous pouvez uncharge n'importe quelle zone.
+Effet 351;Lorsque vous contre-attaque, uncharge toutes les zones de votre adversaire.
+Effet 352;Lorsque vous contre-attaque, regardez les trois cartes du dessus de votre deck. Mettez-les revenir dans n'importe quel ordre.
+Effet 353;Votre adversaire ne peut pas se concentrer ou de tangage, et tout en défendant ses zones ne peuvent pas être facturés.
+Effet 354;Lorsque vous contre-attaque, regardez les deux cartes du dessus de votre deck. Mettez-les revenir dans n'importe quel ordre.
+Effet 355;Chaque fois que votre adversaire retourne une carte, vous pouvez payer une énergie verte. Si votre fassiez, votre adversaire se défausse de cette carte et retourne une nouvelle dans la même zone.
+Effet 356;-2 Intercept ==> Lorsque vous contre-attaquer, la charge ou uncharge n'importe quelle zone.
+Effet 357;Lorsque vous nettoyez tempêtes sans fin. Laissez votre carte de chambre s'est tourné vers l'arrière.
+Effet 358;-2 Intercept ==> Lorsque vous contre-attaquer, la charge ou uncharge n'importe quelle zone. Utilisez une seule fois.
+Effet 359;Éliminer un de vos alliés ==> Lorsque vous contre-attaque, votre adversaire les frais l'un de vos zones.
+Effet 360;Lorsque vous contre-attaque contre une grève qui a force 3 ou moins, Pas de pitié pour les faibles reçoit 3 Force.
+Effet 361;Lorsque vous contre-attaque contre une grève qui a force 3 ou moins, Open Fire obtient 3 Force.
+Effet 362;Vert ==> Lorsque vous contre-attaquer, d'éliminer un allié.
+Effet 363;Éliminer un de vos alliés ==> 1 Force.
+Effet 364;-2 Intercept ==> frappe votre adversaire coût une énergie supplémentaire jaunes à jouer.
+Effet 365;Deux verte ==> lorsque vous la contre-attaque, éliminer un maximum de deux énergies vertes. utiliser qu'une seule fois
+Effet 366;alors vous avez plus d'alliés que votre adversaire, les brutes de la profondeur a trois Force.
+Effet 367;lorsque vous célébrez, vous pouvez éliminer un allié
+Effet 368;lorsque vous célébrez, vous pouvez uncharge toute zone
+Effet 369;Alors vous avez plus d'alliés que votre adversaire, en baisse de 2 a chassé les intercepter.
+Effet 370;Alors vous avez plus d'alliés que votre adversaire, KO a deux forces.
+Effet 371;Éliminer un de vos alliés ==> 1 interception et 1 Force. utiliser qu'une seule fois.
+Effet 372;-2 Intercept ==> Quand vous la contre-attaque, votre adversaire uncharges de ses zones. utiliser qu'une seule fois.
+Effet 373;Reflip: Vert. Chaque fois que votre adversaire se concentre dans une zone, éliminer un allié dans cette zone.
+Effet 374;Chaque fois que votre adversaire se concentre dans une zone, éliminer un allié dans cette zone.
+Effet 375;-4 Intercept ==> Lorsque vous contre-attaque, éliminer une énergie jaune.
+Effet 376;verte ==> quand tu contre-attaque, éliminer une énergie verte. utiliser qu'une seule fois.
+Effet 377;Lorsque vous contre-attaque contre une grève qui a 3 Groupe ou moins, vous pouvez éliminer une énergie.
+Effet 378;Lorsque vous contre-attaque contre une grève qui a 3 Groupe ou moins, vous pouvez éliminer un allié.
+Effet 379;Lorsque vous contre-attaque, votre adversaire se révèle sa signature actuelle.
+Effet 380;grèves de votre adversaire coût une énergie supplémentaire vert pour jouer.
+Effet 381;Lorsque vous retournez la lame et la balle, tourner la carte du dessus de votre visage jusqu'à le pont.
+Effet 382;-2 Intercept ==> quand vous contre-attaquer, se déplacer d'un allié au sommet du pont c'est propriétaire. utiliser qu'une seule fois.
+Effet 383;Lorsque vous contre-attaquer, regarder la carte du dessus du deck de votre adversaire. Vous pouvez le mettre dans sa pile de défausse.
+Effet 384;-1 Intercept ==> Lorsque vous contre-attaquer, de révéler la carte, puis dessus du deck de votre adversaire. Vous pouvez le mettre dans sa pile de défausse. Utilisez une seule fois.
+Effet 385;-2 Intercept ==> Lorsque vous contre-attaquer, regarder la carte du dessus du deck de votre adversaire. Vous pouvez le mettre dans sa pile de défausse. Utilisez une seule fois.
+Effet 386;Vert ==> Un joueur de votre choix se tourne la carte du dessus du visage de son deck en place.
+Effet 387;Lorsque vous célébrez, votre adversaire ajoute une énergie à chacune des zones de son avec un allié.
+Effet 388;Votre adversaire ne peut pas déployer ou reflip.
+Effet 389;Deux Jaune ==> 2 Intercept. Utilisez une seule fois.
+Effet 390;Lorsque vous retournez la loi martiale, tournez la carte du dessus de votre visage jusqu'à le pont.
+Effet 391;Grèves de votre adversaire tout en avez 2 Intercept dans une des zones de son avec un allié.
+Effet 392;-5 Intercept ==> Lorsque vous contre-attaquer, se déplacer l'un des alliés de votre adversaire pour le haut du pont de son propriétaire.
+Effet 393;Lorsque vous célébrez, vous pouvez tourner la carte chambre d'un joueur à son autre côté.
+Effet 394;Votre adversaire ne peut pas se déployer.
+Effet 395;Lorsque vous célébrez, vous pouvez passer à deux de vos énergies vertes à votre zone jaune.
+Effet 396;Lorsque vous célébrez, chaque joueur ajoute une énergie à chacune des zones de son avec un allié. (Ceci est en plus de votre célébration de la normale.)
+Effet 397;-4 Intercept ==> Lorsque vous contre-attaque, ajoutez une énergie jaune.
+Effet 398;alors vous avez un allié dans cette zone, coup direct a une force. Bien que cette zone est chargée, coup direct a une force.
+Effet 399;Bien que cette zone est chargée, feu à volonté a une interception.
+Effet 400;verte ==> 1 interception. Utilisez jusqu'à autant de fois que le nombre d'alliés que vous avez.
+Effet 401;Lorsque vous contre-attaquer à partir d'une zone avec un allié, ajoutez une énergie à cette zone.
+Effet 402;Jaune ==> 1 interception. Utilisez jusqu'à autant de fois que le nombre d'alliés que vous avez.
+Effet 403;Interception -3 ==> 3 Force.
+Effet 404;-2 Intercept ==> 2 Force.
+Effet 405;Lorsque votre adversaire contre-attaques d'une zone, vous pouvez recharger votre zone de la même couleur.
+Effet 406;Reflip: Vert. Lorsque vous contre-attaquer, vous pouvez percevoir toute la zone.
+Effet 407;Interception -3 ==> Lorsque vous contre-attaque, responsable de cette zone.
+Effet 408;Alors que votre adversaire se défend, votre énergie ne peuvent pas être déplacés ou éliminés.
+Effet 409;quand vous la contre-attaque d'une zone chargée, ajoutez une énergie jaune.
+Effet 410;verte ==> révéler la carte du dessus de votre deck.
+Effet 411;verte ==> Intercept -3 et 3 Force. Utilisez une seule fois.
+Effet 412;quand vous la contre-attaque, chaque joueur peut déplacer sur l'énergie verte à sa zone jaune de ce joueur.
+Effet 413;Rouge ==> 2 interception et 2 Force. Utilisez une seule fois.
+Effet 414;Lorsque vous contre-attaque, vous pouvez déplacer un de vos alliés à un de vos espaces vides allié.
+Effet 415;Jaune ==> 1 interception. Utilisez une seule fois.
+Effet 416;Reflip: Jaune.
+Effet 417;Lorsque vous contre-attaquer à partir d'une zone avec un allié, ajoutez une énergie verte.
+Effet 418;Tout un automne a "Reflip: vert" tout en un de vos zones avec un allié.
+Effet 419;Jaune ==> 2 Force. Utilisez une seule fois.
+Effet 420;Votre grèves ont une interception alors que dans l'une de vos zones avec un allié.
+Effet 421;Chaque fois que votre adversaire se concentre, votre grève devient une force.
+Effet 422;Votre grèves ont une force alors que dans l'une de vos zones avec un allié.
+Effet 423;Alors que votre adversaire se défend, vos alliés et de l'énergie ne peuvent pas être déplacés ou éliminés.
+Effet 424;Votre adversaire ne peut pas célébrer.
+Effet 425;Reflip: Vert. Pendant que vous défendre contre une grève qui a 7 Force ou Moren vos grèves ont 3 Intercept.
+Effet 426;Votre adversaire ne peut pas jouer les grèves ou des alliés dans la zone verte de son.
+Effet 427;Votre adversaire ne peut pas jouer déplace signature. Alors que votre adversaire se défend, les zones de son ne peut pas être chargée.
+Effet 428;Votre grèves ont deux interception et de la Force -2.
+Effet 429;Immédiate. Regardez les trois cartes du dessus de votre deck. Mettez deux sur le dessus de votre deck dans l'ordre et l'autre dans votre pile de défausse.
+Effet 430;Votre grèves ont "Reflip: Éliminer l'un de vos atouts."
+Effet 431;Vos alliés ont «Déployer: gratuit." (pendant que vous jouez un allié, vous pouvez la déplacer à n'importe lequel de vos espaces allié vides.)
+Effet 432;Immédiate. Vous pouvez déplacer un allié au sommet du pont de son propriétaire.
+Effet 433;Immédiate. Révélez les quatre cartes du dessus de votre deck. Vous pouvez mettre une carte allié parmi eux sur le dessus de votre deck et le reste dans votre pile de défausse.
+Effet 434;Immédiate. Si vous êtes défendre contre une grève qui a force 7 ou plus, regardez les quatre cartes du dessus de votre deck. Vous pouvez en mettre un sur le dessus de votre deck et le reste dans votre pile de défausse.
+Effet 435;Immédiate. Vous pouvez choisir l'un de vos alliés. Si vous le faites, votre adversaire choisit une de ses alliés, et vous échangez les alliés choisis.
+Effet 436;Immédiate. Révéler la carte du dessus de votre deck. Vous pouvez mettre dans votre pile de défausse. Révélez la carte du dessus du deck de votre adversaire. Vous pouvez le mettre dans sa pile de défausse.
+Effet 437;Lorsque vous contre-attaquer, vous pouvez percevoir toute la zone avec un allié.
+Effet 438;Immédiate. Vous pouvez avoir votre adversaire éliminer un de ses alliés.
+Effet 439;Votre grèves ont -1 et 1 interception Force. Lorsque vous célébrez, vous pouvez ajouter une énergie jaune.
+Effet 440;Immédiate. Si vous êtes défendre contre une grève qui a 7 ou plus la force, vous pouvez éliminer un avantage ou un allié.
+Effet 441;Lorsque votre adversaire contre-attaques, il ou elle les frais de vos zones.
+Effet 442;Lorsque vous célébrez, ajoutez une énergie rouge.
+Effet 443;Lorsque vous contre-attaquer, se déplacer jusqu'à trois de vos énergies vertes à votre zone jaune.
+Effet 444;Immédiate. Vous pouvez éliminer un allié dans n'importe quelle zone. Si vous le faites, ajoutez une énergie à cette zone.
+Effet 445;Reflip: Vert. Votre grèves ont -2 interception et 2 Force.
+Effet 446;Lorsque votre adversaire de contre-attaques de zone verte de son, que uncharges joueur de l'une des ses zones.
+Effet 447;Lorsque vous contre-attaque, vous pouvez éliminer un de vos alliés. Si vous le faites, votre adversaire élimine un de ses alliés.
+Effet 448;Votre grèves ont une force
+Effet 449;Immédiate. Vous pouvez avoir votre adversaire uncharge une des zones de son.
+Effet 450;Immédiate. Un joueur de votre choix révèle la carte du dessus de son deck.
+Effet 451;Votre grèves ont "Reflip:. Vert"
+Effet 452;Immédiate. Votre adversaire révèle sa signature curretn déplacer.
+Effet 453;Vos avantages et leurs alliés ont «Reflip:. Vert"
+Effet 454;Dans la zone de Gillette, vos alliés ont «Déployer:. Vert"
+Effet 455;Vous ne pouvez pas célébrer dans la zone Jackson colline. Vert ==> lorsque vous la contre-attaque de la zone Jackson Hill, responsable de sa zone. Utilisez une seule fois par tour.
+Effet 456;Déployer: Vert. Vous ne pouvez pas célébrer dans la zone de James Norrington. Dans la zone James Norrington, vos grèves ont une interception.
+Effet 457;-2 Intercept ==> lorsque vous la contre-attaque de la zone Jérémie Hampton, responsable de sa zone. Utilisez une seule fois par tour.
+Effet 458;Déployer: Vert. Chaque fois que vous retournez à une grève dans la zone seigneur Cuttler Beckett, tourner la carte du dessus de votre visage jusqu'à le pont. Dans la zone seigneur Cuttler Beckett, vos grèves ont "Reflip:. Vert"
+Effet 459;Vert ==> Dans la zone Rachel chérie, votre grève ont une interception Abd -1 Force. Utilisez uniquement oncer par tour.
+Effet 460;Dans la zone Weatherby Swann, vos grèves ont -1 Intercept. Vert ==> quand votre contre-attaque de la zone weartherby Swann, ajoutez une énergie jaune.
+Effet 461;Éliminer l'un de vos autres alliés ==> lorsque vous la contre-attaque de la zone guerrière cannibale, votre adversaire élimine l'un des alliés de son
+Effet 462;quand vous la contre-attaque de la zone Elizabeth Swann, vous pouvez éliminer une énergie verte.
+Effet 463;Vert ==> Chaque fois que vous jouez un allié dans la zone joshamee Gibbs, vous pouvez déplacer joshamee Gibbs à un de vos espaces vides allié.
+Effet 464;Déployer: Jaune. Lorsque vous la contre-attaque de la zone de Marty, ajoutez une énergie verte.
+Effet 465;Déployer: Jaune. Chaque fois que vous retournez une carte dans la zone Tia Dalma, chaque joueur retourne la carte supérieure du visage son deck en place.
+Effet 466;Dans la zone Will Turner, votre grèves ont -1 intercepter et une force
+Effet 467;Déployer: Jaune. Dans la zone du projet de loi bootstrap, vos cartes sont "Reflip: Éliminer le projet de loi bootstrap».
+Effet 468;Jaune ==> lorsque vous la contre-attaque de la zone capitaine Barbossa, votre adversaire les frais l'un de vos zones. utiliser qu'une seule fois par tour.
+Effet 469;Lorsque vous la contre-attaque de la zone de Davy Jones, vous pouvez uncharge sa zone. Si vous le faites, chargé l'un de vos zones
+Effet 470;Déployer: Rouge. Dans la zone greenbeard, vos grèves ont une force.
+Effet 471;Déployer: Rouge. Dans la zone greenbeard, vos grèves ont une force....
+Effet 472;Déployer: Rouge. Dans la zone greenbeard, vos grèves ont une force....
+Effet 473;Déployer: Rouge. Dans la zone greenbeard, vos grèves ont une force....
+Effet 474;Déployer: Rouge. Dans la zone greenbeard, vos grèves ont une force....
+Effet 475;Déployer: Rouge. Dans la zone greenbeard, vos grèves ont une force....
+Effet 476;Déployer: Vert. Lorsque vous la contre-attaque de J. zone de Bennie, chaque joueur élimine l'allié d'un autre joueur.
+Effet 477;Deux vert ==> Dans la prise du singe zone, votre grèves ont une interception. Utilisez une seule fois par tour.
+Effet 478;Lorsque vous contre-attaque, vous pouvez déplacer l'un de l'énergie jaune de votre adversaire à la zone verte de son.
+Effet 479;Dur à tribord a "Reflip: gratuit" alors que dans votre zone jaune.
+Effet 480;Jaune ==> Dépasser a une interception alors que dans votre zone jaune.
+Effet 481;Lorsque vous contre-attaque, vous pouvez déplacer un de vos alliés à un espace vide dans alliée zone jaune de n'importe quel joueur.
+Effet 482;Lorsque vous contre-attaquer à partir de votre zone jaune, vous pouvez percevoir cette zone.
+Effet 483;Lorsque vous contre-attaque, vous pouvez déplacer l'un des alliés de votre adversaire à l'un de ses espaces vides allié.
+Effet 484;Deux vert ==> Déplacer poignard méchants jusqu'à une zone
+Effet 485;quand vous la contre-attaque d'une zone sans un allié, vous pouvez déplacer un de vos alliés à cette zone
+Effet 486;quand vous la contre-attaque, vous pouvez recharger votre zone verte.
+Effet 487;Reflip: Vert. Lorsque vous contre-attaque, vous pouvez réorganiser les alliés dans les espaces allié de votre adversaire
+Effet 488;Deux vert == faufiler> Déplacer bord jusqu'à une zone.
+Effet 489;Lorsque vous contre-attaque, vous pouvez déplacer un de vos alliés à un espace vide, allié dans la zone verte de n'importe quel joueur.
+Effet 490;Votre adversaire ne peut pas jouer les grèves dans la zone verte de son
+Effet 491;Reflip: Vert. Lorsque vous contre-attaque, vous pouvez déplacer un de vos alliés à un espace vide dans alliée zone rouge d'un joueur
+Effet 492;Lorsque vous contre-attaquer, se déplacer rupture de la coque de votre zone rouge
+Effet 493;Jaune ==> Lorsque vous contre-attaque, recharger votre zone rouge. Utilisez une seule fois
+Effet 494;Lorsque vous retournez prêts The Nines longue, vous pouvez le déplacer à votre zone rouge. Prêt quatre épingles longues a 3 force alors que dans votre zone rouge.
+Effet 495;Lorsque vous retournez à travers la fumée, vous pouvez le déplacer à votre zone rouge. Lorsque vous contre-attaquer à partir de votre zone rouge, votre adversaire uncharges une des zones de son.
+Effet 496;exclusif - le seigneur de Beckett. Vos avantages et leurs alliés ont «Reflip: gratuit".
+Effet 497;exclusif - Elizabeth Swann. Lorsque vous contre-attaque, vous pouvez éliminer une énergie.
+Effet 498;exclusif - Will Turner. Votre grèves ont deux force alors que dans l'une de vos zones avec un allié
+Effet 499;exclusif - Davy Jones. Immédiate - choisissez: recharger votre zone rouge, ou ajouter une énergie rouge
+Effet 500;exclusif - Pintel et Ragetti. Si votre adversaire allait célébrer, chaque joueur ajoute au lieu d'une énergie à chacune des zones de son avec un allié
+Effet 501;exclusif - Commodore Norrington. Immédiate. vous pouvez éliminer un allié. Si vous le faites, responsable de la zone qui a été l'allié de (vous pouvez également responsable de cette zone que la normale)
+Effet 502;exclusif - chérie Rachel. Votre adversaire grèves ont -2 Force.
+Effet 503;exclusif - greenbeard. Votre adversaire ne peut pas jouer déplace signature. Votre adversaire ne peut pas jouer aux cartes dans hie ou sa zone verte.
+Effet 504;exclusif - Capitaine Barbossa. Immédiate. révéler les cartes fout dessus de votre deck. Vous pouvez mettre une carte grève parmi eux sur le dessus de votre deck et le reste dans votre pile de défausse
+Effet 505;exclusif - Jack Sparrow. Vous pouvez utiliser de l'énergie jaune pour payer les frais de l'encadré rouge.
+Effet 506;Lorsque vous contre-attaque, vous pouvez échanger une de vos alliés avec l'allié d'un autre joueur
+Effet 507;Lorsque vous contre-attaquer, se déplacer l'un des alliés de votre adversaire à l'un de vos espaces allié. S'il ya déjà un allié dans cet espace, d'éliminer cet allié.
+Effet 508;Éliminer un de vos alliés ==> 1 interception et 1 Force.
+Effet 509;Chaque fois que votre adversaire les frais d'une zone, vous pouvez recharger votre zone de la même couleur
+Effet 510;Lorsque vous célébrez, ajoutez une énergie à chacune de vos zones avec un allié
+Effet 511;Lorsque vous contre-attaque, ajoutez une énergie verte pour chaque allié que vous avez.
+Effet 512;Votre adversaire ne peut pas jouer les grèves dans la zone de son de votre choix
+Effet 513;Même si vous avez un allié dans chacune de vos zones, la commande commodore a 2 Groupe
+Effet 514;Vous ne pouvez pas célébrer.
+Effet 515;Lorsque vous contre-attaque, vous pouvez uncharge chacune des zones de votre adversaire, sans un allié.
+Effet 516;Lorsque vous contre-attaque, vous pouvez éliminer jusqu'à comme des alliés que le nombre d'alliés que vous avez
+Effet 517;Lorsque vous contre-attaque, vous pouvez éliminer une énergie verte pour chaque allié que vous avez
+Effet 518;Lorsque les contre-attaques adversaire vous d'une zone, d'éliminer toutes son énergie dans cette zone
+Effet 519;Lorsque vous contre-attaque, vous pouvez éliminer jusqu'à trois de l'énergie jaune.
+Effet 520;-2 Intercept ==> lorsque vous la contre-attaque, éliminer une énergie.
+Effet 521;Lorsque vous contre-attaque, vous pouvez éliminer une énergie jaune.
+Effet 522;Choisissez un nom d'allié. Votre adversaire ne peut pas jouer les grèves dans toute zone avec un allié qui a le nom choisi.
+Effet 523;Lorsque vous contre-attaque contre une grève qui a force 3 ou moins, votre adversaire saute défendre ses zones vertes et jaunes.
+Effet 524;Lorsque vous contre-attaquer, vous uncharges adversaire une des zones de son. Alors que votre adversaire se défend ses zones ne peuvent être accusés
+Effet 525;Trois Rouge ==> Lorsque vous contre-attaquer, d'éliminer jusqu'à trois énergie rouge.
+Effet 526;Lorsque vous célébrez, chargé chacun de vous des zones avec un allié.
+Effet 527;Vert ==> Lorsque vous contre-attaque, uncharge n'importe quelle zone.
+Effet 528;Lorsque vous contre-attaquer, se déplacer toute votre énergie à votre zone rouge.
+Effet 529;Lorsque vous contre-attaque, vous pouvez déplacer un de vos ennemis à votre zone rouge
+Effet 530;Lorsque vous contre-attaque, vous pouvez vous déplacer jusqu'à trois de vos énergies à votre zone rouge
+Effet 531;Lorsque vous contre-attaque, vous pouvez réorganiser les alliés dans vos espaces allié puis réorganiser les alliés dans les espaces allié de votre adversaire.
+Effet 532;Lorsque votre adversaire contre-attaques, révélez les quatre cartes du dessus de votre deck. Mettez un sur le dessus de votre deck et le reste dans votre pile de défausse.
+Effet 533;Lorsque vous contre-attaque, éliminer tous vos alliés pour chaque allié que vous éliminer, vous pouvez déplacer l'un des alliés de votre adversaire à l'un de vos espaces vides allié.
+Effet 534;Pour chaque énergie rouge que vous avez, artillerie lourde a une force
+Effet 535;Alors que votre adversaire se défend, il ou elle ne peut pas déployer ou reflip, et les zones de son ne peut pas être chargé
+Effet 536;Pour chaque énergie rouge que vous avez, Rhum et Or a une force
+Effet 537;Votre adversaire frappe le coût d'une énergie additionnelle rouges à jouer.
+Effet 538;Alors vous avez plus d'alliés que votre adversaire, sur les rails! a Force 3
+Effet 539;Alors vous avez plus d'alliés que votre adversaire, bretteur a 2 Groupe
+Effet 540;Une précision mortelle a K interception et quand vous contre-attaque, il obtient la Force X, où X est la force de frapper votre adversaire.
+Effet 541;Pour chaque allié que vous avez, comme le ju ol 'bootstrap a une interception
+Effet 542;Pour chaque allié que vous avez, retenez votre sol est une force.
+Effet 543;Deux vert ==> 1 Force
+Effet 544;Dans la zone de Jack sparrow, vous pouvez payer les couts jaune en vert pour les avantages et les allies.;;

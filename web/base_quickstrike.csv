@@ -1,0 +1,896 @@
+extension;numero;type;nom;titre;cout vert;cout jaune;cout rouge;defense;attaque;trait;effet;nom personnage;caracteristique1;caracteristique2;caracteristique3;caracteristique4
+Shaman King;DAS001;chamber;DAS001.bmp;Hunter's Pride;;;;6;5;;Effet 280;duncan;shadow;body;bull;
+Shaman King;DAS001v;chamber;DAS001v.bmp;Dark Solstice;;1;1;8;6;;Effet 281;duncan;shadow;body;bull;
+Shaman King;DAS002;chamber;DAS002.bmp;Hunter's Pride;;;;6;5;;Effet 280;duncan;shadow;body;bull;
+Shaman King;DAS002v;chamber;DAS002v.bmp;Dark Solstice;;1;1;8;6;;Effet 281;duncan;shadow;body;bull;
+Shaman King;DAS003;chamber;DAS003.bmp;Hunter's Pride;;;;6;5;;Effet 280;duncan;shadow;body;bull;
+Shaman King;DAS003v;chamber;DAS003v.bmp;Cyclone of Perdition;;1;1;6;7;;Effet 282;duncan;shadow;body;bull;
+Shaman King;DAS004;chamber;DAS004.bmp;Gethsemane;;1;;5;6;;Effet 283;duncan;shadow;body;bull;
+Shaman King;DAS004v;chamber;DAS004v.bmp;Dark Solstice;;1;1;8;6;;Effet 281;duncan;shadow;body;bull;
+Shaman King;DAS005;chamber;DAS005.bmp;Gethsemane;;1;;5;6;;Effet 283;duncan;shadow;body;bull;
+Shaman King;DAS005v;chamber;DAS005v.bmp;Cyclone of Perdition;;1;1;6;7;;Effet 282;duncan;shadow;body;bull;
+Shaman King;DAS006;chamber;DAS006.bmp;Gethsemane;;1;;5;6;;Effet 283;duncan;shadow;body;bull;
+Shaman King;DAS006v;chamber;DAS006v.bmp;Besiege;;3;;5;8;;Effet 284;duncan;shadow;body;bull;
+Shaman King;DAS007;chamber;DAS007.bmp;Maiden Voyage;;;1;5;5;;Effet 285;jeanne;shadow;spirit;lion;
+Shaman King;DAS007v;chamber;DAS007v.bmp;Angry Chair;;;1;6;6;;Effet 286;jeanne;shadow;spirit;lion;
+Shaman King;DAS008;chamber;DAS008.bmp;Maiden Voyage;;;1;5;5;;Effet 285;jeanne;shadow;spirit;lion;
+Shaman King;DAS008v;chamber;DAS008v.bmp;Angry Chair;;;1;6;6;;Effet 286;jeanne;shadow;spirit;lion;
+Shaman King;DAS009;chamber;DAS009.bmp;Maiden Voyage;;;1;5;5;;Effet 285;jeanne;shadow;spirit;lion;
+Shaman King;DAS009v;chamber;DAS009v.bmp;Cage of Penitence;;;1;7;7;;Effet 287;jeanne;shadow;spirit;lion;
+Shaman King;DAS010;chamber;DAS010.bmp;Mash's Splendor;;;1;5;6;;Effet 288;jeanne;shadow;spirit;lion;
+Shaman King;DAS010v;chamber;DAS010v.bmp;Angry Chair;;;1;6;6;;Effet 286;jeanne;shadow;spirit;lion;
+Shaman King;DAS011;chamber;DAS011.bmp;Mash's Splendor;;;1;5;6;;Effet 288;jeanne;shadow;spirit;lion;
+Shaman King;DAS011v;chamber;DAS011v.bmp;Cage of Penitence;;;1;7;7;;Effet 287;jeanne;shadow;spirit;lion;
+Shaman King;DAS012;chamber;DAS012.bmp;Mash's Splendor;;;1;5;6;;Effet 288;jeanne;shadow;spirit;lion;
+Shaman King;DAS012v;chamber;DAS012v.bmp;Wrath of Babylon;;;1;7;7;;Effet 289;jeanne;shadow;spirit;lion;
+Shaman King;DAS013;chamber;DAS013.bmp;Rocket Kick;;1;;5;5;;Effet 290;jun;light;body;lion;
+Shaman King;DAS013v;chamber;DAS013v.bmp;Stir the Shadows;;;2;5;7;;Effet 123;jun;light;body;lion;
+Shaman King;DAS014;chamber;DAS014.bmp;Rocket Kick;;1;;5;5;;Effet 290;jun;light;body;lion;
+Shaman King;DAS014v;chamber;DAS014v.bmp;Stir the Shadows;;;2;5;7;;Effet 123;jun;light;body;lion;
+Shaman King;DAS015;chamber;DAS015.bmp;Rocket Kick;;1;;5;5;;Effet 290;jun;light;body;lion;
+Shaman King;DAS015v;chamber;DAS015v.bmp;Fojan Kick;;1;1;8;7;;Effet 290;jun;light;body;lion;
+Shaman King;DAS016;chamber;DAS016.bmp;Rocket Punch;1;;1;7;6;;;jun;light;body;lion;
+Shaman King;DAS016v;chamber;DAS016v.bmp;Stir the Shadows;;;2;5;7;;Effet 123;jun;light;body;lion;
+Shaman King;DAS017;chamber;DAS017.bmp;Rocket Punch;1;;1;7;6;;;jun;light;body;lion;
+Shaman King;DAS017v;chamber;DAS017v.bmp;Fojan Kick;;1;1;8;7;;Effet 290;jun;light;body;lion;
+Shaman King;DAS018;chamber;DAS018.bmp;Rocket Punch;1;;1;7;6;;;jun;light;body;lion;
+Shaman King;DAS018v;chamber;DAS018v.bmp;Daodando Kick;;1;2;7;9;;;jun;light;body;lion;
+Shaman King;DAS019;chamber;DAS019.bmp;Sky to Ground Power Dive;;;;4;1;;Effet 291;len;light;mind;bull;
+Shaman King;DAS019v;chamber;DAS019v.bmp;Super Bujin;;1;;5;1;;Effet 292;len;light;mind;bull;
+Shaman King;DAS020;chamber;DAS020.bmp;Sky to Ground Power Dive;;;;4;1;;Effet 291;len;light;mind;bull;
+Shaman King;DAS020v;chamber;DAS020v.bmp;Super Bujin;;1;;5;1;;Effet 292;len;light;mind;bull;
+Shaman King;DAS021;chamber;DAS021.bmp;Sky to Ground Power Dive;;;;4;1;;Effet 291;len;light;mind;bull;
+Shaman King;DAS021v;chamber;DAS021v.bmp;Rapid Tempo Assault;;;;6;6;;Effet 293;len;light;mind;bull;
+Shaman King;DAS022;chamber;DAS022.bmp;Golden Punch;1;;;5;5;;Effet 86;len;light;mind;bull;
+Shaman King;DAS022v;chamber;DAS022v.bmp;Super Bujin;;1;;5;1;;Effet 292;len;light;mind;bull;
+Shaman King;DAS023;chamber;DAS023.bmp;Golden Punch;1;;;5;5;;Effet 86;len;light;mind;bull;
+Shaman King;DAS023v;chamber;DAS023v.bmp;Rapid Tempo Assault;;;;6;6;;Effet 293;len;light;mind;bull;
+Shaman King;DAS024;chamber;DAS024.bmp;Golden Punch;1;;;5;5;;Effet 86;len;light;mind;bull;
+Shaman King;DAS024v;chamber;DAS024v.bmp;Black Raven in White Phoenix;;1;;7;7;;Effet 294;len;light;mind;bull;
+Shaman King;DAS025;chamber;DAS025.bmp;Hand Plant Barrage;2;;;5;5;;Effet 295;lola;dark;mind;fox;
+Shaman King;DAS025v;chamber;DAS025v.bmp;Goodnight Kiss;;2;;7;6;;Effet 296;lola;dark;mind;fox;
+Shaman King;DAS026;chamber;DAS026.bmp;Hand Plant Barrage;2;;;5;5;;Effet 295;lola;dark;mind;fox;
+Shaman King;DAS026v;chamber;DAS026v.bmp;Goodnight Kiss;;2;;7;6;;Effet 296;lola;dark;mind;fox;
+Shaman King;DAS027;chamber;DAS027.bmp;Hand Plant Barrage;2;;;5;5;;Effet 295;lola;dark;mind;fox;
+Shaman King;DAS027v;chamber;DAS027v.bmp;Shooting Star;;;;0;6;;Effet 297;lola;dark;mind;fox;
+Shaman King;DAS028;chamber;DAS028.bmp;Evil Ollie;;;;6;5;;Effet 298;lola;dark;mind;fox;
+Shaman King;DAS028v;chamber;DAS028v.bmp;Goodnight Kiss;;2;;7;6;;Effet 296;lola;dark;mind;fox;
+Shaman King;DAS029;chamber;DAS029.bmp;Evil Ollie;;;;6;5;;Effet 298;lola;dark;mind;fox;
+Shaman King;DAS029v;chamber;DAS029v.bmp;Shooting Star;;;;0;6;;Effet 297;lola;dark;mind;fox;
+Shaman King;DAS030;chamber;DAS030.bmp;Evil Ollie;;;;6;5;;Effet 298;lola;dark;mind;fox;
+Shaman King;DAS030v;chamber;DAS030v.bmp;Engulfing Helix;1;;1;0;0;;Effet 299;lola;dark;mind;fox;
+Shaman King;DAS031;chamber;DAS031.bmp;Ricochet Riot;;1;;9;1;;Effet 300;lyserg;shadow;mind;fox;
+Shaman King;DAS031v;chamber;DAS031v.bmp;X-terminate;1;;1;10;5;;Effet 301;lyserg;shadow;mind;fox;
+Shaman King;DAS032;chamber;DAS032.bmp;Ricochet Riot;;1;;9;1;;Effet 300;lyserg;shadow;mind;fox;
+Shaman King;DAS032v;chamber;DAS032v.bmp;X-terminate;1;;1;10;5;;Effet 301;lyserg;shadow;mind;fox;
+Shaman King;DAS033;chamber;DAS033.bmp;Ricochet Riot;;1;;9;1;;Effet 300;lyserg;shadow;mind;fox;
+Shaman King;DAS033v;chamber;DAS033v.bmp;Dowsing Pendulum;;;;8;6;;Effet 302;lyserg;shadow;mind;fox;
+Shaman King;DAS034;chamber;DAS034.bmp;Homing Pendulum;1;;;4;4;;Effet 303;lyserg;shadow;mind;fox;
+Shaman King;DAS034v;chamber;DAS034v.bmp;X-terminate;1;;1;10;5;;Effet 301;lyserg;shadow;mind;fox;
+Shaman King;DAS035;chamber;DAS035.bmp;Homing Pendulum;1;;;4;4;;Effet 303;lyserg;shadow;mind;fox;
+Shaman King;DAS035v;chamber;DAS035v.bmp;Dowsing Pendulum;;;;8;6;;Effet 302;lyserg;shadow;mind;fox;
+Shaman King;DAS036;chamber;DAS036.bmp;Homing Pendulum;1;;;4;4;;Effet 303;lyserg;shadow;mind;fox;
+Shaman King;DAS036v;chamber;DAS036v.bmp;Big Ben Blitz;;2;;7;7;;Effet 304;lyserg;shadow;mind;fox;
+Shaman King;DAS037;chamber;DAS037.bmp;Trick or Treat;;;;5;5;;Effet 305;matti;dark;body;bull;
+Shaman King;DAS037v;chamber;DAS037v.bmp;Ultimate Hallow Slash;;;;8;5;;Effet 306;matti;dark;body;bull;
+Shaman King;DAS038;chamber;DAS038.bmp;Trick or Treat;;;;5;5;;Effet 305;matti;dark;body;bull;
+Shaman King;DAS038v;chamber;DAS038v.bmp;Ultimate Hallow Slash;;;;8;5;;Effet 306;matti;dark;body;bull;
+Shaman King;DAS039;chamber;DAS039.bmp;Trick or Treat;;;;5;5;;Effet 305;matti;dark;body;bull;
+Shaman King;DAS039v;chamber;DAS039v.bmp;Halloween Rip;;;;7;7;;Effet 305;matti;dark;body;bull;
+Shaman King;DAS040;chamber;DAS040.bmp;Slice and Dice;;;;5;5;;Effet 307;matti;dark;body;bull;
+Shaman King;DAS040v;chamber;DAS040v.bmp;Ultimate Hallow Slash;;;;8;5;;Effet 306;matti;dark;body;bull;
+Shaman King;DAS041;chamber;DAS041.bmp;Slice and Dice;;;;5;5;;Effet 307;matti;dark;body;bull;
+Shaman King;DAS041v;chamber;DAS041v.bmp;Halloween Rip;;;;7;7;;Effet 305;matti;dark;body;bull;
+Shaman King;DAS042;chamber;DAS042.bmp;Slice and Dice;;;;5;5;;Effet 307;matti;dark;body;bull;
+Shaman King;DAS042v;chamber;DAS042v.bmp;Pumpkin Dumpkin;;;;6;6;;Effet 308;matti;dark;body;bull;
+Shaman King;DAS043;chamber;DAS043.bmp;Scimitar of Snow;;;;5;5;;Effet 309;trey;light;spirit;fox;
+Shaman King;DAS043v;chamber;DAS043v.bmp;Ice Dagger Attack;;2;;12;0;;Effet 66;trey;light;spirit;fox;
+Shaman King;DAS044;chamber;DAS044.bmp;Scimitar of Snow;;;;5;5;;Effet 309;trey;light;spirit;fox;
+Shaman King;DAS044v;chamber;DAS044v.bmp;Ice Dagger Attack;;2;;12;0;;Effet 66;trey;light;spirit;fox;
+Shaman King;DAS045;chamber;DAS045.bmp;Scimitar of Snow;;;;5;5;;Effet 309;trey;light;spirit;fox;
+Shaman King;DAS045v;chamber;DAS045v.bmp;Mogul Buster;;;;15;5;;Effet 310;trey;light;spirit;fox;
+Shaman King;DAS046;chamber;DAS046.bmp;Avalanche;;1;;6;5;;Effet 311;trey;light;spirit;fox;
+Shaman King;DAS046v;chamber;DAS046v.bmp;Ice Dagger Attack;;2;;12;0;;Effet 66;trey;light;spirit;fox;
+Shaman King;DAS047;chamber;DAS047.bmp;Avalanche;;1;;6;5;;Effet 311;trey;light;spirit;fox;
+Shaman King;DAS047v;chamber;DAS047v.bmp;Mogul Buster;;;;15;5;;Effet 310;trey;light;spirit;fox;
+Shaman King;DAS048;chamber;DAS048.bmp;Avalanche;;1;;6;5;;Effet 311;trey;light;spirit;fox;
+Shaman King;DAS048v;chamber;DAS048v.bmp;Corey Into the Ikupasi;;;;7;6;;Effet 312;trey;light;spirit;fox;
+Shaman King;DAS049;chamber;DAS049.bmp;Tome of the Shaman;1;;;5;5;;Effet 313;yoh;light;spirit;bull;
+Shaman King;DAS049v;chamber;DAS049v.bmp;Grand Halo Blade;;;2;7;6;;Effet 314;yoh;light;spirit;bull;
+Shaman King;DAS050;chamber;DAS050.bmp;Tome of the Shaman;1;;;5;5;;Effet 313;yoh;light;spirit;bull;
+Shaman King;DAS050v;chamber;DAS050v.bmp;Grand Halo Blade;;;2;7;6;;Effet 314;yoh;light;spirit;bull;
+Shaman King;DAS051;chamber;DAS051.bmp;Tome of the Shaman;1;;;5;5;;Effet 313;yoh;light;spirit;bull;
+Shaman King;DAS051v;chamber;DAS051v.bmp;Celestial Slash;1;1;;6;6;;Effet 315;yoh;light;spirit;bull;
+Shaman King;DAS052;chamber;DAS052.bmp;Overhead Thwap;;;1;8;6;;Effet 316;yoh;light;spirit;bull;
+Shaman King;DAS052v;chamber;DAS052v.bmp;Grand Halo Blade;;;2;7;6;;Effet 314;yoh;light;spirit;bull;
+Shaman King;DAS053;chamber;DAS053.bmp;Overhead Thwap;;;1;8;6;;Effet 316;yoh;light;spirit;bull;
+Shaman King;DAS053v;chamber;DAS053v.bmp;Celestial Slash;1;1;;6;6;;Effet 315;yoh;light;spirit;bull;
+Shaman King;DAS054;chamber;DAS054.bmp;Overhead Thwap;;;1;8;6;;Effet 316;yoh;light;spirit;bull;
+Shaman King;DAS054v;chamber;DAS054v.bmp;Double Medium;;;;6;6;;Effet 317;yoh;light;spirit;bull;
+Shaman King;DAS055;chamber;DAS055.bmp;Roaring Flames;;1;;5;4;;Effet 318;zeke;dark;spirit;lion;
+Shaman King;DAS055v;chamber;DAS055v.bmp;Meltdown;;;1;6;6;;Effet 319;zeke;dark;spirit;lion;
+Shaman King;DAS056;chamber;DAS056.bmp;Roaring Flames;;1;;5;4;;Effet 318;zeke;dark;spirit;lion;
+Shaman King;DAS056v;chamber;DAS056v.bmp;Meltdown;;;1;6;6;;Effet 319;zeke;dark;spirit;lion;
+Shaman King;DAS057;chamber;DAS057.bmp;Roaring Flames;;1;;5;4;;Effet 318;zeke;dark;spirit;lion;
+Shaman King;DAS057v;chamber;DAS057v.bmp;Incinerate;1;;2;8;8;;Effet 320;zeke;dark;spirit;lion;
+Shaman King;DAS058;chamber;DAS058.bmp;Author's Insight;;1;1;6;6;;Effet 321;zeke;dark;spirit;lion;
+Shaman King;DAS058v;chamber;DAS058v.bmp;Meltdown;;;1;6;6;;Effet 319;zeke;dark;spirit;lion;
+Shaman King;DAS059;chamber;DAS059.bmp;Author's Insight;;1;1;6;6;;Effet 321;zeke;dark;spirit;lion;
+Shaman King;DAS059v;chamber;DAS059v.bmp;Incinerate;1;;2;8;8;;Effet 320;zeke;dark;spirit;lion;
+Shaman King;DAS060;chamber;DAS060.bmp;Author's Insight;;1;1;6;6;;Effet 321;zeke;dark;spirit;lion;
+Shaman King;DAS060v;chamber;DAS060v.bmp;Elemental Transmutation;;;;10;6;;Effet 322;zeke;dark;spirit;lion;
+Shaman King;REI001;teamwork;REI001.bmp;Amidamaru - LEGENDARY SAMURAI;1;;;;;;Effet 1;yoh;;;;
+Shaman King;REI002;strike;REI002.bmp;1080 Flash;1;;;3;2;;Effet 2;;;;;
+Shaman King;REI003;strike;REI003.bmp;Eon Crush;1;;;2;2;bull;Effet 3;;;;;
+Shaman King;REI004;advantage;REI004.bmp;Devoted Sentry;1;;;;;body;Effet 4;;;;;
+Shaman King;REI005;advantage;REI005.bmp;Decipher the Runes;1;;;;;mind;Effet 5;;;;;
+Shaman King;REI006;advantage;REI006.bmp;Conviction;1;;;;;spirit;Effet 6;;;;;
+Shaman King;REI007;advantage;REI007.bmp;Spreading Darkness;1;;;;;body;Effet 7;;;;;
+Shaman King;REI008;advantage;REI008.bmp;Reposition;1;;;;;mind;Effet 8;;;;;
+Shaman King;REI009;strike;REI009.bmp;Ancient Discipline;1;;;2;6;;Effet 9;;;;;
+Shaman King;REI010;advantage;REI010.bmp;Spirit Aim;1;;;;;;Effet 10;;;;;
+Shaman King;REI011;advantage;REI011.bmp;Fateful Choice;1;;;;;mind;Effet 11;;;;;
+Shaman King;REI012;teamwork;REI012.bmp;Lee Pai-Long - DADDANDO MASTER;1;;;;;;Effet 12;jun;;;;
+Shaman King;REI013;teamwork;REI013.bmp;Lililala - KEEPER OF MEMORIES;1;;;;;;Effet 13;;;;;
+Shaman King;REI014;teamwork;REI014.bmp;Lyserg - FRESH RECRUIT;1;;;;;shadow;Effet 14;;;;;
+Shaman King;REI015;teamwork;REI015.bmp;Marco - COMMANDER;1;;;;;shadow;Effet 15;;;;;
+Shaman King;REI016;strike;REI016.bmp;Nergal's Roar;1;;;1;1;;Effet 16;duncan;;;;
+Shaman King;REI017;advantage;REI017.bmp;No Quarter;1;;;;;spirit;Effet 17;;;;;
+Shaman King;REI018;strike;REI018.bmp;Shikigami;1;;;3;1;;Effet 18;;;;;
+Shaman King;REI019;strike;REI019.bmp;Manifestation of Power;1;;;3;1;;Effet 19;;;;;
+Shaman King;REI020;strike;REI020.bmp;United Front;2;;;3;6;bull;Effet 20;;;;;
+Shaman King;REI021;teamwork;REI021.bmp;Rio - DEAD ENDER;1;;;;;light;Effet 21;;;;;
+Shaman King;REI022;advantage;REI022.bmp;Braingrab;1;;;;;mind;Effet 22;;;;;
+Shaman King;REI023;teamwork;REI023.bmp;Tao En - DARK DICTATOR;1;;;;;;Effet 23;;;;;
+Shaman King;REI024;advantage;REI024.bmp;Ward Off;1;;;;;;Effet 24;;;;;
+Shaman King;REI025;teamwork;REI025.bmp;Venster - TACTICIAN;1;;;;;shadow;Effet 25;;;;;
+Shaman King;REI026;teamwork;REI026.bmp;Zeke - UTOPIAN ARCHITECT;1;;;;;dark;Effet 26;;;;;
+Shaman King;REI027;advantage;REI027.bmp;Hijinks;2;;;;;;Effet 27;lola;;;;
+Shaman King;REI028;advantage;REI028.bmp;Hunter's Perch;2;;;;;body;Effet 28;;;;;
+Shaman King;REI029;advantage;REI029.bmp;Thief's Honor;2;;;;;body;Effet 29;;;;;
+Shaman King;REI030;strike;REI030.bmp;Sucker Punch;2;;;3;5;;Effet 30;;;;;
+Shaman King;REI031;advantage;REI031.bmp;Ponder, Reflect, Consider;2;;;;;mind;Effet 31;;;;;
+Shaman King;REI032;strike;REI032.bmp;Euthanize;2;;;4;3;lion;Effet 32;;;;;
+Shaman King;REI033;strike;REI033.bmp;Pounce;2;;;4;4;bull;Effet 33;;;;;
+Shaman King;REI034;advantage;REI034.bmp;Dragon Aura;2;;;;;body;Effet 34;;;;;
+Shaman King;REI035;strike;REI035.bmp;Rain of Bones;2;;;4;3;lion;Effet 35;;;;;
+Shaman King;REI036;strike;REI036.bmp;Talisman Warrior;2;;;4;5;;Effet 36;;;;;
+Shaman King;REI037;strike;REI037.bmp;Ponchi Punch;2;;;4;1;lion;Effet 37;;;;;
+Shaman King;REI038;advantage;REI038.bmp;Ten More Sit-ups;2;;;;;;Effet 38;;;;;
+Shaman King;REI039;strike;REI039.bmp;Tandem Tomfoolery;2;;;3;3;lion;Effet 39;;;;;
+Shaman King;REI040;strike;REI040.bmp;Swooping Talon;3;;;6;3;;Effet 40;;;;;
+Shaman King;REI041;strike;REI041.bmp;Strafe;3;;;4;4;fox;Effet 41;;;;;
+Shaman King;REI042;advantage;REI042.bmp;Relax;3;;;;;spirit;Effet 42;;;;;
+Shaman King;REI043;strike;REI043.bmp;Sideswipe;3;;;4;5;bull;Effet 43;;;;;
+Shaman King;REI044;strike;REI044.bmp;Owned!;3;;;6;4;fox;Effet 44;;;;;
+Shaman King;REI045;strike;REI045.bmp;Honing Blades;3;;;5;4;bull;Effet 45;;;;;
+Shaman King;REI046;strike;REI046.bmp;Blistering Onslaught;4;;;6;6;lion;;;;;;
+Shaman King;REI047;strike;REI047.bmp;Icicle Assault;4;;;4;3;;Effet 46;trey;;;;
+Shaman King;REI048;strike;REI048.bmp;Thorough Schooling;4;;;8;4;;Effet 36;;;;;
+Shaman King;REI049;advantage;REI049.bmp;Cherub's Blessing;;;1;;;spirit;Effet 47;;;;;
+Shaman King;REI050;teamwork;REI050.bmp;Kanna - TUBE-TOPPED TERROR;;;1;;;dark;Effet 48;;;;;
+Shaman King;REI051;strike;REI051.bmp;Reverberate;;;1;5;5;bull;Effet 49;;;;;
+Shaman King;REI052;teamwork;REI052.bmp;Mari - DOLL MISTRESS;;;1;;;dark;Effet 50;;;;;
+Shaman King;REI053;advantage;REI053.bmp;Day of Atonement;;;1;;;spirit;Effet 51;;;;;
+Shaman King;REI054;strike;REI054.bmp;Volatile Exhumation;;;1;1;6;lion;Effet 9;;;;;
+Shaman King;REI055;advantage;REI055.bmp;Imposing Grandeur;1;;1;;;spirit;Effet 52;;;;;
+Shaman King;REI056;strike;REI056.bmp;Jaded Sphere;1;;1;9;3;;Effet 53;;;;;
+Shaman King;REI057;strike;REI057.bmp;Titanic Summons;1;;1;7;4;lion;Effet 54;;;;;
+Shaman King;REI058;strike;REI058.bmp;Showboat;1;;1;5;7;fox;Effet 55;;;;;
+Shaman King;REI059;strike;REI059.bmp;Furious Response;1;;1;8;3;bull;Effet 56;;;;;
+Shaman King;REI060;strike;REI060.bmp;Shared Purpose;1;;1;6;5;;Effet 57;;;;;
+Shaman King;REI061;advantage;REI061.bmp;Captive;1;;1;;;;Effet 58;lyserg;;;;
+Shaman King;REI062;strike;REI062.bmp;Tectonic Spikes;2;;1;6;4;;Effet 59;;;;;
+Shaman King;REI063;strike;REI063.bmp;Disheartening Blow;1;;1;7;4;lion;Effet 60;;;;;
+Shaman King;REI064;strike;REI064.bmp;Purity of Mind;1;;1;6;4;;Effet 61;;;;;
+Shaman King;REI065;strike;REI065.bmp;Necrawakening;1;;1;5;5;lion;Effet 62;;;;;
+Shaman King;REI066;teamwork;REI066.bmp;Spirit of Fire - IMMORTAL LEGACY;1;;1;;;;Effet 63;zeke;;;;
+Shaman King;REI067;advantage;REI067.bmp;Bring It;1;;1;;;body;Effet 64;;;;;
+Shaman King;REI068;advantage;REI068.bmp;Wrath of the Prisoner;1;;1;;;body;Effet 65;;;;;
+Shaman King;REI069;strike;REI069.bmp;Gush of Flame;2;;1;9;0;fox;Effet 66;;;;;
+Shaman King;REI070;strike;REI070.bmp;Burning Hunger;3;;1;5;5;lion;Effet 67;;;;;
+Shaman King;REI071;strike;REI071.bmp;Mystic Beam;3;;1;4;7;;;;;;;
+Shaman King;REI072;strike;REI072.bmp;Barren Justice;2;1;;5;5;;;;;;;
+Shaman King;REI073;strike;REI073.bmp;Viaticum;;;3;8;8;;Effet 68;jeanne;;;;
+Shaman King;REI074;strike;REI074.bmp;Ultra Cavalry Charge;;;4;4;10;;Effet 69;len;;;;
+Shaman King;REI075;advantage;REI075.bmp;Triumph of Will;;1;1;;;mind;Effet 70;;;;;
+Shaman King;REI076;strike;REI076.bmp;Smoldering Confidence;;1;1;10;5;lion;Effet 71;;;;;
+Shaman King;REI077;strike;REI077.bmp;Dynamic Slice;;1;1;5;4;fox;Effet 66;;;;;
+Shaman King;REI078;advantage;REI078.bmp;Feral Instict;1;1;1;;;;Effet 72;;;;;
+Shaman King;REI079;strike;REI079.bmp;Totem Blast;1;1;1;6;6;;;;;;;
+Shaman King;REI080;strike;REI080.bmp;Blinding Foray;;2;1;6;6;bull;Effet 73;;;;;
+Shaman King;REI081;strike;REI081.bmp;Unerring Garrote;1;2;1;6;7;fox;Effet 74;;;;;
+Shaman King;REI082;strike;REI082.bmp;Conchi Kick;;1;;4;3;;Effet 75;;;;;
+Shaman King;REI083;strike;REI083.bmp;Flamboyant Arrival;;1;;4;4;;;;;;;
+Shaman King;REI084;teamwork;REI084.bmp;Duncan - CRUSADER;;1;;;;shadow;Effet 76;;;;;
+Shaman King;REI085;strike;REI085.bmp;Snowdrift;;1;;4;3;fox;Effet 77;;;;;
+Shaman King;REI086;teamwork;REI086.bmp;Faust VIII;;1;;;;light;Effet 78;;;;;
+Shaman King;REI087;advantage;REI087.bmp;Focal Point;;1;;;;mind;Effet 79;;;;;
+Shaman King;REI088;strike;REI088.bmp;Fetish Frenzy;;1;;5;1;;Effet 49;;;;;
+Shaman King;REI089;strike;REI089.bmp;Razor's Edge;;1;;3;3;lion;Effet 80;;;;;
+Shaman King;REI090;advantage;REI090.bmp;Desolate screams;;1;;;;spirit;Effet 81;;;;;
+Shaman King;REI091;teamwork;REI091.bmp;Jeanne - IRON MAIDEN;;1;;;;shadow;Effet 82;;;;;
+Shaman King;REI092;teamwork;REI092.bmp;Joco - JOCULAR COMEDIAN;;1;;;;light;Effet 83;;;;;
+Shaman King;REI093;teamwork;REI093.bmp;Mikihasa - MASKED MENTOR;;1;;;;;Effet 84;;;;;
+Shaman King;REI094;teamwork;REI094.bmp;Milly - LITTLE DARLING;;1;;;;;Effet 85;;;;;
+Shaman King;REI095;advantage;REI095.bmp;Oppression;;1;;;;body;Effet 86;;;;;
+Shaman King;REI096;strike;REI096.bmp;Seismic Eruption;;1;;3;6;;;;;;;
+Shaman King;REI097;strike;REI097.bmp;Bone Army;;1;;4;1;lion;Effet 87;;;;;
+Shaman King;REI098;teamwork;REI098.bmp;Silva - IMPARTIAL JUDGE;;1;;;;;Effet 88;;;;;
+Shaman King;REI099;teamwork;REI099.bmp;Jun - BIG SISTER;;1;;;;light;Effet 89;;;;;
+Shaman King;REI100;teamwork;REI100.bmp;Venster - PUNISHER;;1;;;;shadow;Effet 90;;;;;
+Shaman King;REI101;teamwork;REI101.bmp;Yohmei - ASAKURA PATRIARCH;;1;;;;light;Effet 91;;;;;
+Shaman King;REI102;strike;REI102.bmp;Misery Loves Company;1;1;;5;3;;Effet 92;;;;;
+Shaman King;REI103;teamwork;REI103.bmp;Anna - FUTURE SHAMAN QUEEN;1;1;;;;light;Effet 93;;;;;
+Shaman King;REI104;strike;REI104.bmp;Assailing Aegis;3;;;4;4;bull;Effet 94;;;;;
+Shaman King;REI105;strike;REI105.bmp;Rush to Judgment;1;1;;5;2;fox;Effet 95;;;;;
+Shaman King;REI106;strike;REI106.bmp;Groundswell;1;1;;4;1;fox;Effet 96;;;;;
+Shaman King;REI107;strike;REI107.bmp;Incendiary Disposition;1;1;;5;3;fox;Effet 97;;;;;
+Shaman King;REI108;teamwork;REI108.bmp;Matti - WITCH IN PIGTAILS;1;1;;;;dark;Effet 98;;;;;
+Shaman King;REI109;strike;REI109.bmp;Precognition;1;1;;5;5;;Effet 99;;;;;
+Shaman King;REI110;strike;REI110.bmp;Rebuking Blade;1;1;;5;2;bull;Effet 56;;;;;
+Shaman King;REI111;strike;REI111.bmp;Concussive Blast;1;1;;5;3;fox;Effet 100;;;;;
+Shaman King;REI112;advantage;REI112.bmp;Pleasant Distraction;1;1;;;;mind;Effet 101;;;;;
+Shaman King;REI113;strike;REI113.bmp;Triple Threat;1;1;;1;5;bull;Effet 102;;;;;
+Shaman King;REI114;strike;REI114.bmp;Ice Storm;1;1;;1;7;;Effet 103;;;;;
+Shaman King;REI115;advantage;REI115.bmp;Cleanse;1;1;;;;;Effet 104;;;;;
+Shaman King;REI116;advantage;REI116.bmp;Center;1;1;;;;spirit;Effet 105;;;;;
+Shaman King;REI117;teamwork;REI117.bmp;Turbine - DESERT WARRIOR;1;1;;;;dark;Effet 106;;;;;
+Shaman King;REI118;strike;REI118.bmp;Director's Cut;2;1;;5;5;;Effet 107;;;;;
+Shaman King;REI119;strike;REI119.bmp;Dark Ascendance;2;1;;4;3;;Effet 108;;;;;
+Shaman King;REI120;strike;REI120.bmp;Ancestral Apparitions;2;1;;6;4;lion;Effet 109;;;;;
+Shaman King;REI121;strike;REI121.bmp;Tag Team;2;1;;5;4;bull;Effet 110;;;;;
+Shaman King;REI122;strike;REI122.bmp;Comeuppance;2;1;;5;5;bull;Effet 33;;;;;
+Shaman King;REI123;strike;REI123.bmp;Outnumber;2;1;;6;3;bull;Effet 111;;;;;
+Shaman King;REI124;strike;REI124.bmp;Thread the Needle;2;1;;6;4;fox;Effet 112;;;;;
+Shaman King;REI125;strike;REI125.bmp;Rail Bird;2;1;;6;3;fox;Effet 113;;;;;
+Shaman King;REI126;strike;REI126.bmp;Rouge Shot;2;1;;6;4;fox;Effet 114;;;;;
+Shaman King;REI127;advantage;REI127.bmp;Bestial Savvy;3;1;;;;;Effet 115;;;;;
+Shaman King;REI128;teamwork;REI128.bmp;Big Bill - FOOTBALL FANATIC;;2;;;;dark;Effet 116;;;;;
+Shaman King;REI129;strike;REI129.bmp;Yamatano Orochi;1;;1;7;5;bull;Effet 117;;;;;
+Shaman King;REI130;strike;REI130.bmp;Epicenter;;2;;5;5;;Effet 118;;;;;
+Shaman King;REI131;strike;REI131.bmp;Surgeon's Implements;;2;;8;4;lion;Effet 119;;;;;
+Shaman King;REI132;strike;REI132.bmp;Shattering Palm;;2;;4;6;;;;;;;
+Shaman King;REI133;strike;REI133.bmp;Consuming Hatred;;2;;4;4;bull;Effet 120;;;;;
+Shaman King;REI134;advantage;REI134.bmp;Invulnerability of the Leaf;;2;;;;spirit;Effet 121;;;;;
+Shaman King;REI135;strike;REI135.bmp;Crackback;;2;;5;5;bull;Effet 122;;;;;
+Shaman King;REI136;strike;REI136.bmp;Broom Corn Beatdown;;2;;5;5;bull;Effet 123;;;;;
+Shaman King;REI137;advantage;REI137.bmp;Thug Life;;2;;;;body;Effet 124;;;;;
+Shaman King;REI138;strike;REI138.bmp;Stalefish Grab;1;2;;6;4;fox;Effet 125;;;;;
+Shaman King;REI139;strike;REI139.bmp;Point Blank;1;2;;7;4;;Effet 126;;;;;
+Shaman King;REI140;strike;REI140.bmp;Mob Mentality;1;2;;5;5;lion;Effet 127;;;;;
+Shaman King;REI141;strike;REI141.bmp;Baby Steps;;4;;6;6;;Effet 128;matti;;;;
+quickstrike;0;strike;opening attack.bmp;opening attack;;;;;4;;;;;;;
+Avatar;ABK001;teamwork;ABK001.bmp;Toph - EARTHBENDER;;1;;;;light;Effet 129;;;;;
+Avatar;ABK002;teamwork;ABK002.bmp;Princess Azula - FIREBENDER;3;;;;;dark;Effet 130;;;;;
+Avatar;ABK003;advantage;ABK003.bmp;racing with the wind;;;1;;;spirit;Effet 131;;;;;
+Avatar;ABK004;advantage;ABK004.bmp;in the breach;2;;;;;body;Effet 132;;;;;
+Avatar;ABK005;strike;ABK005.bmp;juggle;2;1;1;5;6;air;Effet 133;;;;;
+Avatar;ABK006;strike;ABK006.bmp;taming the flame;1;1;1;6;5;firebender;Effet 134;;;;;
+Avatar;ABK007;strike;ABK007.bmp;water-whirl;1;2;;7;1;water;Effet 135;;;;;
+Avatar;ABK008;strike;ABK008.bmp;boulder roll;;1;1;5;5;earth;Effet 136;;;;;
+Avatar;AME001;strike;AME001.bmp;blazing axe kick;2;1;;6;3;bull;Effet 137;;;;;
+Avatar;AME002;strike;AME002.bmp;boiling point;2;;1;8;3;bull;Effet 138;;;;;
+Avatar;AME003;strike;AME003.bmp;burning blade;2;1;;5;3;bull;Effet 139;;;;;
+Avatar;AME004;strike;AME004.bmp;burning disc;1;1;1;5;6;bull;Effet 139;;;;;
+Avatar;AME005;strike;AME005.bmp;burning lash;1;2;;7;4;bull;Effet 140;;;;;
+Avatar;AME006;strike;AME006.bmp;doublefoot dropkick;;1;;5;1;bull;Effet 141;;;;;
+Avatar;AME007;strike;AME007.bmp;eye of ozai;;2;;4;6;bull;Effet 142;;;;;
+Avatar;AME008;strike;AME008.bmp;fetch;3;;;5;4;bull;Effet 143;;;;;
+Avatar;AME009;strike;AME009.bmp;flare;;1;;4;3;bull;Effet 143;;;;;
+Avatar;AME010;strike;AME010.bmp;flying fire fist;1;2;1;5;7;bull;Effet 144;;;;;
+Avatar;AME011;strike;AME011.bmp;gout of flame;1;1;;5;3;bull;Effet 145;;;;;
+Avatar;AME012;strike;AME012.bmp;jagged ground;1;;;2;2;bull;Effet 146;;;;;
+Avatar;AME013;strike;AME013.bmp;quicksand;1;;;3;4;bull;Effet 147;;;;;
+Avatar;AME014;strike;AME014.bmp;rock the house;1;;1;6;3;bull;Effet 148;;;;;
+Avatar;AME015;strike;AME015.bmp;scorching phoenix;1;1;1;6;6;bull;Effet 149;;;;;
+Avatar;AME016;strike;AME016.bmp;Searing cage;1;;1;6;2;bull;Effet 150;;;;;
+Avatar;AME017;strike;AME017.bmp;Stoke the flames;1;1;1;8;4;bull;Effet 151;;;;;
+Avatar;AME018;strike;AME018.bmp;Tectonic shift;2;;;3;6;bull;Effet 144;;;;;
+Avatar;AME019;strike;AME019.bmp;Titanic fireball;2;1;;5;5;bull;Effet 152;;;;;
+Avatar;AME020;strike;AME020.bmp;Wildfire arc;2;1;1;7;6;bull;Effet 153;;;;;
+Avatar;AME021;strike;AME021.bmp;Blast cushion;2;;1;8;1;fox;Effet 154;;;;;
+Avatar;AME022;strike;AME022.bmp;Breath of the dragon;;2;;4;6;fox;Effet 155;;;;;
+Avatar;AME023;strike;AME023.bmp;Canyon sprint;;2;;5;5;fox;Effet 156;;;;;
+Avatar;AME024;strike;AME024.bmp;Careening koi;3;;;5;4;fox;Effet 157;;;;;
+Avatar;AME025;strike;AME025.bmp;Frost blade;;1;;3;4;fox;Effet 158;;;;;
+Avatar;AME026;strike;AME026.bmp;Frost daggers;;1;1;6;1;fox;Effet 159;;;;;
+Avatar;AME027;strike;AME027.bmp;Frost spear;1;;1;4;5;fox;Effet 159;;;;;
+Avatar;AME028;strike;AME028.bmp;Gale force;2;;;3;6;fox;Effet 160;;;;;
+Avatar;AME029;strike;AME029.bmp;Howling cyclone;3;;1;8;7;fox;Effet 161;;;;;
+Avatar;AME030;strike;AME030.bmp;Howling Squall;2;;1;5;7;fox;Effet 162;;;;;
+Avatar;AME031;strike;AME031.bmp;Howling wind;;;1;5;5;fox;Effet 163;;;;;
+Avatar;AME032;strike;AME032.bmp;Nimbus churn;1;1;1;7;5;fox;Effet 164;;;;;
+Avatar;AME033;strike;AME033.bmp;Rocky road;2;2;;6;5;fox;Effet 160;;;;;
+Avatar;AME034;strike;AME034.bmp;Spinning tempest;1;;1;7;3;fox;Effet 165;;;;;
+Avatar;AME035;strike;AME035.bmp;Swirling flames;2;;1;5;6;fox;Effet 166;;;;;
+Avatar;AME036;strike;AME036.bmp;Teeth of the dragon;2;;;5;1;fox;Effet 155;;;;;
+Avatar;AME037;strike;AME037.bmp;Terra break;1;1;1;6;6;fox;Effet 167;;;;;
+Avatar;AME038;strike;AME038.bmp;Tongue of the dragon;1;2;;7;4;fox;Effet 155;;;;;
+Avatar;AME039;strike;AME039.bmp;Water lasso;2;1;;6;4;fox;Effet 168;;;;;
+Avatar;AME040;strike;AME040.bmp;Wind on the waves;2;;;4;4;fox;Effet 169;;;;;
+Avatar;AME041;strike;AME041.bmp;bitter batter;;1;;4;3;lion;Effet 170;;;;;
+Avatar;AME042;strike;AME042.bmp;blowback;1;2;;5;5;lion;Effet 171;;;;;
+Avatar;AME043;strike;AME043.bmp;creeping crystal;1;1;1;6;6;lion;Effet 172;;;;;
+Avatar;AME044;strike;AME044.bmp;dancing mists;1;2;;4;6;lion;Effet 173;;;;;
+Avatar;AME045;strike;AME045.bmp;double crest;2;1;;6;3;lion;Effet 174;;;;;
+Avatar;AME046;strike;AME046.bmp;hurricane vault;2;;;3;5;lion;Effet 171;;;;;
+Avatar;AME047;strike;AME047.bmp;just desserts;;2;;7;1;lion;Effet 175;;;;;
+Avatar;AME048;strike;AME048.bmp;million gallon attack;1;1;1;6;6;lion;Effet 176;;;;;
+Avatar;AME049;strike;AME049.bmp;mischievous downpour;1;;;3;4;lion;Effet 177;;;;;
+Avatar;AME050;strike;AME050.bmp;sea sphere;;2;;5;5;lion;Effet 178;;;;;
+Avatar;AME051;strike;AME051.bmp;snowball smash;;2;1;8;5;lion;Effet 178;;;;;
+Avatar;AME052;strike;AME052.bmp;stifling breeze;3;;;6;4;lion;Effet 179;;;;;
+Avatar;AME053;strike;AME053.bmp;stifling wind;;1;1;5;6;lion;Effet 179;;;;;
+Avatar;AME054;strike;AME054.bmp;surf spray;;2;;5;2;lion;Effet 180;;;;;
+Avatar;AME055;strike;AME055.bmp;sweet revenge;3;;;5;3;lion;Effet 181;;;;;
+Avatar;AME056;strike;AME056.bmp;tandem attack;2;1;;5;4;lion;Effet 182;;;;;
+Avatar;AME057;strike;AME057.bmp;wall of water;;3;;8;1;lion;Effet 183;;;;;
+Avatar;AME058;strike;AME058.bmp;whirling debris;;;1;4;4;lion;Effet 184;;;;;
+Avatar;AME059;strike;AME059.bmp;windmill barrier;;2;;6;5;lion;Effet 185;;;;;
+Avatar;AME060;strike;AME060.bmp;windmill dome;1;;1;7;4;lion;Effet 185;;;;;
+Avatar;AME061;strike;AME061.bmp;bell ringer;1;2;;5;4;;Effet 150;;;;;
+Avatar;AME062;strike;AME062.bmp;Boomerang toss;1;1;;5;1;;Effet 186;;;;;
+Avatar;AME063;strike;AME063.bmp;canyon crawler clash;1;1;1;6;6;;;;;;;
+Avatar;AME064;strike;AME064.bmp;coal rake;1;;1;5;1;;Effet 187;;;;;
+Avatar;AME065;strike;AME065.bmp;downdraft;1;;;4;3;;;;;;;
+Avatar;AME066;strike;AME066.bmp;earthbound;1;;1;6;5;;;;;;;
+Avatar;AME067;strike;AME067.bmp;earthbridge;2;1;;5;4;;Effet 188;;;;;
+Avatar;AME068;strike;AME068.bmp;Evade;1;;;3;1;;Effet 18;;;;;
+Avatar;AME069;strike;AME069.bmp;falling leaf ambush;1;2;;6;4;;Effet 189;;;;;
+Avatar;AME070;strike;AME070.bmp;knuckle sandwich;2;1;;6;4;;;;;;;
+Avatar;AME071;strike;AME071.bmp;kyoshi backhand;;;1;4;4;;Effet 190;;;;;
+Avatar;AME072;strike;AME072.bmp;kyoshi fan parry;2;;1;7;2;;Effet 191;;;;;
+Avatar;AME073;strike;AME073.bmp;kyoshi fan throw;3;;;5;4;;Effet 169;;;;;
+Avatar;AME074;strike;AME074.bmp;kyoshi pride;;2;;5;5;;Effet 191;;;;;
+Avatar;AME075;strike;AME075.bmp;pummel;2;;;4;4;;Effet 30;;;;;
+Avatar;AME076;strike;AME076.bmp;seize the moment;1;;;2;6;;Effet 191;;;;;
+Avatar;AME077;strike;AME077.bmp;skewer;;1;;3;6;;;;;;;
+Avatar;AME078;strike;AME078.bmp;snapped off;1;1;1;8;4;;;;;;;
+Avatar;AME079;strike;AME079.bmp;tremor trail;1;2;;5;6;;;;;;;
+Avatar;AME080;strike;AME080.bmp;will of the warrior;3;;1;4;7;;;;;;;
+Avatar;AME081;advantage;AME081.bmp;churning stomachs;2;;;;;body;Effet 159;;;;;
+Avatar;AME082;advantage;AME082.bmp;crystal rampart;;;1;;;body;Effet 192;;;;;
+Avatar;AME083;advantage;AME083.bmp;dive for cover;1;;;;;body;Effet 193;;;;;
+Avatar;AME084;advantage;AME084.bmp;flopsie flop;1;1;;;;body;Effet 194;;;;;
+Avatar;AME085;advantage;AME085.bmp;immobilize;1;;;;;body;Effet 156;;;;;
+Avatar;AME086;advantage;AME086.bmp;misdirection;2;;;;;body;Effet 171;;;;;
+Avatar;AME087;advantage;AME087.bmp;riding the crest;1;;;;;body;Effet 195;;;;;
+Avatar;AME088;advantage;AME088.bmp;stand firm;2;;;;;body;Effet 196;;;;;
+Avatar;AME089;advantage;AME089.bmp;take the high ground;1;;;;;body;Effet 197;;;;;
+Avatar;AME090;advantage;AME090.bmp;ward off;1;;;;;body;Effet 198;;;;;
+Avatar;AME091;advantage;AME091.bmp;charisma;3;;;;;mind;Effet 199;;;;;
+Avatar;AME092;advantage;AME092.bmp;contemplate;1;;;;;mind;Effet 200;;;;;
+Avatar;AME093;advantage;AME093.bmp;Incinerate;1;;;;;mind;Effet 201;;;;;
+Avatar;AME094;advantage;AME094.bmp;meditate;2;;;;;mind;Effet 202;;;;;
+Avatar;AME095;advantage;AME095.bmp;pai sho mastery;1;;;;;mind;Effet 203;;;;;
+Avatar;AME096;advantage;AME096.bmp;Run the blockade;1;;;;;mind;Effet 204;;;;;
+Avatar;AME097;advantage;AME097.bmp;sculpted flame;1;;;;;mind;Effet 205;;;;;
+Avatar;AME098;advantage;AME098.bmp;training scroll;1;;;;;mind;Effet 206;;;;;
+Avatar;AME099;advantage;AME099.bmp;water kata;;1;;;;mind;Effet 207;;;;;
+Avatar;AME100;advantage;AME100.bmp;yip yip;1;1;;;;mind;Effet 208;;;;;
+Avatar;AME101;advantage;AME101.bmp;bad breath;;1;;;;spirit;Effet 209;;;;;
+Avatar;AME102;advantage;AME102.bmp;channel the winds;3;;;;;spirit;Effet 210;;;;;
+Avatar;AME103;advantage;AME103.bmp;dust storm;2;;;;;spirit;Effet 211;;;;;
+Avatar;AME104;advantage;AME104.bmp;expendable troops;1;;;;;spirit;Effet 212;;;;;
+Avatar;AME105;advantage;AME105.bmp;fiery temper;1;1;;;;spirit;Effet 213;;;;;
+Avatar;AME106;advantage;AME106.bmp;flying staff technique;2;;;;;spirit;Effet 214;;;;;
+Avatar;AME107;advantage;AME107.bmp;glorious feast;3;;;;;spirit;Effet 215;;;;;
+Avatar;AME108;advantage;AME108.bmp;head over heels;1;1;;;;spirit;Effet 216;;;;;
+Avatar;AME109;advantage;AME109.bmp;highway robbery;1;;;;;spirit;Effet 217;;;;;
+Avatar;AME110;advantage;AME110.bmp;volcanic fountain;1;;;;;spirit;Effet 218;;;;;
+Avatar;AME111;advantage;AME111.bmp;bonzu pippinpaddle-oppsokopolis III;;;1;;;;Effet 219;;;;;
+Avatar;AME112;advantage;AME112.bmp;caution to the wind;1;;;;;;Effet 220;;;;;
+Avatar;AME113;advantage;AME113.bmp;closed-hand form;;1;;;;;Effet 7;;;;;
+Avatar;AME114;advantage;AME114.bmp;lifesaver;1;;;;;;Effet 221;;;;;
+Avatar;AME115;advantage;AME115.bmp;open-hand form;;1;;;;;Effet 4;;;;;
+Avatar;AME116;advantage;AME116.bmp;roku's guidance;1;;;;;;Effet 222;;;;;
+Avatar;AME117;advantage;AME117.bmp;sustenance;2;1;;;;;Effet 215;;;;;
+Avatar;AME118;advantage;AME118.bmp;take them away;;;1;;;;Effet 223;;;;;
+Avatar;AME119;teamwork;AME119.bmp;aang;;;1;;;light;Effet 224;;;;;
+Avatar;AME120;teamwork;AME120.bmp;appa;1;1;;;;light;Effet 225;;;;;
+Avatar;AME121;teamwork;AME121.bmp;katara;1;;;;;light;Effet 226;;;;;
+Avatar;AME122;teamwork;AME122.bmp;king bumi;2;;;;;light;Effet 227;;;;;
+Avatar;AME123;teamwork;AME123.bmp;momo;1;;;;;light;Effet 228;;;;;
+Avatar;AME124;teamwork;AME124.bmp;monk gyatso;1;;;;;light;Effet 229;;;;;
+Avatar;AME125;teamwork;AME125.bmp;jet;1;;;;;shadow;Effet 230;;;;;
+Avatar;AME126;teamwork;AME126.bmp;Jojo;;2;;;;shadow;Effet 231;;;;;
+Avatar;AME127;teamwork;AME127.bmp;malu;1;;;;;shadow;Effet 232;;;;;
+Avatar;AME128;teamwork;AME128.bmp;pirate captain;1;;;;;shadow;Effet 233;;;;;
+Avatar;AME129;teamwork;AME129.bmp;prince zuko;1;;;;;shadow;Effet 234;;;;;
+Avatar;AME130;teamwork;AME130.bmp;uncle iroh;;;1;;;shadow;Effet 235;;;;;
+Avatar;AME131;teamwork;AME131.bmp;afiko;1;1;;;;dark;Effet 236;;;;;
+Avatar;AME132;teamwork;AME132.bmp;commander zhao;1;1;;;;dark;Effet 237;;;;;
+Avatar;AME133;teamwork;AME133.bmp;fire nation elite;;1;;;;dark;Effet 238;;;;;
+Avatar;AME134;teamwork;AME134.bmp;kinto;;1;;;;dark;Effet 239;;;;;
+Avatar;AME135;teamwork;AME135.bmp;prison warden;1;;;;;dark;Effet 240;;;;;
+Avatar;AME136;teamwork;AME136.bmp;Zhao's guard;1;;;;;dark;Effet 241;;;;;
+Avatar;AME137;teamwork;AME137.bmp;cabbage merchant;1;;;;;;Effet 242;;;;;
+Avatar;AME138;teamwork;AME138.bmp;canyon guide;;;;;;;Effet 243;;;;;
+Avatar;AME139;teamwork;AME139.bmp;gan jin tribe;2;;;;;;Effet 244;;;;;
+Avatar;AME140;teamwork;AME140.bmp;herbalist;;1;;;;;Effet 245;;;;;
+Avatar;AME141;teamwork;AME141.bmp;zhang tribe;2;;;;;;Effet 246;;;;;
+Avatar;AME142;strike;AME142.bmp;air scooter;2;1;;5;5;airbender;Effet 247;;;;;
+Avatar;AME143;strike;AME143.bmp;chi absorption;;1;1;8;1;airbender;Effet 248;;;;;
+Avatar;AME144;strike;AME144.bmp;dust funnels;3;1;;6;5;airbender;Effet 249;;;;;
+Avatar;AME145;strike;AME145.bmp;graceful leap;;1;;4;2;airbender;Effet 250;;;;;
+Avatar;AME146;strike;AME146.bmp;open-palm pushback;;1;1;5;6;airbender;Effet 251;;;;;
+Avatar;AME147;strike;AME147.bmp;zoom!;1;;1;4;6;airbender;Effet 252;;;;;
+Avatar;AME148;strike;AME148.bmp;boulder smash;2;1;;5;5;earthbender;Effet 253;;;;;
+Avatar;AME149;strike;AME149.bmp;choking sand;1;2;;4;6;earthbender;Effet 254;;;;;
+Avatar;AME150;strike;AME150.bmp;granite block;1;1;1;7;5;earthbender;Effet 255;;;;;
+Avatar;AME151;strike;AME151.bmp;ground breaker;1;1;1;6;2;earthbender;Effet 256;;;;;
+Avatar;AME152;strike;AME152.bmp;quarry crush;;1;;3;5;earthbender;Effet 257;;;;;
+Avatar;AME153;strike;AME153.bmp;seismic spring;;;1;4;4;earthbender;Effet 258;;;;;
+Avatar;AME154;strike;AME154.bmp;corona punch;;2;1;5;6;firebender;Effet 259;;;;;
+Avatar;AME155;strike;AME155.bmp;ember shot;1;;1;4;6;firebender;Effet 260;;;;;
+Avatar;AME156;strike;AME156.bmp;fire sweep;1;;;3;3;firebender;Effet 261;;;;;
+Avatar;AME157;strike;AME157.bmp;kindle;3;;;6;4;firebender;Effet 262;;;;;
+Avatar;AME158;strike;AME158.bmp;twin fire daggers;;2;;7;2;firebender;Effet 263;;;;;
+Avatar;AME159;strike;AME159.bmp;warship barrage;3;;;4;4;firebender;Effet 264;;;;;
+Avatar;AME160;strike;AME160.bmp;bubble burst;;;1;4;4;waterbender;Effet 66;;;;;
+Avatar;AME161;strike;AME161.bmp;clutches or the deep;2;;1;9;0;waterbender;Effet 66;;;;;
+Avatar;AME162;strike;AME162.bmp;flash flood;2;;1;5;4;waterbender;Effet 265;;;;;
+Avatar;AME163;strike;AME163.bmp;ice blooms;2;1;;6;4;waterbender;Effet 266;;;;;
+Avatar;AME164;strike;AME164.bmp;single water whip;2;1;;5;5;waterbender;Effet 267;;;;;
+Avatar;AME165;strike;AME165.bmp;tidal wave;1;2;1;6;7;waterbender;Effet 135;;;;;
+Avatar;AME166;strike;AME166.bmp;the avatar awakens;;;3;8;8;;Effet 268;aang;;;;
+Avatar;AME167;teamwork;AME167.bmp;sokka;1;;;;;;Effet 269;katara;;;;
+Avatar;AME168;teamwork;AME168.bmp;flopsie;1;;1;;;;Effet 270;king bumi;;;;
+Avatar;AME169;advantage;AME169.bmp;the kissing bandit;1;1;;;;;Effet 271;jojo;;;;
+Avatar;AME170;strike;AME170.bmp;strata breaker;1;;;3;3;;Effet 272;malu;;;;
+Avatar;AME171;strike;AME171.bmp;tail of the comet;1;1;1;5;5;;Effet 273;prince zuko;;;;
+Avatar;AME172;strike;AME172.bmp;shocking revelation;1;1;;5;4;;Effet 274;uncle iroh;;;;
+Avatar;AME173;strike;AME173.bmp;hollow soul hurricane;3;;;4;4;;Effet 275;afiko;;;;
+Avatar;AME174;strike;AME174.bmp;maw of the inferno;1;1;1;6;5;;Effet 276;commander zhao;;;;
+Avatar;AME175;advantage;AME175.bmp;aquatic tendrils;;;1;;;;Effet 277;kinto;;;;
+Avatar;AME176;chamber;AME176.bmp;Penguin Sledding;1;;;5;7;;Effet 328;aang;fox;spirit;light;airbender
+Avatar;AME176v;chamber;AME176v.bmp;Taming the Unagi;;;;9;9;;Effet 329;aang;fox;spirit;light;airbender
+Avatar;AME177;chamber;AME177.bmp;Penguin Sledding;1;;;5;7;;Effet 328;aang;fox;spirit;light;airbender
+Avatar;AME177v;chamber;AME177v.bmp;Taming the Unagi;;;;9;9;;Effet 329;aang;fox;spirit;light;airbender
+Avatar;AME178;chamber;AME178.bmp;Penguin Sledding;1;;;5;7;;Effet 328;aang;fox;spirit;light;airbender
+Avatar;AME178v;chamber;AME178v.bmp;Vertigo Dash;;;;6;6;;Effet 331;aang;fox;spirit;light;airbender
+Avatar;AME179;chamber;AME179.bmp;Updraft;;;;6;4;;Effet 330;aang;fox;spirit;light;airbender
+Avatar;AME179v;chamber;AME179v.bmp;Taming the Unagi;;;;9;9;;Effet 329;aang;fox;spirit;light;airbender
+Avatar;AME180;chamber;AME180.bmp;Updraft;;;;6;4;;Effet 330;aang;fox;spirit;light;airbender
+Avatar;AME180v;chamber;AME180v.bmp;Vertigo Dash;;;;6;6;;Effet 331;aang;fox;spirit;light;airbender
+Avatar;AME181;chamber;AME181.bmp;Updraft;;;;6;4;;Effet 330;aang;fox;spirit;light;airbender
+Avatar;AME181v;chamber;AME181v.bmp;Avatar State;;;5;12;12;;Effet 332;aang;fox;spirit;light;airbender
+Avatar;AME182;chamber;AME182.bmp;Artic Sheath;1;;;6;4;;Effet 333;katara;lion;mind;light;waterbender
+Avatar;AME182v;chamber;AME182v.bmp;Whirlpool;;;;7;7;;Effet 333;katara;lion;mind;light;waterbender
+Avatar;AME183;chamber;AME183.bmp;Artic Sheath;1;;;6;4;;Effet 333;katara;lion;mind;light;waterbender
+Avatar;AME183v;chamber;AME183v.bmp;Whirlpool;;;;7;7;;Effet 333;katara;lion;mind;light;waterbender
+Avatar;AME184;chamber;AME184.bmp;Artic Sheath;1;;;6;4;;Effet 333;katara;lion;mind;light;waterbender
+Avatar;AME184v;chamber;AME184v.bmp;Geyser Torpedo;1;;;6;6;;Effet 334;katara;lion;mind;light;waterbender
+Avatar;AME185;chamber;AME185.bmp;Parting Shot;;;;5;2;;Effet 335;katara;lion;mind;light;waterbender
+Avatar;AME185v;chamber;AME185v.bmp;Whirlpool;;;;7;7;;Effet 333;katara;lion;mind;light;waterbender
+Avatar;AME186;chamber;AME186.bmp;Parting Shot;;;;5;2;;Effet 335;katara;lion;mind;light;waterbender
+Avatar;AME186v;chamber;AME186v.bmp;Geyser Torpedo;1;;;6;6;;Effet 334;katara;lion;mind;light;waterbender
+Avatar;AME187;chamber;AME187.bmp;Parting Shot;;;;5;2;;Effet 335;katara;lion;mind;light;waterbender
+Avatar;AME187v;chamber;AME187v.bmp;Double Water Whip;;;;6;7;;Effet 336;katara;lion;mind;light;waterbender
+Avatar;AME188;chamber;AME188.bmp;Omashu Dodgeball;1;;;6;5;;Effet 337;king bumi;bull;body;light;earthbender
+Avatar;AME188v;chamber;AME188v.bmp;Stone Heel of the King;;;;7;7;;Effet 338;king bumi;bull;body;light;earthbender
+Avatar;AME189;chamber;AME189.bmp;Omashu Dodgeball;1;;;6;5;;Effet 337;king bumi;bull;body;light;earthbender
+Avatar;AME189v;chamber;AME189v.bmp;Stone Heel of the King;;;;7;7;;Effet 338;king bumi;bull;body;light;earthbender
+Avatar;AME190;chamber;AME190.bmp;Omashu Dodgeball;1;;;6;5;;Effet 337;king bumi;bull;body;light;earthbender
+Avatar;AME190v;chamber;AME190v.bmp;Scouring-Earth Kick;1;;;6;8;;Effet 339;king bumi;bull;body;light;earthbender
+Avatar;AME191;chamber;AME191.bmp;Shadow of the Boulder;2;;;5;8;;Effet 340;king bumi;bull;body;light;earthbender
+Avatar;AME191v;chamber;AME191v.bmp;Stone Heel of the King;;;;7;7;;Effet 338;king bumi;bull;body;light;earthbender
+Avatar;AME192;chamber;AME192.bmp;Shadow of the Boulder;2;;;5;8;;Effet 340;king bumi;bull;body;light;earthbender
+Avatar;AME192v;chamber;AME192v.bmp;Scouring-Earth Kick;1;;;6;8;;Effet 339;king bumi;bull;body;light;earthbender
+Avatar;AME193;chamber;AME193.bmp;Shadow of the Boulder;2;;;5;8;;Effet 340;king bumi;bull;body;light;earthbender
+Avatar;AME193v;chamber;AME193v.bmp;Shock Wave;;1;;6;6;;Effet 341;king bumi;bull;body;light;earthbender
+Avatar;AME194;chamber;AME194.bmp;Bucking Earth;;;;6;2;;Effet 160;jojo;fox;spirit;shadow;earthbender
+Avatar;AME194v;chamber;AME194v.bmp;Rockslide;;;;6;6;;Effet 342;jojo;fox;spirit;shadow;earthbender
+Avatar;AME195;chamber;AME195.bmp;Bucking Earth;;;;6;2;;Effet 160;jojo;fox;spirit;shadow;earthbender
+Avatar;AME195v;chamber;AME195v.bmp;Rockslide;;;;6;6;;Effet 342;jojo;fox;spirit;shadow;earthbender
+Avatar;AME196;chamber;AME196.bmp;Bucking Earth;;;;6;2;;Effet 160;jojo;fox;spirit;shadow;earthbender
+Avatar;AME196v;chamber;AME196v.bmp;Massive Meteor;;1;;5;7;;Effet 343;jojo;fox;spirit;shadow;earthbender
+Avatar;AME197;chamber;AME197.bmp;Boulder Burst;;;;5;4;;Effet 344;jojo;fox;spirit;shadow;earthbender
+Avatar;AME197v;chamber;AME197v.bmp;Rockslide;;;;6;6;;Effet 342;jojo;fox;spirit;shadow;earthbender
+Avatar;AME198;chamber;AME198.bmp;Boulder Burst;;;;5;4;;Effet 344;jojo;fox;spirit;shadow;earthbender
+Avatar;AME198v;chamber;AME198v.bmp;Massive Meteor;;1;;5;7;;Effet 343;jojo;fox;spirit;shadow;earthbender
+Avatar;AME199;chamber;AME199.bmp;Boulder Burst;;;;5;4;;Effet 344;jojo;fox;spirit;shadow;earthbender
+Avatar;AME199v;chamber;AME199v.bmp;Beguiling Kiss;;;;7;7;;Effet 345;jojo;fox;spirit;shadow;earthbender
+Avatar;AME200;chamber;AME200.bmp;Blustery Blast;1;;;5;5;;Effet 171;malu;lion;body;shadow;airbender
+Avatar;AME200v;chamber;AME200v.bmp;Shrieking Wind;;;;6;5;;Effet 346;malu;lion;body;shadow;airbender
+Avatar;AME201;chamber;AME201.bmp;Blustery Blast;1;;;5;5;;Effet 171;malu;lion;body;shadow;airbender
+Avatar;AME201v;chamber;AME201v.bmp;Shrieking Wind;;;;6;5;;Effet 346;malu;lion;body;shadow;airbender
+Avatar;AME202;chamber;AME202.bmp;Blustery Blast;1;;;5;5;;Effet 171;malu;lion;body;shadow;airbender
+Avatar;AME202v;chamber;AME202v.bmp;Slingshot Stream;;1;;9;0;;Effet 347;malu;lion;body;shadow;airbender
+Avatar;AME203;chamber;AME203.bmp;Treetop Hop;;;;8;3;;;malu;lion;body;shadow;airbender
+Avatar;AME203v;chamber;AME203v.bmp;Shrieking Wind;;;;6;5;;Effet 346;malu;lion;body;shadow;airbender
+Avatar;AME204;chamber;AME204.bmp;Treetop Hop;;;;8;3;;;malu;lion;body;shadow;airbender
+Avatar;AME204v;chamber;AME204v.bmp;Slingshot Stream;;1;;9;0;;Effet 347;malu;lion;body;shadow;airbender
+Avatar;AME205;chamber;AME205.bmp;Treetop Hop;;;;8;3;;;malu;lion;body;shadow;airbender
+Avatar;AME205v;chamber;AME205v.bmp;Ankle-Breaking Gust;;;;4;4;;Effet 291;malu;lion;body;shadow;airbender
+Avatar;AME206;chamber;AME206.bmp;Meltdown;1;;;6;1;;Effet 348;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME206v;chamber;AME206v.bmp;Night of Flames;;;;9;7;;;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME207;chamber;AME207.bmp;Meltdown;1;;;6;1;;Effet 348;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME207v;chamber;AME207v.bmp;Night of Flames;;;;9;7;;;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME208;chamber;AME208.bmp;Meltdown;1;;;6;1;;Effet 348;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME208v;chamber;AME208v.bmp;Immolating Spiral;;;;7;4;;Effet 349;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME209;chamber;AME209.bmp;Burnning in Exile;2;;;6;5;;Effet 350;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME209v;chamber;AME209v.bmp;Night of Flames;;;;9;7;;;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME210;chamber;AME210.bmp;Burnning in Exile;2;;;6;5;;Effet 350;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME210v;chamber;AME210v.bmp;Immolating Spiral;;;;7;4;;Effet 349;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME211;chamber;AME211.bmp;Burnning in Exile;2;;;6;5;;Effet 350;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME211v;chamber;AME211v.bmp;Burning Spire;1;;;6;7;;Effet 351;prince zuko;bull;spirit;shadow;firebender
+Avatar;AME212;chamber;AME212.bmp;Firecrackers;;;;5;5;;Effet 156;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME212v;chamber;AME212v.bmp;Smokescreen;1;;;8;7;;Effet 352;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME213;chamber;AME213.bmp;Firecrackers;;;;5;5;;Effet 156;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME213v;chamber;AME213v.bmp;Smokescreen;1;;;8;7;;Effet 352;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME214;chamber;AME214.bmp;Firecrackers;;;;5;5;;Effet 156;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME214v;chamber;AME214v.bmp;Suppressing Fire;;;;5;7;;Effet 353;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME215;chamber;AME215.bmp;Unchained;2;;;6;6;;Effet 354;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME215v;chamber;AME215v.bmp;Smokescreen;1;;;8;7;;Effet 352;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME216;chamber;AME216.bmp;Unchained;2;;;6;6;;Effet 354;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME216v;chamber;AME216v.bmp;Suppressing Fire;;;;5;7;;Effet 353;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME217;chamber;AME217.bmp;Unchained;2;;;6;6;;Effet 354;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME217v;chamber;AME217v.bmp;Rain of Fire;;1;;6;5;;Effet 355;uncle iroh;fox;mind;shadow;firebender
+Avatar;AME218;chamber;AME218.bmp;Reaping Wind;;;;7;4;;;afiko;lion;spirit;dark;airbender
+Avatar;AME218v;chamber;AME218v.bmp;Suffocating Void;;;;7;7;;Effet 356;afiko;lion;spirit;dark;airbender
+Avatar;AME219;chamber;AME219.bmp;Reaping Wind;;;;7;4;;;afiko;lion;spirit;dark;airbender
+Avatar;AME219v;chamber;AME219v.bmp;Suffocating Void;;;;7;7;;Effet 356;afiko;lion;spirit;dark;airbender
+Avatar;AME220;chamber;AME220.bmp;Reaping Wind;;;;7;4;;;afiko;lion;spirit;dark;airbender
+Avatar;AME220v;chamber;AME220v.bmp;Storms Without End;;1;;6;7;;Effet 357;afiko;lion;spirit;dark;airbender
+Avatar;AME221;chamber;AME221.bmp;Tornado Punch;1;;;5;6;;Effet 358;afiko;lion;spirit;dark;airbender
+Avatar;AME221v;chamber;AME221v.bmp;Suffocating Void;;;;7;7;;Effet 356;afiko;lion;spirit;dark;airbender
+Avatar;AME222;chamber;AME222.bmp;Tornado Punch;1;;;5;6;;Effet 358;afiko;lion;spirit;dark;airbender
+Avatar;AME222v;chamber;AME222v.bmp;Storms Without End;;1;;6;7;;Effet 357;afiko;lion;spirit;dark;airbender
+Avatar;AME223;chamber;AME223.bmp;Tornado Punch;1;;;5;6;;Effet 358;afiko;lion;spirit;dark;airbender
+Avatar;AME223v;chamber;AME223v.bmp;Dark Tempest;1;;;9;6;;Effet 359;afiko;lion;spirit;dark;airbender
+Avatar;AME224;chamber;AME224.bmp;No Mercy for the Weak;;;;5;4;;Effet 360;commander zhao;bull;mind;dark;firebender
+Avatar;AME224v;chamber;AME224v.bmp;Open Fire!;1;;;6;6;;Effet 361;commander Zhao;bull;mind;dark;firebender
+Avatar;AME225;chamber;AME225.bmp;No Mercy for the Weak;;;;5;4;;Effet 360;commander zhao;bull;mind;dark;firebender
+Avatar;AME225v;chamber;AME225v.bmp;Open Fire!;1;;;6;6;;Effet 361;commander Zhao;bull;mind;dark;firebender
+Avatar;AME226;chamber;AME226.bmp;No Mercy for the Weak;;;;5;4;;Effet 360;commander zhao;bull;mind;dark;firebender
+Avatar;AME226v;chamber;AME226v.bmp;Roaring Sphere;;;;7;6;;Effet 362;commander Zhao;bull;mind;dark;firebender
+Avatar;AME227;chamber;AME227.bmp;Fiery Lash;;;1;6;6;;Effet 324;commander Zhao;bull;mind;dark;firebender
+Avatar;AME227v;chamber;AME227v.bmp;Open Fire!;1;;;6;6;;Effet 361;commander Zhao;bull;mind;dark;firebender
+Avatar;AME228;chamber;AME228.bmp;Fiery Lash;;;1;6;6;;Effet 324;commander Zhao;bull;mind;dark;firebender
+Avatar;AME228v;chamber;AME228v.bmp;Roaring Sphere;;;;7;6;;Effet 362;commander Zhao;bull;mind;dark;firebender
+Avatar;AME229;chamber;AME229.bmp;Fiery Lash;;;1;6;6;;Effet 324;commander Zhao;bull;mind;dark;firebender
+Avatar;AME229v;chamber;AME229v.bmp;Agni Kai;;1;;6;6;;Effet 363;commander Zhao;bull;mind;dark;firebender
+Avatar;AME230;chamber;AME230.bmp;Gutwrencher;;;;6;2;;Effet 159;kinto;fox;body;dark;waterbender
+Avatar;AME230v;chamber;AME230v.bmp;Splash Rockets;;;;6;7;;Effet 2;kinto;fox;body;dark;waterbender
+Avatar;AME231;chamber;AME231.bmp;Gutwrencher;;;;6;2;;Effet 159;kinto;fox;body;dark;waterbender
+Avatar;AME231v;chamber;AME231v.bmp;Splash Rockets;;;;6;7;;Effet 2;kinto;fox;body;dark;waterbender
+Avatar;AME232;chamber;AME232.bmp;Gutwrencher;;;;6;2;;Effet 159;kinto;fox;body;dark;waterbender
+Avatar;AME232v;chamber;AME232v.bmp;Avalanche;;;;8;6;;Effet 364;kinto;fox;body;dark;waterbender
+Avatar;AME233;chamber;AME233.bmp;Steam Blast;1;;;8;0;;Effet 66;kinto;fox;body;dark;waterbender
+Avatar;AME233v;chamber;AME233v.bmp;Splash Rockets;;;;6;7;;Effet 2;kinto;fox;body;dark;waterbender
+Avatar;AME234;chamber;AME234.bmp;Steam Blast;1;;;8;0;;Effet 66;kinto;fox;body;dark;waterbender
+Avatar;AME234v;chamber;AME234v.bmp;Avalanche;;;;8;6;;Effet 364;kinto;fox;body;dark;waterbender
+Avatar;AME235;chamber;AME235.bmp;Steam Blast;1;;;8;0;;Effet 66;kinto;fox;body;dark;waterbender
+Avatar;AME235v;chamber;AME235v.bmp;High Seas;;2;;12;0;;Effet 66;kinto;fox;body;dark;waterbender
+Avatar;APR001;advantage;APR001.bmp;appa's wild ride;;1;;;;;Effet 278;;;;;
+Avatar;APR002;strike;APR002.bmp;sokka's mettle;;1;1;5;5;;Effet 279;;;;;
+Avatar;FPR001;chamber;FPR001.bmp;Airball Practice;1;;;5;5;;Effet 323;air cannon aang;fox;spirit;light;airbender
+Avatar;FPR001v;chamber;FPR001v.bmp;Air Cannon Riposte;;1;;6;8;;;air cannon aang;fox;spirit;light;airbender
+Avatar;FPR002;chamber;FPR002.bmp;Target Practice;;;;6;5;;Effet 324;fire blast zuko;bull;spirit;shadow;firebender
+Avatar;FPR002v;chamber;FPR002v.bmp;Fire Blast Snap-Kick;;;;7;7;;Effet 325;fire blast zuko;bull;spirit;shadow;firebender
+Avatar;FPR003;chamber;FPR003.bmp;Geyser Kick;;;;6;4;;Effet 326;ice attack aang;fox;spirit;light;waterbender
+Avatar;FPR003v;chamber;FPR003v.bmp;Icehammer;1;;;8;7;;Effet 327;ice attack aang;fox;spirit;light;waterbender
+Pirates;PDC001;strike;PDC001.bmp;a woman's touch;;2;;6;5;bull;Effet 365;;;;;;
+Pirates;PDC002;strike;PDC002.bmp;branch out;2;;;5;1;bull;Effet 141;;;;;;
+Pirates;PDC003;strike;PDC003.bmp;brazen defiance;2;1;;5;3;bull;Effet 139;;;;;;
+Pirates;PDC004;strike;PDC004.bmp;brutes from the deep;1;;1;6;3;bull;Effet 366;;;;;;
+Pirates;PDC005;strike;PDC005.bmp;command the waves;2;1;1;7;6;bull;Effet 367;;;;;;
+Pirates;PDC006;strike;PDC006.bmp;drop anchor;1;2;1;8;6;bull;Effet 368;;;;;;
+Pirates;PDC007;strike;PDC007.bmp;hunted down;2;;1;8;3;bull;Effet 369;;;;;;
+Pirates;PDC008;strike;PDC008.bmp;knockout;2;1;;5;4;bull;Effet 370;;;;;;
+Pirates;PDC009;strike;PDC009.bmp;lesson of the lash;2;;;4;4;bull;Effet 371;;;;;;
+Pirates;PDC010;strike;PDC010.bmp;looks can kill;3;;1;7;1;bull;Effet 348;;;;;;
+Pirates;PDC011;strike;PDC011.bmp;no pain in the afterlife;2;1;;5;5;bull;Effet 372;;;;;;
+Pirates;PDC012;strike;PDC012.bmp;overwhelm;;1;;3;5;bull;Effet 373;;;;;;
+Pirates;PDC013;strike;PDC013.bmp;ramming speed;2;2;;5;6;bull;Effet 374;;;;;;
+Pirates;PDC014;strike;PDC014.bmp;set ablaze;1;2;;7;4;bull;Effet 375;;;;;;
+Pirates;PDC015;strike;PDC015.bmp;st. elmo's fire;1;1;;4;5;bull;Effet 376;;;;;;
+Pirates;PDC016;strike;PDC016.bmp;strangling grip;3;;;4;4;bull;Effet 150;;;;;;
+Pirates;PDC018;strike;PDC018.bmp;taking out the trash;1;1;1;6;6;bull;Effet 377;;;;;;
+Pirates;PDC020;strike;PDC020.bmp;you will serve;;1;1;6;5;bull;Effet 378;;;;;;
+Pirates;PDC021;strike;PDC021.bmp;aye eye;1;;1;7;4;fox;Effet 379;;;;;;
+Pirates;PDC022;strike;PDC022.bmp;beat to the quick;1;1;1;5;6;fox;Effet 380;;;;;;
+Pirates;PDC023;strike;PDC023.bmp;blade and bullet;2;1;1;7;6;fox;Effet 381;;;;;;
+Pirates;PDC024;strike;PDC024.bmp;cannibal spear;2;1;;5;5;fox;Effet 382;;;;;;
+Pirates;PDC025;strike;PDC025.bmp;disarm;;1;;4;1;fox;Effet 383;;;;;;
+Pirates;PDC026;strike;PDC026.bmp;for britain!;1;;1;4;6;fox;Effet 384;;;;;;
+Pirates;PDC027;strike;PDC027.bmp;forceful persuasion;1;1;1;6;6;fox;Effet 385;;;;;;
+Pirates;PDC028;strike;PDC028.bmp;hammerfall;2;;;4;3;fox;Effet 54;;;;;;
+Pirates;PDC029;strike;PDC029.bmp;hot potato;2;1;;6;3;fox;Effet 157;;;;;;
+Pirates;PDC031;strike;PDC031.bmp;incoming!;2;;;5;2;fox;Effet 386;;;;;;
+Pirates;PDC032;strike;PDC032.bmp;jailbreak;;2;1;6;7;fox;Effet 387;;;;;;
+Pirates;PDC033;strike;PDC033.bmp;look before you leap;;2;;5;5;fox;Effet 388;;;;;;
+Pirates;PDC034;strike;PDC034.bmp;looking for trouble;1;;1;5;5;fox;Effet 389;;;;;;
+Pirates;PDC035;strike;PDC035.bmp;martial law;2;;1;8;3;fox;Effet 390;;;;;;
+Pirates;PDC036;strike;PDC036.bmp;permission to come aboard;2;;1;5;7;fox;Effet 391;;;;;;
+Pirates;PDC037;strike;PDC037.bmp;short fuse;1;1;1;8;4;fox;Effet 392;;;;;;
+Pirates;PDC038;strike;PDC038.bmp;simple stickup;1;2;;7;4;fox;Effet 393;;;;;;
+Pirates;PDC039;strike;PDC039.bmp;taking the pearl;1;1;;4;5;fox;Effet 394;;;;;;
+Pirates;PDC040;strike;PDC040.bmp;you cheated!;;2;;6;5;fox;Effet 395;;;;;;
+Pirates;PDC041;strike;PDC041.bmp;berserk parrot;1;1;;5;2;lion;Effet 66;;;;;;
+Pirates;PDC042;strike;PDC042.bmp;cornered;3;1;;5;6;lion;Effet 396;;;;;;
+Pirates;PDC043;strike;PDC043.bmp;devil's own;1;;1;7;4;lion;Effet 397;;;;;;
+Pirates;PDC044;strike;PDC044.bmp;direct hit;1;1;1;5;5;lion;Effet 398;;;;;;
+Pirates;PDC045;strike;PDC045.bmp;fire at will;2;;;4;2;lion;Effet 399;;;;;;
+Pirates;PDC046;strike;PDC046.bmp;grim determination;1;1;;4;4;lion;Effet 400;;;;;;
+Pirates;PDC047;strike;PDC047.bmp;hand to hand;2;;;4;3;lion;Effet 401;;;;;;
+Pirates;PDC048;strike;PDC048.bmp;left hanging;3;;1;6;6;lion;Effet 402;;;;;;
+Pirates;PDC049;strike;PDC049.bmp;lower the boom;2;1;1;7;6;lion;Effet 179;;;;;;
+Pirates;PDC050;strike;PDC050.bmp;over a barrel;;2;;6;5;lion;Effet 179;;;;;;
+Pirates;PDC051;strike;PDC051.bmp;path of destruction;;;2;6;7;lion;Effet 179;;;;;;
+Pirates;PDC052;strike;PDC052.bmp;pirate justice;;2;;7;2;lion;Effet 403;;;;;;
+Pirates;PDC053;strike;PDC053.bmp;return the favor;1;2;1;8;5;lion;Effet 401;;;;;;
+Pirates;PDC054;strike;PDC054.bmp;rifle crash;1;;1;6;4;lion;Effet 178;;;;;;
+Pirates;PDC055;strike;PDC055.bmp;share the wealth;2;1;;6;3;lion;Effet 404;;;;;;
+Pirates;PDC056;strike;PDC056.bmp;sharp retort;2;1;;4;5;lion;Effet 405;;;;;;
+Pirates;PDC057;strike;PDC057.bmp;skeletal skewer;;1;;3;3;lion;Effet 406;;;;;;
+Pirates;PDC058;strike;PDC058.bmp;stick a fork in 'im;2;;1;8;1;lion;Effet 407;;;;;;
+Pirates;PDC059;strike;PDC059.bmp;suffer no fools;2;1;;6;4;lion;Effet 408;;;;;;
+Pirates;PDC060;strike;PDC060.bmp;up the side;1;;1;5;5;lion;Effet 409;;;;;;
+Pirates;PDC061;strike;PDC061.bmp;bar room brawl;;1;;4;4;;Effet 410;;;;;;
+Pirates;PDC062;strike;PDC062.bmp;crazed leap;;2;1;8;2;;Effet 191;;;;;;
+Pirates;PDC063;strike;PDC063.bmp;crossed swords;;2;;6;1;;Effet 411;;;;;;
+Pirates;PDC064;strike;PDC064.bmp;cutlass slash;;3;;4;6;;Effet 412;;;;;;
+Pirates;PDC065;strike;PDC065.bmp;down the barrel;1;1;;4;2;;Effet 413;;;;;;
+Pirates;PDC066;strike;PDC066.bmp;dueling with death;1;;;2;2;;Effet 166;;;;;;
+Pirates;PDC067;strike;PDC067.bmp;easy mark;5;;;6;6;;;;;;;;
+Pirates;PDC068;strike;PDC068.bmp;give chase;1;2;;5;5;;Effet 414;;;;;;
+Pirates;PDC069;strike;PDC069.bmp;good night, captain;1;;1;7;1;;;;;;;;
+Pirates;PDC070;strike;PDC070.bmp;higher ground;1;;;3;4;;Effet 118;;;;;;
+Pirates;PDC071;strike;PDC071.bmp;hit the deck;;1;;1;7;;Effet 191;;;;;;
+Pirates;PDC072;strike;PDC072.bmp;incendiary shot;;;1;4;5;;;;;;;;
+Pirates;PDC073;strike;PDC073.bmp;know the ropes;3;;;5;4;;;;;;;;
+Pirates;PDC074;strike;PDC074.bmp;moonlight ambush;2;1;;5;5;;Effet 415;;;;;;
+Pirates;PDC075;strike;PDC075.bmp;one shot;3;;;3;6;;Effet 416;;;;;;
+Pirates;PDC076;strike;PDC076.bmp;proper leverage;2;1;1;7;4;;Effet 417;;;;;;
+Pirates;PDC077;strike;PDC077.bmp;quite a fall;2;1;;5;5;;Effet 418;;;;;;
+Pirates;PDC078;strike;PDC078.bmp;thrown overboard;2;1;;6;4;;;;;;;;
+Pirates;PDC079;strike;PDC079.bmp;walk the plank;2;;1;6;4;;Effet 419;;;;;;
+Pirates;PDC080;strike;PDC080.bmp;wipeout;1;1;1;7;2;;Effet 150;;;;;;
+Pirates;PDC081;advantage;PDC081.bmp;cold blooded;1;;;;;body;Effet 420;;;;;;
+Pirates;PDC082;advantage;PDC082.bmp;dangerous boneheads;1;;;;;body;Effet 168;;;;;;
+Pirates;PDC083;advantage;PDC083.bmp;hatchet job;1;;;;;body;Effet 421;;;;;;
+Pirates;PDC084;advantage;PDC084.bmp;hot blooded;1;;;;;body;Effet 422;;;;;;
+Pirates;PDC085;advantage;PDC085.bmp;parley;1;;;;;body;Effet 423;;;;;;
+Pirates;PDC086;advantage;PDC086.bmp;pressed into service;1;;;;;body;Effet 388;;;;;;
+Pirates;PDC087;advantage;PDC087.bmp;pulley pendulum;;1;;;;body;Effet 424;;;;;;
+Pirates;PDC088;advantage;PDC088.bmp;reel them in;;1;;;;body;Effet 425;;;;;;
+Pirates;PDC089;advantage;PDC089.bmp;scorched sails;2;;;;;body;Effet 426;;;;;;
+Pirates;PDC090;advantage;PDC090.bmp;utter despair;;1;;;;body;Effet 427;;;;;;
+Pirates;PDC091;advantage;PDC091.bmp;blade maiden;;1;;;;mind;Effet 428;;;;;;
+Pirates;PDC092;advantage;PDC092.bmp;bloody pirates;1;;;;;mind;Effet 278;;;;;;
+Pirates;PDC093;advantage;PDC093.bmp;captain's choice;;1;;;;mind;Effet 429;;;;;;
+Pirates;PDC094;advantage;PDC094.bmp;caught unawares;1;;;;;mind;Effet 430;;;;;;
+Pirates;PDC095;advantage;PDC095.bmp;drafted;1;;;;;mind;Effet 431;;;;;;
+Pirates;PDC096;advantage;PDC096.bmp;incognito;1;1;;;;mind;Effet 432;;;;;;
+Pirates;PDC097;advantage;PDC097.bmp;monkey business;1;;;;;mind;Effet 433;;;;;;
+Pirates;PDC098;advantage;PDC098.bmp;ready for anything;1;;;;;mind;Effet 434;;;;;;
+Pirates;PDC099;advantage;PDC099.bmp;royal conscription;2;;;;;mind;Effet 435;;;;;;
+Pirates;PDC100;advantage;PDC100.bmp;sinister plans;;1;;;;mind;Effet 436;;;;;;
+Pirates;PDC101;advantage;PDC101.bmp;boarding action;2;;;;;spirit;Effet 437;;;;;;
+Pirates;PDC102;advantage;PDC102.bmp;claimed by the depths;;1;;;;spirit;Effet 438;;;;;;
+Pirates;PDC103;advantage;PDC103.bmp;cursed fires;1;;;;;spirit;Effet 439;;;;;;
+Pirates;PDC104;advantage;PDC104.bmp;desperate times;1;;;;;spirit;Effet 440;;;;;;
+Pirates;PDC105;advantage;PDC105.bmp;final negotiations;;1;;;;spirit;Effet 441;;;;;;
+Pirates;PDC106;advantage;PDC106.bmp;finders keepers;1;;;;;spirit;Effet 442;;;;;;
+Pirates;PDC107;advantage;PDC107.bmp;keelhaul;;;1;;;spirit;Effet 443;;;;;;
+Pirates;PDC108;advantage;PDC108.bmp;last meal;;1;;;;spirit;Effet 444;;;;;;
+Pirates;PDC109;advantage;PDC109.bmp;one good deed;2;;;;;spirit;Effet 445;;;;;;
+Pirates;PDC110;advantage;PDC110.bmp;under the blade;1;;;;;spirit;Effet 446;;;;;;
+Pirates;PDC111;advantage;PDC111.bmp;capsize;;1;;;;;Effet 447;;;;;;
+Pirates;PDC112;advantage;PDC112.bmp;evasive action;;1;;;;;Effet 4;;;;;;
+Pirates;PDC113;advantage;PDC113.bmp;hiding place;1;;;;;;Effet 179;;;;;;
+Pirates;PDC114;advantage;PDC114.bmp;improvised tactics;;1;;;;;Effet 7;;;;;;
+Pirates;PDC115;advantage;PDC115.bmp;kindle and char;1;1;;;;;Effet 449;;;;;;
+Pirates;PDC116;advantage;PDC116.bmp;not by choice;1;;;;;;Effet 450;;;;;;
+Pirates;PDC117;advantage;PDC117.bmp;prison escape;1;;;;;;Effet 451;;;;;;
+Pirates;PDC118;advantage;PDC118.bmp;rumrunner's island;1;;;;;;Effet 452;;;;;;
+Pirates;PDC119;advantage;PDC119.bmp;x marks the spot;1;;;;;;Effet 453;;;;;;
+Pirates;PDC120;teamwork;PDC120.bmp;gillette;1;;;;;light;Effet 454;;;;;;
+Pirates;PDC121;teamwork;PDC121.bmp;jackson hill;1;;;;;light;Effet 455;;;;;;
+Pirates;PDC122;teamwork;PDC122.bmp;james norrington;1;1;;;;light;Effet 456;;;;;;
+Pirates;PDC123;teamwork;PDC123.bmp;jeremiah hampton;;1;;;;light;Effet 457;;;;;;
+Pirates;PDC124;teamwork;PDC124.bmp;lord cutler beckett;;;1;;;light;Effet 458;;;;;;
+Pirates;PDC125;teamwork;PDC125.bmp;rachel darling;;1;;;;light;Effet 459;;;;;;
+Pirates;PDC126;teamwork;PDC126.bmp;weatherby swann;1;;;;;light;Effet 460;;;;;;
+Pirates;PDC127;teamwork;PDC127.bmp;cannibal warrior;1;;;;;shadow;Effet 461;;;;;;
+Pirates;PDC128;teamwork;PDC128.bmp;elizabeth swann;2;;;;;shadow;Effet 462;;;;;;
+Pirates;PDC129;teamwork;PDC129.bmp;jack sparrow;;1;;;;shadow;Effet 544;;;;;
+Pirates;PDC130;teamwork;PDC130.bmp;joshamee gibbs;1;;;;;shadow;Effet 463;;;;;;
+Pirates;PDC131;teamwork;PDC131.bmp;marty;;;1;;;shadow;Effet 464;;;;;;
+Pirates;PDC132;teamwork;PDC132.bmp;tia dalma;;1;;;;shadow;Effet 465;;;;;;
+Pirates;PDC133;teamwork;PDC133.bmp;will turner;;1;;;;shadow;Effet 466;;;;;;
+Pirates;PDC134;teamwork;PDC134.bmp;bootstrap bill;1;;;;;dark;Effet 467;;;;;;
+Pirates;PDC135;teamwork;PDC135.bmp;captain barbossa;;;1;;;dark;Effet 468;;;;;;
+Pirates;PDC136;teamwork;PDC136.bmp;davy jones;;1;;;;dark;Effet 469;;;;;;
+Pirates;PDC137;teamwork;PDC137.bmp;greenbeard;;;1;;;dark;Effet 470;;;;;;
+Pirates;PDC138;teamwork;PDC138.bmp;jimmy legs;;1;;;;dark;Effet 471;;;;;;
+Pirates;PDC139;teamwork;PDC139.bmp;pintel and ragetti;1;;;;;dark;Effet 472;;;;;;
+Pirates;PDC140;teamwork;PDC140.bmp;sepahook;1;;;;;dark;Effet 473;;;;;;
+Pirates;PDC141;teamwork;PDC141.bmp;catherine blades;;1;;;;;Effet 474;;;;;;
+Pirates;PDC142;teamwork;PDC142.bmp;cotton's parrot;;1;;;;;Effet 475;;;;;;
+Pirates;PDC143;teamwork;PDC143.bmp;j. bennie;;;1;;;;Effet 476;;;;;;
+Pirates;PDC144;teamwork;PDC144.bmp;jack the monkey;1;;;;;;Effet 477;;;;;;
+Pirates;PDC145;strike;PDC145.bmp;broadside;;1;;4;4;boat;Effet 478;;;;;;
+Pirates;PDC146;strike;PDC146.bmp;hard to starboard;1;1;;4;5;boat;Effet 479;;;;;;
+Pirates;PDC147;strike;PDC147.bmp;overtake;2;;;3;6;boat;Effet 480;;;;;;
+Pirates;PDC148;strike;PDC148.bmp;run aground;1;1;1;7;4;boat;Effet 478;;;;;;
+Pirates;PDC149;strike;PDC149.bmp;ship's graveyard;2;1;;6;4;boat;Effet 481;;;;;;
+Pirates;PDC150;strike;PDC150.bmp;waylay;4;;;6;3;boat;Effet 211;;;;;;
+Pirates;PDC151;strike;PDC151.bmp;weather gauge;2;;1;5;6;boat;Effet 482;;;;;;
+Pirates;PDC152;strike;PDC152.bmp;grapples away!;2;;;5;1;sword;Effet 483;;;;;;
+Pirates;PDC153;strike;PDC153.bmp;nasty dagger;;2;1;6;6;sword;Effet 484;;;;;;
+Pirates;PDC154;strike;PDC154.bmp;not a sound;2;;1;5;6;sword;Effet 485;;;;;;
+Pirates;PDC155;strike;PDC155.bmp;paired blades;;2;;7;2;sword;Effet 486;;;;;;
+Pirates;PDC156;strike;PDC156.bmp;rope ride;2;;;3;6;sword;Effet 487;;;;;;
+Pirates;PDC157;strike;PDC157.bmp;sneak aboard;2;1;;5;5;sword;Effet 488;;;;;;
+Pirates;PDC158;strike;PDC158.bmp;splinters and swords;;2;;4;6;sword;Effet 489;;;;;;
+Pirates;PDC159;strike;PDC159.bmp;chain shot;3;;1;7;5;canon;Effet 490;;;;;;
+Pirates;PDC160;strike;PDC160.bmp;give them a taste;;2;;5;4;canon;Effet 490;;;;;;
+Pirates;PDC161;strike;PDC161.bmp;hail of fire;;1;;3;6;canon;Effet 491;;;;;;
+Pirates;PDC162;strike;PDC162.bmp;hull breach;;2;1;6;7;canon;Effet 492;;;;;;
+Pirates;PDC163;strike;PDC163.bmp;parting shot;2;1;;6;4;canon;Effet 493;;;;;;
+Pirates;PDC164;strike;PDC164.bmp;ready the long nines;1;;1;6;3;canon;Effet 494;;;;;;
+Pirates;PDC165;strike;PDC165.bmp;through the smoke;1;1;;4;5;canon;Effet 495;;;;;;
+Pirates;PDC166;advantage;PDC166.bmp;british justice;1;;;;;;Effet 496;lord beckett;;;;;
+Pirates;PDC167;advantage;PDC167.bmp;dangerous beauty;;;1;;;;Effet 497;elizabeth swann;;;;;
+Pirates;PDC168;advantage;PDC168.bmp;forged fury;1;;1;;;;Effet 498;will turner;;;;;
+Pirates;PDC169;advantage;PDC169.bmp;majesty of the deep;1;1;;;;;Effet 499;davy jones;;;;;
+Pirates;PDC170;advantage;PDC170.bmp;pirate's life for me;1;;;;;;Effet 500;pintel and ragetti;;;;;
+Pirates;PDC171;advantage;PDC171.bmp;royal decree;2;;;;;;Effet 501;commodore norrington;;;;;
+Pirates;PDC172;advantage;PDC172.bmp;sword dance;2;;;;;;Effet 502;rachel darling;;;;;
+Pirates;PDC173;advantage;PDC173.bmp;terrify;2;;;;;;Effet 503;greenbeard;;;;;
+Pirates;PDC174;advantage;PDC174.bmp;treasure hunt;1;;;;;;Effet 504;captain barbossa;;;;;
+Pirates;PDC175;advantage;PDC175.bmp;and really bad eggs;1;;;;;;Effet 505;jack sparrow;;;;;
+Pirates;PDC176;chamber;PDC176.bmp;easy pickings;;;;6;4;;Effet 506;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC176v;chamber;PDC176v.bmp;doublecross;;;;9;6;;Effet 507;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC177;chamber;PDC177.bmp;easy pickings;;;;6;4;;Effet 506;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC177v;chamber;PDC177v.bmp;doublecross;;;;9;6;;Effet 507;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC178;chamber;PDC178.bmp;easy pickings;;;;6;4;;Effet 506;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC178v;chamber;PDC178v.bmp;skeleton crew;1;;;5;5;;Effet 508;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC179;chamber;PDC179.bmp;frightfully outclassed;;;;5;5;;Effet 509;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC179v;chamber;PDC179v.bmp;doublecross;;;;9;6;;Effet 507;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC180;chamber;PDC180.bmp;frightfully outclassed;;;;5;5;;Effet 509;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC180v;chamber;PDC180v.bmp;skeleton crew;1;;;5;5;;Effet 508;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC181;chamber;PDC181.bmp;frightfully outclassed;;;;5;5;;Effet 509;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC181v;chamber;PDC181v.bmp;curse of undeath;;1;;7;7;;Effet 510;captain barbossa;lion;mind;dark;boat;
+Pirates;PDC182;chamber;PDC182.bmp;spoils of war;;;;5;5;;Effet 511;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC182v;chamber;PDC182v.bmp;under duress;1;;;6;7;;Effet 512;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC183;chamber;PDC183.bmp;spoils of war;;;;5;5;;Effet 511;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC183v;chamber;PDC183v.bmp;under duress;1;;;6;7;;Effet 512;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC184;chamber;PDC184.bmp;spoils of war;;;;5;5;;Effet 511;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC184v;chamber;PDC184v.bmp;commodore's command;;;;7;6;;Effet 513;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC185;chamber;PDC185.bmp;party's over. scum;;;;6;6;;Effet 514;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC185v;chamber;PDC185v.bmp;under duress;1;;;6;7;;Effet 512;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC186;chamber;PDC186.bmp;party's over. scum;;;;6;6;;Effet 514;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC186v;chamber;PDC186v.bmp;commodore's command;;;;7;6;;Effet 513;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC187;chamber;PDC187.bmp;party's over. scum;;;;6;6;;Effet 514;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC187v;chamber;PDC187v.bmp;man of iron;1;1;;6;8;;Effet 514;commodore norrington;lion;spirit;light;canon;
+Pirates;PDC188;chamber;PDC188.bmp;rust and black powder;;;;5;4;;Effet 324;davy jones;bull;spirit;dark;canon;
+Pirates;PDC188v;chamber;PDC188v.bmp;soul cannon;;;;6;7;;Effet 515;davy jones;bull;spirit;dark;canon;
+Pirates;PDC189;chamber;PDC189.bmp;rust and black powder;;;;5;4;;Effet 324;davy jones;bull;spirit;dark;canon;
+Pirates;PDC189v;chamber;PDC189v.bmp;soul cannon;;;;6;7;;Effet 515;davy jones;bull;spirit;dark;canon;
+Pirates;PDC190;chamber;PDC190.bmp;rust and black powder;;;;5;4;;Effet 324;davy jones;bull;spirit;dark;canon;
+Pirates;PDC190v;chamber;PDC190v.bmp;command the kraken;2;;;5;7;;Effet 516;davy jones;bull;spirit;dark;canon;
+Pirates;PDC191;chamber;PDC191.bmp;kraken attack;1;1;;6;6;;Effet 517;davy jones;bull;spirit;dark;canon;
+Pirates;PDC191v;chamber;PDC191v.bmp;soul cannon;;;;6;7;;Effet 515;davy jones;bull;spirit;dark;canon;
+Pirates;PDC192;chamber;PDC192.bmp;kraken attack;1;1;;6;6;;Effet 517;davy jones;bull;spirit;dark;canon;
+Pirates;PDC192v;chamber;PDC192v.bmp;command the kraken;2;;;5;7;;Effet 516;davy jones;bull;spirit;dark;canon;
+Pirates;PDC193;chamber;PDC193.bmp;kraken attack;1;1;;6;6;;Effet 517;davy jones;bull;spirit;dark;canon;
+Pirates;PDC193v;chamber;PDC193v.bmp;nefarious intent;;1;;7;6;;Effet 518;davy jones;bull;spirit;dark;canon;
+Pirates;PDC194;chamber;PDC194.bmp;the art of the blade;;;;6;4;;Effet 377;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC194v;chamber;PDC194v.bmp;punch in the mouth;;;;7;5;;Effet 519;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC195;chamber;PDC195.bmp;the art of the blade;;;;6;4;;Effet 377;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC195v;chamber;PDC195v.bmp;punch in the mouth;;;;7;5;;Effet 519;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC196;chamber;PDC196.bmp;the art of the blade;;;;6;4;;Effet 377;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC196v;chamber;PDC196v.bmp;stunning beauty;;1;;8;6;;Effet 520;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC197;chamber;PDC197.bmp;wheel turner;1;;;5;5;;Effet 521;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC197v;chamber;PDC197v.bmp;punch in the mouth;;;;7;5;;Effet 519;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC198;chamber;PDC198.bmp;wheel turner;1;;;5;5;;Effet 521;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC198v;chamber;PDC198v.bmp;stunning beauty;;1;;8;6;;Effet 520;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC199;chamber;PDC199.bmp;wheel turner;1;;;5;5;;Effet 521;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC199v;chamber;PDC199v.bmp;repel the enemy;1;;;6;6;;Effet 522;elizabeth swann;bull;mind;shadow;canon;
+Pirates;PDC200;chamber;PDC200.bmp;blade from the depths;;;;5;4;;Effet 523;greenbeard;bull;body;dark;sword;
+Pirates;PDC200v;chamber;PDC200v.bmp;monstrous blow;1;;;6;7;;Effet 524;greenbeard;bull;body;dark;sword;
+Pirates;PDC201;chamber;PDC201.bmp;blade from the depths;;;;5;4;;Effet 523;greenbeard;bull;body;dark;sword;
+Pirates;PDC201v;chamber;PDC201v.bmp;monstrous blow;1;;;6;7;;Effet 524;greenbeard;bull;body;dark;sword;
+Pirates;PDC202;chamber;PDC202.bmp;blade from the depths;;;;5;4;;Effet 523;greenbeard;bull;body;dark;sword;
+Pirates;PDC202v;chamber;PDC202v.bmp;rum-ble;;;;6;6;;Effet 523;greenbeard;bull;body;dark;sword;
+Pirates;PDC203;chamber;PDC203.bmp;barnacle blade;;1;;6;6;;Effet 156;greenbeard;bull;body;dark;sword;
+Pirates;PDC203v;chamber;PDC203v.bmp;monstrous blow;1;;;6;7;;Effet 524;greenbeard;bull;body;dark;sword;
+Pirates;PDC204;chamber;PDC204.bmp;barnacle blade;;1;;6;6;;Effet 156;greenbeard;bull;body;dark;sword;
+Pirates;PDC204v;chamber;PDC204v.bmp;rum-ble;;;;6;6;;Effet 523;greenbeard;bull;body;dark;sword;
+Pirates;PDC205;chamber;PDC205.bmp;barnacle blade;;1;;6;6;;Effet 156;greenbeard;bull;body;dark;sword;
+Pirates;PDC205v;chamber;PDC205v.bmp;barnacl grip;;;;5;7;;Effet 525;greenbeard;bull;body;dark;sword;
+Pirates;PDC206;chamber;PDC206.bmp;lead from behind;1;;;6;3;;Effet 437;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC206v;chamber;PDC206v.bmp;fire away!;;1;;6;7;;Effet 526;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC207;chamber;PDC207.bmp;lead from behind;1;;;6;3;;Effet 437;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC207v;chamber;PDC207v.bmp;fire away!;;1;;6;7;;Effet 526;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC208;chamber;PDC208.bmp;lead from behind;1;;;6;3;;Effet 437;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC208v;chamber;PDC208v.bmp;rum torch;;;;7;6;;Effet 527;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC209;chamber;PDC209.bmp;last bullet;;;;5;5;;Effet 350;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC209v;chamber;PDC209v.bmp;fire away!;;1;;6;7;;Effet 526;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC210;chamber;PDC210.bmp;last bullet;;;;5;5;;Effet 350;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC210v;chamber;PDC210v.bmp;rum torch;;;;7;6;;Effet 527;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC211;chamber;PDC211.bmp;last bullet;;;;5;5;;Effet 350;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC211v;chamber;PDC211v.bmp;daring escape;;;;6;6;;Effet 528;jack sparrow;fox;spirit;shadow;boat;
+Pirates;PDC212;chamber;PDC212.bmp;change of tactics;1;;;6;4;;Effet 529;lord beckett;fox;mind;light;sword;
+Pirates;PDC212v;chamber;PDC212v.bmp;becketts bargain;;;;8;5;;Effet 530;lord beckett;fox;mind;light;sword;
+Pirates;PDC213;chamber;PDC213.bmp;change of tactics;1;;;6;4;;Effet 529;lord beckett;fox;mind;light;sword;
+Pirates;PDC213v;chamber;PDC213v.bmp;becketts bargain;;;;8;5;;Effet 530;lord beckett;fox;mind;light;sword;
+Pirates;PDC214;chamber;PDC214.bmp;change of tactics;1;;;6;4;;Effet 529;lord beckett;fox;mind;light;sword;
+Pirates;PDC214v;chamber;PDC214v.bmp;dead aim;1;;;6;7;;Effet 531;lord beckett;fox;mind;light;sword;
+Pirates;PDC215;chamber;PDC215.bmp;you're mine. Turner!;;;;5;5;;Effet 532;lord beckett;fox;mind;light;sword;
+Pirates;PDC215v;chamber;PDC215v.bmp;becketts bargain;;;;8;5;;Effet 530;lord beckett;fox;mind;light;sword;
+Pirates;PDC216;chamber;PDC216.bmp;you're mine. Turner!;;;;5;5;;Effet 532;lord beckett;fox;mind;light;sword;
+Pirates;PDC216v;chamber;PDC216v.bmp;dead aim;1;;;6;7;;Effet 531;lord beckett;fox;mind;light;sword;
+Pirates;PDC217;chamber;PDC217.bmp;you're mine. Turner!;;;;5;5;;Effet 532;lord beckett;fox;mind;light;sword;
+Pirates;PDC217v;chamber;PDC217v.bmp;call to duty;;;;7;5;;Effet 533;lord beckett;fox;mind;light;sword;
+Pirates;PDC218;chamber;PDC218.bmp;heavy ordnance;;;;5;2;;Effet 534;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC218v;chamber;PDC218v.bmp;double trouble;1;;;7;6;;Effet 535;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC219;chamber;PDC219.bmp;heavy ordnance;;;;5;2;;Effet 534;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC219v;chamber;PDC219v.bmp;double trouble;1;;;7;6;;Effet 535;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC220;chamber;PDC220.bmp;heavy ordnance;;;;5;2;;Effet 534;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC220v;chamber;PDC220v.bmp;rum and gold;;;;7;3;;Effet 536;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC221;chamber;PDC221.bmp;cunning plan;1;;;6;5;;Effet 380;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC221v;chamber;PDC221v.bmp;double trouble;1;;;7;6;;Effet 535;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC222;chamber;PDC222.bmp;cunning plan;1;;;6;5;;Effet 380;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC222v;chamber;PDC222v.bmp;rum and gold;;;;7;3;;Effet 536;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC223;chamber;PDC223.bmp;cunning plan;1;;;6;5;;Effet 380;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC223v;chamber;PDC223v.bmp;'ello poppet;;;;8;4;;Effet 537;pintel and ragetti;fox;body;dark;sword;
+Pirates;PDC224;chamber;PDC224.bmp;cat's grace;2;;;8;5;;;rachel darling;bull;body;light;boat;
+Pirates;PDC224v;chamber;PDC224v.bmp;over the rails!;;;;5;6;;Effet 538;rachel darling;bull;body;light;boat;
+Pirates;PDC225;chamber;PDC225.bmp;cat's grace;2;;;8;5;;;rachel darling;bull;body;light;boat;
+Pirates;PDC225v;chamber;PDC225v.bmp;over the rails!;;;;5;6;;Effet 538;rachel darling;bull;body;light;boat;
+Pirates;PDC226;chamber;PDC226.bmp;cat's grace;2;;;8;5;;;rachel darling;bull;body;light;boat;
+Pirates;PDC226v;chamber;PDC226v.bmp;frenzied attack;1;;;9;3;;Effet 404;rachel darling;bull;body;light;boat;
+Pirates;PDC227;chamber;PDC227.bmp;swashbuckler;;;;6;4;;Effet 539;rachel darling;bull;body;light;boat;
+Pirates;PDC227v;chamber;PDC227v.bmp;over the rails!;;;;5;6;;Effet 538;rachel darling;bull;body;light;boat;
+Pirates;PDC228;chamber;PDC228.bmp;swashbuckler;;;;6;4;;Effet 539;rachel darling;bull;body;light;boat;
+Pirates;PDC228v;chamber;PDC228v.bmp;frenzied attack;1;;;9;3;;Effet 404;rachel darling;bull;body;light;boat;
+Pirates;PDC229;chamber;PDC229.bmp;swashbuckler;;;;6;4;;Effet 539;rachel darling;bull;body;light;boat;
+Pirates;PDC229v;chamber;PDC229v.bmp;deadly accuracy;;1;;0;0;;Effet 540;rachel darling;bull;body;light;boat;
+Pirates;PDC230;chamber;PDC230.bmp;worth dying for;1;1;;5;6;;Effet 171;will turner;lion;body;shadow;sword;
+Pirates;PDC230v;chamber;PDC230v.bmp;shove off;;1;;6;7;;Effet 171;will turner;lion;body;shadow;sword;
+Pirates;PDC231;chamber;PDC231.bmp;worth dying for;1;1;;5;6;;Effet 171;will turner;lion;body;shadow;sword;
+Pirates;PDC231v;chamber;PDC231v.bmp;shove off;;1;;6;7;;Effet 171;will turner;lion;body;shadow;sword;
+Pirates;PDC232;chamber;PDC232.bmp;worth dying for;1;1;;5;6;;Effet 171;will turner;lion;body;shadow;sword;
+Pirates;PDC232v;chamber;PDC232v.bmp;jus'like ol' bootstrap;1;;;3;8;;Effet 541;will turner;lion;body;shadow;sword;
+Pirates;PDC233;chamber;PDC233.bmp;hold your ground;;;;6;3;;Effet 542;will turner;lion;body;shadow;sword;
+Pirates;PDC233v;chamber;PDC233v.bmp;shove off;;1;;6;7;;Effet 171;will turner;lion;body;shadow;sword;
+Pirates;PDC234;chamber;PDC234.bmp;hold your ground;;;;6;3;;Effet 542;will turner;lion;body;shadow;sword;
+Pirates;PDC234v;chamber;PDC234v.bmp;jus'like ol' bootstrap;1;;;3;8;;Effet 541;will turner;lion;body;shadow;sword;
+Pirates;PDC235;chamber;PDC235.bmp;hold your ground;;;;6;3;;Effet 542;will turner;lion;body;shadow;sword;
+Pirates;PDC235v;chamber;PDC235v.bmp;carcass shot;;;;7;4;;Effet 543;will turner;lion;body;shadow;sword;
+Promo;PRQ001;strike;PRQ001.bmp;Lethal Riddle;1;1;;4;4;bull;Effet 545;;;;;;
+Promo;PRQ002;advantage;PRQ002.bmp;High-Tech Equipment;2;;;;;mind;Effet 546;;;;;;
+Promo;PRQ003;teamwork;PRQ003.bmp;Catwoman - working for no one;;1;1;;;;Effet 547;;;;;;
+Promo;PRQ004;strike;PRQ004.bmp;Absorption;3;;;6;3;lion;Effet 548;;;;;;
+Promo;PRQ005;advantage;PRQ005.bmp;Digitaly Advanced Vilain Emulator;;;1;;;spirit;Effet 549;;;;;;
+Promo;PRQ006;teamwork;PRQ006.bmp;Zombified Citizen - Braiiiiiiiin;;1;;;;;Effet 550;;;;;;
+Batman;CBA01;chamber;CBA01.bmp;geared up for action;;;;5;4;;Effet 555;batman;light;mind;lion;;
+Batman;CBA01v;chamber;CBA01v.bmp;batrang shot;;1;;6;5;;Effet 552;batman;light;mind;lion;;
+Batman;CBA02;chamber;CBA02.bmp;geared up for action;;;;5;4;;Effet 555;batman;light;mind;lion;;
+Batman;CBA02v;chamber;CBA02v.bmp;already in action;1;;1;9;6;;Effet 290;batman;light;mind;lion;;
+Batman;CBA03;chamber;CBA03.bmp;teaming up;;1;1;6;6;;Effet 551;batman;light;mind;lion;;
+Batman;CBA03v;chamber;CBA03v.bmp;batrang shot;;1;;6;5;;Effet 552;batman;light;mind;lion;;
+Batman;CBA04;chamber;CBA04.bmp;teaming up;;1;1;6;6;;Effet 551;batman;light;mind;lion;;
+Batman;CBA04v;chamber;CBA04v.bmp;already in action;1;;1;9;6;;Effet 290;batman;light;mind;lion;;
+Batman;CBA05;chamber;CBA05.bmp;geared up for action;;;;5;4;;Effet 555;batman;light;mind;lion;;
+Batman;CBA05v;chamber;CBA05v.bmp;the dark knight;;1;2;7;7;;Effet 556;batman;light;mind;lion;;
+Batman;CBA06;chamber;CBA06.bmp;teaming up;;1;1;6;6;;Effet 551;batman;light;mind;lion;;
+Batman;CBA06v;chamber;CBA06v.bmp;the dark knight;;1;2;7;7;;Effet 556;batman;light;mind;lion;;
+Batman;CBA07;chamber;CBA07.bmp;circus boy;;;;5;4;;Effet 86;robin;light;body;bull;;
+Batman;CBA07v;chamber;CBA07v.bmp;on bike;2;;;5;6;;Effet 557;robin;light;body;bull;;
+Batman;CBA08;chamber;CBA08.bmp;circus boy;;;;5;4;;Effet 86;robin;light;body;bull;;
+Batman;CBA08v;chamber;CBA08v.bmp;multiple kid;1;;1;6;5;;Effet 554;robin;light;body;bull;;
+Batman;CBA09;chamber;CBA09.bmp;official sidekick;;;;4;4;;Effet 553;robin;light;body;bull;;
+Batman;CBA09v;chamber;CBA09v.bmp;on bike;2;;;5;6;;Effet 557;robin;light;body;bull;;
+Batman;CBA10;chamber;CBA10.bmp;official sidekick;;;;4;4;;Effet 553;robin;light;body;bull;;
+Batman;CBA10v;chamber;CBA10v.bmp;multiple kid;1;;1;6;5;;Effet 554;robin;light;body;bull;;
+Batman;CBA11;chamber;CBA11.bmp;circus boy;;;;5;4;;Effet 86;robin;light;body;bull;;
+Batman;CBA11v;chamber;CBA11v.bmp;rocket robin;;;;6;6;;Effet 558;robin;light;body;bull;;
+Batman;CBA12;chamber;CBA12.bmp;official sidekick;;;;4;4;;Effet 553;robin;light;body;bull;;
+Batman;CBA12v;chamber;CBA12v.bmp;rocket robin;;;;6;6;;Effet 558;robin;light;body;bull;;

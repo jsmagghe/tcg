@@ -1,0 +1,36 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/carte.css') }}" />
+{% endblock %}
+
+
+
+{% block body %}
+    {{ parent() }}
+    <div class="col-lg-8">
+        <form method="post" id="selecteur">
+            {{ form_widget(form) }}
+            <input type="submit" value="Filtrer">
+            <input type="reset" value="Initialiser">
+        </form>
+    </div>
+    <div class="row">
+        <div class="row col-lg-8" id="cartes">
+            {{ include("::carte_ajax.html.twig") }}
+        </div>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}        
+            <div class="row col-lg-3" id="deck">
+                {{ include("::deck_ajax.html.twig") }}
+            </div>
+        {% endif %}        
+    </div>
+</div>
+
+
+{%endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

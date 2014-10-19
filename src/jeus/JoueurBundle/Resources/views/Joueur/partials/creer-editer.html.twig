@@ -1,0 +1,14 @@
+<tr class="form-creer-editer">
+
+        {% for key, f in form|slice(0,(form|length)-1) %}
+            <td>
+                {{ form_widget(f) }}
+                {% if loop.index < (form|length)-1 %}
+                    </td>
+                {% endif %}
+        {% endfor %}
+            {{ form_rest(form) }}
+            <span class="pull-right"><input type="submit" class="btn btn-sm btn-success btn-action" value="enregistrer"/></span>
+        </td>
+    </td>
+</tr>

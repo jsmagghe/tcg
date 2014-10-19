@@ -1,0 +1,41 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/carte.css') }}" />
+{% endblock %}
+
+
+
+{% block body %}
+    {{ parent() }}
+    <div class="col-lg-12 col-md-8">
+        <div class="row" id="joueurs-en-attente">
+            {% if Joueur.enAttenteQuickstrike==false %}
+                {% if Joueur.isDeckDisponible %}
+                    <a href="{{ path('jeus_'~jeu~'_joueur_enAttente')}}">Se placer dans la file d'attente</a>
+                {% endif %}    
+            {% else %}    
+                {% if liste|length==0 %}
+                    aucun joueur en attente
+                {% else %}
+                    {% for Joueur in liste %}
+                        <p>
+                            <a href="{{ path('jeus_'~jeu~'_joueur_affronter', {'id':Joueur.id})}}">{{ Joueur.nom }}</a>
+                        </p>
+                    {% endfor %}
+                {% endif %}        
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{%endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var url = {{ path('jeus_'~jeu~'_carte') }};
+    </script>
+{% endblock %}

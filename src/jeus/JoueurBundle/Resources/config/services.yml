@@ -1,0 +1,7 @@
+parameters:
+#    jeus_joueur.example.class: jeus\JoueurBundle\Example
+
+services:
+#    jeus_joueur.example:
+#        class: %jeus_joueur.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

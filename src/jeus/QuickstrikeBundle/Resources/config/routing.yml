@@ -1,0 +1,65 @@
+## Quickstrike ##
+jeus_quickstrike:
+    path:     /
+    defaults: { _controller: jeusQuickstrikeBundle:Quickstrike:index }
+    
+jeus_quickstrike_carte:
+    path:     /carte
+    defaults: { _controller: jeusQuickstrikeBundle:Carte:carte }
+    
+jeus_quickstrike_deck:
+    path:     /deck
+    defaults: { _controller: jeusQuickstrikeBundle:Deck:deckListe }
+    
+jeus_quickstrike_deck_creer:
+    path:     /deck/creer/
+    defaults: { _controller: jeusQuickstrikeBundle:Deck:deckCreer }
+    
+jeus_quickstrike_deck_editer:
+    path:     /deck/{id}
+    defaults: { _controller: jeusQuickstrikeBundle:Deck:deckEditer }
+    requirements:
+        id: \d+
+    
+jeus_quickstrike_deck_supprimer:
+    path:     /deck/supprimer/{id}
+    defaults: { _controller: jeusQuickstrikeBundle:Deck:deckSupprimer }
+    requirements:
+        id: \d+
+    options:
+        expose: true
+    
+jeus_quickstrike_deck_renommer:
+    path:     /deck/renommer/{id}
+    defaults: { _controller: jeusQuickstrikeBundle:Deck:deckRenommer }
+    requirements:
+        id: \d+
+    options:
+        expose: true
+    
+jeus_quickstrike_deck_ajouterCarte:
+    path:     /deck/ajouter-carte/{id}
+    defaults: { _controller: jeusQuickstrikeBundle:Deck:deckAjouterCarte }
+    requirements:
+        id: \d+
+    options:
+        expose: true
+    
+jeus_quickstrike_deck_supprimerCarte:
+    path:     /deck/supprimer-carte/{id}
+    defaults: { _controller: jeusQuickstrikeBundle:Deck:deckSupprimerCarte }
+    requirements:
+        id: \d+
+    options:
+        expose: true
+    
+jeus_quickstrike_joueur_enAttente:
+    path:     /joueur/en-attente
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:joueurEnAttente }
+    options:
+        expose: true
+    
+jeus_quickstrike_partie:
+    path:     /partie
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:partie }
+    

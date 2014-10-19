@@ -1,0 +1,19 @@
+jeus_joueur_joueur:
+    path:     /
+    defaults: { _controller: jeusJoueurBundle:Joueur:index }
+    
+jeus_joueur_joueur_creer:
+    path:     /creer
+    defaults: { _controller: jeusJoueurBundle:Joueur:creerEditer }
+    
+jeus_joueur_joueur_editer:
+    path:     /editer/{id}
+    defaults: { _controller: jeusJoueurBundle:Joueur:creerEditer }
+    requirements:
+        id: \d+
+    
+jeus_joueur_joueur_supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: jeusJoueurBundle:Joueur:supprimer }
+    requirements:
+        id: \d+

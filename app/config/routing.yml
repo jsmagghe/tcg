@@ -1,0 +1,30 @@
+login:
+    pattern:   /login
+    defaults:  { _controller: jeusJoueurBundle:Security:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout
+
+jeus_joueur:
+    resource: "@jeusJoueurBundle/Resources/config/routing.yml"
+    prefix:   /
+
+jeusbleach:
+    resource: "@jeusbleachBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+jeus_saint_seiya:
+    resource: "@jeusSaintSeiyaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+jeus_quickstrike:
+    resource: "@jeusQuickstrikeBundle/Resources/config/routing.yml"
+    prefix:   /quickstrike
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

@@ -59,6 +59,14 @@ jeus_quickstrike_joueur_enAttente:
     options:
         expose: true
     
+jeus_quickstrike_joueur_affronter:
+    path:     /joueur/affronter/{idJoueur}
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:joueurAffronter }
+    requirements:
+        idJoueur: \d+
+    options:
+        expose: true
+    
 jeus_quickstrike_partie:
     path:     /partie
     defaults: { _controller: jeusQuickstrikeBundle:Partie:partie }

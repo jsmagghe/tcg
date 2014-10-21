@@ -20,9 +20,6 @@
                 {% for Deck in liste %}
                     <p>
                         <a href="{{ path('jeus_'~jeu~'_deck_editer', {'id':Deck.id})}}">{{ Deck.nom }}</a>
-                        {% if Deck.valide %}
-                            <a href="{{ path('jeus_'~jeu~'_deck_enAttente', {'id':Deck.id})}}">En Attente</a>
-                        {% endif %}
                     </p>
                 {% endfor %}
             {% endif %}        

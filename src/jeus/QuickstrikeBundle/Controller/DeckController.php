@@ -14,6 +14,7 @@ use jeus\QuickstrikeBundle\Entity\CarteDeck;
 use jeus\QuickstrikeBundle\Form\SelecteurType;
 
 
+
 class DeckController extends Controller {
 
     public function deckListeAction() {
@@ -149,4 +150,34 @@ class DeckController extends Controller {
         return $this->redirect($this->generateUrl('jeus_quickstrike_carte'));
     }
 
+    public function rechercheCarte($Request) {
+        $tableau = array();
+        $em = $this->getDoctrine()->getManager();
+        $formSelecteur = $this->createForm(new SelecteurType());
+        $filtre = array();
+        $Request = $this->getRequest();
+        if ($Request->getMethod() == 'POST') {
+            $formSelecteur->bind($Request);
+
+            if ($formSelecteur->isValid()) {
+                $filtre['extension'] = $formSelecteur->get('extension')->getData();
+                $filtre['typeCarte'] = $formSelecteur->get('typeCarte')->getData();
+                $filtre['traitCarte'] = $formSelecteur->get('traitCarte')->getData();
+                $filtre['attaque'] = $formSelecteur->get('attaque')->getData();
+                $filtre['intercept'] = $formSelecteur->get('intercept')->getData();
+                $filtre['effet'] = $formSelecteur->get('effet')->getData();
+                $filtre['nombreCarte'] = $formSelecteur->get('nombreCarte')->getData();
+                $filtre['idChamber'] = $em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findOneByTag('CHAMBER')->getId();
+            }
+        }
+        $tableau['filtre'] = $filtre;
+        $tableau['form'] = $formSelecteur;
+        $tableau['Cartes'] = $em->getRepository('jeusQuickstrikeBundle:Carte')->findByCritere($filtre);
+
+
+        return $tableau;
+    }
+
+    
+    
 }

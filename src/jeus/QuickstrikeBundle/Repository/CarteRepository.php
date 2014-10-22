@@ -66,9 +66,9 @@ class CarteRepository extends EntityRepository {
         
         if (isset($criteres['effet'])) {
             if ($criteres['effet'] !== '') {
-                $QueryBuilder->innerJoin('c.effet', 'e')
+                $QueryBuilder->innerJoin('c.effet', 'eff')
                         //->andWhere('e.texte like "%' . strtolower($criteres['effet']). '%"');
-                        ->andWhere('e.texte LIKE :effet')
+                        ->andWhere('eff.texte LIKE :effet')
                         ->setParameter('effet', '%' . $criteres['effet']. '%');
             }
         }

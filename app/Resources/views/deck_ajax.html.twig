@@ -12,9 +12,9 @@
         {% if Deck.cartes is defined %}
             {% for carteDeck in Deck.cartes %}
                 <div class="col-lg-4">
-                    <img src="{{ asset('bundles/jeusquickstrike/images/'~carteDeck.carte.lien) }}" id="{{ carteDeck.id }}" class="carte_deck" 
+                    <img src="{{ asset('images/'~jeu|capitalize~'/'~carteDeck.carte.lien) }}" id="{{ carteDeck.id }}" class="carte_deck" 
                          {% for agrandi in carteDeck.carte.lienAgrandi %}
-                             data-agrandi-{{ loop.index }}="{{ asset('bundles/jeusquickstrike/images/'~agrandi) }}"
+                             data-agrandi-{{ loop.index }}="{{ asset('images/'~jeu|capitalize~'/'~agrandi) }}"
                          {% endfor %}
                          />
                 </div>

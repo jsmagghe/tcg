@@ -15,6 +15,15 @@ use jeus\QuickstrikeBundle\Entity\Deck;
 class PartieController extends Controller {
 
     public function partieAction() {
+        $Joueur = $this->get('security.context')->getToken()->getUser();
+        if (($Joueur === null) || ($Joueur=='anon.')) {
+            return $this->redirect($this->generateUrl('jeus_quickstrike_carte'));
+        } else {
+            return $this->render('::parties.html.twig', array(
+                        'Joueur' => $Joueur,
+                        'jeu' => 'quickstrike',
+            ));
+        }
 
         return $this->redirect($this->generateUrl('jeus_quickstrike_carte'));
     }

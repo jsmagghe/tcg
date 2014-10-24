@@ -14,14 +14,18 @@ use jeus\QuickstrikeBundle\Entity\Deck;
 
 class PartieController extends Controller {
 
-    public function partieAction() {
+    public function indexAction() {
         $Joueur = $this->get('security.context')->getToken()->getUser();
         if (($Joueur === null) || ($Joueur=='anon.')) {
             return $this->redirect($this->generateUrl('jeus_quickstrike_carte'));
         } else {
+            $em = $this->getDoctrine()->getManager();
+            $listeJoueur = $em->getRepository('jeusJoueurBundle:Joueur')->findBy(array('enAttenteQuickstrike' => true));
+            
             return $this->render('::parties.html.twig', array(
                         'Joueur' => $Joueur,
                         'jeu' => 'quickstrike',
+                        'liste' => $listeJoueur,
             ));
         }
 
@@ -30,15 +34,34 @@ class PartieController extends Controller {
     
     public function joueurEnAttenteAction() {
         $Joueur = $this->get('security.context')->getToken()->getUser();
-        $Decks = $em->getRepository('jeusQuickstrikeBundle:Deck')->findBy(array('Joueur' => $Joueur, 'valide' => true));
-        if ($Decks) {
-            $Joueur->setEnAttenteQuickstrike($Decks != null);
-        }
         $em = $this->getDoctrine()->getManager();
-        $em->persist($Joueur);
-        $em->flush();
-        return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));
+        $DeckValides = $em->getRepository('jeusQuickstrikeBundle:Deck')->findBy(array('joueur' => $Joueur, 'valide' => true));
+        if ($DeckValides != null) {
+            $Joueur->setEnAttenteQuickstrike(true);
+            $em->persist($Joueur);
+            $em->flush();
+        }
+        return $this->redirect($this->generateUrl('jeus_quickstrike_partie'));
     }
+
+    public function joueurAffronterAction($Adversaire) {
+        $Joueur = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        if (($Adversaire != null) && ($Joueur != null)) {
+            $Adversaire->setEnAttenteQuickstrike(false);
+            $Joueur->setEnAttenteQuickstrike(false);
+            $Partie = new Partie($Joueur,$Adversaire);
+            $em->persist($Joueur);
+            $em->persist($Adversaire);
+            $em->persist($Partie);
+            $em->flush();
+        }
+        return $this->redirect($this->generateUrl('jeus_quickstrike_partie'));
+    }
+    
+   /* public function ($Partie) {
+        
+    }*/
 
 
 }

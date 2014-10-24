@@ -91,23 +91,23 @@ class Joueur implements AdvancedUserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="enAttenteBleach", type="boolean", options={"default"=0})
+     * @ORM\Column(name="enAttenteBleach", type="boolean", options={"default"=0}, nullable=true)
      */
     private $enAttenteBleach;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="enAttenteQuickstrike", type="boolean", options={"default"=0})
+     * @ORM\Column(name="enAttenteQuickstrike", type="boolean", options={"default"=0}, nullable=true)
      */
     private $enAttenteQuickstrike;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="enAttenteSaintSeiya", type="boolean", options={"default"=0})
+     * @ORM\Column(name="isDeckQuickstrikeDisponible", type="boolean", options={"default"=0}, nullable=true)
      */
-    private $enAttenteSaintSeiya;
+    private $isDeckQuickstrikeDisponible;
 
     /**
      * @ORM\OneToMany(targetEntity="jeus\QuickstrikeBundle\Entity\Deck", mappedBy="joueur", cascade={"remove"})
@@ -115,6 +115,13 @@ class Joueur implements AdvancedUserInterface
      */
     protected $DeckQuickstrikes;
     
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="enAttenteSaintSeiya", type="boolean", options={"default"=0}, nullable=true)
+     */
+    private $enAttenteSaintSeiya;
+
     
     public function __construct()
     {
@@ -434,6 +441,29 @@ class Joueur implements AdvancedUserInterface
     public function getEnAttenteQuickstrike()
     {
         return $this->enAttenteQuickstrike;
+    }
+
+    /**
+     * Set isDeckQuickstrikeDisponible
+     *
+     * @param boolean $isDeckQuickstrikeDisponible
+     * @return Joueur
+     */
+    public function setIsDeckQuickstrikeDisponible($isDeckQuickstrikeDisponible)
+    {
+        $this->isDeckQuickstrikeDisponible = $isDeckQuickstrikeDisponible;
+
+        return $this;
+    }
+
+    /**
+     * Get isDeckQuickstrikeDisponible
+     *
+     * @return boolean 
+     */
+    public function getIsDeckQuickstrikeDisponible()
+    {
+        return $this->isDeckQuickstrikeDisponible;
     }
 
     /**

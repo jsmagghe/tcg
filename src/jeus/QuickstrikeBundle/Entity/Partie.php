@@ -26,6 +26,13 @@ class Partie
      *
      * @ORM\Column(name="pointJoueur1", type="smallint")
      */
+    private $pointVictoire;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pointJoueur1", type="smallint")
+     */
     private $pointJoueur1;
 
     /**
@@ -34,6 +41,13 @@ class Partie
      * @ORM\Column(name="pointJoueur2", type="smallint")
      */
     private $pointJoueur2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etape", type="string")
+     */
+    private $etape;
 
     /**
      * @ORM\ManyToOne(targetEntity="jeus\JoueurBundle\Entity\Joueur")
@@ -50,7 +64,17 @@ class Partie
      */
     protected $carteParties;
 
+    function __construct($joueur1, $joueur2)
+    {
+        $this->joueur1 = $joueur1;
+        $this->joueur2 = $joueur2;
+        $this->pointVictoire = 3;
+        $this->pointJoueur1 = 0;
+        $this->pointJoueur2 = 0;
+        $this->etape = 'choix deck';
+    }
 
+    
     /**
      * Get id
      *
@@ -59,6 +83,29 @@ class Partie
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set pointVictoire
+     *
+     * @param integer $pointVictoire
+     * @return Partie
+     */
+    public function setPointVictoire($pointVictoire)
+    {
+        $this->pointVictoire = $pointVictoire;
+
+        return $this;
+    }
+
+    /**
+     * Get pointVictoire
+     *
+     * @return integer 
+     */
+    public function getPointVictoire()
+    {
+        return $this->pointVictoire;
     }
 
     /**

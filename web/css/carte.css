@@ -25,3 +25,8 @@
 .div-carte:hover .div-agrandi{
     display:block;
 }
+
+#deck {
+    height:750px;
+    overflow:auto;
+}

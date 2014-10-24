@@ -69,5 +69,5 @@ jeus_quickstrike_joueur_affronter:
     
 jeus_quickstrike_partie:
     path:     /partie
-    defaults: { _controller: jeusQuickstrikeBundle:Partie:partie }
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:index }
     

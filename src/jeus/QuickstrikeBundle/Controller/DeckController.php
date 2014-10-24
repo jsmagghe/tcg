@@ -5,6 +5,7 @@ namespace jeus\QuickstrikeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 /* Entity */
 use jeus\QuickstrikeBundle\Entity\Deck;
@@ -43,7 +44,6 @@ class DeckController extends Controller {
             $Deck->setNom('Nouveau deck');
             $Deck->setJoueur($Joueur);
             $Deck->setValide(false);
-            $Deck->setEnAttente(false);
             $em->persist($Deck);
             $em->flush();
             return $this->redirect($this->generateUrl('jeus_quickstrike_deck_editer', array('id' => $Deck->getId())));
@@ -72,6 +72,10 @@ class DeckController extends Controller {
     }
 
     public function deckRenommerAction(Deck $Deck) {
+        $Joueur = $this->get('security.context')->getToken()->getUser();
+        if ($Deck->getJoueur()!=$Joueur) {
+            return Response(0);
+        }
         $Request = $this->getRequest();
         if ($Request->isXmlHttpRequest()) {
             $Deck->setNom($Request->request->get('nom'));
@@ -88,6 +92,10 @@ class DeckController extends Controller {
     }
 
     public function deckAjouterCarteAction(Deck $Deck) {
+        $Joueur = $this->get('security.context')->getToken()->getUser();
+        if ($Deck->getJoueur()!=$Joueur) {
+            return Response(0);
+        }
         $Request = $this->getRequest();
         if ($Request->isXmlHttpRequest()) {
             $idCarte = $Request->request->get('idCarte');
@@ -108,6 +116,12 @@ class DeckController extends Controller {
             $em->flush();
             $em->refresh($Deck);
             $avertissement = $Deck->isValide();
+            $em->flush();
+            $DeckValides = $em->getRepository('jeusQuickstrikeBundle:Deck')->findBy(array('joueur'=> $Joueur,'valide'=>true));
+            $Joueur->setIsDeckQuickstrikeDisponible($DeckValides!=null);
+            $em->persist($Joueur);
+            $em->flush();
+            
             if ($avertissement == '') 
                 $avertissement ='deck valide';
             return $this->render('::deck_ajax.html.twig', array(
@@ -122,6 +136,10 @@ class DeckController extends Controller {
     }
 
     public function deckSupprimerCarteAction(Deck $Deck) {
+        $Joueur = $this->get('security.context')->getToken()->getUser();
+        if ($Deck->getJoueur()!=$Joueur) {
+            return Response(0);
+        }
         $Request = $this->getRequest();
         if ($Request->isXmlHttpRequest()) {
             $idCarte = $Request->request->get('idCarte');
@@ -137,6 +155,12 @@ class DeckController extends Controller {
             $em->flush();
             $em->refresh($Deck);
             $avertissement = $Deck->isValide();
+            $em->flush();
+            $DeckValides = $em->getRepository('jeusQuickstrikeBundle:Deck')->findBy(array('joueur'=> $Joueur,'valide'=>true));
+            $Joueur->setIsDeckQuickstrikeDisponible($DeckValides!=null);
+            $em->persist($Joueur);
+            $em->flush();
+
             if ($avertissement == '') 
                 $avertissement ='deck valide';
             

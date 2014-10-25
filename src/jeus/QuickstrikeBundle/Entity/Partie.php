@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Partie
  *
  * @ORM\Table(name="quickstrike_partie")
- * @ORM\Entity(repositoryClass="jeus\QuickstrikeBundle\Partie\PartieRepository")
+ * @ORM\Entity(repositoryClass="jeus\QuickstrikeBundle\Repository\PartieRepository")
  */
 class Partie
 {
@@ -24,7 +24,7 @@ class Partie
     /**
      * @var integer
      *
-     * @ORM\Column(name="pointJoueur1", type="smallint")
+     * @ORM\Column(name="pointVictoire", type="smallint")
      */
     private $pointVictoire;
 

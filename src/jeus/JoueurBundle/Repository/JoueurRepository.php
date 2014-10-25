@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class JoueurRepository extends EntityRepository
 {
+    
+    public function findJoueurEnAttente($Joueur) {
+        return $this->createQueryBuilder('j')
+                ->where('j.enAttenteQuickstrike=true')
+                ->andWhere('j<>:Joueur')
+                ->setParameter('Joueur', $Joueur)
+                ->getQuery()
+                ->getResult();        
+    }
+    
+    
 }

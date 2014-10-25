@@ -59,6 +59,12 @@ jeus_quickstrike_joueur_enAttente:
     options:
         expose: true
     
+jeus_quickstrike_joueur_annulerAttente:
+    path:     /joueur/annuler-attente
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:joueurAnnulerAttente }
+    options:
+        expose: true
+    
 jeus_quickstrike_joueur_affronter:
     path:     /joueur/affronter/{idJoueur}
     defaults: { _controller: jeusQuickstrikeBundle:Partie:joueurAffronter }
@@ -67,7 +73,17 @@ jeus_quickstrike_joueur_affronter:
     options:
         expose: true
     
-jeus_quickstrike_partie:
-    path:     /partie
+jeus_quickstrike_parties:
+    path:     /parties
     defaults: { _controller: jeusQuickstrikeBundle:Partie:index }
+    
+jeus_quickstrike_partie_entrainement:
+    path:     /partie-entrainement
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:entrainement }
+    
+jeus_quickstrike_partie:
+    path:     /partie/{id}
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:partie }
+    requirements:
+        id: \d+
     

@@ -1,0 +1,31 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/carte.css') }}" />
+{% endblock %}
+
+
+
+{% block body %}
+    {{ parent() }}
+    <div id="echange">
+        {% if listeDeck is defined %}
+            {% for Deck in listeDeck %}
+                
+            {% endfor %}
+        {% endif%}
+    </div>
+    <div id="tapis">
+    </div>
+</div>
+
+
+{%endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var url = {{ path('jeus_'~jeu~'_carte') }};
+    </script>
+{% endblock %}

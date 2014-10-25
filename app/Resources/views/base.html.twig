@@ -32,7 +32,7 @@
                             <li class="active"><a href="{#{ path('jeus_bleach')}#}">Bleach</a></li>
                             <li class="active"><a href="{{ path('jeus_quickstrike')}}">Quickstrike</a></li>
                             <li class="active"><a href="{#{ path('jeus_saintseiya')}#}">Saint seiya</a></li>
-                            {% else %}
+                        {% else %}
                                 {% if jeu!='bleach' %}
                                 <li class="active"><a href="{#{ path('jeus_bleach')}#}">Bleach</a></li>
                                 {% endif %}
@@ -42,12 +42,19 @@
                                 {% if jeu!='saintseiya' %}
                                 <li class="active"><a href="{#{ path('jeus_saintseiya')}#}">Saint seiya</a></li>
                                 {% endif %}
-                            <li class="active"><a href="{{ path('jeus_'~jeu~'_carte')}}">Cartes</a></li>
+                                <li class="active"><a href="{{ path('jeus_'~jeu~'_carte')}}">Cartes</a></li>
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 <li><a href="{{ path('jeus_'~jeu~'_deck')}}">Decks</a></li>
-                                <li><a href="{{ path('jeus_'~jeu~'_partie')}}">Parties</a></li>
+                                <li><a href="{{ path('jeus_'~jeu~'_parties')}}">Parties</a></li>
                                 {% endif %}
-                            {% endif %}
+                                {% if ((app.user is defined) and (
+                                    ((jeu=='bleach') and (app.user.isDeckBleachDisponible))
+                                    or ((jeu=='quickstrike') and (app.user.isDeckQuickstrikeDisponible))
+                                    or ((jeu=='saintseiya') and (app.user.isDeckSaintSeiyaDisponible))
+                                )) %}
+                                    <li><a href="{{ path('jeus_'~jeu~'_partie_entrainement')}}">Entrainement</a></li>
+                                {% endif %}
+                        {% endif %}
                         <li>
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 <a href="{{ path('logout') }}">{{ app.user.username }} - Déconnexion</a>

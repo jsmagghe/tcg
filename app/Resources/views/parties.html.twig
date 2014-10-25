@@ -11,35 +11,40 @@
 {% block body %}
     {{ parent() }}
     <div class="col-lg-12 col-md-8">
-        <div class="row" id="joueurs-en-attente">
-            {% if Joueur.enAttenteQuickstrike==false %}
+        <div class="row" id="attente">
+            
+            {% if (
+                ((jeu=='bleach') and (Joueur.enAttenteBleach==false))
+                or ((jeu=='quickstrike') and (Joueur.enAttenteQuickstrike==false))
+                or ((jeu=='saintseiya') and (Joueur.enAttenteSaintSeiya==false))
+            ) %}
                 {% if (
                     ((jeu=='bleach') and (Joueur.isDeckBleachDisponible))
                     or ((jeu=='quickstrike') and (Joueur.isDeckQuickstrikeDisponible))
                     or ((jeu=='saintseiya') and (Joueur.isDeckSaintSeiyaDisponible))
                 ) %}
                     <a href="{{ path('jeus_'~jeu~'_joueur_enAttente')}}">Se placer dans la file d'attente</a>
-                {% endif %}    
+                {% endif %}
             {% else %}    
-                {% if liste|length==0 %}
-                    aucun joueur en attente
-                {% else %}
-                    {% for Joueur in liste %}
-                        <p>
-                            <a href="{{ path('jeus_'~jeu~'_joueur_affronter', {'id':Joueur.id})}}">{{ Joueur.nom }}</a>
-                        </p>
-                    {% endfor %}
-                {% endif %}        
-            {% endif %}
+                <a href="{{ path('jeus_'~jeu~'_joueur_annulerAttente')}}">Sortir de la file d'attente</a>
+            {% endif %}    
+        </div>
+        <div class="row" id="joueurs-en-attente">
+            {% if liste|length==0 %}
+                aucun joueur en attente
+            {% else %}
+                {% for Joueur in liste %}
+                    <p>
+                        <a href="{{ path('jeus_'~jeu~'_joueur_affronter', {'idJoueur':Joueur.id})}}">{{ Joueur.username }}</a>
+                    </p>
+                {% endfor %}
+            {% endif %}        
         </div>
     </div>
 </div>
 
 
-{%endblock %}
+{% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script>
-        var url = {{ path('jeus_'~jeu~'_carte') }};
-    </script>
 {% endblock %}

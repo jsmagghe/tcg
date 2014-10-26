@@ -31,23 +31,30 @@ class Partie
     /**
      * @var integer
      *
-     * @ORM\Column(name="pointJoueur1", type="smallint")
+     * @ORM\Column(name="Joueur1Point", type="smallint")
      */
-    private $pointJoueur1;
+    private $Joueur1Point;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="pointJoueur2", type="smallint")
+     * @ORM\Column(name="Joueur2Point", type="smallint")
      */
-    private $pointJoueur2;
+    private $Joueur2Point;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="etape", type="string")
+     * @ORM\Column(name="Joueur1Etape", type="string")
      */
-    private $etape;
+    private $Joueur1Etape;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Joueur2Etape", type="string")
+     */
+    private $Joueur2Etape;
 
     /**
      * @ORM\ManyToOne(targetEntity="jeus\JoueurBundle\Entity\Joueur")
@@ -60,18 +67,93 @@ class Partie
     protected $joueur2;  // en attente de la partie joueur
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="joueurActif", type="smallint")
+     */
+    private $joueurActif;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Joueur1ChamberCharge", type="boolean")
+     */
+    private $Joueur1ChamberCharge;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Joueur1DeckCharge", type="boolean")
+     */
+    private $Joueur1DeckCharge;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Joueur1DiscardCharge", type="boolean")
+     */
+    private $Joueur1DiscardCharge;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Joueur1ZoneEnCours", type="smallint")
+     */
+    private $Joueur1ZoneEnCours;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Joueur2ChamberCharge", type="boolean")
+     */
+    private $Joueur2ChamberCharge;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Joueur2DeckCharge", type="boolean")
+     */
+    private $Joueur2DeckCharge;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Joueur2DiscardCharge", type="boolean")
+     */
+    private $Joueur2DiscardCharge;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Joueur2ZoneEnCours", type="smallint")
+     */
+    private $Joueur2ZoneEnCours;
+
+    /**
      * @ORM\ManyToOne(targetEntity="jeus\QuickstrikeBundle\Entity\CartePartie")
      */
     protected $carteParties;
 
     function __construct($joueur1, $joueur2)
     {
-        $this->joueur1 = $joueur1;
-        $this->joueur2 = $joueur2;
         $this->pointVictoire = 3;
-        $this->pointJoueur1 = 0;
-        $this->pointJoueur2 = 0;
-        $this->etape = 'choix deck';
+        $this->joueurActif = rand()%2;
+        
+        $this->joueur1 = $joueur1;
+        $this->Joueur1Point = 0;
+        $this->Joueur1Etape = 'choix deck';
+        $this->Joueur1ChamberCharge = false;
+        $this->Joueur1DeckCharge = false;
+        $this->Joueur1DiscardCharge = false;
+        $this->Joueur1ZoneEnCours = 0;
+        
+        $this->joueur2 = $joueur2;
+        $this->Joueur2Point = 0;
+        $this->Joueur2Etape = 'choix deck';
+        $this->Joueur2ChamberCharge = false;
+        $this->Joueur2DeckCharge = false;
+        $this->Joueur2DiscardCharge = false;
+        $this->Joueur2ZoneEnCours = 0;
     }
 
     
@@ -236,5 +318,23 @@ class Partie
         return $this->joueur2;
     }
 		
+    public function getEtapeJoueur1() {
+        return $this->etapeJoueur1;
+    }
+
+    public function setEtapeJoueur1($etapeJoueur1) {
+        $this->etapeJoueur1 = $etapeJoueur1;
+        return $this;
+    }
+
+    public function getEtapeJoueur2() {
+        return $this->etapeJoueur2;
+    }
+
+    public function setEtapeJoueur2($etapeJoueur2) {
+        $this->etapeJoueur2 = $etapeJoueur2;
+        return $this;
+    }
+
 
 }

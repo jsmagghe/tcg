@@ -73,10 +73,11 @@ class CarteRepository extends EntityRepository {
             }
         }
 
-        if ((isset($criteres['nombreCarte'])) && ((int) $criteres['nombreCarte'] != 0))
+        if ((isset($criteres['nombreCarte'])) && ((int) $criteres['nombreCarte'] != 0)) {
             $QueryBuilder->setMaxResults((int) $criteres['nombreCarte']);
-        elseif (!isset($criteres['nombreCarte']))
-            $QueryBuilder->setMaxResults(8);
+        } elseif (!isset($criteres['nombreCarte'])) {
+            //$QueryBuilder->setMaxResults(8);
+        }
 
         if (isset($criteres['page']))
             $QueryBuilder->setFirstResults((int) $criteres['page'] * 9 + 1);

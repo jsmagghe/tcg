@@ -46,13 +46,14 @@
                             <li><a href="{{ path('jeus_'~jeu~'_deck')}}">Decks</a></li>
                             <li><a href="{{ path('jeus_'~jeu~'_parties')}}">Parties</a></li>
                             {% endif %}
-                            {# {% if ((app.user is defined) and (
+                            {% if ((app.user is defined) and (app.user is not null)
+                                and (
                                 ((jeu=='bleach') and (app.user.isDeckBleachDisponible))
                                 or ((jeu=='quickstrike') and (app.user.isDeckQuickstrikeDisponible))
                                 or ((jeu=='saintseiya') and (app.user.isDeckSaintSeiyaDisponible))
                             )) %}
                                 <li><a href="{{ path('jeus_'~jeu~'_partie_entrainement')}}">Entrainement</a></li>
-                            {% endif %} #}
+                            {% endif %}
                         {% endif %}
                         <li>
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}

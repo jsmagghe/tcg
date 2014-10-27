@@ -53,7 +53,7 @@ class SelecteurType extends AbstractType {
                     'required' => false,
                     'mapped' => false
                 ))
-                ->add('nombreCarte', 'choice', array(
+                /*->add('nombreCarte', 'choice', array(
                     'label' => 'Nombre de carte',
                     'multiple' => false,
                     'expanded' => false,
@@ -68,7 +68,7 @@ class SelecteurType extends AbstractType {
                         200 => '200 cartes',
                         0 => 'toutes les cartes',
                     ),
-                ))
+                ))*/
         ;
     }
 

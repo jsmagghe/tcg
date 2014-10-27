@@ -53,7 +53,7 @@ class CarteController extends Controller {
                 $filtre['attaque'] = $formSelecteur->get('attaque')->getData();
                 $filtre['intercept'] = $formSelecteur->get('intercept')->getData();
                 $filtre['effet'] = $formSelecteur->get('effet')->getData();
-                $filtre['nombreCarte'] = $formSelecteur->get('nombreCarte')->getData();
+                //$filtre['nombreCarte'] = $formSelecteur->get('nombreCarte')->getData();
                 $filtre['idChamber'] = $em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findOneByTag('CHAMBER')->getId();
             }
         }

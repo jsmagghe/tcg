@@ -98,6 +98,13 @@ class Joueur implements AdvancedUserInterface
     /**
      * @var boolean
      *
+     * @ORM\Column(name="isDeckBleachDisponible", type="boolean", options={"default"=0}, nullable=true)
+     */
+    private $isDeckBleachDisponible;
+
+    /**
+     * @var boolean
+     *
      * @ORM\Column(name="enAttenteQuickstrike", type="boolean", options={"default"=0}, nullable=true)
      */
     private $enAttenteQuickstrike;
@@ -121,6 +128,13 @@ class Joueur implements AdvancedUserInterface
      * @ORM\Column(name="enAttenteSaintSeiya", type="boolean", options={"default"=0}, nullable=true)
      */
     private $enAttenteSaintSeiya;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isDeckSaintSeiyaDisponible", type="boolean", options={"default"=0}, nullable=true)
+     */
+    private $isDeckSaintSeiyaDisponible;
 
     
     public function __construct()

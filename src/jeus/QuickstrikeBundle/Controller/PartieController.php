@@ -75,7 +75,6 @@ class PartieController extends Controller {
         $em = $this->getDoctrine()->getManager();
         if ($Joueur != null) {
             $Partie = new Partie($Joueur,$Joueur);
-            $Partie->setPointVictoire(3);
             $em->persist($Partie);
             $em->flush();
         }

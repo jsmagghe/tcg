@@ -2,19 +2,18 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
-
-        <title>{% block title %}Cartes online!{% endblock %}</title>
+        {% if jeu is defined %}
+            <link rel="shortcut icon" href="{{ asset('images/icon-'~jeu~'.png') }}">
+        {% endif %}
+        <title>{% block title %}Cartes online !{% endblock %}</title>
         {% block stylesheets %}
-            <!-- Bootstrap core CSS -->
             <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+            <link href="{{ asset('css/default.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/style-global.css') }}" rel="stylesheet">
         {% endblock %}
-
     </head>
-
-    <body>
+    <body id="{% block idBody %}global{% endblock %}">
         <!--<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">-->
         <div class="navbar navbar-inverse navbar-static-top" role="navigation">
             <div class="container">
@@ -33,27 +32,27 @@
                             <li class="active"><a href="{{ path('jeus_quickstrike')}}">Quickstrike</a></li>
                             <li class="active"><a href="{#{ path('jeus_saintseiya')}#}">Saint seiya</a></li>
                         {% else %}
-                                {% if jeu!='bleach' %}
-                                <li class="active"><a href="{#{ path('jeus_bleach')}#}">Bleach</a></li>
-                                {% endif %}
-                                {% if jeu!='quickstrike' %}
-                                <li class="active"><a href="{{ path('jeus_quickstrike')}}">Quickstrike</a></li>
-                                {% endif %}
-                                {% if jeu!='saintseiya' %}
-                                <li class="active"><a href="{#{ path('jeus_saintseiya')}#}">Saint seiya</a></li>
-                                {% endif %}
-                                <li class="active"><a href="{{ path('jeus_'~jeu~'_carte')}}">Cartes</a></li>
-                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                <li><a href="{{ path('jeus_'~jeu~'_deck')}}">Decks</a></li>
-                                <li><a href="{{ path('jeus_'~jeu~'_parties')}}">Parties</a></li>
-                                {% endif %}
-                                {% if ((app.user is defined) and (
-                                    ((jeu=='bleach') and (app.user.isDeckBleachDisponible))
-                                    or ((jeu=='quickstrike') and (app.user.isDeckQuickstrikeDisponible))
-                                    or ((jeu=='saintseiya') and (app.user.isDeckSaintSeiyaDisponible))
-                                )) %}
-                                    <li><a href="{{ path('jeus_'~jeu~'_partie_entrainement')}}">Entrainement</a></li>
-                                {% endif %}
+                            {% if jeu!='bleach' %}
+                            <li class="active"><a href="{#{ path('jeus_bleach')}#}">Bleach</a></li>
+                            {% endif %}
+                            {% if jeu!='quickstrike' %}
+                            <li class="active"><a href="{{ path('jeus_quickstrike')}}">Quickstrike</a></li>
+                            {% endif %}
+                            {% if jeu!='saintseiya' %}
+                            <li class="active"><a href="{#{ path('jeus_saintseiya')}#}">Saint seiya</a></li>
+                            {% endif %}
+                            <li class="active"><a href="{{ path('jeus_'~jeu~'_carte')}}">Cartes</a></li>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li><a href="{{ path('jeus_'~jeu~'_deck')}}">Decks</a></li>
+                            <li><a href="{{ path('jeus_'~jeu~'_parties')}}">Parties</a></li>
+                            {% endif %}
+                            {# {% if ((app.user is defined) and (
+                                ((jeu=='bleach') and (app.user.isDeckBleachDisponible))
+                                or ((jeu=='quickstrike') and (app.user.isDeckQuickstrikeDisponible))
+                                or ((jeu=='saintseiya') and (app.user.isDeckSaintSeiyaDisponible))
+                            )) %}
+                                <li><a href="{{ path('jeus_'~jeu~'_partie_entrainement')}}">Entrainement</a></li>
+                            {% endif %} #}
                         {% endif %}
                         <li>
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -66,22 +65,18 @@
                 </div><!--/.nav-collapse -->
             </div>
         </div>
-
-
         <div>
-        {% block body %}{% endblock %}
-    </div><!-- /.container -->
-
-
-    {% block javascripts %}
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-        <script src="{{ asset('js/fonction.js') }}"></script>
-        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-    {% endblock %}
-</body>
+            {% block body %}{% endblock %}
+        </div><!-- /.container -->
+        {% block javascripts %}
+            <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            <script src="{{ asset('js/global.js') }}"></script>
+            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script src="{{ asset('js/fonction.js') }}"></script>
+            <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        {% endblock %}
+    </body>
 </html>

@@ -23,11 +23,13 @@ class PartieController extends Controller {
             $em = $this->getDoctrine()->getManager();
             //$listeJoueur = $em->getRepository('jeusJoueurBundle:Joueur')->findBy(array('enAttenteQuickstrike' => true));
             $listeJoueur = $em->getRepository('jeusJoueurBundle:Joueur')->findJoueurEnAttente($Joueur);
+            $listePartie = $em->getRepository('jeusQuickstrikeBundle:Partie')->findPartieByJoueur($Joueur);
             
             return $this->render('::parties.html.twig', array(
                         'Joueur' => $Joueur,
                         'jeu' => 'quickstrike',
                         'liste' => $listeJoueur,
+                        'listePartie' => $listePartie,
             ));
         }
 
@@ -82,9 +84,18 @@ class PartieController extends Controller {
     }
     
     public function partieAction(Partie $Partie) {
-        if ($Partie->getEtape()=='choix deck') {
+        $Joueur = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        if (($Joueur == $Partie->getJoueur1()) || ($Joueur == $Partie->getJoueur2())) {
             
-        }
+            
+            return $this->render('::partie.html.twig', array(
+                        'Partie' => $Partie,
+                        'jeu' => 'quickstrike',
+            ));
+        } else {
+            return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));
+        }        
     }
 
 

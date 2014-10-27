@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class PartieRepository extends EntityRepository
 {
+    public function findPartieByJoueur($Joueur) {
+        return $this->createQueryBuilder('p')
+                ->where('p.joueur1=:Joueur')
+                ->orWhere('p.joueur2=:Joueur')
+                ->setParameter('Joueur', $Joueur)
+                ->getQuery()
+                ->getResult();        
+    }
+    
 }

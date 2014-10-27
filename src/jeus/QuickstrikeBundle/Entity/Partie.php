@@ -335,6 +335,123 @@ class Partie
         $this->etapeJoueur2 = $etapeJoueur2;
         return $this;
     }
+    public function getJoueur1Point() {
+        return $this->Joueur1Point;
+    }
+
+    public function getJoueur2Point() {
+        return $this->Joueur2Point;
+    }
+
+    public function getJoueur1Etape() {
+        return $this->Joueur1Etape;
+    }
+
+    public function getJoueur2Etape() {
+        return $this->Joueur2Etape;
+    }
+
+    public function getJoueurActif() {
+        return $this->joueurActif;
+    }
+
+    public function getJoueur1ChamberCharge() {
+        return $this->Joueur1ChamberCharge;
+    }
+
+    public function getJoueur1DeckCharge() {
+        return $this->Joueur1DeckCharge;
+    }
+
+    public function getJoueur1DiscardCharge() {
+        return $this->Joueur1DiscardCharge;
+    }
+
+    public function getJoueur1ZoneEnCours() {
+        return $this->Joueur1ZoneEnCours;
+    }
+
+    public function getJoueur2ChamberCharge() {
+        return $this->Joueur2ChamberCharge;
+    }
+
+    public function getJoueur2DeckCharge() {
+        return $this->Joueur2DeckCharge;
+    }
+
+    public function getJoueur2DiscardCharge() {
+        return $this->Joueur2DiscardCharge;
+    }
+
+    public function getJoueur2ZoneEnCours() {
+        return $this->Joueur2ZoneEnCours;
+    }
+
+    public function setJoueur1Point($Joueur1Point) {
+        $this->Joueur1Point = $Joueur1Point;
+        return $this;
+    }
+
+    public function setJoueur2Point($Joueur2Point) {
+        $this->Joueur2Point = $Joueur2Point;
+        return $this;
+    }
+
+    public function setJoueur1Etape($Joueur1Etape) {
+        $this->Joueur1Etape = $Joueur1Etape;
+        return $this;
+    }
+
+    public function setJoueur2Etape($Joueur2Etape) {
+        $this->Joueur2Etape = $Joueur2Etape;
+        return $this;
+    }
+
+    public function setJoueurActif($joueurActif) {
+        $this->joueurActif = $joueurActif;
+        return $this;
+    }
+
+    public function setJoueur1ChamberCharge($Joueur1ChamberCharge) {
+        $this->Joueur1ChamberCharge = $Joueur1ChamberCharge;
+        return $this;
+    }
+
+    public function setJoueur1DeckCharge($Joueur1DeckCharge) {
+        $this->Joueur1DeckCharge = $Joueur1DeckCharge;
+        return $this;
+    }
+
+    public function setJoueur1DiscardCharge($Joueur1DiscardCharge) {
+        $this->Joueur1DiscardCharge = $Joueur1DiscardCharge;
+        return $this;
+    }
+
+    public function setJoueur1ZoneEnCours($Joueur1ZoneEnCours) {
+        $this->Joueur1ZoneEnCours = $Joueur1ZoneEnCours;
+        return $this;
+    }
+
+    public function setJoueur2ChamberCharge($Joueur2ChamberCharge) {
+        $this->Joueur2ChamberCharge = $Joueur2ChamberCharge;
+        return $this;
+    }
+
+    public function setJoueur2DeckCharge($Joueur2DeckCharge) {
+        $this->Joueur2DeckCharge = $Joueur2DeckCharge;
+        return $this;
+    }
+
+    public function setJoueur2DiscardCharge($Joueur2DiscardCharge) {
+        $this->Joueur2DiscardCharge = $Joueur2DiscardCharge;
+        return $this;
+    }
+
+    public function setJoueur2ZoneEnCours($Joueur2ZoneEnCours) {
+        $this->Joueur2ZoneEnCours = $Joueur2ZoneEnCours;
+        return $this;
+    }
+
 
 
 }

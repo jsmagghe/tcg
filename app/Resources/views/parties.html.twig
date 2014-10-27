@@ -40,6 +40,17 @@
                 {% endfor %}
             {% endif %}        
         </div>
+        <div class="row" id="parties">
+            {% if listePartie|length==0 %}
+                aucun partie en cours
+            {% else %}
+                {% for Partie in listePartie %}
+                    <p>
+                        <a href="{{ path('jeus_'~jeu~'_partie', {'id':Partie.id})}}">{{ Partie.id }} : {{ Partie.Joueur1.username }} - {{ Partie.Joueur1.username }}</a>
+                    </p>
+                {% endfor %}
+            {% endif %}        
+        </div>
     </div>
 </div>
 

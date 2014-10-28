@@ -76,7 +76,7 @@ class Partie
     /**
      * @var integer
      *
-     * @ORM\Column(name="joueurBas", type="smallint")
+     * @ORM\Column(name="joueurBas", type="smallint", nullable=true)
      */
     private $joueurBas;
 
@@ -249,7 +249,7 @@ class Partie
      * @param \jeus\QuickstrikeBundle\Entity\CartePartie $cartePartie
      * @return Partie
      */
-    public function addEtatCarte(\jeus\QuickstrikeBundle\Entity\CartePartie $cartePartie)
+    public function addCartePartie(\jeus\QuickstrikeBundle\Entity\CartePartie $cartePartie)
     {
         $this->carteParties[] = $cartePartie;
 
@@ -262,7 +262,7 @@ class Partie
      * @param \jeus\QuickstrikeBundle\Entity\CartePartie $cartePartie
      * @return Partie
      */
-    public function removeEtatCarte(\jeus\QuickstrikeBundle\Entity\CartePartie $cartePartie)
+    public function removeCartePartie(\jeus\QuickstrikeBundle\Entity\CartePartie $cartePartie)
     {
         $this->carteParties->removeElement($cartePartie);
 		
@@ -274,7 +274,7 @@ class Partie
      *
      * @return \jeus\QuickstrikeBundle\Entity\CartePartie
      */
-    public function getEtatCartes()
+    public function getCarteParties()
     {
         return $this->carteParties;
     }
@@ -465,8 +465,30 @@ class Partie
 
     public function setJoueurBas($joueurBas) {
         $this->joueurBas = $joueurBas;
+        return $this;
     }
 
-
+    public function getPartieAffichee($Joueur) {
+        $PartieAffichee = array();
+        
+        if (($this->getJoueurBas()==2) && ($this->getJoueur2()==$Joueur)) {
+            foreach($this->getCarteParties() as $CartePartie) {
+                if ($CartePartie->getJoueur()==$this->getJoueur2()) {
+                    //$PartieAffichee[2] = 
+                } else {
+                    //$PartieAffichee[1] = 
+                }
+            }
+        } else {
+            foreach($this->getCarteParties() as $CartePartie) {
+                if ($CartePartie->getJoueur()==$this->getJoueur1()) {
+                    //$PartieAffichee[1] = 
+                } else {
+                    //$PartieAffichee[2] = 
+                }
+            }
+        }
+        return $PartieAffichee;
+    }
 
 }

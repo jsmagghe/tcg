@@ -87,11 +87,18 @@ class PartieController extends Controller {
         $Joueur = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
         if (($Joueur == $Partie->getJoueur1()) || ($Joueur == $Partie->getJoueur2())) {
+            if ($Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId()) {
+                $JoueurBas = ($Partie->getJoueurBas() != null)?$Partie->getJoueurBas():1;
+            } else {
+                $JoueurBas = ($Joueur == $Partie->getJoueur1())?1:2;
+            }
+            
             
             
             return $this->render('::partie.html.twig', array(
                         'Partie' => $Partie,
                         'jeu' => 'quickstrike',
+                        'JoueurBas' => $JoueurBas,
             ));
         } else {
             return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));

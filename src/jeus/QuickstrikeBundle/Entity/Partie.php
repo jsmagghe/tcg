@@ -59,12 +59,12 @@ class Partie
     /**
      * @ORM\ManyToOne(targetEntity="jeus\JoueurBundle\Entity\Joueur")
      */
-    protected $joueur1;  // en attente de la partie joueur
+    protected $joueur1; 
 
     /**
      * @ORM\ManyToOne(targetEntity="jeus\JoueurBundle\Entity\Joueur")
      */
-    protected $joueur2;  // en attente de la partie joueur
+    protected $joueur2; 
 
     /**
      * @var integer
@@ -72,6 +72,13 @@ class Partie
      * @ORM\Column(name="joueurActif", type="smallint")
      */
     private $joueurActif;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="joueurBas", type="smallint")
+     */
+    private $joueurBas;
 
     /**
      * @var boolean
@@ -450,6 +457,14 @@ class Partie
     public function setJoueur2ZoneEnCours($Joueur2ZoneEnCours) {
         $this->Joueur2ZoneEnCours = $Joueur2ZoneEnCours;
         return $this;
+    }
+
+    public function getJoueurBas() {
+        return $this->joueurBas;
+    }
+
+    public function setJoueurBas($joueurBas) {
+        $this->joueurBas = $joueurBas;
     }
 
 

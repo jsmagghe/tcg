@@ -136,9 +136,9 @@ class PartieController extends Controller {
             
             $choixPossible = array();
             if ($JoueurBas==1) {
-                $etape = $Partie->getEtapeJoueur1();
+                $etape = $Partie->getJoueur1Etape();
             } else {
-                $etape = $Partie->getEtapeJoueur2();
+                $etape = $Partie->getJoueur2Etape();
             }
                 
             switch ($etape) {
@@ -152,9 +152,10 @@ class PartieController extends Controller {
             }                
             
             return $this->render('::partie.html.twig', array(
-                        'Partie' => $Partie->getPartieAffichee(),
+                        'Partie' => $Partie->getPartieAffichee($Joueur),
                         'jeu' => 'quickstrike',
                         'inversable' => $Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId(),
+                        'listeDecks' => (isset($Decks)) ? $Decks : null,
             ));
         } else {
             return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));

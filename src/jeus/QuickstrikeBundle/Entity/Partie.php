@@ -325,23 +325,6 @@ class Partie
         return $this->joueur2;
     }
 		
-    public function getEtapeJoueur1() {
-        return $this->etapeJoueur1;
-    }
-
-    public function setEtapeJoueur1($etapeJoueur1) {
-        $this->etapeJoueur1 = $etapeJoueur1;
-        return $this;
-    }
-
-    public function getEtapeJoueur2() {
-        return $this->etapeJoueur2;
-    }
-
-    public function setEtapeJoueur2($etapeJoueur2) {
-        $this->etapeJoueur2 = $etapeJoueur2;
-        return $this;
-    }
     public function getJoueur1Point() {
         return $this->Joueur1Point;
     }
@@ -470,21 +453,29 @@ class Partie
 
     public function getPartieAffichee($Joueur) {
         $PartieAffichee = array();
+        $PartieAffichee['id'] = $this->getId();
         
-        if (($this->getJoueurBas()==2) && ($this->getJoueur2()==$Joueur)) {
-            foreach($this->getCarteParties() as $CartePartie) {
-                if ($CartePartie->getJoueur()==$this->getJoueur2()) {
-                    //$PartieAffichee[2] = 
-                } else {
-                    //$PartieAffichee[1] = 
+        if ($this->getCarteParties()!=null) {
+            if (
+                    ($this->getJoueur2()==$Joueur)
+                    && (
+                        ($this->getJoueurBas()==2) || ($this->getJoueur1()!=$Joueur)
+                        )
+                ){
+                foreach($this->getCarteParties() as $CartePartie) {
+                    if ($CartePartie->getJoueur()==$this->getJoueur2()) {
+                        //$PartieAffichee[2] = 
+                    } else {
+                        //$PartieAffichee[1] = 
+                    }
                 }
-            }
-        } else {
-            foreach($this->getCarteParties() as $CartePartie) {
-                if ($CartePartie->getJoueur()==$this->getJoueur1()) {
-                    //$PartieAffichee[1] = 
-                } else {
-                    //$PartieAffichee[2] = 
+            } else {
+                foreach($this->getCarteParties() as $CartePartie) {
+                    if ($CartePartie->getJoueur()==$this->getJoueur1()) {
+                        //$PartieAffichee[1] = 
+                    } else {
+                        //$PartieAffichee[2] = 
+                    }
                 }
             }
         }

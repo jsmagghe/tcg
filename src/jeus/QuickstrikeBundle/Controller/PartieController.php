@@ -107,17 +107,10 @@ class PartieController extends Controller {
         $Joueur = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
         if (($Joueur == $Partie->getJoueur1()) && ($Joueur == $Partie->getJoueur2())) {
-            if ($Partie->getJoueurBas()==2) {
-                $JoueurVise = $Partie->getJoueur2();
-            } else {
-                $JoueurVise = $Partie->getJoueur1();
-            }
-            
             $Deck = $em->getRepository('jeusQuickstrikeBundle:Deck')->find($idDeck);
-            $Partie->setDeck($Deck,$JoueurVise);
+            $Partie->choixDeck($Deck,$Joueur);
             $em->persist($Partie);
             $em->flush();    
-            
             return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id' => $Partie->getId())));
         } else {
             return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));

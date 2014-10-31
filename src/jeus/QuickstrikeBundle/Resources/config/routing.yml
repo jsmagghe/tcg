@@ -87,3 +87,16 @@ jeus_quickstrike_partie:
     requirements:
         id: \d+
     
+jeus_quickstrike_partie_inverser:
+    path:     /partie/{id}/inverser
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:inverser }
+    requirements:
+        id: \d+
+    
+jeus_quickstrike_partie_choix_deck:
+    path:     /partie/{id}/choix-deck/{idDeck}
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:choixDeck }
+    requirements:
+        id: \d+
+        idDeck: \d+
+    

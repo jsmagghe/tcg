@@ -10,13 +10,16 @@
 
 {% block body %}
     {{ parent() }}
-    <div id="echange">
-        {% if listeDeck is defined %}
-            {% for Deck in listeDeck %}
-                
+    {% if (inversable is defined) and (inversable==true) %}
+        <a href="{{ path('jeus_'~jeu~'_partie_inverser', {'id':Partie.id})}}">inverser affichage</a>
+    {% endif %}
+    {% if (listeDecks is defined) and (listeDecks|length>0) %}
+        <div id="liste-deck">
+            {% for Deck in listeDecks %}
+                <a href="{{ path('jeus_'~jeu~'_partie_choix_deck', {'id':Partie.id, 'idDeck':Deck.id})}}">{{ Deck.nom }}</a>
             {% endfor %}
-        {% endif%}
-    </div>
+        </div>
+    {% endif %}
     <div id="tapis">
     </div>
 </div>

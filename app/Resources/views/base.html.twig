@@ -8,7 +8,6 @@
         {% endif %}
         <title>{% block title %}Cartes online !{% endblock %}</title>
         {% block stylesheets %}
-            <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
             <link href="{{ asset('css/default.css') }}" rel="stylesheet">
             <link href="{{ asset('css/style-global.css') }}" rel="stylesheet">
         {% endblock %}
@@ -66,7 +65,7 @@
                 </div><!--/.nav-collapse -->
             </div>
         </div>
-        <div>
+        <div class="global-container">
             {% block body %}{% endblock %}
         </div><!-- /.container -->
         {% block javascripts %}

@@ -2,7 +2,6 @@
 
 {% block stylesheets %}
     {{ parent() }}
-
     <link type="text/css" rel="stylesheet" href="{{ asset('css/carte.css') }}" />
 {% endblock %}
 
@@ -10,23 +9,29 @@
 
 {% block body %}
     {{ parent() }}
-    <div class="col-lg-8">
-        <form method="post" id="selecteur">
-            {{ form_widget(form) }}
-            <input type="submit" value="Filtrer">
-            <input type="reset" value="Initialiser">
-        </form>
-    </div>
-    <div class="row">
-        <div class="row col-lg-8" id="cartes">
-            {{ include("::carte_ajax.html.twig") }}
-        </div>
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}        
-            <div class="row col-lg-3" id="deck">
-                {{ include("::deck_ajax.html.twig") }}
+    <section id="main">
+        <div class="container">
+            <div>
+                <form method="post" id="selecteur">
+                    {{ form_widget(form) }}
+                    <input type="submit" value="Filtrer">
+                    <input type="reset" value="Initialiser">
+                </form>
             </div>
-        {% endif %}        
-    </div>
+            <div class="row">
+                <div id="cartes" class="row xs-16">
+                    {{ include("::carte_ajax.html.twig") }}
+                </div>
+                <div id="deck" class="xs-8">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}        
+                        {{ include("::deck_ajax.html.twig") }}
+                    {% else %}
+                        <p>Vous devez vous connecter pour créer un deck</p>
+                    {% endif %}        
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 

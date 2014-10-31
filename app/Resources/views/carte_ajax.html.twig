@@ -1,5 +1,5 @@
     {% for carte in cartes %}
-        <div class="col-lg-3 div-carte">
+        <div class="xs-6 div-carte">
             <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.getLien) }}" id="{{ carte.getId }}" class="carte_classeur" 
                 {% for agrandi in carte.getLienAgrandi %}
                      data-agrandi{{loop.index}}="{{ asset('bundles/jeusquickstrike/images/'~agrandi) }}" 

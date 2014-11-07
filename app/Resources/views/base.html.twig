@@ -13,65 +13,13 @@
         {% endblock %}
     </head>
     <body id="{% block idBody %}global{% endblock %}">
-        <!--<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">-->
-        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Serveur de carte</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        {% if jeu is not defined %}
-                            <li class="active"><a href="{#{ path('jeus_bleach')}#}">Bleach</a></li>
-                            <li class="active"><a href="{{ path('jeus_quickstrike')}}">Quickstrike</a></li>
-                            <li class="active"><a href="{#{ path('jeus_saintseiya')}#}">Saint seiya</a></li>
-                        {% else %}
-                            {% if jeu!='bleach' %}
-                            <li class="active"><a href="{#{ path('jeus_bleach')}#}">Bleach</a></li>
-                            {% endif %}
-                            {% if jeu!='quickstrike' %}
-                            <li class="active"><a href="{{ path('jeus_quickstrike')}}">Quickstrike</a></li>
-                            {% endif %}
-                            {% if jeu!='saintseiya' %}
-                            <li class="active"><a href="{#{ path('jeus_saintseiya')}#}">Saint seiya</a></li>
-                            {% endif %}
-                            <li class="active"><a href="{{ path('jeus_'~jeu~'_carte')}}">Cartes</a></li>
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <li><a href="{{ path('jeus_'~jeu~'_deck')}}">Decks</a></li>
-                            <li><a href="{{ path('jeus_'~jeu~'_parties')}}">Parties</a></li>
-                            {% endif %}
-                            {% if ((app.user is defined) and (app.user is not null)
-                                and (
-                                ((jeu=='bleach') and (app.user.isDeckBleachDisponible))
-                                or ((jeu=='quickstrike') and (app.user.isDeckQuickstrikeDisponible))
-                                or ((jeu=='saintseiya') and (app.user.isDeckSaintSeiyaDisponible))
-                            )) %}
-                                <li><a href="{{ path('jeus_'~jeu~'_partie_entrainement')}}">Entrainement</a></li>
-                            {% endif %}
-                        {% endif %}
-                        <li>
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                <a href="{{ path('logout') }}">{{ app.user.username }} - Déconnexion</a>
-                            {% else %}
-                                <a href="{{ path('login') }}">Connexion</a>
-                            {% endif %}            
-                        </li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
-        </div>
         <div class="global-container">
+            {% block header %}
+                {% include "::header.html.twig" %}
+            {% endblock %}
             {% block body %}{% endblock %}
-        </div><!-- /.container -->
+        </div>
         {% block javascripts %}
-            <!-- Bootstrap core JavaScript
-            ================================================== -->
-            <!-- Placed at the end of the document so the pages load faster -->
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
             <script src="{{ asset('js/global.js') }}"></script>
             <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>

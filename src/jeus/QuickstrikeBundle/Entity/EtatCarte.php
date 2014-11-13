@@ -52,29 +52,6 @@ class EtatCarte
     }
 
     /**
-     * Set position
-     *
-     * @param integer $position
-     * @return EtatCarte
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    /**
-     * Get position
-     *
-     * @return integer 
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
-    /**
      * Set visible
      *
      * @param boolean $visible
@@ -103,7 +80,7 @@ class EtatCarte
      * @param \jeus\QuickstrikeBundle\Entity\Emplacement $emplacement
      * @return Partie
      */
-    public function setEmplacementJoueur1(\jeus\QuickstrikeBundle\Entity\Emplacement $emplacement)
+    public function setEmplacementJoueur(\jeus\QuickstrikeBundle\Entity\Emplacement $emplacement)
     {
         $this->emplacement = $emplacement;
 
@@ -115,10 +92,14 @@ class EtatCarte
      *
      * @return \jeus\QuickstrikeBundle\Entity\Emplacement
      */
-    public function getEmplacementJoueur1()
+    public function getEmplacementJoueur()
     {
         return $this->emplacement;
     }
 
+    function __construct($emplacement) {
+        $this->visible = false;
+        $this->emplacement = $emplacement;
+    }
 
 }

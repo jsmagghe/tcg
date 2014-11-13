@@ -1,0 +1,50 @@
+<div id="header" role="navigation">
+    <div class="container">
+        <div class="pre-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Serveur de carte</a>
+        </div>
+        <div class="nav clearfix">
+            <ul>
+                {% if jeu is not defined %}
+                    <li class="active left"><a href="{#{ path('jeus_bleach')}#}">Bleach</a></li>
+                    <li class="active left"><a href="{{ path('jeus_quickstrike')}}">Quickstrike</a></li>
+                    <li class="active left"><a href="{#{ path('jeus_saintseiya')}#}">Saint seiya</a></li>
+                {% else %}
+                    {% if jeu!='bleach' %}
+                        <li class="active left"><a href="{#{ path('jeus_bleach')}#}">Bleach</a></li>
+                    {% endif %}
+                    {% if jeu!='quickstrike' %}
+                        <li class="active left"><a href="{{ path('jeus_quickstrike')}}">Quickstrike</a></li>
+                    {% endif %}
+                    {% if jeu!='saintseiya' %}
+                        <li class="active left"><a href="{#{ path('jeus_saintseiya')}#}">Saint seiya</a></li>
+                    {% endif %}
+                    <li class="active left"><a href="{{ path('jeus_'~jeu~'_carte')}}">Cartes</a></li>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li class="left"><a href="{{ path('jeus_'~jeu~'_deck')}}">Decks</a></li>
+                        <li class="left"><a href="{{ path('jeus_'~jeu~'_parties')}}">Parties</a></li>
+                    {% endif %}
+                    {% if ((app.user is defined) and (app.user is not null)
+                        and (
+                        ((jeu=='bleach') and (app.user.isDeckBleachDisponible))
+                        or ((jeu=='quickstrike') and (app.user.isDeckQuickstrikeDisponible))
+                        or ((jeu=='saintseiya') and (app.user.isDeckSaintSeiyaDisponible)) )) %}
+                        <li class="left"><a href="{{ path('jeus_'~jeu~'_partie_entrainement')}}">Entrainement</a></li>
+                    {% endif %}
+                {% endif %}
+                <li class="left login">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="{{ path('logout') }}">{{ app.user.username }} - Déconnexion</a>
+                    {% else %}
+                        <a href="{{ path('login') }}">Connexion</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

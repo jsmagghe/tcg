@@ -1,32 +1,76 @@
-.carte_classeur{
-	height : 410px;
+/*.global-container { box-shadow: 0 0 5px #ccc; }*/
+body { font-family: Arial, sans-serif; }
+#header {
+	padding: 20px 0;
+	background: linear-gradient(#3d3d3d, #282828);
+	color: #ededed; }
+	#header .pre-header {
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid #272727; }
+	#header .nav { position: relative; }
+	#header .nav li {
+		padding-right: 10px;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 12px;
+		text-shadow: 1px 1px 2px #000; }
+	#header .nav li.login {
+		position: absolute;
+		top: -11px;
+		right: 0;
+		padding: 0;
+		border-radius: 3px;
+		background: linear-gradient(#F2F2F2, #EAEAEA);
+		text-shadow: none;
+		font-size: 14px;
+		color: #222; }
+	#header .nav li.login a {
+		display: block;
+		padding: 10px; }
+
+#main .container {
+	padding-top: 20px;
+	padding-bottom: 20px; }
+	#main .container #selecteur {
+		margin-bottom: 20px; }
+	#main .container #cards {
+		position: relative;
+		padding-left: 300px; }
+		#main .container .card {
+			width: 10%;
+			float: left; }
+		#main .container .card > img {
+			width: 93px;
+			height: 130px; }
+		#main .container .card .infos {
+			display:none; }
+		#main .container .card:hover .infos {
+			display:block; }
+		#main .container .card .infos .infos-absolute {
+			position: absolute;
+			left: 0; }
+		#main .container .card .infos .infos-fixed {
+			position: fixed;
+			top: 357px; }
+		#main .container .card .infos img {
+			max-width: 280px; }
+
+
+
+
+
+
+.carte_classeur {
 	width : 275px;
 }
 
-.carte_classeur-agrandi{
-	height : 410px;
+.carte_classeur-agrandi {
 	width : 550px;
 }
 
-.carte_deck{
+.carte_deck {
 	height : 135px;
 	width : 90px;
 }
 
-.div-agrandi{
-	position: absolute;
-        left:25%;
-	top:25%;
-        width : 550px;
-        z-index :1;
-        display:none;
-}
-
-.div-carte:hover .div-agrandi{
-    display:block;
-}
-
-#deck {
-    height:750px;
-    overflow:auto;
-}

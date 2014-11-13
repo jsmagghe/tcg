@@ -1,15 +1,14 @@
     {% for carte in cartes %}
-        <div class="xs-6 div-carte">
-            <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.getLien) }}" id="{{ carte.getId }}" class="carte_classeur" 
-                {% for agrandi in carte.getLienAgrandi %}
-                     data-agrandi{{loop.index}}="{{ asset('bundles/jeusquickstrike/images/'~agrandi) }}" 
-                {% endfor %}
-             />	
-            {% if carte.getLien != carte.getLienAgrandi %}
-                <div class="div-agrandi">
-                   <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.getLienAgrandi) }}" class="carte_classeur-agrandi" id="aggrandi-{{ carte.getId }}"/>	
+        <div class="card">
+            <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.getLien) }}" id="{{ carte.getId }}" class="carte_classeur" {# {% for agrandi in carte.getLienAgrandi %}data-agrandi{{loop.index}}="{{ asset('bundles/jeusquickstrike/images/'~agrandi) }}"{% endfor %} #}>	
+            {# {% if carte.getLien != carte.getLienAgrandi %} #}
+                <div class="infos">
+                    <div class="infos-absolute">
+                        <div class="infos-fixed">
+                            <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.getLienAgrandi) }}" class="carte_classeur-agrandi" id="aggrandi-{{ carte.getId }}">
+                        </div>
+                    </div>
                 </div>
-            {% endif %}
-                 
+            {# {% endif %} #}
         </div>
     {% endfor %}

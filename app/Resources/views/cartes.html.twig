@@ -12,15 +12,19 @@
                 </form>
             </div>
             <div class="row">
-                <div id="cards" class="xs-20">
-                    {% include "::carte_ajax.html.twig" %}
+                <div class="xs-20">
+                    <div id="cards" class="clearfix">
+                        {% include "::carte_ajax.html.twig" %}
+                    </div>
                 </div>
-                <div id="deck" class="xs-4">
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}        
-                        {{ include("::deck_ajax.html.twig") }}
-                    {% else %}
-                        <p>Vous devez vous connecter pour créer un deck</p>
-                    {% endif %}
+                <div class="xs-4">
+                    <div id="deck">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {{ include("::deck_ajax.html.twig") }}
+                        {% else %}
+                            <p>Vous devez vous connecter pour créer un deck</p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

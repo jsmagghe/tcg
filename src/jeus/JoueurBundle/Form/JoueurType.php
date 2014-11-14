@@ -20,45 +20,29 @@ class JoueurType extends AbstractType
     {
         $builder
                 ->add('nom', 'text', array(
-                    'label' => false,
+                    'label' => 'nom',
                     'required' => true,
                 ))
                 ->add('prenom', 'text', array(
-                    'label' => false,
+                    'label' => 'prenom',
                     'required' => true,
                 ))
                 ->add('username', 'text', array(
-                    'label' => false,
+                    'label' => 'username',
                     'required' => true,
                     'error_bubbling' => true
                 ))
                 ->add('password', 'password', array(
-                    'label' => false,
+                    'label' => 'password',
                     'required' => true,
                     'attr' => array(
                         'placeholder' => '**********'
                     )
                 ))
                 ->add('email', 'text', array(
-                    'label' => false,
+                    'label' => 'email',
                     'required' => false,
                     'error_bubbling' => true
-                ))
-                ->add('role', 'choice', array(
-                    'mapped' => false,
-                    'required' => true,
-                    'label' => null,
-                    'choices' => array(
-                        'ROLE_ADMIN' => 'administrateur',
-                        'ROLE_USER' => 'utilisateur'
-                    ),
-                    'expanded' => false,
-                    'multiple' => false,
-                    'empty_value' => '- Choisissez -',
-                    'empty_data' => null,
-                ))
-                ->add('actif', 'checkbox', array(
-                    'required' => false
                 ))
         ;
 

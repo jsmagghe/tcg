@@ -44,51 +44,53 @@ class JoueurController extends Controller
         $this->em = $this->getDoctrine()->getManager();
         $Request = $this->getRequest();
 
-        if ($Request->isXmlHttpRequest()) {
-            if (is_null($id)) {
-                $Joueur = new Joueur();
-            } else {
-                $Joueur = $this->em->getRepository('jeusJoueurBundle:Joueur')->find($id);
-                $oldPassword = $Joueur->getPassword();
-            }
-
-            $formJoueur = $this->createForm(new JoueurType(), $Joueur);
-
-            if ($Request->getMethod() == "POST") {
-                $formJoueur->bind($Request);
-
-                if ($formJoueur->isValid()) {
-                    if (is_null($id)) {
-                        $this->em->persist($Joueur);
-                    }
-
-                    if (!is_null($Joueur->getPassword())) {
-                        $factory = $this->get('security.encoder_factory');
-                        $encoder = $factory->getEncoder($Joueur);
-                        $passwordEncode = $encoder->encodePassword($Joueur->getPassword(), $Joueur->getSalt());
-                        $Joueur->setPassword($passwordEncode);
-                    } else if (!is_null($id)) {
-                        $Joueur->setPassword($oldPassword);
-                    }
-
-                    $Joueur->setRole($formJoueur->get('role')->getData());
-
-                    $this->em->flush();
-
-                    return $this->render('jeusJoueurBundle:Joueur:partials/retour-creer-editer.html.twig', array(
-                                'Entity' => $Joueur,
-                                'nom' => 'utilisateur'
-                    ));
-                } else {
-                    return $this->genererReponseFormErrors($formJoueur);
-                }
-            }
-
-            return $this->render('jeusJoueurBundle:Joueur:partials/creer-editer.html.twig', array(
-                        'Entity' => $Joueur,
-                        'form' => $formJoueur->createView()
-            ));
+        if (is_null($id)) {
+            $Joueur = new Joueur();
+        } else {
+            $Joueur = $this->em->getRepository('jeusJoueurBundle:Joueur')->find($id);
+            $oldPassword = $Joueur->getPassword();
         }
+
+        $formJoueur = $this->createForm(new JoueurType(), $Joueur);
+
+        if ($Request->getMethod() == "POST") {
+            $formJoueur->bind($Request);
+
+            if ($formJoueur->isValid()) {
+                if (is_null($id)) {
+                    $this->em->persist($Joueur);
+                }
+
+                if (!is_null($Joueur->getPassword())) {
+                    $factory = $this->get('security.encoder_factory');
+                    $encoder = $factory->getEncoder($Joueur);
+                    $passwordEncode = $encoder->encodePassword($Joueur->getPassword(), $Joueur->getSalt());
+                    $Joueur->setPassword($passwordEncode);
+                } else if (!is_null($id)) {
+                    $Joueur->setPassword($oldPassword);
+                }
+
+                //$Joueur->setRole($formJoueur->get('role')->getData());
+                $Joueur->setRole(null);
+
+                
+                $Joueur->setActif(true);
+
+                $this->em->flush();
+
+                return $this->render('jeusJoueurBundle:Joueur:partials/retour-creer-editer.html.twig', array(
+                            'Entity' => $Joueur,
+                            'nom' => 'utilisateur'
+                ));
+            } else {
+                return $this->genererReponseFormErrors($formJoueur);
+            }
+        }
+
+        return $this->render('jeusJoueurBundle:Joueur:partials/creer-editer.html.twig', array(
+                    'Entity' => $Joueur,
+                    'form' => $formJoueur->createView()
+        ));
     }
 
     public function genererReponseFormErrors($formJoueur)

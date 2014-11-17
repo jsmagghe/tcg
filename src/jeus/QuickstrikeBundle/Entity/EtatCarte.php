@@ -82,7 +82,7 @@ class EtatCarte
      * @param string $emplacement
      * @return Partie
      */
-    public function setEmplacementJoueur($emplacement)
+    public function setEmplacement($emplacement)
     {
         $this->emplacement = $emplacement;
 
@@ -94,7 +94,7 @@ class EtatCarte
      *
      * @return string
      */
-    public function getEmplacementJoueur()
+    public function getEmplacement()
     {
         return $this->emplacement;
     }

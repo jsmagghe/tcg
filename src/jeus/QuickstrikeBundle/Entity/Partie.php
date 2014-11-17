@@ -536,7 +536,8 @@ class Partie
     public function choixDeck($Deck, $Joueur)
     {
         if ($Deck->getValide()) {
-            foreach ($Deck->getCartes() as $Carte) {
+            foreach ($Deck->getCartes() as $CarteDeck) {
+                $Carte = $CarteDeck->getCarte();
                 $CartePartie = new CartePartie($Carte,$this,$this->JoueurConcerne($Joueur),'DECK');
                 $this->addCartePartie($CartePartie);
             }

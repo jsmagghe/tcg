@@ -184,8 +184,6 @@ class CartePartie
         $this->numeroJoueur = $numeroJoueur;
         $this->Partie = $Partie;
         $this->position = 0;
-        var_dump($Carte->getTypeCarte());
-        exit;
         if ($Carte->getTypeCarte()->getTag()=='CHAMBER') {
             $EtatCarte = new EtatCarte('CHAMBER');
         } else {

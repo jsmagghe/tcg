@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <form method="post" id="inscription">
+        {{ form_widget(form) }}
+        <input type="submit" value="inscription">
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

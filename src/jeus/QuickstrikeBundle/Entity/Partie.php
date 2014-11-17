@@ -145,7 +145,7 @@ class Partie
     private $dateDerniereAction;
 
     /**
-     * @ORM\ManyToOne(targetEntity="jeus\QuickstrikeBundle\Entity\CartePartie")
+     * @ORM\OneToMany(targetEntity="jeus\QuickstrikeBundle\Entity\CartePartie", mappedBy = "Partie", cascade={"persist,remove"})
      */
     protected $carteParties;
 
@@ -533,11 +533,11 @@ class Partie
         $this->setDateDerniereAction(new \Datetime());
     }
 
-    public function choixDeck($Deck, $Joueur)
+    public function choixDeck($Deck, $Joueur,$em)
     {
         if ($Deck->isValide()) {
             foreach ($Deck->getCartes() as $Carte) {
-                $CartePartie = new CartePartie($Carte,$Joueur);
+                $CartePartie = new CartePartie($Carte,$this,$this->JoueurConcerne($Joueur),$em,'DECK');
                 $this->addCartePartie($CartePartie);
             }
             $this->setEtape($Joueur, 'attenteDebut');

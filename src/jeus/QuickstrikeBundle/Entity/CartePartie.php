@@ -12,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class CartePartie
 {
+    private $em;
+
     /**
      * @var integer
      *
@@ -29,9 +31,16 @@ class CartePartie
     private $position;
 
     /**
-     * @ORM\ManyToOne(targetEntity="jeus\JoueurBundle\Entity\Joueur")
+     * @var integer
+     *
+     * @ORM\Column(name="numeroJoueur", type="smallint")
      */
-    protected $joueur;
+    private $numeroJoueur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="jeus\JoueurBundle\Entity\Partie", inversedBy="CarteParties", cascade={"persist,remove"})
+     */
+    protected $Partie;
 
     /**
      * @ORM\ManyToOne(targetEntity="jeus\QuickstrikeBundle\Entity\Carte")
@@ -76,28 +85,51 @@ class CartePartie
     {
         return $this->position;
     }
-	
+    
     /**
-     * Set joueur
+     * Set numeroJoueur
      *
-     * @param \jeus\JoueurBundle\Entity\Joueur $joueur
-     * @return Deck
+     * @param integer $numeroJoueur
+     * @return CartePartie
      */
-    public function setJoueur(\jeus\JoueurBundle\Entity\Joueur $joueur)
+    public function setNumeroJoueur($numeroJoueur)
     {
-        $this->joueur = $joueur;
+        $this->numeroJoueur = $numeroJoueur;
 
         return $this;
     }
 
     /**
-     * Get joueur
+     * Get numeroJoueur
      *
-     * @return \jeus\JoueurBundle\Entity\Joueur
+     * @return integer 
      */
-    public function getJoueur()
+    public function getNumeroJoueur()
     {
-        return $this->joueur;
+        return $this->numeroJoueur;
+    }
+	
+    /**
+     * Set Partie
+     *
+     * @param \jeus\QuickstrikeBundle\Entity\Partie $Partie
+     * @return Deck
+     */
+    public function setPartie(\jeus\QuickstrikeBundle\Entity\Partie $Partie)
+    {
+        $this->Partie = $Partie;
+
+        return $this;
+    }
+
+    /**
+     * Get Partie
+     *
+     * @return \jeus\QuickstrikeBundle\Entity\Partie
+     */
+    public function getPartie()
+    {
+        return $this->Partie;
     }
 		
     /**
@@ -146,4 +178,14 @@ class CartePartie
         return $this->etatCarte;
     }
 		
+    public function __construct($Carte,$Partie,$numeroJoueur,$em = null ,$tagEmplacement = 'DECK') {
+        $this->carte = $Carte;
+        $this->numeroJoueur = $numeroJoueur;
+        $this->Partie = $Partie;
+        if ($em!=null) {
+            $EmplacementDeck = $em->getRepository('jeusQuickstrikeBundle:Emplacement')->findByTag($tagEmplacement);
+            $EtatCarte = new EtatCarte($EmplacementDeck);
+            $this->etatCarte = $EtatCarte;
+        }
+    }
 }

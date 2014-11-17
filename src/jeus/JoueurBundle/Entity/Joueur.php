@@ -322,14 +322,7 @@ class Joueur implements AdvancedUserInterface
      */
     public function setRoles($roles)
     {
-        if ($roles!=null) {
-            $this->roles = $roles;
-        } else {
-            if ($this->getUsername()!=null) {
-                $this->roles = array('ROLE_USER');
-            }
-        }
-
+        $this->roles = $roles;
 
         return $this;
     }
@@ -346,6 +339,8 @@ class Joueur implements AdvancedUserInterface
 
     public function setRole($role)
     {
+        if ($role==null) 
+            $role='ROLE_USER';
         $this->roles = array($role);
 
         return $this;

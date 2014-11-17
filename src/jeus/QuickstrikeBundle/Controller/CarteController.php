@@ -56,6 +56,8 @@ class CarteController extends Controller {
                 //$filtre['nombreCarte'] = $formSelecteur->get('nombreCarte')->getData();
                 $filtre['idChamber'] = $em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findOneByTag('CHAMBER')->getId();
             }
+        } else {
+                $filtre['extension'] = $em->getRepository('jeusQuickstrikeBundle:Extension')->findByLibelle('Shaman King');
         }
         $tableau['filtre'] = $filtre;
         $tableau['form'] = $formSelecteur;

@@ -108,7 +108,7 @@ class PartieController extends Controller {
         $em = $this->getDoctrine()->getManager();
         if (($Joueur == $Partie->getJoueur1()) && ($Joueur == $Partie->getJoueur2())) {
             $Deck = $em->getRepository('jeusQuickstrikeBundle:Deck')->find($idDeck);
-            $Partie->choixDeck($Deck,$Joueur);
+            $Partie->choixDeck($Deck,$Joueur,$em);
             $em->persist($Partie);
             $em->flush();    
             return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id' => $Partie->getId())));

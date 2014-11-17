@@ -22,21 +22,12 @@ class JoueurController extends Controller
         if (($Joueur !== null) && ($Joueur!=='anon.')) {
             if ($Joueur->getJeuEnCours() == 'bleach')
                 return $this->redirect($this->generateUrl('jeus_bleach_carte'));
-            if ($Joueur->getJeuEnCours() == 'quickstrike')
-                return $this->redirect($this->generateUrl('jeus_quickstrike_carte'));
             if ($Joueur->getJeuEnCours() == 'saintseiya')
                 return $this->redirect($this->generateUrl('jeus_saintseiya_carte'));
+            
+            return $this->redirect($this->generateUrl('jeus_quickstrike_carte'));
         }
-        $this->em = $this->getDoctrine()->getManager();
-
-        $Utilisateurs = $this->em->getRepository('jeusJoueurBundle:Joueur')->findAll();
-
-        return $this->render('jeusJoueurBundle:Joueur:index.html.twig', array(
-                    'titre' => 'Utilisateurs',
-                    'nom' => 'utilisateur',
-                    'Collection' => $Utilisateurs,
-                    'fields' => Joueur::getFields()
-        ));
+        return $this->redirect($this->generateUrl('login'));
     }
 
     public function creerEditerAction($id = null)
@@ -72,38 +63,16 @@ class JoueurController extends Controller
 
                 //$Joueur->setRole($formJoueur->get('role')->getData());
                 $Joueur->setRole(null);
-
-                
                 $Joueur->setActif(true);
 
                 $this->em->flush();
-
-                return $this->render('jeusJoueurBundle:Joueur:partials/retour-creer-editer.html.twig', array(
-                            'Entity' => $Joueur,
-                            'nom' => 'utilisateur'
-                ));
-            } else {
-                return $this->genererReponseFormErrors($formJoueur);
+                return $this->redirect($this->generateUrl('jeus_joueur_joueur'));
             }
         }
 
-        return $this->render('jeusJoueurBundle:Joueur:partials/creer-editer.html.twig', array(
-                    'Entity' => $Joueur,
-                    'form' => $formJoueur->createView()
+        return $this->render('jeusJoueurBundle:Joueur:inscription.html.twig', array(
+                    'form' => $formJoueur->createView(),
         ));
-    }
-
-    public function genererReponseFormErrors($formJoueur)
-    {
-        $msgErreurs = "<ul>";
-        foreach ($formJoueur->getErrors() as $errors) {
-            $msgErreurs .= "<li>" . $errors->getMessage() . "</li>";
-        }
-        $msgErreurs .= "</ul>";
-
-        $nbTh = count($formJoueur->getData()->getFields());
-
-        return new Response("<tr class='alert alert-danger'><td colspan='" . $nbTh . "'>Formulaire invalide : " . $msgErreurs . "</td></tr>");
     }
 
     public function supprimerAction(Joueur $Joueur, $id)

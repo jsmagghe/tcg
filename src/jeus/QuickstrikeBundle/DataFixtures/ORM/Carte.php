@@ -11,6 +11,7 @@ use jeus\QuickstrikeBundle\Entity\TraitCarte;
 use jeus\QuickstrikeBundle\Entity\Extension;
 use jeus\QuickstrikeBundle\Entity\TypeCarte;
 use jeus\QuickstrikeBundle\Entity\Effet;
+use jeus\QuickstrikeBundle\Entity\Emplacement;
 
 class Cartes implements FixtureInterface {
 
@@ -18,6 +19,16 @@ class Cartes implements FixtureInterface {
     public function load(ObjectManager $manager) {
         if (file_exists('C:\wamp\www\cartes-online\src\jeus\QuickstrikeBundle\DataFixtures\ORM\base_quickstrike.csv')) {
             $baseQuickstrike = fopen('C:\wamp\www\cartes-online\src\jeus\QuickstrikeBundle\DataFixtures\ORM\base_quickstrike.csv', 'r');
+
+            $emplacements = array('Chamber','Deck','Discard','Avantage','EnergieVerte','EnergieJaune','EnergieRouge','AttaqueVerte','AttaqueJaune','AttaqueRouge','AllieVerte','AllieJaune','AllieRouge');
+            foreach ($emplacements as $emplacement) {
+                $Emplacement = new Emplacement();
+                $Emplacement->setLibelle($emplacement);
+                $Emplacement->setTag(strtoupper($emplacement));
+                $manager->persist($Emplacement);
+            }
+            // On déclenche l'enregistrement
+            $manager->flush();
 
             $typeCartes = array();
             rewind($baseQuickstrike);

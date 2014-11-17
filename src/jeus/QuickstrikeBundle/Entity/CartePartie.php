@@ -4,6 +4,7 @@ namespace jeus\QuickstrikeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * CartePartie
  *
@@ -38,7 +39,7 @@ class CartePartie
     private $numeroJoueur;
 
     /**
-     * @ORM\ManyToOne(targetEntity="jeus\JoueurBundle\Entity\Partie", inversedBy="CarteParties", cascade={"persist,remove"})
+     * @ORM\ManyToOne(targetEntity="jeus\QuickstrikeBundle\Entity\Partie", inversedBy="CarteParties", cascade={"persist","remove"})
      */
     protected $Partie;
 
@@ -178,14 +179,18 @@ class CartePartie
         return $this->etatCarte;
     }
 		
-    public function __construct($Carte,$Partie,$numeroJoueur,$em = null ,$tagEmplacement = 'DECK') {
+    public function __construct($Carte,$Partie,$numeroJoueur,$emplacement = 'DECK') {
         $this->carte = $Carte;
         $this->numeroJoueur = $numeroJoueur;
         $this->Partie = $Partie;
-        if ($em!=null) {
-            $EmplacementDeck = $em->getRepository('jeusQuickstrikeBundle:Emplacement')->findByTag($tagEmplacement);
-            $EtatCarte = new EtatCarte($EmplacementDeck);
-            $this->etatCarte = $EtatCarte;
+        $this->position = 0;
+        var_dump($Carte->getTypeCarte());
+        exit;
+        if ($Carte->getTypeCarte()->getTag()=='CHAMBER') {
+            $EtatCarte = new EtatCarte('CHAMBER');
+        } else {
+            $EtatCarte = new EtatCarte($emplacement);
         }
+        $this->etatCarte = $EtatCarte;
     }
 }

@@ -36,7 +36,9 @@ class EtatCarte
     private $visible;
 
     /**
-     * @ORM\ManyToOne(targetEntity="jeus\QuickstrikeBundle\Entity\Emplacement")
+     * @var string
+     *
+     * @ORM\Column(name="emplacement", type="string", length=50)
      */
     protected $emplacement;
 
@@ -77,10 +79,10 @@ class EtatCarte
     /**
      * Set emplacement
      *
-     * @param \jeus\QuickstrikeBundle\Entity\Emplacement $emplacement
+     * @param string $emplacement
      * @return Partie
      */
-    public function setEmplacementJoueur(\jeus\QuickstrikeBundle\Entity\Emplacement $emplacement)
+    public function setEmplacementJoueur($emplacement)
     {
         $this->emplacement = $emplacement;
 
@@ -90,7 +92,7 @@ class EtatCarte
     /**
      * Get emplacement
      *
-     * @return \jeus\QuickstrikeBundle\Entity\Emplacement
+     * @return string
      */
     public function getEmplacementJoueur()
     {

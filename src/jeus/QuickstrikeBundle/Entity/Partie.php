@@ -145,9 +145,9 @@ class Partie
     private $dateDerniereAction;
 
     /**
-     * @ORM\OneToMany(targetEntity="jeus\QuickstrikeBundle\Entity\CartePartie", mappedBy = "Partie", cascade={"persist,remove"})
+     * @ORM\OneToMany(targetEntity="jeus\QuickstrikeBundle\Entity\CartePartie", mappedBy = "Partie", cascade={"persist","remove"})
      */
-    protected $carteParties;
+    protected $CarteParties;
 
     function __construct($joueur1, $joueur2)
     {
@@ -253,39 +253,39 @@ class Partie
     }
 
     /**
-     * Add cartePartie
+     * Add CartePartie
      *
-     * @param \jeus\QuickstrikeBundle\Entity\CartePartie $cartePartie
+     * @param \jeus\QuickstrikeBundle\Entity\CartePartie $CartePartie
      * @return Partie
      */
-    public function addCartePartie(\jeus\QuickstrikeBundle\Entity\CartePartie $cartePartie)
+    public function addCartePartie(\jeus\QuickstrikeBundle\Entity\CartePartie $CartePartie)
     {
-        $this->carteParties[] = $cartePartie;
+        $this->CarteParties[] = $CartePartie;
 
         return $this;
     }
 
     /**
-     * Remove cartePartie
+     * Remove CartePartie
      *
-     * @param \jeus\QuickstrikeBundle\Entity\CartePartie $cartePartie
+     * @param \jeus\QuickstrikeBundle\Entity\CartePartie $CartePartie
      * @return Partie
      */
-    public function removeCartePartie(\jeus\QuickstrikeBundle\Entity\CartePartie $cartePartie)
+    public function removeCartePartie(\jeus\QuickstrikeBundle\Entity\CartePartie $CartePartie)
     {
-        $this->carteParties->removeElement($cartePartie);
+        $this->CarteParties->removeElement($CartePartie);
 
         return $this;
     }
 
     /**
-     * Get carteParties
+     * Get CarteParties
      *
      * @return \jeus\QuickstrikeBundle\Entity\CartePartie
      */
     public function getCarteParties()
     {
-        return $this->carteParties;
+        return $this->CarteParties;
     }
 
     /**
@@ -488,7 +488,7 @@ class Partie
         return $this;
     }
 
-    public function JoueurConcerne($joueur)
+    public function JoueurConcerne($Joueur)
     {
         if (
                 ($this->getJoueur2() == $Joueur)
@@ -533,15 +533,36 @@ class Partie
         $this->setDateDerniereAction(new \Datetime());
     }
 
-    public function choixDeck($Deck, $Joueur,$em)
+    public function choixDeck($Deck, $Joueur)
     {
-        if ($Deck->isValide()) {
+        if ($Deck->getValide()) {
             foreach ($Deck->getCartes() as $Carte) {
-                $CartePartie = new CartePartie($Carte,$this,$this->JoueurConcerne($Joueur),$em,'DECK');
+                $CartePartie = new CartePartie($Carte,$this,$this->JoueurConcerne($Joueur),'DECK');
                 $this->addCartePartie($CartePartie);
             }
+            $this->melangerDeck($this->JoueurConcerne($Joueur),'DECK');
             $this->setEtape($Joueur, 'attenteDebut');
         }
+    }
+
+    public function melangerDeck($joueurConcerne,$emplacement) {
+        $position = array();
+        $iteration = 0;
+        foreach($this->getCarteParties() as $CartePartie) {
+            $iteration++;
+            if ($CartePartie->getEtatCarte()->getEmplacement()==$emplacement) {
+                $position[$iteration] = $iteration;
+            }
+        }
+        var_dump($position);
+        shuffle($position);
+        var_dump($position);
+        exit;
+        foreach($this->getCarteParties() as $CartePartie) {
+            $iteration++;
+            $CartePartie->setPosition($position[$iteration]);
+        }
+
     }
 
     public function getPartieAffichee($Joueur)

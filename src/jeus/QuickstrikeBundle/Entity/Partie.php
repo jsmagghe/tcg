@@ -547,21 +547,23 @@ class Partie
     }
 
     public function melangerDeck($joueurConcerne,$emplacement) {
-        $position = array();
+        $positions = array();
         $iteration = 0;
         foreach($this->getCarteParties() as $CartePartie) {
             $iteration++;
             if ($CartePartie->getEtatCarte()->getEmplacement()==$emplacement) {
-                $position[$iteration] = $iteration;
+                $positions[$iteration] = $iteration;
             }
         }
-        var_dump($position);
-        shuffle($position);
-        var_dump($position);
-        exit;
+        $positions = array_flip($positions);
+        $position = 1;
+        $iteration = 0;
         foreach($this->getCarteParties() as $CartePartie) {
             $iteration++;
-            $CartePartie->setPosition($position[$iteration]);
+            if (isset($positions[$iteration])) {
+                $CartePartie->setPosition($position);
+                $position++;
+            }
         }
 
     }

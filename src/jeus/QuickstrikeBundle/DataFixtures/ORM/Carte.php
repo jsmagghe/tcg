@@ -20,16 +20,6 @@ class Cartes implements FixtureInterface {
         if (file_exists('C:\wamp\www\cartes-online\src\jeus\QuickstrikeBundle\DataFixtures\ORM\base_quickstrike.csv')) {
             $baseQuickstrike = fopen('C:\wamp\www\cartes-online\src\jeus\QuickstrikeBundle\DataFixtures\ORM\base_quickstrike.csv', 'r');
 
-            $emplacements = array('Chamber','Deck','Discard','Avantage','EnergieVerte','EnergieJaune','EnergieRouge','AttaqueVerte','AttaqueJaune','AttaqueRouge','AllieVerte','AllieJaune','AllieRouge');
-            foreach ($emplacements as $emplacement) {
-                $Emplacement = new Emplacement();
-                $Emplacement->setLibelle($emplacement);
-                $Emplacement->setTag(strtoupper($emplacement));
-                $manager->persist($Emplacement);
-            }
-            // On déclenche l'enregistrement
-            $manager->flush();
-
             $typeCartes = array();
             rewind($baseQuickstrike);
             $ligne = fgets($baseQuickstrike);

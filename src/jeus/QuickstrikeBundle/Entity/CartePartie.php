@@ -27,7 +27,7 @@ class CartePartie
     /**
      * @var integer
      *
-     * @ORM\Column(name="position", type="smallint")
+     * @ORM\Column(name="position", type="smallint", nullable=true)
      */
     private $position;
 
@@ -37,6 +37,20 @@ class CartePartie
      * @ORM\Column(name="numeroJoueur", type="smallint")
      */
     private $numeroJoueur;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="visible", type="boolean")
+     */
+    private $visible;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="emplacement", type="string", length=50)
+     */
+    protected $emplacement;
 
     /**
      * @ORM\ManyToOne(targetEntity="jeus\QuickstrikeBundle\Entity\Partie", inversedBy="CarteParties", cascade={"persist","remove"})
@@ -49,7 +63,7 @@ class CartePartie
     protected $carte;
 
     /**
-     * @ORM\OneToOne(targetEntity="jeus\QuickstrikeBundle\Entity\EtatCarte")
+     * @ORM\OneToOne(targetEntity="jeus\QuickstrikeBundle\Entity\EtatCarte", cascade={"persist","remove"})
      */
     protected $etatCarte;
 
@@ -110,6 +124,52 @@ class CartePartie
         return $this->numeroJoueur;
     }
 	
+    /**
+     * Set visible
+     *
+     * @param boolean $visible
+     * @return EtatCarte
+     */
+    public function setVisible($visible)
+    {
+        $this->visible = $visible;
+
+        return $this;
+    }
+
+    /**
+     * Get visible
+     *
+     * @return boolean 
+     */
+    public function getVisible()
+    {
+        return $this->visible;
+    }
+    
+    /**
+     * Set emplacement
+     *
+     * @param string $emplacement
+     * @return Partie
+     */
+    public function setEmplacement($emplacement)
+    {
+        $this->emplacement = $emplacement;
+
+        return $this;
+    }
+
+    /**
+     * Get emplacement
+     *
+     * @return string
+     */
+    public function getEmplacement()
+    {
+        return $this->emplacement;
+    }
+
     /**
      * Set Partie
      *
@@ -185,10 +245,9 @@ class CartePartie
         $this->Partie = $Partie;
         $this->position = 0;
         if ($Carte->getTypeCarte()->getTag()=='CHAMBER') {
-            $EtatCarte = new EtatCarte('CHAMBER');
+            $this->emplacement = 'CHAMBER';
         } else {
-            $EtatCarte = new EtatCarte($emplacement);
+            $this->emplacement = $emplacement;
         }
-        $this->etatCarte = $EtatCarte;
     }
 }

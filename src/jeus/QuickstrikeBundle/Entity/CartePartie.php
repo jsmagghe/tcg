@@ -62,11 +62,6 @@ class CartePartie
      */
     protected $carte;
 
-    /**
-     * @ORM\OneToOne(targetEntity="jeus\QuickstrikeBundle\Entity\EtatCarte", cascade={"persist","remove"})
-     */
-    protected $etatCarte;
-
 
     /**
      * Get id
@@ -216,28 +211,6 @@ class CartePartie
         return $this->carte;
     }
 		
-    /**
-     * Set etatCarte
-     *
-     * @param \jeus\QuickstrikeBundle\Entity\EtatCarte $etatCarte
-     * @return CartePartie
-     */
-    public function setEtatCarte(\jeus\QuickstrikeBundle\Entity\EtatCarte $etatCarte)
-    {
-        $this->etatCarte = $etatCarte;
-
-        return $this;
-    }
-
-    /**
-     * Get etatCarte
-     *
-     * @return \jeus\QuickstrikeBundle\Entity\EtatCarte
-     */
-    public function getEtatCarte()
-    {
-        return $this->etatCarte;
-    }
 		
     public function __construct($Carte,$Partie,$numeroJoueur,$emplacement = 'DECK') {
         $this->carte = $Carte;
@@ -248,6 +221,11 @@ class CartePartie
             $this->emplacement = 'CHAMBER';
         } else {
             $this->emplacement = $emplacement;
+        }
+        if ($this->emplacement == 'DECK') {
+            $this->visible = false;
+        } else {
+            $this->visible = true;
         }
     }
 }

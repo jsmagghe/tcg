@@ -551,7 +551,7 @@ class Partie
         $iteration = 0;
         foreach($this->getCarteParties() as $CartePartie) {
             $iteration++;
-            if ($CartePartie->getEtatCarte()->getEmplacement()==$emplacement) {
+            if ($CartePartie->getEmplacement()==$emplacement) {
                 $positions[$iteration] = $iteration;
             }
         }
@@ -576,7 +576,7 @@ class Partie
         if ($this->getCarteParties() != null) {
             if ($this->JoueurConcerne($Joueur) == 2) {
                 foreach ($this->getCarteParties() as $CartePartie) {
-                    if ($CartePartie->getJoueur() == $this->getJoueur2()) {
+                    if ($CartePartie->getNumeroJoueur() == 2) {
                         //$PartieAffichee[2] = 
                     } else {
                         //$PartieAffichee[1] = 
@@ -584,7 +584,7 @@ class Partie
                 }
             } else {
                 foreach ($this->getCarteParties() as $CartePartie) {
-                    if ($CartePartie->getJoueur() == $this->getJoueur1()) {
+                    if ($CartePartie->getNumeroJoueur() == 1) {
                         //$PartieAffichee[1] = 
                     } else {
                         //$PartieAffichee[2] = 

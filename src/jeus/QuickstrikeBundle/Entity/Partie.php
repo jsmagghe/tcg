@@ -551,18 +551,18 @@ class Partie
         $iteration = 0;
         foreach($this->getCarteParties() as $CartePartie) {
             $iteration++;
-            if ($CartePartie->getEmplacement()==$emplacement) {
+            if (($CartePartie->getEmplacement()==$emplacement) && ($CartePartie->getNumeroJoueur()==$joueurConcerne)) {
                 $positions[$iteration] = $iteration;
             }
         }
-        $positions = array_flip($positions);
-        $position = 1;
+        for ($i = 1; $i <= 5; $i++) {
+            shuffle($positions);
+        }
         $iteration = 0;
         foreach($this->getCarteParties() as $CartePartie) {
-            $iteration++;
-            if (isset($positions[$iteration])) {
-                $CartePartie->setPosition($position);
-                $position++;
+            if (($CartePartie->getEmplacement()==$emplacement) && ($CartePartie->getNumeroJoueur()==$joueurConcerne)) {
+                $CartePartie->setPosition($positions[$iteration]);
+                $iteration++;
             }
         }
 

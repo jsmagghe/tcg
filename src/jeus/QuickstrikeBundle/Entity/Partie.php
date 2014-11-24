@@ -546,6 +546,21 @@ class Partie
         }
     }
 
+    public function recupererCartePartie($joueurConcerne,$emplacement='DECK') {
+        $CarteParties = array();
+        foreach($this->getCarteParties() as $CartePartie) {
+            if (($CartePartie->getEmplacement()==$emplacement) && ($CartePartie->getNumeroJoueur()==$joueurConcerne)) {
+                $CarteParties[$CartePartie->getPosition()] = $CartePartie;
+            }
+        }
+        if ($emplacement=='DISCARD') {
+            krsort($CarteParties);
+        } else {
+            ksort($CarteParties);
+        }
+        return $CarteParties;
+    }
+
     public function melangerDeck($joueurConcerne,$emplacement) {
         $positions = array();
         $iteration = 0;
@@ -565,7 +580,30 @@ class Partie
                 $iteration++;
             }
         }
+    }
 
+    public function deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD') {
+        $CarteParties = recupererCartePartie($joueurConcerne,$emplacementOrigine);
+        $CarteFinals = recupererCartePartie($joueurConcerne,$emplacementFinal);
+        $position = 0;
+        foreach($CarteFinals as $position=>$CartePartie) {
+            if ($CartePartie->getPosition()>=$position)
+                $position = $CartePartie->getPosition();
+        }
+        $position++;
+
+        $CarteDeplacees = array();
+        foreach($CarteParties as $position=>$CartePartie) {
+            if ($nombre<=0) 
+                break;
+
+            $CarteDeplacees[$CartePartie->getId()] = $position;
+            $position++;
+
+            $nombre--;
+        }
+
+        // à finir
     }
 
     public function getPartieAffichee($Joueur)

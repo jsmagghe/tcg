@@ -202,7 +202,7 @@ class PartieController extends Controller {
         $this->em->flush();
     }
 
-    public function deplacerCarte($Partie,$joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD') {
+    public function deplacerCarte($Partie,$joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD',$melanderDestination=false) {
         $CarteParties = $this->em
         ->getRepository('jeusQuickstrikeBundle:CartePartie')
         ->findBy(array(
@@ -215,8 +215,9 @@ class PartieController extends Controller {
         ->getRepository('jeusQuickstrikeBundle:CartePartie')
         ->findBy(array(
             'Partie' => $Partie, 'joueurConcerne' => $joueurConcerne, 'emplacement' => $emplacementFinal
-            )
-            ,array('position'=>$order)
+            ),
+            array('position'=>$order),
+            1
         );
         $position = 0;
         foreach($CarteFinals as $position=>$CartePartie) {
@@ -226,17 +227,19 @@ class PartieController extends Controller {
         $position++;
 
         $CarteDeplacees = array();
-        foreach($CarteParties as $position=>$CartePartie) {
+        foreach($CarteParties as $CartePartie) {
             if ($nombre<=0) 
                 break;
 
-            $CarteDeplacees[$CartePartie->getId()] = $position;
+            $CartePartie->setPosition($position);
             $position++;
 
             $nombre--;
         }
-
-        // à finir
+        $this->em->flush();
+        if ($melanderDestination) {
+            $this->melangerEmplacement($Partie,$joueurConcerne,$emplacementFinal);
+        }
     }
 
 

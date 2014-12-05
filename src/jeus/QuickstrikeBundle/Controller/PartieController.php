@@ -210,7 +210,7 @@ class PartieController extends Controller {
             )
             ,array('position'=>'ASC')
         );
-        $order = ($emplacementFinal=='DISCARD') ? 'DESC' : 'ASC';
+        $order = 'DESC';
         $CarteFinals = $this->em
         ->getRepository('jeusQuickstrikeBundle:CartePartie')
         ->findBy(array(
@@ -240,6 +240,42 @@ class PartieController extends Controller {
         if ($melanderDestination) {
             $this->melangerEmplacement($Partie,$joueurConcerne,$emplacementFinal);
         }
+    }
+
+    public function demarragePartie($Partie,$joueurConcerne) {
+        $this->melangerEmplacement($Partie,$joueurConcerne);
+        $this->deplacerCarte($Partie,$joueurConcerne,5,'DECK','DISCARD');
+        $this->deplacerCarte($Partie,$joueurConcerne,2,'DECK','ENERGIE_VERTE');
+        $this->deplacerCarte($Partie,$joueurConcerne,2,'DECK','ENERGIE_JAUNE');
+        $this->deplacerCarte($Partie,$joueurConcerne,2,'DECK','ENERGIE_ROUGE');
+    }
+
+    public function joueurChoisi() {
+        $numero = rand(1,1000);
+        return ($numero<=500)? 1 : 2;
+    }
+
+    public function gestionPile($Partie){
+        // si les deux joueurs ont choisis leur deck on les passe en début de partie
+        if (($Partie->getJoueur1Etape()=='attenteDebut')
+            && ($Partie->getJoueur2Etape()=='attenteDebut')
+           ) {
+            $this->demarragePartie($Partie,1);
+            $this->demarragePartie($Partie,2);
+            if ($this->joueurChoisi()==1) {
+                $Partie->setJoueur1Etape('attaque');
+                $Partie->setJoueur2Etape('attente');
+            } else {
+                $Partie->setJoueur2Etape('attaque');
+                $Partie->setJoueur1Etape('attente');
+            }
+        }
+
+        if (($Partie->getJoueur1Etape()=='attaque')) {
+
+        }
+        
+
     }
 
 

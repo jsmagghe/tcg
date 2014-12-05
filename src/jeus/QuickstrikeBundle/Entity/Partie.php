@@ -522,14 +522,6 @@ class Partie
         } else {
             $this->setJoueur1Etape($etape);
         }
-        // si les deux joueurs ont choisis leur deck on les passe en début de partie
-        if (($this->getJoueur1Etape()=='attenteDebut')
-            && ($this->getJoueur2Etape()=='attenteDebut')
-           ) {
-            $this->setJoueur1Etape('choix attaque');
-            $this->setJoueur2Etape('choix attaque');
-        }
-        
         $this->setDateDerniereAction(new \Datetime());
     }
 

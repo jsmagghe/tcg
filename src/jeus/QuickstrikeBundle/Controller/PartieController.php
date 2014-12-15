@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 /* Entity */
 use jeus\QuickstrikeBundle\Entity\Deck;
 use jeus\QuickstrikeBundle\Entity\Partie;
+use jeus\QuickstrikeBundle\Entity\CartePartie;
 
 /* Form */
 
@@ -22,10 +23,10 @@ class PartieController extends Controller {
         if (($Joueur === null) || ($Joueur=='anon.')) {
             return $this->redirect($this->generateUrl('jeus_quickstrike_carte'));
         } else {
-            $em = $this->getDoctrine()->getManager();
-            //$listeJoueur = $em->getRepository('jeusJoueurBundle:Joueur')->findBy(array('enAttenteQuickstrike' => true));
-            $listeJoueur = $em->getRepository('jeusJoueurBundle:Joueur')->findJoueurEnAttente($Joueur);
-            $listePartie = $em->getRepository('jeusQuickstrikeBundle:Partie')->findPartieByJoueur($Joueur);
+            $this->em = $this->getDoctrine()->getManager();
+            //$listeJoueur = $this->em->getRepository('jeusJoueurBundle:Joueur')->findBy(array('enAttenteQuickstrike' => true));
+            $listeJoueur = $this->em->getRepository('jeusJoueurBundle:Joueur')->findJoueurEnAttente($Joueur);
+            $listePartie = $this->em->getRepository('jeusQuickstrikeBundle:Partie')->findPartieByJoueur($Joueur);
             
             return $this->render('::parties.html.twig', array(
                         'Joueur' => $Joueur,
@@ -40,54 +41,54 @@ class PartieController extends Controller {
     
     public function joueurEnAttenteAction() {
         $Joueur = $this->get('security.context')->getToken()->getUser();
-        $em = $this->getDoctrine()->getManager();
-        $DeckValides = $em->getRepository('jeusQuickstrikeBundle:Deck')->findBy(array('joueur' => $Joueur, 'valide' => true));
+        $this->em = $this->getDoctrine()->getManager();
+        $DeckValides = $this->em->getRepository('jeusQuickstrikeBundle:Deck')->findBy(array('joueur' => $Joueur, 'valide' => true));
         if ($DeckValides != null) {
             $Joueur->setEnAttenteQuickstrike(true);
-            $em->persist($Joueur);
-            $em->flush();
+            $this->em->persist($Joueur);
+            $this->em->flush();
         }
         return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));
     }
 
     public function joueurAnnulerAttenteAction() {
         $Joueur = $this->get('security.context')->getToken()->getUser();
-        $em = $this->getDoctrine()->getManager();
+        $this->em = $this->getDoctrine()->getManager();
         $Joueur->setEnAttenteQuickstrike(false);
-        $em->persist($Joueur);
-        $em->flush();
+        $this->em->persist($Joueur);
+        $this->em->flush();
         return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));
     }
 
     public function joueurAffronterAction($Adversaire) {
         $Joueur = $this->get('security.context')->getToken()->getUser();
-        $em = $this->getDoctrine()->getManager();
+        $this->em = $this->getDoctrine()->getManager();
         if (($Adversaire != null) && ($Joueur != null)) {
             $Adversaire->setEnAttenteQuickstrike(false);
             $Joueur->setEnAttenteQuickstrike(false);
             $Partie = new Partie($Joueur,$Adversaire);
-            $em->persist($Joueur);
-            $em->persist($Adversaire);
-            $em->persist($Partie);
-            $em->flush();
+            $this->em->persist($Joueur);
+            $this->em->persist($Adversaire);
+            $this->em->persist($Partie);
+            $this->em->flush();
         }
         return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id' => $Partie->getId())));
     }
     
     public function entrainementAction() {
         $Joueur = $this->get('security.context')->getToken()->getUser();
-        $em = $this->getDoctrine()->getManager();
+        $this->em = $this->getDoctrine()->getManager();
         if ($Joueur != null) {
             $Partie = new Partie($Joueur,$Joueur);
-            $em->persist($Partie);
-            $em->flush();
+            $this->em->persist($Partie);
+            $this->em->flush();
         }
         return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id' => $Partie->getId())));
     }
     
     public function inverserAction(Partie $Partie) {
         $Joueur = $this->get('security.context')->getToken()->getUser();
-        $em = $this->getDoctrine()->getManager();
+        $this->em = $this->getDoctrine()->getManager();
         if (($Joueur == $Partie->getJoueur1()) && ($Joueur == $Partie->getJoueur2())) {
             if ($Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId()) {
                 $JoueurBas = ($Partie->getJoueurBas() != null)?$Partie->getJoueurBas():1;
@@ -99,20 +100,20 @@ class PartieController extends Controller {
             } else {
                 $Partie->setJoueurBas(2);
             }
-            $em->persist($Partie);
-            $em->flush();            
+            $this->em->persist($Partie);
+            $this->em->flush();            
         }        
         return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id' => $Partie->getId())));
     }
 
     public function choixDeckAction(Partie $Partie, $idDeck) {
         $Joueur = $this->get('security.context')->getToken()->getUser();
-        $em = $this->getDoctrine()->getManager();
+        $this->em = $this->getDoctrine()->getManager();
         if (($Joueur == $Partie->getJoueur1()) && ($Joueur == $Partie->getJoueur2())) {
-            $Deck = $em->getRepository('jeusQuickstrikeBundle:Deck')->find($idDeck);
+            $Deck = $this->em->getRepository('jeusQuickstrikeBundle:Deck')->find($idDeck);
             $this->choixDeck($Partie,$Deck,$Joueur);
-            $em->persist($Partie);
-            $em->flush();    
+            $this->em->persist($Partie);
+            $this->em->flush();    
             return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id' => $Partie->getId())));
         } else {
             return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));
@@ -121,41 +122,43 @@ class PartieController extends Controller {
 
     public function partieAction(Partie $Partie) {
         $Joueur = $this->get('security.context')->getToken()->getUser();
-        $em = $this->getDoctrine()->getManager();
+        $this->em = $this->getDoctrine()->getManager();
         if (($Joueur == $Partie->getJoueur1()) || ($Joueur == $Partie->getJoueur2())) {
-            if ($Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId()) {
-                $JoueurBas = ($Partie->getJoueurBas() != null)?$Partie->getJoueurBas():1;
-            } else {
-                $JoueurBas = ($Joueur == $Partie->getJoueur1())?1:2;
-            }
+            $this->gestionPile($Partie);
             
-            $choixPossible = array();
-            if ($JoueurBas==1) {
-                $etape = $Partie->getJoueur1Etape();
-            } else {
-                $etape = $Partie->getJoueur2Etape();
-            }
-                
-            switch ($etape) {
-                case 'choix deck' :
-                    $Decks = $em->getRepository('jeusQuickstrikeBundle:Deck')->findBy(array('joueur' => $Joueur, 'valide' => true));
-                    break;
-                case 'choix attaquant':
-                    $choixPossible[] = 'attaquer';
-                    $choixPossible[] = 'defendre';
-                    break;
-            }                
-            
+            $choixPossibles = $this->actionPossibles($Partie,$Joueur);
             return $this->render('::partie.html.twig', array(
                         'Partie' => $Partie->getPartieAffichee($Joueur),
                         'jeu' => 'quickstrike',
                         'inversable' => $Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId(),
-                        'listeDecks' => (isset($Decks)) ? $Decks : null,
+                        'choixPossibles' => $choixPossibles,
             ));
         } else {
             return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));
         }        
     }
+
+    public function choixEffetAction(Partie $Partie, $effet) {
+        $Joueur = $this->get('security.context')->getToken()->getUser();
+        $this->em = $this->getDoctrine()->getManager();
+
+        
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // fonction de gestion de la partie
@@ -168,24 +171,25 @@ class PartieController extends Controller {
                 $CartePartie = new CartePartie($Carte,$Partie,$Partie->JoueurConcerne($Joueur),'DECK');
                 $Partie->addCartePartie($CartePartie);
             }
-            $this->melangerDeck($Partie,$Partie->JoueurConcerne($Joueur));
+            $this->melangerEmplacement($Partie,$Partie->JoueurConcerne($Joueur));
             $Partie->setEtape($Joueur, 'attenteDebut');
         }
+        return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id'=>$Partie->getId())));
     }
 
 
     private function melangerEmplacement($Partie,$joueurConcerne,$emplacement='DECK') {
         $CarteParties = $this->em
-        ->getRepository('jeusQuickstrikeBundle:CartePartie')
-        ->findBy(array(
-            'Partie' => $Partie, 'joueurConcerne' => $joueurConcerne, 'emplacement' => $emplacement
-            )
-            ,array('position'=>'ASC')
-        );
+                             ->getRepository('jeusQuickstrikeBundle:CartePartie')
+                             ->findBy(array(
+                                  'Partie' => $Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacement
+                                  )
+                                  ,array('position'=>'ASC')
+                                );
 
         $positions = array();       
         $iteration = 0;
-        foreach($PartieCartes as $CartePartie) {
+        foreach($CarteParties as $CartePartie) {
             $iteration++;            
             $positions[$iteration] = $iteration;
         }
@@ -194,7 +198,7 @@ class PartieController extends Controller {
             shuffle($positions);
         }
         $iteration = 0;
-        foreach($PartieCartes as $CartePartie) {
+        foreach($CarteParties as $CartePartie) {
             $CartePartie->setPosition($positions[$iteration]);
             $iteration++;
         }
@@ -202,11 +206,11 @@ class PartieController extends Controller {
         $this->em->flush();
     }
 
-    public function deplacerCarte($Partie,$joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD',$melanderDestination=false) {
+    private function deplacerCarte($Partie,$joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD',$melanderDestination=false) {
         $CarteParties = $this->em
         ->getRepository('jeusQuickstrikeBundle:CartePartie')
         ->findBy(array(
-            'Partie' => $Partie, 'joueurConcerne' => $joueurConcerne, 'emplacement' => $emplacementOrigine
+            'Partie' => $Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementOrigine
             )
             ,array('position'=>'ASC')
         );
@@ -214,7 +218,7 @@ class PartieController extends Controller {
         $CarteFinals = $this->em
         ->getRepository('jeusQuickstrikeBundle:CartePartie')
         ->findBy(array(
-            'Partie' => $Partie, 'joueurConcerne' => $joueurConcerne, 'emplacement' => $emplacementFinal
+            'Partie' => $Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementFinal
             ),
             array('position'=>$order),
             1
@@ -242,7 +246,7 @@ class PartieController extends Controller {
         }
     }
 
-    public function demarragePartie($Partie,$joueurConcerne) {
+    private function demarragePartie($Partie,$joueurConcerne) {
         $this->melangerEmplacement($Partie,$joueurConcerne);
         $this->deplacerCarte($Partie,$joueurConcerne,5,'DECK','DISCARD');
         $this->deplacerCarte($Partie,$joueurConcerne,2,'DECK','ENERGIE_VERTE');
@@ -250,12 +254,12 @@ class PartieController extends Controller {
         $this->deplacerCarte($Partie,$joueurConcerne,2,'DECK','ENERGIE_ROUGE');
     }
 
-    public function joueurChoisi() {
+    private function joueurChoisi() {
         $numero = rand(1,1000);
         return ($numero<=500)? 1 : 2;
     }
 
-    public function gestionPile($Partie){
+    private function gestionPile($Partie){
         // si les deux joueurs ont choisis leur deck on les passe en début de partie
         if (($Partie->getJoueur1Etape()=='attenteDebut')
             && ($Partie->getJoueur2Etape()=='attenteDebut')
@@ -263,19 +267,44 @@ class PartieController extends Controller {
             $this->demarragePartie($Partie,1);
             $this->demarragePartie($Partie,2);
             if ($this->joueurChoisi()==1) {
-                $Partie->setJoueur1Etape('attaque');
+                $Partie->setJoueur1Etape('choixAttaquant');
                 $Partie->setJoueur2Etape('attente');
             } else {
-                $Partie->setJoueur2Etape('attaque');
+                $Partie->setJoueur2Etape('choixAttaquant');
                 $Partie->setJoueur1Etape('attente');
             }
         }
+    }
 
-        if (($Partie->getJoueur1Etape()=='attaque')) {
-
+    private function actionPossibles($Partie,$Joueur) {
+        $action = array();
+        if ($Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId()) {
+            $JoueurBas = ($Partie->getJoueurBas() != null)?$Partie->getJoueurBas():1;
+        } else {
+            $JoueurBas = ($Joueur == $Partie->getJoueur1())?1:2;
         }
-        
 
+        $choixPossible = array();
+        if ($JoueurBas==1) {
+            $etape = $Partie->getJoueur1Etape();
+        } else {
+            $etape = $Partie->getJoueur2Etape();
+        }
+
+        switch ($etape) {
+            case 'choix deck' :
+                $Decks = $this->em->getRepository('jeusQuickstrikeBundle:Deck')->findBy(array('joueur' => $Joueur, 'valide' => true));
+                foreach($Decks as $Deck) {
+                    $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_deck',array('id' => $Partie->getId(),'idDeck' => $Deck->getId())).'">'.$Deck->getNom().'</a>';
+                }
+                break;
+            case 'choixAttaquant':
+                $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'attaquer')).'">Attaquer</a>';
+                $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'defendre')).'">Defendre</a>';
+                break;
+        }                
+            
+        return $action;
     }
 
 

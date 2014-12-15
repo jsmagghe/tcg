@@ -100,3 +100,9 @@ jeus_quickstrike_partie_choix_deck:
         id: \d+
         idDeck: \d+
     
+jeus_quickstrike_partie_choix_effet:
+    path:     /partie/{id}/choix-effet/{effet}
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:choixEffet }
+    requirements:
+        id: \d+
+    

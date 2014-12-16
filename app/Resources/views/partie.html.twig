@@ -14,7 +14,7 @@
         <a href="{{ path('jeus_'~jeu~'_partie_inverser', {'id':Partie.id})}}">inverser affichage</a>
     {% endif %}
     {% if (choixPossibles is defined) and (choixPossibles|length>0) %}
-        <div id="liste-deck">
+        <div id="choix">
             {% for choix in choixPossibles %}
                 {{choix|raw }}
             {% endfor %}

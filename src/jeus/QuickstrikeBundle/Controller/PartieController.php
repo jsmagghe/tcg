@@ -95,7 +95,7 @@ class PartieController extends Controller {
             } else {
                 $JoueurBas = ($Joueur == $Partie->getJoueur1())?1:2;
             }
-            if ($Partie->getJoueurBas()==2) {
+            if ($JoueurBas==2) {
                 $Partie->setJoueurBas(1);
             } else {
                 $Partie->setJoueurBas(2);
@@ -127,8 +127,28 @@ class PartieController extends Controller {
             $this->gestionPile($Partie);
             
             $choixPossibles = $this->actionPossibles($Partie,$Joueur);
+            $carteJoueurs = array();
+            $carteAdversaires = array();
+            $CarteParties = $this->em
+                                 ->getRepository('jeusQuickstrikeBundle:CartePartie')
+                                 ->findBy(array(
+                                      'Partie' => $Partie
+                                      )
+                                      ,array('numeroJoueur'=>'ASC', 'emplacement'=>'ASC', 'position'=>'ASC')
+                                    );
+
+            foreach($CarteParties as $CartePartie) {
+                if ($thhis->numeroJoueur($Partie,$Joueur)==$CartePartie->getNumeroJoueur()) {
+                    $CarteJoueurs[$CartePartie->getEmplacement()][]=$CartePartie;
+                } else {
+                    $CarteAdversaires[$CartePartie->getEmplacement()][]=$CartePartie;    
+                }
+            }
+
+
             return $this->render('::partie.html.twig', array(
-                        'Partie' => $Partie->getPartieAffichee($Joueur),
+                        'carteJoueurs' => $carteJoueurs,
+                        'carteAdversaires' => $carteAdversaires,
                         'jeu' => 'quickstrike',
                         'inversable' => $Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId(),
                         'choixPossibles' => $choixPossibles,
@@ -162,6 +182,14 @@ class PartieController extends Controller {
 
 
     // fonction de gestion de la partie
+
+    private function numeroJoueur($Partie,$Joueur) {
+
+    }
+
+    private function numeroAdversaire($Partie,$Joueur) {
+
+    }
 
     private function choixDeck($Partie,$Deck, $Joueur)
     {

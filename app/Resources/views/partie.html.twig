@@ -21,6 +21,32 @@
         </div>
     {% endif %}
     <div id="tapis">
+        {% if carteJoueurs is defined %}
+            <div id="cartes-joueur">
+                {% for Emplacement, Cartes in carteJoueurs %}
+                    <div id="{{emplacement}}">
+                        {% for Carte in Cartes %}
+                            <div>
+                                <img src="{{ asset('images/'~jeu|capitalize~'/'~Carte.lienPartie) }}" id="{{ Carte.id }}" class="carte_deck"/>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% if carteAdversaires is defined %}
+            <div id="cartes-adversaire">
+                {% for Emplacement, Cartes in carteAdversaires %}
+                    <div id="{{emplacement}}">
+                        {% for Carte in Cartes %}
+                            <div>
+                                <img src="{{ asset('images/'~jeu|capitalize~'/'~Carte.lienPartieAdverse) }}" id="{{ Carte.id }}" class="carte_deck"/>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </div>
 

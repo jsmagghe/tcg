@@ -176,19 +176,19 @@ class PartieController extends Controller {
 
 
 
-
-
-
-
-
     // fonction de gestion de la partie
 
-    private function numeroJoueur($Partie,$Joueur) {
+    private function numeroJoueur($Partie,$Joueur,$adversaire = false) {
+        $numero = 1;
+        if ($Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId()) {
+            $numero = ($Partie->getJoueurBas() != null) ? $Partie->getJoueurBas() : 1;
+        } else {
+            $numero = ($Partie->getJoueur2()->getId()==$Joueur->getId()) ? 2 : 1;
+        }
+        if ($adversaire)
+            $numero = ($numero==1) ? 2 : 1;
 
-    }
-
-    private function numeroAdversaire($Partie,$Joueur) {
-
+        return $numero;
     }
 
     private function choixDeck($Partie,$Deck, $Joueur)

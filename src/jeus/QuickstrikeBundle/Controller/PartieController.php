@@ -138,13 +138,12 @@ class PartieController extends Controller {
                                     );
 
             foreach($CarteParties as $CartePartie) {
-                if ($thhis->numeroJoueur($Partie,$Joueur)==$CartePartie->getNumeroJoueur()) {
+                if ($this->numeroJoueur($Partie,$Joueur)==$CartePartie->getNumeroJoueur()) {
                     $CarteJoueurs[$CartePartie->getEmplacement()][]=$CartePartie;
                 } else {
                     $CarteAdversaires[$CartePartie->getEmplacement()][]=$CartePartie;    
                 }
             }
-
 
             return $this->render('::partie.html.twig', array(
                         'carteJoueurs' => $carteJoueurs,
@@ -152,6 +151,7 @@ class PartieController extends Controller {
                         'jeu' => 'quickstrike',
                         'inversable' => $Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId(),
                         'choixPossibles' => $choixPossibles,
+                        'Partie' => $Partie,
             ));
         } else {
             return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));

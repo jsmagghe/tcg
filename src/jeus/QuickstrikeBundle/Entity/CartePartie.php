@@ -210,6 +210,17 @@ class CartePartie
     {
         return $this->carte;
     }
+        
+    public function getlien()
+    {
+        $lien = '';
+        if (!$this->visible)
+            $lien = 'back';
+        else
+            $lien = $this->carte->getImage();
+
+        return $lien;
+    }
 		
 		
     public function __construct($Carte,$Partie,$numeroJoueur,$emplacement = 'DECK') {

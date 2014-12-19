@@ -137,11 +137,14 @@ class PartieController extends Controller {
                                       ,array('numeroJoueur'=>'ASC', 'emplacement'=>'ASC', 'position'=>'ASC')
                                     );
 
+            $carte = array();
             foreach($CarteParties as $CartePartie) {
+                $carte['id'] = $CartePartie->getId();
+                $carte['lien'] = $CartePartie->getLien();
                 if ($this->numeroJoueur($Partie,$Joueur)==$CartePartie->getNumeroJoueur()) {
-                    $CarteJoueurs[$CartePartie->getEmplacement()][]=$CartePartie;
+                    $CarteJoueurs[$CartePartie->getEmplacement()][]=$carte;
                 } else {
-                    $CarteAdversaires[$CartePartie->getEmplacement()][]=$CartePartie;    
+                    $CarteAdversaires[$CartePartie->getEmplacement()][]=$carte;    
                 }
             }
 

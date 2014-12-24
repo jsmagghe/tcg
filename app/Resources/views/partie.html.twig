@@ -4,43 +4,44 @@
     {{ parent() }}
 
     <link type="text/css" rel="stylesheet" href="{{ asset('css/carte.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/partie-'~jeu~'.css') }}" />
 {% endblock %}
 
 
 
 {% block body %}
     {{ parent() }}
-    {% if (inversable is defined) and (inversable==true) %}
-        <a href="{{ path('jeus_'~jeu~'_partie_inverser', {'id':Partie.id})}}">inverser affichage</a>
-    {% endif %}
-    {% if (choixPossibles is defined) and (choixPossibles|length>0) %}
-        <div id="choix">
+    <div id="choix">
+        {% if (inversable is defined) and (inversable==true) %}
+            <a href="{{ path('jeus_'~jeu~'_partie_inverser', {'id':Partie.id})}}">inverser affichage</a>
+        {% endif %}
+        {% if (choixPossibles is defined) and (choixPossibles|length>0) %}
             {% for choix in choixPossibles %}
                 {{choix|raw }}
             {% endfor %}
-        </div>
-    {% endif %}
+        {% endif %}
+    </div>
     <div id="tapis">
-        {% if carteJoueurs is defined %}
-            <div id="cartes-joueur">
-                {% for Emplacement, Cartes in carteJoueurs %}
-                    <div id="{{emplacement}}">
-                        {% for Carte in Cartes %}
+        {% if carteAdversaires is defined %}
+            <div id="cartes-adversaire">
+                {% for emplacement, cartes in carteAdversaires %}
+                    <div id="{{emplacement}}-adverse">
+                        {% for carte in cartes %}
                             <div>
-                                <img src="{{ asset('images/'~jeu|capitalize~'/'~Carte.lienPartie) }}" id="{{ Carte.id }}" class="carte_deck"/>
+                                <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card"/>
                             </div>
                         {% endfor %}
                     </div>
                 {% endfor %}
             </div>
         {% endif %}
-        {% if carteAdversaires is defined %}
-            <div id="cartes-adversaire">
-                {% for Emplacement, Cartes in carteAdversaires %}
+        {% if carteJoueurs is defined %}
+            <div id="cartes-joueur">
+                {% for emplacement, cartes in carteJoueurs %}
                     <div id="{{emplacement}}">
-                        {% for Carte in Cartes %}
+                        {% for carte in cartes %}
                             <div>
-                                <img src="{{ asset('images/'~jeu|capitalize~'/'~Carte.lienPartieAdverse) }}" id="{{ Carte.id }}" class="carte_deck"/>
+                                <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card"/>
                             </div>
                         {% endfor %}
                     </div>

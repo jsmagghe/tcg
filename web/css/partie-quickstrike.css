@@ -1,0 +1,174 @@
+/*.global-container { box-shadow: 0 0 5px #ccc; }*/
+body { font-family: Arial, sans-serif; }
+#cartes-adversaire{
+	height : 419px;
+	background-image:url("../images/Quickstrike/playmat_reverse.png");
+	background-repeat:no-repeat;
+	background-position:left 200px top 0px;
+}
+
+#cartes-joueur{
+	height : 419px;
+	background-image:url("../images/Quickstrike/playmat.png");
+	background-repeat:no-repeat;
+	background-position:left 200px top 0px;
+}
+
+.card {
+	width: 71px;
+	height: 100px;
+}
+
+#choix {
+	position : absolute;
+}
+
+#choix > a {
+	display : block;
+}
+
+
+#energie_verte-adverse{
+	position: absolute;
+	top : 343px;
+	left : 226px;
+}
+
+#energie_jaune-adverse{
+	position: absolute;
+	top : 228px;
+	left : 226px;
+}
+
+#energie_rouge-adverse{
+	position: absolute;
+	top : 115px;
+	left : 226px;
+}
+
+#chamber-adverse{
+	position: absolute;
+	top : 343px;
+	left : 393px;
+}
+
+#deck-adverse{
+	position: absolute;
+	top : 228px;
+	left : 393px;
+}
+
+#discard-adverse{
+	position: absolute;
+	top : 115px;
+	left : 393px;
+}
+
+#strike_vert-adverse{
+	position: absolute;
+	top : 343px;
+	left : 540px;
+}
+
+#strike_jaune-adverse{
+	position: absolute;
+	top : 228px;
+	left : 540px;
+}
+
+#strike_rouge-adverse{
+	position: absolute;
+	top : 115px;
+	left : 540px;
+}
+
+#teamwork_vert-adverse{
+	position: absolute;
+	top : 343px;
+	left : 702px;
+}
+
+#teamwork_jaune-adverse{
+	position: absolute;
+	top : 228px;
+	left : 702px;
+}
+
+#teamwork_rouge-adverse{
+	position: absolute;
+	top : 115px;
+	left : 702px;
+}
+
+#energie_verte{
+	position: absolute;
+	top : 613px;
+	left : 702px;
+}
+
+#energie_jaune{
+	position: absolute;
+	top : 728px;
+	left : 702px;
+}
+
+#energie_rouge{
+	position: absolute;
+	top : 841px;
+	left : 702px;
+}
+
+#chamber{
+	position: absolute;
+	top : 613px;
+	left : 540px;
+}
+
+#deck{
+	position: absolute;
+	top : 728px;
+	left : 540px;
+}
+
+#discard{
+	position: absolute;
+	top : 841px;
+	left : 540px;
+}
+
+#strike_vert{
+	position: absolute;
+	top : 613px;
+	left : 393px;
+}
+
+#strike_jaune{
+	position: absolute;
+	top : 728px;
+	left : 393px;
+}
+
+#strike_rouge{
+	position: absolute;
+	top : 841px;
+	left : 393px;
+}
+
+#teamwork_vert{
+	position: absolute;
+	top : 613px;
+	left : 226px;
+}
+
+#teamwork_jaune{
+	position: absolute;
+	top : 728px;
+	left : 226px;
+}
+
+#teamwork_rouge{
+	position: absolute;
+	top : 841px;
+	left : 226px;
+}
+

@@ -39,13 +39,6 @@ class CartePartie
     private $numeroJoueur;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="visible", type="boolean")
-     */
-    private $visible;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="emplacement", type="string", length=50)
@@ -60,7 +53,7 @@ class CartePartie
     /**
      * @ORM\ManyToOne(targetEntity="jeus\QuickstrikeBundle\Entity\Carte")
      */
-    protected $carte;
+    protected $Carte;
 
 
     /**
@@ -120,29 +113,6 @@ class CartePartie
     }
 	
     /**
-     * Set visible
-     *
-     * @param boolean $visible
-     * @return EtatCarte
-     */
-    public function setVisible($visible)
-    {
-        $this->visible = $visible;
-
-        return $this;
-    }
-
-    /**
-     * Get visible
-     *
-     * @return boolean 
-     */
-    public function getVisible()
-    {
-        return $this->visible;
-    }
-    
-    /**
      * Set emplacement
      *
      * @param string $emplacement
@@ -189,42 +159,66 @@ class CartePartie
     }
 		
     /**
-     * Set carte
+     * Set Carte
      *
-     * @param \jeus\QuickstrikeBundle\Entity\Carte $carte
+     * @param \jeus\QuickstrikeBundle\Entity\Carte $Carte
      * @return CartePartie
      */
-    public function setCarte(\jeus\QuickstrikeBundle\Entity\Carte $carte)
+    public function setCarte(\jeus\QuickstrikeBundle\Entity\Carte $Carte)
     {
-        $this->carte = $carte;
+        $this->Carte = $Carte;
 
         return $this;
     }
 
     /**
-     * Get carte
+     * Get Carte
      *
      * @return \jeus\QuickstrikeBundle\Entity\Carte
      */
     public function getCarte()
     {
-        return $this->carte;
+        return $this->Carte;
     }
         
-    public function getlien()
+    public function getLien()
     {
         $lien = '';
-        if (!$this->visible)
-            $lien = 'back';
-        else
-            $lien = $this->carte->getImage();
+        if (
+            ($this->emplacement == 'DECK') 
+            || ($this->emplacement == 'ENERGIE_VERTE')
+            || ($this->emplacement == 'ENERGIE_JAUNE')
+            || ($this->emplacement == 'ENERGIE_ROUGE')
+            ) {
+            $lien = 'back.png';
+        } elseif ($this->emplacement == 'CHAMBER') {
+            $lien = 'recto-' . $this->Carte->getPersonnageChamber() . '.png';
+        } else
+            $lien = $this->Carte->getImage();
+
+        return $lien;
+    }
+        
+    public function getLienAgrandi()
+    {
+        $lien = '';
+        if (
+            ($this->emplacement == 'DECK') 
+            || ($this->emplacement == 'ENERGIE_VERTE')
+            || ($this->emplacement == 'ENERGIE_JAUNE')
+            || ($this->emplacement == 'ENERGIE_ROUGE')
+            ) {
+            $lien = 'back.png';
+        } else{
+            $lien = $this->Carte->getImage();
+        }
 
         return $lien;
     }
 		
 		
     public function __construct($Carte,$Partie,$numeroJoueur,$emplacement = 'DECK') {
-        $this->carte = $Carte;
+        $this->Carte = $Carte;
         $this->numeroJoueur = $numeroJoueur;
         $this->Partie = $Partie;
         $this->position = 0;
@@ -232,11 +226,6 @@ class CartePartie
             $this->emplacement = 'CHAMBER';
         } else {
             $this->emplacement = $emplacement;
-        }
-        if ($this->emplacement == 'DECK') {
-            $this->visible = false;
-        } else {
-            $this->visible = true;
         }
     }
 }

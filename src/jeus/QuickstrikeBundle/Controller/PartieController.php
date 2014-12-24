@@ -125,6 +125,8 @@ class PartieController extends Controller {
         $this->em = $this->getDoctrine()->getManager();
         if (($Joueur == $Partie->getJoueur1()) || ($Joueur == $Partie->getJoueur2())) {
             $this->gestionPile($Partie);
+            $this->em->persist($Partie);
+            $this->em->flush();
             
             $choixPossibles = $this->actionPossibles($Partie,$Joueur);
             $carteJoueurs = array();
@@ -142,9 +144,11 @@ class PartieController extends Controller {
                 $carte['id'] = $CartePartie->getId();
                 $carte['lien'] = $CartePartie->getLien();
                 if ($this->numeroJoueur($Partie,$Joueur)==$CartePartie->getNumeroJoueur()) {
-                    $CarteJoueurs[$CartePartie->getEmplacement()][]=$carte;
+                    if ((!isset($carteJoueurs[strtolower($CartePartie->getEmplacement())])) || ($CartePartie->getEmplacement()=='AVANTAGE'))
+                        $carteJoueurs[strtolower($CartePartie->getEmplacement())][]=$carte;
                 } else {
-                    $CarteAdversaires[$CartePartie->getEmplacement()][]=$carte;    
+                    if ((!isset($carteAdversaires[strtolower($CartePartie->getEmplacement())])) || ($CartePartie->getEmplacement()=='AVANTAGE'))
+                        $carteAdversaires[strtolower($CartePartie->getEmplacement())][]=$carte;    
                 }
             }
 
@@ -261,11 +265,11 @@ class PartieController extends Controller {
         }
         $position++;
 
-        $CarteDeplacees = array();
         foreach($CarteParties as $CartePartie) {
             if ($nombre<=0) 
                 break;
 
+            $CartePartie->setEmplacement($emplacementFinal);
             $CartePartie->setPosition($position);
             $position++;
 

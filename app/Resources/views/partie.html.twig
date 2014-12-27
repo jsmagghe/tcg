@@ -15,10 +15,14 @@
         {% if (inversable is defined) and (inversable==true) %}
             <a href="{{ path('jeus_'~jeu~'_partie_inverser', {'id':Partie.id})}}">inverser affichage</a>
         {% endif %}
-        {% if (choixPossibles is defined) and (choixPossibles|length>0) %}
-            {% for choix in choixPossibles %}
-                {{choix|raw }}
-            {% endfor %}
+        {% if (choixPossibles is defined) %}
+            {% if (choixPossibles|length>0) %}
+                {% for choix in choixPossibles %}
+                    {{choix|raw }}
+                {% endfor %}
+            {% else %}
+                <a href="{{ path('jeus_'~jeu~'_partie', {'id':Partie.id})}}">attente du joueur adverse</a>
+            {% endif %}
         {% endif %}
     </div>
     <div id="tapis">

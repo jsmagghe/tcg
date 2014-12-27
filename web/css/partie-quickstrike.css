@@ -121,19 +121,19 @@ body { font-family: Arial, sans-serif; }
 #chamber{
 	position: absolute;
 	top : 613px;
-	left : 540px;
+	left : 536px;
 }
 
 #deck{
 	position: absolute;
 	top : 728px;
-	left : 540px;
+	left : 536px;
 }
 
 #discard{
 	position: absolute;
 	top : 841px;
-	left : 540px;
+	left : 536px;
 }
 
 #strike_vert{

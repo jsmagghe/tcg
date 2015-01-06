@@ -17,6 +17,7 @@ use jeus\QuickstrikeBundle\Entity\CartePartie;
 class PartieController extends Controller {
 
     private $em;
+    private $carteEnJeu;
 
     public function indexAction() {
         $Joueur = $this->get('security.context')->getToken()->getUser();
@@ -191,6 +192,17 @@ class PartieController extends Controller {
 
     // fonction de gestion de la partie
 
+    private function chargerCarteEnJeu($Partie) {
+        if (empty($this->carteEnJeu)) {
+            $this->carteEnJeu = $this->em
+                                     ->getRepository('jeusQuickstrikeBundle:CartePartie')
+                                     ->findBy(array(
+                                          'Partie' => $Partie
+                                          )
+                                        );
+        }
+    }
+
     private function numeroJoueur($Partie,$Joueur,$adversaire = false) {
         $numero = 1;
         if ($Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId()) {
@@ -336,6 +348,12 @@ class PartieController extends Controller {
     private function joueurChoisi() {
         $numero = rand(1,1000);
         return ($numero<=500)? 1 : 2;
+    }
+
+    private function attaqueEnCours($Partie) {
+
+
+
     }
 
     private function gestionPile($Partie){

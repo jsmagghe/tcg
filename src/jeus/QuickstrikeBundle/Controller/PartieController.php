@@ -17,7 +17,8 @@ use jeus\QuickstrikeBundle\Entity\CartePartie;
 class PartieController extends Controller {
 
     private $em;
-    private $carteEnJeu;
+    private $carteEnJeuJoueur1;
+    private $carteEnJeuJoueur2;
 
     public function indexAction() {
         $Joueur = $this->get('security.context')->getToken()->getUser();
@@ -193,11 +194,21 @@ class PartieController extends Controller {
     // fonction de gestion de la partie
 
     private function chargerCarteEnJeu($Partie) {
-        if (empty($this->carteEnJeu)) {
-            $this->carteEnJeu = $this->em
+        if (empty($this->carteEnJeuJoueur1)) {
+            $this->carteEnJeuJoueur1 = $this->em
                                      ->getRepository('jeusQuickstrikeBundle:CartePartie')
                                      ->findBy(array(
-                                          'Partie' => $Partie
+                                          'Partie' => $Partie,
+                                          'numeroJoueur' => 1,
+                                          )
+                                        );
+        }
+        if (empty($this->carteEnJeuJoueur2)) {
+            $this->carteEnJeuJoueur2 = $this->em
+                                     ->getRepository('jeusQuickstrikeBundle:CartePartie')
+                                     ->findBy(array(
+                                          'Partie' => $Partie,
+                                          'numeroJoueur' => 2,
                                           )
                                         );
         }
@@ -351,9 +362,29 @@ class PartieController extends Controller {
     }
 
     private function attaqueEnCours($Partie) {
+        $attaque = 0;
+        if (($Partie->getJoueur1Etape()=='defense') || ($Partie->getJoueur2Etape()=='defense')) {
+            $numeroDefenseur = ($Partie->getJoueur1Etape()=='defense') ? 1 : 2;
+            $numeroAttaquant = ($Partie->getJoueur1Etape()=='defense') ? 2 : 1;
+            foreach ($this->carteEnJeuJoueur.$numeroAttaquant as $Cartejeu) {
+                $Carte = $CarteJeu->getCarte();
+                if ($Carte == null) {
+                    continue;
+                }
 
+                if (
+                        (($Carte->getTypeCarte()=='STRIKE') || ($Carte->getTypeCarte()=='CHAMBER'))
+                        || 
+                        ($CarteJeu->getEmplacement()==$Partie->getJoueur.$numeroAttaquant.ZoneEnCours())
+                    )
+                     {
+                        $ataque += $Carte->getAttaque();
+                    }
+                }
+            }
+        }
 
-
+        return $attaque;
     }
 
     private function gestionPile($Partie){
@@ -396,6 +427,11 @@ class PartieController extends Controller {
                 }
                 break;
             case 'choixAttaquant':
+                $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'attaquer')).'">Attaquer</a>';
+                $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'defendre')).'">Defendre</a>';
+                break;
+            case 'defense':
+                $attaque = $this->attaqueEnCours($Partie);
                 $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'attaquer')).'">Attaquer</a>';
                 $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'defendre')).'">Defendre</a>';
                 break;

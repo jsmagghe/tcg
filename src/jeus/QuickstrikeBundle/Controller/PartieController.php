@@ -17,8 +17,7 @@ use jeus\QuickstrikeBundle\Entity\CartePartie;
 class PartieController extends Controller {
 
     private $em;
-    private $carteEnJeuJoueur1;
-    private $carteEnJeuJoueur2;
+    private $carteEnJeuJoueur;
 
     public function indexAction() {
         $Joueur = $this->get('security.context')->getToken()->getUser();
@@ -194,8 +193,8 @@ class PartieController extends Controller {
     // fonction de gestion de la partie
 
     private function chargerCarteEnJeu($Partie) {
-        if (empty($this->carteEnJeuJoueur1)) {
-            $this->carteEnJeuJoueur1 = $this->em
+        if ((!isset($this->carteEnJeuJoueur[1])) || (empty($this->carteEnJeuJoueur[1]))) {
+            $this->carteEnJeuJoueur[1] = $this->em
                                      ->getRepository('jeusQuickstrikeBundle:CartePartie')
                                      ->findBy(array(
                                           'Partie' => $Partie,
@@ -203,8 +202,8 @@ class PartieController extends Controller {
                                           )
                                         );
         }
-        if (empty($this->carteEnJeuJoueur2)) {
-            $this->carteEnJeuJoueur2 = $this->em
+        if ((!isset($this->carteEnJeuJoueur[2])) || (empty($this->carteEnJeuJoueur[2]))) {
+            $this->carteEnJeuJoueur[2] = $this->em
                                      ->getRepository('jeusQuickstrikeBundle:CartePartie')
                                      ->findBy(array(
                                           'Partie' => $Partie,
@@ -366,21 +365,26 @@ class PartieController extends Controller {
         if (($Partie->getJoueur1Etape()=='defense') || ($Partie->getJoueur2Etape()=='defense')) {
             $numeroDefenseur = ($Partie->getJoueur1Etape()=='defense') ? 1 : 2;
             $numeroAttaquant = ($Partie->getJoueur1Etape()=='defense') ? 2 : 1;
-            foreach ($this->carteEnJeuJoueur.$numeroAttaquant as $Cartejeu) {
-                $Carte = $CarteJeu->getCarte();
+            $CarteEnJeus = $this->carteEnJeuJoueur[$numeroAttaquant];
+            foreach ($CarteEnJeus as $Cartejeu) {
+                $Carte = $Cartejeu->getCarte();
                 if ($Carte == null) {
                     continue;
                 }
 
-                if (
-                        (($Carte->getTypeCarte()=='STRIKE') || ($Carte->getTypeCarte()=='CHAMBER'))
+                var_dump($Partie->getJoueurZoneEnCours($numeroAttaquant));
+                var_dump($Cartejeu->getEmplacement());
+                exit;
+
+                /*if (
+                        (($Carte->getTypeCarte()->getTag()=='STRIKE') || ($Carte->getTypeCarte()->getTag()=='CHAMBER'))
                         || 
-                        ($CarteJeu->getEmplacement()==$Partie->getJoueur.$numeroAttaquant.ZoneEnCours())
+                        ($Cartejeu->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroAttaquant))
                     )
                      {
                         $ataque += $Carte->getAttaque();
                     }
-                }
+                }*/
             }
         }
 
@@ -405,6 +409,7 @@ class PartieController extends Controller {
     }
 
     private function actionPossibles($Partie,$Joueur) {
+        $this->chargerCarteEnJeu($Partie);
         $action = array();
         if ($Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId()) {
             $JoueurBas = ($Partie->getJoueurBas() != null)?$Partie->getJoueurBas():1;

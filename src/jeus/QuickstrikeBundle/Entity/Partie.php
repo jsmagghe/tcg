@@ -103,9 +103,9 @@ class Partie
     private $Joueur1DiscardCharge;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="Joueur1ZoneEnCours", type="smallint")
+     * @ORM\Column(name="Joueur1ZoneEnCours", type="string")
      */
     private $Joueur1ZoneEnCours;
 
@@ -131,9 +131,9 @@ class Partie
     private $Joueur2DiscardCharge;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="Joueur2ZoneEnCours", type="smallint")
+     * @ORM\Column(name="Joueur2ZoneEnCours", type="string")
      */
     private $Joueur2ZoneEnCours;
 
@@ -160,7 +160,7 @@ class Partie
         $this->Joueur1ChamberCharge = false;
         $this->Joueur1DeckCharge = false;
         $this->Joueur1DiscardCharge = false;
-        $this->Joueur1ZoneEnCours = 0;
+        $this->Joueur1ZoneEnCours = '';
 
         $this->joueur2 = $joueur2;
         $this->Joueur2Point = 0;
@@ -168,7 +168,7 @@ class Partie
         $this->Joueur2ChamberCharge = false;
         $this->Joueur2DeckCharge = false;
         $this->Joueur2DiscardCharge = false;
-        $this->Joueur2ZoneEnCours = 0;
+        $this->Joueur2ZoneEnCours = '';
         
         $this->dateDerniereAction = new \Datetime();
     }
@@ -475,6 +475,13 @@ class Partie
     {
         $this->Joueur2ZoneEnCours = $Joueur2ZoneEnCours;
         return $this;
+    }
+
+    public function getJoueurZoneEnCours($numeroJoueur){
+        if ($numeroJoueur==2) 
+            return $this->getJoueur1ZoneEnCours();
+        else 
+            return $this->getJoueur2ZoneEnCours();
     }
 
     public function getJoueurBas()

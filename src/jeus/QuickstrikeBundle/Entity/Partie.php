@@ -376,7 +376,10 @@ class Partie
 
     public function getJoueur1ZoneEnCours()
     {
-        return $this->Joueur1ZoneEnCours;
+        if ($this->Joueur1ZoneEnCours==null)
+            return 'STRIKE_VERT';
+        else
+            return $this->Joueur1ZoneEnCours;
     }
 
     public function getJoueur2ChamberCharge()
@@ -396,7 +399,10 @@ class Partie
 
     public function getJoueur2ZoneEnCours()
     {
-        return $this->Joueur2ZoneEnCours;
+        if ($this->Joueur2ZoneEnCours==null)
+            return 'STRIKE_VERT';
+        else
+            return $this->Joueur2ZoneEnCours;
     }
 
     public function setJoueur1Point($Joueur1Point)

@@ -17,7 +17,7 @@ use jeus\QuickstrikeBundle\Entity\CartePartie;
 class PartieController extends Controller {
 
     private $em;
-    private $carteEnJeuJoueur;
+    private $CarteEnJeus;
 
     public function indexAction() {
         $Joueur = $this->get('security.context')->getToken()->getUser();
@@ -193,23 +193,23 @@ class PartieController extends Controller {
     // fonction de gestion de la partie
 
     private function chargerCarteEnJeu($Partie) {
-        if ((!isset($this->carteEnJeuJoueur[1])) || (empty($this->carteEnJeuJoueur[1]))) {
-            $this->carteEnJeuJoueur[1] = $this->em
-                                     ->getRepository('jeusQuickstrikeBundle:CartePartie')
-                                     ->findBy(array(
-                                          'Partie' => $Partie,
-                                          'numeroJoueur' => 1,
-                                          )
-                                        );
-        }
-        if ((!isset($this->carteEnJeuJoueur[2])) || (empty($this->carteEnJeuJoueur[2]))) {
-            $this->carteEnJeuJoueur[2] = $this->em
-                                     ->getRepository('jeusQuickstrikeBundle:CartePartie')
-                                     ->findBy(array(
-                                          'Partie' => $Partie,
-                                          'numeroJoueur' => 2,
-                                          )
-                                        );
+        if ($this->CarteEnJeus==null) {
+            $CarteEnJeus = $this->em->getRepository('jeusQuickstrikeBundle:CartePartie')
+                                     ->findBy(array('Partie' => $Partie));
+
+            foreach($CarteEnJeus as $CartePartie) {
+                $emplacement = $CartePartie->getEmplacement();
+                $numeroJoueur = $CartePartie->getNumeroJoueur();
+                if (($emplacement!='AVANTAGE') && ($emplacement!='DECK') && ($emplacement!='DISCARD')) {
+                    $this->CarteEnJeus[$numeroJoueur][$emplacement] = $CartePartie;
+                } else {
+                    $this->CarteEnJeus[$numeroJoueur][$emplacement][] = $CartePartie;
+                }
+                if (($emplacement!='DECK') && ($emplacement!='DISCARD')) {
+                    $this->CarteEnJeus[$numeroJoueur]['ACTIVE'][] = $CartePartie;
+                }
+            }
+
         }
     }
 
@@ -368,9 +368,9 @@ class PartieController extends Controller {
     private function bonusAttaque($Partie) {
         $bonus = 0;
         if (($Partie->getJoueur1Etape()=='defense') || ($Partie->getJoueur2Etape()=='defense')) {
-            $numeroDefenseur = $this->numeroDefenseur();
-            $numeroAttaquant = $this->numeroAttaquant();
-            $CarteEnJeus = $this->carteEnJeuJoueur[$numeroAttaquant];
+            $numeroDefenseur = $this->numeroDefenseur($Partie);
+            $numeroAttaquant = $this->numeroAttaquant($Partie);
+            $CarteEnJeus = $this->CarteEnJeus[$numeroAttaquant]['ACTIVE'];
             foreach ($CarteEnJeus as $Cartejeu) {
                 $Carte = $Cartejeu->getCarte();
                 if ($Carte == null) {
@@ -385,20 +385,18 @@ class PartieController extends Controller {
     private function attaqueEnCours($Partie) {
         $attaque = 0;
         if (($Partie->getJoueur1Etape()=='defense') || ($Partie->getJoueur2Etape()=='defense')) {
-            $numeroDefenseur = $this->numeroDefenseur();
-            $numeroAttaquant = $this->numeroAttaquant();
-            $CarteEnJeus = $this->carteEnJeuJoueur[$numeroAttaquant];
-            foreach ($CarteEnJeus as $Cartejeu) {
-                $Carte = $Cartejeu->getCarte();
+            $numeroDefenseur = $this->numeroDefenseur($Partie);
+            $numeroAttaquant = $this->numeroAttaquant($Partie);
+            if ($Partie->getJoueurZoneEnCours($numeroAttaquant)!='0') {
+                $CarteActive = $this->CarteEnJeus[$numeroAttaquant][$Partie->getJoueurZoneEnCours($numeroAttaquant)];
+
+                $Carte = $CarteActive->getCarte();
                 if ($Carte == null) {
-                    continue;
+                    return 0;
                 }
                 if (($Carte->getTypeCarte()->getTag()=='STRIKE') || ($Carte->getTypeCarte()->getTag()=='CHAMBER')){
-                    if ($Cartejeu->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroAttaquant)) {
-                        $ataque += $Carte->getAttaque();  
-                    }
-
-                }
+                    $ataque += $Carte->getAttaque();  
+                }                
             }
         }
 
@@ -408,19 +406,16 @@ class PartieController extends Controller {
     private function bonusDefense($Partie) {
         $attaque = 0;
         if (($Partie->getJoueur1Etape()=='defense') || ($Partie->getJoueur2Etape()=='defense')) {
-            $numeroDefenseur = $this->numeroDefenseur();
-            $numeroAttaquant = $this->numeroAttaquant();
-            $CarteEnJeus = $this->carteEnJeuJoueur[$numeroDefenseur];
-            foreach ($CarteEnJeus as $Cartejeu) {
-                $Carte = $Cartejeu->getCarte();
+            $numeroDefenseur = $this->numeroDefenseur($Partie);
+            $numeroAttaquant = $this->numeroAttaquant($Partie);
+            if ($Partie->getJoueurZoneEnCours($numeroDefenseur)!='0') {
+                $CarteActive = $this->CarteEnJeus[$numeroDefenseur][$Partie->getJoueurZoneEnCours($numeroDefenseur)];
+                $Carte = $CarteActive->getCarte();
                 if ($Carte == null) {
                     continue;
                 }
                 if (($Carte->getTypeCarte()->getTag()=='STRIKE') || ($Carte->getTypeCarte()->getTag()=='CHAMBER')){
-                    if ($Cartejeu->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroDefenseur)) {
-                        $ataque += $Carte->getAttaque();  
-                    }
-
+                    $ataque += $Carte->getAttaque();  
                 }
             }
         }
@@ -430,6 +425,16 @@ class PartieController extends Controller {
 
     private function isCartePayable($Cartejeu) {
         $payable = true;
+        $Carte = $Cartejeu->getCarte();
+        if ($Carte == null) {
+            return false;
+        }
+        $coutVert = $Carte->getCoutVert();
+        $coutJaune = $Carte->getCoutJaune();
+        $coutRouge = $Carte->getCoutRouge();
+
+
+
         return $payable;
     }
 
@@ -451,6 +456,7 @@ class PartieController extends Controller {
     }
 
     private function actionPossibles($Partie,$Joueur) {
+        $this->CarteEnJeus=null;
         $this->chargerCarteEnJeu($Partie);
         $action = array();
         if ($Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId()) {
@@ -479,14 +485,13 @@ class PartieController extends Controller {
                 break;
             case 'defense':
                 $attaque = $this->attaqueEnCours($Partie);
-                $numeroDefenseur = $this->numeroDefenseur();
-                $numeroAttaquant = $this->numeroAttaquant();
-                $CarteEnJeus = $this->carteEnJeuJoueur[$numeroDefenseur];
-                foreach ($CarteEnJeus as $Cartejeu) {
-                    $Carte = $Cartejeu->getCarte();
-                    if ($Carte == null) {
-                        continue;
-                    }
+                $numeroDefenseur = $this->numeroDefenseur($Partie);
+                $numeroAttaquant = $this->numeroAttaquant($Partie);
+                $CarteEnJeus = $this->CarteEnJeus[$numeroDefenseur];
+                if ($Partie->getJoueurZoneEnCours($numeroDefenseur)!='0') {
+                    $CarteActive = $CarteEnJeus[$numeroDefenseur][$Partie->getJoueurZoneEnCours($numeroDefenseur)];
+                    
+                    $Carte = $CarteActive->getCarte();
                     if ($this->isCartePayable($Cartejeu)) {
                         if (($Carte->getTypeCarte()->getTag()=='STRIKE') 
                             && ($Cartejeu->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroDefenseur))

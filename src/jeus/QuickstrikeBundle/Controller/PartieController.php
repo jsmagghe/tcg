@@ -18,6 +18,8 @@ class PartieController extends Controller {
 
     private $em;
     private $CarteEnJeus;
+    private $Partie;
+    private $Joueur;
 
     public function indexAction() {
         $Joueur = $this->get('security.context')->getToken()->getUser();
@@ -423,7 +425,7 @@ class PartieController extends Controller {
         return $attaque;
     }
 
-    private function isCartePayable($Cartejeu) {
+    private function isCartePayable($Partie, $Joueur, $Cartejeu) {
         $payable = true;
         $Carte = $Cartejeu->getCarte();
         if ($Carte == null) {
@@ -433,7 +435,34 @@ class PartieController extends Controller {
         $coutJaune = $Carte->getCoutJaune();
         $coutRouge = $Carte->getCoutRouge();
 
+        $energieVerteDisponible = count($this->CarteEnJeus[$this->numeroJoueur($Partie,$Joueur)]['ENERGIE_VERTE']);
+        $energieJauneDisponible = count($this->CarteEnJeus[$this->numeroJoueur($Partie,$Joueur)]['ENERGIE_JAUNE']);
+        $energieRougeDisponible = count($this->CarteEnJeus[$this->numeroJoueur($Partie,$Joueur)]['ENERGIE_ROUGE']);
 
+        if ($energieRougeDisponible>=$coutRouge) 
+            $energieRougeDisponible-=$coutRouge;
+
+        if ($energieJauneDisponible+$energieRougeDisponible>=$coutJaune) {
+            $energieJauneDisponible-=$coutJaune;
+            if ($energieJauneDisponible<0) {
+                $energieRougeDisponible -= $energieJauneDisponible;
+                $energieJauneDisponible = 0;
+            }
+        }
+
+        if ($energieVerteDisponible+$energieJauneDisponible+$energieRougeDisponible>=$coutVert) {
+            $energieVerteDisponible-=$coutVert;
+            if ($energieVerteDisponible<0) {
+                $energieJauneDisponible -= $energieVerteDisponible;
+                $energieVerteDisponible = 0;
+            }
+            if ($energieJauneDisponible<0) {
+                $energieRougeDisponible -= $energieJauneDisponible;
+                $energieJauneDisponible = 0;
+            }
+        }
+
+        $payable = (($coutVert<=0) && ($coutJaune<=0) && ($coutRouge<=0));
 
         return $payable;
     }
@@ -488,11 +517,12 @@ class PartieController extends Controller {
                 $numeroDefenseur = $this->numeroDefenseur($Partie);
                 $numeroAttaquant = $this->numeroAttaquant($Partie);
                 $CarteEnJeus = $this->CarteEnJeus[$numeroDefenseur];
+
                 if ($Partie->getJoueurZoneEnCours($numeroDefenseur)!='0') {
                     $CarteActive = $CarteEnJeus[$numeroDefenseur][$Partie->getJoueurZoneEnCours($numeroDefenseur)];
                     
                     $Carte = $CarteActive->getCarte();
-                    if ($this->isCartePayable($Cartejeu)) {
+                    if ($this->isCartePayable($Partie, $Joueur, $Cartejeu)) {
                         if (($Carte->getTypeCarte()->getTag()=='STRIKE') 
                             && ($Cartejeu->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroDefenseur))
                             )

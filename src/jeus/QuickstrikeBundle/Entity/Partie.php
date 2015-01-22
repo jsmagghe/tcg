@@ -485,9 +485,14 @@ class Partie
 
     public function getJoueurZoneEnCours($numeroJoueur){
         if ($numeroJoueur==2) 
-            return $this->getJoueur1ZoneEnCours();
+            $zoneEnCours = $this->getJoueur1ZoneEnCours();
         else 
-            return $this->getJoueur2ZoneEnCours();
+            $zoneEnCours = $this->getJoueur2ZoneEnCours();
+
+        if ($zoneEnCours=='0')
+            $zoneEnCours = 'STRIKE_VERT';
+
+        return $zoneEnCours;
     }
 
     public function getJoueurBas()

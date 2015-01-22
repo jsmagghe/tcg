@@ -207,7 +207,7 @@ class PartieController extends Controller {
                 } else {
                     $this->CarteEnJeus[$numeroJoueur][$emplacement][] = $CartePartie;
                 }
-                if (($emplacement!='DECK') && ($emplacement!='DISCARD')) {
+                if (($emplacement!='DECK') && ($emplacement!='DISCARD') && (strpos($emplacement,'ENERGIE_') === false)) {
                     $this->CarteEnJeus[$numeroJoueur]['ACTIVE'][] = $CartePartie;
                 }
             }
@@ -397,7 +397,7 @@ class PartieController extends Controller {
                     return 0;
                 }
                 if (($Carte->getTypeCarte()->getTag()=='STRIKE') || ($Carte->getTypeCarte()->getTag()=='CHAMBER')){
-                    $ataque += $Carte->getAttaque();  
+                    $attaque += $Carte->getAttaque();  
                 }                
             }
         }
@@ -406,7 +406,7 @@ class PartieController extends Controller {
     }
 
     private function bonusDefense($Partie) {
-        $attaque = 0;
+        $bonus = 0;
         if (($Partie->getJoueur1Etape()=='defense') || ($Partie->getJoueur2Etape()=='defense')) {
             $numeroDefenseur = $this->numeroDefenseur($Partie);
             $numeroAttaquant = $this->numeroAttaquant($Partie);
@@ -416,21 +416,23 @@ class PartieController extends Controller {
                 if ($Carte == null) {
                     continue;
                 }
-                if (($Carte->getTypeCarte()->getTag()=='STRIKE') || ($Carte->getTypeCarte()->getTag()=='CHAMBER')){
-                    $ataque += $Carte->getAttaque();  
-                }
+
             }
         }
 
-        return $attaque;
+        return $bonus;
     }
 
     private function isCartePayable($Partie, $Joueur, $Cartejeu) {
         $payable = true;
-        $Carte = $Cartejeu->getCarte();
-        if ($Carte == null) {
+        if ($Cartejeu == null)
             return false;
-        }
+
+        $Carte = $Cartejeu->getCarte();
+
+        if ($Carte == null) 
+            return false;
+        
         $coutVert = $Carte->getCoutVert();
         $coutJaune = $Carte->getCoutJaune();
         $coutRouge = $Carte->getCoutRouge();
@@ -439,8 +441,10 @@ class PartieController extends Controller {
         $energieJauneDisponible = count($this->CarteEnJeus[$this->numeroJoueur($Partie,$Joueur)]['ENERGIE_JAUNE']);
         $energieRougeDisponible = count($this->CarteEnJeus[$this->numeroJoueur($Partie,$Joueur)]['ENERGIE_ROUGE']);
 
-        if ($energieRougeDisponible>=$coutRouge) 
+        if ($energieRougeDisponible>=$coutRouge) {
             $energieRougeDisponible-=$coutRouge;
+            $coutRouge = 0;
+        }
 
         if ($energieJauneDisponible+$energieRougeDisponible>=$coutJaune) {
             $energieJauneDisponible-=$coutJaune;
@@ -448,6 +452,7 @@ class PartieController extends Controller {
                 $energieRougeDisponible -= $energieJauneDisponible;
                 $energieJauneDisponible = 0;
             }
+            $coutJaune = 0;
         }
 
         if ($energieVerteDisponible+$energieJauneDisponible+$energieRougeDisponible>=$coutVert) {
@@ -460,7 +465,9 @@ class PartieController extends Controller {
                 $energieRougeDisponible -= $energieJauneDisponible;
                 $energieJauneDisponible = 0;
             }
+            $coutVert = 0;
         }
+
 
         $payable = (($coutVert<=0) && ($coutJaune<=0) && ($coutRouge<=0));
 
@@ -519,15 +526,13 @@ class PartieController extends Controller {
                 $CarteEnJeus = $this->CarteEnJeus[$numeroDefenseur];
 
                 if ($Partie->getJoueurZoneEnCours($numeroDefenseur)!='0') {
-                    $CarteActive = $CarteEnJeus[$numeroDefenseur][$Partie->getJoueurZoneEnCours($numeroDefenseur)];
+                    $CarteActive = $CarteEnJeus[$Partie->getJoueurZoneEnCours($numeroDefenseur)];
                     
                     $Carte = $CarteActive->getCarte();
-                    if ($this->isCartePayable($Partie, $Joueur, $Cartejeu)) {
-                        if (($Carte->getTypeCarte()->getTag()=='STRIKE') 
-                            && ($Cartejeu->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroDefenseur))
-                            )
+                    if ($this->isCartePayable($Partie, $Joueur, $CarteActive)) {
+                        if ($Carte->getTypeCarte()->getTag()=='STRIKE') 
                         {
-                            $defense = $Carte->getDefense()+$this->bonusDefense();  
+                            $defense = $Carte->getIntercept()+$this->bonusDefense($Partie);  
                             if ($defense>=$attaque) 
                                 $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'contre_attaquer')).'">Contre attaquer</a>';
                         }

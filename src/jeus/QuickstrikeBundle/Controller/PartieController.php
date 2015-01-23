@@ -352,6 +352,52 @@ class PartieController extends Controller {
         }
     }
 
+    private function zonneSuivante($zone) {
+        $zonneSuivante = 'STRIKE_VERT';
+        switch ($zone) {
+            case 'STRIKE_VERT' : 
+                $zonneSuivante = 'STRIKE_JAUNE';
+                break;
+            case 'STRIKE_JAUNE' : 
+                $zonneSuivante = 'STRIKE_ROUGE';
+                break;
+            case 'STRIKE_ROUGE' : 
+                $zonneSuivante = 'POINT';
+                break;
+        }
+        return $zonneSuivante;
+    }
+
+    private function zoneEnergieCorrespondante($zone) {
+        $zonneSuivante = 'STRIKE_VERT';
+        switch ($zone) {
+            case 'STRIKE_VERT' : 
+                $zonneSuivante = 'ENERGIE_VERTE';
+                break;
+            case 'STRIKE_JAUNE' : 
+                $zonneSuivante = 'ENERGIE_JAUNE';
+                break;
+            case 'STRIKE_ROUGE' : 
+                $zonneSuivante = 'ENERGIE_ROUGE';
+                break;
+        }
+        return $zonneSuivante;
+    }
+
+    private function focuser($Partie,$joueurConcerne) {
+        $zoneEnCours = $Partie->zoneEnCours($joueurConcerne);
+        $zoneSuivante = $this->zonneSuivante($zoneEnCours);
+        if ( == 'POINT') {
+            $this->pointPourAdversaire($Partie,$joueurConcerne);
+        } else {
+            $zoneEnergieCorrespondante = $this->zoneEnergieCorrespondante()
+            $this->deplacerCarte($Partie,$joueurConcerne,1,$zoneEnCours,$zoneEnergieCorrespondante);
+            // descente de zone !!!!
+        }
+
+
+    }
+
     private function joueurChoisi() {
         $numero = rand(1,1000);
         return ($numero<=500)? 1 : 2;

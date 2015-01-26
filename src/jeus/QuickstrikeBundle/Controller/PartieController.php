@@ -387,15 +387,26 @@ class PartieController extends Controller {
     private function focuser($Partie,$joueurConcerne) {
         $zoneEnCours = $Partie->zoneEnCours($joueurConcerne);
         $zoneSuivante = $this->zonneSuivante($zoneEnCours);
-        if ( == 'POINT') {
+        if ( $zoneSuivante == 'POINT') {
             $this->pointPourAdversaire($Partie,$joueurConcerne);
         } else {
-            $zoneEnergieCorrespondante = $this->zoneEnergieCorrespondante()
+            $zoneEnergieCorrespondante = $this->zoneEnergieCorrespondante($zoneEnCours);
             $this->deplacerCarte($Partie,$joueurConcerne,1,$zoneEnCours,$zoneEnergieCorrespondante);
             // descente de zone !!!!
         }
 
 
+    }
+
+    private function pointPourAdversaire($Partie,$joueurConcerne){
+        $Partie->addPointAdversaire($joueurConcerne);
+        $Partie->setJoueurZoneEnCours($joueurConcerne,'STRIKE_VERT');
+        $this->setEtapeJoueur($joueurConcerne,'choixAttaquant');
+    }
+
+    private function setEtapeJoueur($Partie,$joueurConcerne,$etape) {
+        $Partie->setEtapeByNumero(($joueurConcerne==1) ? 2 : 1,'attente');
+        $Partie->setEtapeByNumero($joueurConcerne,$etape);
     }
 
     private function joueurChoisi() {

@@ -420,12 +420,14 @@ class Partie
     public function setJoueur1Etape($Joueur1Etape)
     {
         $this->Joueur1Etape = $Joueur1Etape;
+        $this->setDateDerniereAction(new \Datetime());
         return $this;
     }
 
     public function setJoueur2Etape($Joueur2Etape)
     {
         $this->Joueur2Etape = $Joueur2Etape;
+        $this->setDateDerniereAction(new \Datetime());
         return $this;
     }
 
@@ -485,14 +487,31 @@ class Partie
 
     public function getJoueurZoneEnCours($numeroJoueur){
         if ($numeroJoueur==2) 
-            $zoneEnCours = $this->getJoueur1ZoneEnCours();
-        else 
             $zoneEnCours = $this->getJoueur2ZoneEnCours();
+        else 
+            $zoneEnCours = $this->getJoueur1ZoneEnCours();
 
         if ($zoneEnCours=='0')
             $zoneEnCours = 'STRIKE_VERT';
 
         return $zoneEnCours;
+    }
+
+    public function setJoueurZoneEnCours($numeroJoueur,$zone){
+        if ($numeroJoueur==2) 
+            $this->setJoueur2ZoneEnCours($zone);
+        else 
+            $this->getJoueur1ZoneEnCours($zone);
+
+        return $this;
+    }
+
+    public function addPointAdversaire($numeroJoueur) {
+        if ($numeroJoueur==2) 
+            $this->setJoueur2Point($this->getJoueur2Point()+1);
+        else 
+            $this->setJoueur1Point($this->getJoueur1Point()+1);
+        return $this;
     }
 
     public function getJoueurBas()
@@ -540,7 +559,15 @@ class Partie
         } else {
             $this->setJoueur1Etape($etape);
         }
-        $this->setDateDerniereAction(new \Datetime());
+    }
+
+    public function setEtapeByNumero($joueurConcerne, $etape)
+    {
+        if ($joueurConcerne == 2) {
+            $this->setJoueur2Etape($etape);
+        } else {
+            $this->setJoueur1Etape($etape);
+        }
     }
 
     public function getPartieAffichee($Joueur)

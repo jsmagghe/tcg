@@ -352,50 +352,69 @@ class PartieController extends Controller {
         }
     }
 
-    private function zonneSuivante($zone) {
-        $zonneSuivante = 'STRIKE_VERT';
+    private function zoneSuivante($zone) {
+        $zoneSuivante = 'STRIKE_VERT';
         switch ($zone) {
             case 'STRIKE_VERT' : 
-                $zonneSuivante = 'STRIKE_JAUNE';
+                $zoneSuivante = 'STRIKE_JAUNE';
                 break;
             case 'STRIKE_JAUNE' : 
-                $zonneSuivante = 'STRIKE_ROUGE';
+                $zoneSuivante = 'STRIKE_ROUGE';
                 break;
             case 'STRIKE_ROUGE' : 
-                $zonneSuivante = 'POINT';
+                $zoneSuivante = 'POINT';
                 break;
         }
-        return $zonneSuivante;
+        return $zoneSuivante;
     }
 
-    private function zoneEnergieCorrespondante($zone) {
-        $zonneSuivante = 'STRIKE_VERT';
+    private function zoneCorrespondante($zone,$type='STRIKE') {
+        $zoneCorrespondante = 'STRIKE_VERT';
         switch ($zone) {
             case 'STRIKE_VERT' : 
-                $zonneSuivante = 'ENERGIE_VERTE';
+                $zoneCorrespondante = '_VERTE';
                 break;
             case 'STRIKE_JAUNE' : 
-                $zonneSuivante = 'ENERGIE_JAUNE';
+                $zoneCorrespondante = '_JAUNE';
                 break;
             case 'STRIKE_ROUGE' : 
-                $zonneSuivante = 'ENERGIE_ROUGE';
+                $zoneCorrespondante = '_ROUGE';
                 break;
         }
-        return $zonneSuivante;
+        $zoneCorrespondante = $type . $zoneCorrespondante;
+        return $zoneCorrespondante;
     }
 
-    private function focuser($Partie,$joueurConcerne) {
+    private function focuserPitcher($Partie,$joueurConcerne,$action) {
         $zoneEnCours = $Partie->zoneEnCours($joueurConcerne);
-        $zoneSuivante = $this->zonneSuivante($zoneEnCours);
+        $zoneSuivante = $this->zoneSuivante($zoneEnCours);
         if ( $zoneSuivante == 'POINT') {
             $this->pointPourAdversaire($Partie,$joueurConcerne);
         } else {
-            $zoneEnergieCorrespondante = $this->zoneEnergieCorrespondante($zoneEnCours);
-            $this->deplacerCarte($Partie,$joueurConcerne,1,$zoneEnCours,$zoneEnergieCorrespondante);
-            // descente de zone !!!!
+            $zoneCorrespondante = 'DISCARD';
+            if ($action=='focus')              
+                $zoneCorrespondante = $this->zoneCorrespondante($zoneEnCours,'ENERGIE');
+            $this->deplacerCarte($Partie,$joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
+            $this->descendreDeZone($Partie,$joueurConcerne);
         }
+    }
 
+    private function focuser($Partie,$joueurConcerne) {
+        $this->focuserPitcher($Partie,$joueurConcerne,'focus');
+    }
 
+    private function pitcher($Partie,$joueurConcerne) {
+        $this->focuserPitcher($Partie,$joueurConcerne,'pitch');
+    }
+
+    private function descendreDeZone($Partie,$joueurConcerne) {
+        $zoneEnCours = $Partie->zoneEnCours($joueurConcerne);
+        $zoneSuivante = $this->zoneSuivante($zoneEnCours);
+        if ( $zoneSuivante == 'POINT') {
+            $this->pointPourAdversaire($Partie,$joueurConcerne);
+        } else {
+            $Partie->setJoueurZoneEnCours($joueurConcerne,$zoneSuivante);
+        }
     }
 
     private function pointPourAdversaire($Partie,$joueurConcerne){

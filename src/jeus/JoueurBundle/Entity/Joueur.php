@@ -539,10 +539,10 @@ class Joueur implements AdvancedUserInterface
     /**
      * Add DeckQuickstrike
      *
-     * @param \jeus\QuickstrikeBundle\Entity\DeckQuickstrike $DeckQuickstrike
+     * @param \jeus\QuickstrikeBundle\Entity\Deck $DeckQuickstrike
      * @return Joueur
      */
-    public function addDeckQuickstrike(\jeus\QuickstrikeBundle\Entity\DeckQuickstrike $DeckQuickstrike)
+    public function addDeckQuickstrike(\jeus\QuickstrikeBundle\Entity\Deck $DeckQuickstrike)
     {
         $this->DeckQuickstrikes[] = $DeckQuickstrike;
 
@@ -552,9 +552,9 @@ class Joueur implements AdvancedUserInterface
     /**
      * Remove DeckQuickstrike
      *
-     * @param \jeus\QuickstrikeBundle\Entity\DeckQuickstrike $DeckQuickstrike
+     * @param \jeus\QuickstrikeBundle\Entity\Deck $DeckQuickstrike
      */
-    public function removeDeckQuickstrike(\jeus\QuickstrikeBundle\Entity\DeckQuickstrike $DeckQuickstrike)
+    public function removeDeckQuickstrike(\jeus\QuickstrikeBundle\Entity\Deck $DeckQuickstrike)
     {
         $this->DeckQuickstrikes->removeElement($DeckQuickstrike);
     }

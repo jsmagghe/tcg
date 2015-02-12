@@ -501,7 +501,7 @@ class Partie
         if ($numeroJoueur==2) 
             $this->setJoueur2ZoneEnCours($zone);
         else 
-            $this->getJoueur1ZoneEnCours($zone);
+            $this->setJoueur1ZoneEnCours($zone);
 
         return $this;
     }

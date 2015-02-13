@@ -178,7 +178,6 @@ class PartieController extends Controller {
         if (($effet=='attaquer') || ($effet=='defendre')) {
             $numeroAttaquant = $this->numeroJoueur($Partie,$Joueur,$effet=='defendre');
             $this->attaquer($Partie,$numeroAttaquant);
-
         }
 
         if ($effet=='focuser') {
@@ -361,8 +360,8 @@ class PartieController extends Controller {
             $Partie->setJoueur1Etape('attente');
             $Partie->setJoueur2Etape('defense');
         } else {
-            $Partie->setJoueur1Etape('attente');
-            $Partie->setJoueur2Etape('defense');
+            $Partie->setJoueur1Etape('defense');
+            $Partie->setJoueur2Etape('attente');
         }
     }
 
@@ -617,9 +616,12 @@ class PartieController extends Controller {
                 $CarteEnJeus = $this->CarteEnJeus[$numeroDefenseur];
 
                 if ($Partie->getJoueurZoneEnCours($numeroDefenseur)!='0') {
-                    $CarteActive = $CarteEnJeus[$Partie->getJoueurZoneEnCours($numeroDefenseur)];
+                    $CarteActive = null;
+                    if (isset($CarteEnJeus[$Partie->getJoueurZoneEnCours($numeroDefenseur)])) {
+                        $CarteActive = $CarteEnJeus[$Partie->getJoueurZoneEnCours($numeroDefenseur)];
+                        $Carte = $CarteActive->getCarte();
+                    }
                     
-                    $Carte = $CarteActive->getCarte();
                     if ($this->isCartePayable($Partie, $Joueur, $CarteActive)) {
                         if ($Carte->getTypeCarte()->getTag()=='STRIKE') 
                         {

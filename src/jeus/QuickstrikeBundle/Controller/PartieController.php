@@ -191,6 +191,7 @@ class PartieController extends Controller {
         if ($effet=='discarder') {
             $this->focuser($Partie,$joueurConcerne,'discard');
         }
+        $this->em->flush();
 
         return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id' => $Partie->getId())));
     }
@@ -215,7 +216,7 @@ class PartieController extends Controller {
             foreach($CarteEnJeus as $CartePartie) {
                 $emplacement = $CartePartie->getEmplacement();
                 $numeroJoueur = $CartePartie->getNumeroJoueur();
-                if (($emplacement!='AVANTAGE') && ($emplacement!='DECK') && ($emplacement!='DISCARD')) {
+                if (($emplacement!='AVANTAGE') && ($emplacement!='DECK') && ($emplacement!='DISCARD') && (strpos($emplacement,'ENERGIE_') === false)) {
                     $this->CarteEnJeus[$numeroJoueur][$emplacement] = $CartePartie;
                 } else {
                     $this->CarteEnJeus[$numeroJoueur][$emplacement][] = $CartePartie;
@@ -317,9 +318,15 @@ class PartieController extends Controller {
             if ($nombre<=0) 
                 break;
 
-            $CartePartie->setEmplacement($emplacementFinal);
-            $CartePartie->setPosition($position);
-            $position++;
+            // l'iopening ne peut êrte que dans la zone verte ou en attente dans la zone opening
+            if (($emplacementFinal!='STRIKE_VERT') && ($CartePartie->getCarte()->getNom()=='opening attack')) {
+                $CartePartie->setEmplacement('OPENING');
+            } else {
+                $CartePartie->setEmplacement($emplacementFinal);
+                $CartePartie->setPosition($position);
+                $position++;            
+            }
+
 
             $nombre--;
         }
@@ -354,8 +361,8 @@ class PartieController extends Controller {
     private function attaquer($Partie,$joueurConcerne) {
         $this->viderCarte($Partie,1);
         $this->viderCarte($Partie,2);
-        $this->deplacerCarte($Partie,$joueurConcerne,1,'DECK',$Partie->getJoueurZoneEnCours($joueurConcerne));
-        $this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'OPENING','STRIKE_VERT');
+        $this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DECK',$Partie->getJoueurZoneEnCours($joueurConcerne));
+        $this->deplacerCarte($Partie,$joueurConcerne,1,'OPENING','STRIKE_VERT');
         if ($joueurConcerne==1) {
             $Partie->setJoueur1Etape('attente');
             $Partie->setJoueur2Etape('defense');
@@ -522,7 +529,7 @@ class PartieController extends Controller {
 
         if ($Carte == null) 
             return false;
-        
+
         $coutVert = $Carte->getCoutVert();
         $coutJaune = $Carte->getCoutJaune();
         $coutRouge = $Carte->getCoutRouge();
@@ -598,6 +605,13 @@ class PartieController extends Controller {
             $etape = $Partie->getJoueur2Etape();
         }
 
+        if ($Partie->getPointVictoire()<=$Partie->getJoueur1Point()) {
+            $etape = '';
+            $action[] = '<a href="ici">Attaquer</a>';
+        } elseif ($Partie->getPointVictoire()<=$Partie->getJoueur2Point()) {
+
+        }
+
         switch ($etape) {
             case 'choix deck' :
                 $Decks = $this->em->getRepository('jeusQuickstrikeBundle:Deck')->findBy(array('joueur' => $Joueur, 'valide' => true));
@@ -620,8 +634,7 @@ class PartieController extends Controller {
                     if (isset($CarteEnJeus[$Partie->getJoueurZoneEnCours($numeroDefenseur)])) {
                         $CarteActive = $CarteEnJeus[$Partie->getJoueurZoneEnCours($numeroDefenseur)];
                         $Carte = $CarteActive->getCarte();
-                    }
-                    
+                    }                    
                     if ($this->isCartePayable($Partie, $Joueur, $CarteActive)) {
                         if ($Carte->getTypeCarte()->getTag()=='STRIKE') 
                         {
@@ -630,13 +643,13 @@ class PartieController extends Controller {
                                 $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'contre_attaquer')).'">Contre attaquer</a>';
                         }
                         if (($Carte->getTypeCarte()->getTag()=='TEAMWORK') 
-                            && ($Cartejeu->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroDefenseur))
+                            && ($CarteActive->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroDefenseur))
                             )
                         {
                             $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'recruter')).'">Recruter</a>';
                         }
                         if (($Carte->getTypeCarte()->getTag()=='AVANTAGE') 
-                            && ($Cartejeu->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroDefenseur))
+                            && ($CarteActive->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroDefenseur))
                             )
                         {
                             $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'avantager')).'">Joueur</a>';

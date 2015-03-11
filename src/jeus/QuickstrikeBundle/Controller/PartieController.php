@@ -180,6 +180,14 @@ class PartieController extends Controller {
             $this->attaquer($Partie,$numeroAttaquant);
         }
 
+        if (($effet=='avantager') || ($effet=='recruter')) {
+            $this->jouer($Partie,$joueurConcerne,$effet);
+        }
+
+        if ($effet=='contre_attaquer') {
+            $this->contreAttaquer($Partie,$joueurConcerne);
+        }
+
         if ($effet=='focuser') {
             $this->focuser($Partie,$joueurConcerne,'focus');
         }
@@ -401,8 +409,29 @@ class PartieController extends Controller {
                 $zoneCorrespondante = '_ROUGE';
                 break;
         }
+
         $zoneCorrespondante = $type . $zoneCorrespondante;
         return $zoneCorrespondante;
+    }
+
+    private function jouer($Partie,$joueurConcerne,$action) {
+        $zoneEnCours = $Partie->getJoueurZoneEnCours($joueurConcerne);
+        if ($action=='avantager')
+            $zoneCorrespondante = 'AVANTAGE';
+        if ($action=='recruter')
+            $zoneCorrespondante = $this->zoneCorrespondante($zoneEnCours,'TEAMWORK');
+        $this->deplacerCarte($Partie,$joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
+        $this->deplacerCarte($Partie,$joueurConcerne,1,'DECK',$zoneEnCours);
+        $Partie->chargerZone($joueurConcerne,$zoneEnCours);
+    }
+
+    private function contreAttaquer($Partie,$joueurConcerne) {
+        $zoneEnCours = $Partie->getJoueurZoneEnCours($joueurConcerne);
+        $zoneCorrespondante = $this->zoneCorrespondante($zoneEnCours);
+        // ici
+        exit;
+        $this->deplacerCarte($Partie,$joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
+        $this->deplacerCarte($Partie,$joueurConcerne,1,'DECK',$zoneEnCours);
     }
 
     private function focuserPitcher($Partie,$joueurConcerne,$action) {
@@ -648,11 +677,11 @@ class PartieController extends Controller {
                         {
                             $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'recruter')).'">Recruter</a>';
                         }
-                        if (($Carte->getTypeCarte()->getTag()=='AVANTAGE') 
+                        if (($Carte->getTypeCarte()->getTag()=='ADVANTAGE') 
                             && ($CarteActive->getEmplacement()==$Partie->getJoueurZoneEnCours($numeroDefenseur))
                             )
                         {
-                            $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'avantager')).'">Joueur</a>';
+                            $action[] = '<a href="'.$this->generateUrl('jeus_quickstrike_partie_choix_effet',array('id' => $Partie->getId(),'effet' => 'avantager')).'">Jouer</a>';
                         }
                     }
                 }

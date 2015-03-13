@@ -597,4 +597,41 @@ class Partie
         return $PartieAffichee;
     }
 
+    public function chargerZone($joueurConcerne,$zone) {
+        $this->chargerDechargerZone($joueurConcerne,$zone,true);
+    }
+
+    public function dechargerZone($joueurConcerne,$zone) {
+        $this->chargerDechargerZone($joueurConcerne,$zone,false);
+    }
+
+    public function chargerDechargerZone($joueurConcerne,$zone,$charger) {
+        if ($joueurConcerne == 2) {
+            switch (true) {
+                case strpos($zone,'VERT') : 
+                    $this->setJoueur2ChamberCharge($charger);
+                    break;
+                case strpos($zone,'JAUNE') : 
+                    $this->setJoueur2DeckCharge($charger);
+                    break;
+                case strpos($zone,'ROUGE') : 
+                    $this->setJoueur2DiscardCharge($charger);
+                    break;
+            }
+        } else {
+            switch (true) {
+                case strpos($zone,'VERT') : 
+                    $this->setJoueur1ChamberCharge($charger);
+                    break;
+                case strpos($zone,'JAUNE') : 
+                    $this->setJoueur1DeckCharge($charger);
+                    break;
+                case strpos($zone,'ROUGE') : 
+                    $this->setJoueur1DiscardCharge($charger);
+                    break;
+            }
+        }
+    }
+
+
 }

@@ -366,11 +366,14 @@ class PartieController extends Controller {
         $this->deplacerCarte($Partie,$joueurConcerne,99,'STRIKE_ROUGE','DISCARD');
     }
 
-    private function attaquer($Partie,$joueurConcerne) {
-        $this->viderCarte($Partie,1);
-        $this->viderCarte($Partie,2);
-        $this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DECK',$Partie->getJoueurZoneEnCours($joueurConcerne));
-        $this->deplacerCarte($Partie,$joueurConcerne,1,'OPENING','STRIKE_VERT');
+    private function attaquer($Partie,$joueurConcerne,$depart = true) {
+        if ($depart)
+            $this->viderCarte($Partie,$joueurConcerne);
+        $this->viderCarte($Partie,($joueurConcerne==1)?2:1);
+        //$this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DECK',$Partie->getJoueurZoneEnCours($joueurConcerne));
+        $this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DECK',$Partie->getJoueurZoneEnCours(($joueurConcerne==1)?2:1));
+        if ($depart)
+            $this->deplacerCarte($Partie,$joueurConcerne,1,'OPENING','STRIKE_VERT');
         if ($joueurConcerne==1) {
             $Partie->setJoueur1Etape('attente');
             $Partie->setJoueur2Etape('defense');
@@ -418,8 +421,10 @@ class PartieController extends Controller {
         $zoneEnCours = $Partie->getJoueurZoneEnCours($joueurConcerne);
         if ($action=='avantager')
             $zoneCorrespondante = 'AVANTAGE';
-        if ($action=='recruter')
+        if ($action=='recruter') {
             $zoneCorrespondante = $this->zoneCorrespondante($zoneEnCours,'TEAMWORK');
+            $this->deplacerCarte($Partie,$joueurConcerne,99,$zoneCorrespondante,'DISCARD');
+        }
         $this->deplacerCarte($Partie,$joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
         $this->deplacerCarte($Partie,$joueurConcerne,1,'DECK',$zoneEnCours);
         $Partie->chargerZone($joueurConcerne,$zoneEnCours);
@@ -428,10 +433,7 @@ class PartieController extends Controller {
     private function contreAttaquer($Partie,$joueurConcerne) {
         $zoneEnCours = $Partie->getJoueurZoneEnCours($joueurConcerne);
         $zoneCorrespondante = $this->zoneCorrespondante($zoneEnCours);
-        // ici
-        exit;
-        $this->deplacerCarte($Partie,$joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
-        $this->deplacerCarte($Partie,$joueurConcerne,1,'DECK',$zoneEnCours);
+        $this->attaquer($Partie,$joueurConcerne,false);
     }
 
     private function focuserPitcher($Partie,$joueurConcerne,$action) {

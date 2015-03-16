@@ -28,7 +28,7 @@ body { font-family: Arial, sans-serif; }
 }
 
 
-#energie_verte-adverse{
+#energie_verte-adverse,#energie_vert-adverse{
 	position: absolute;
 	top : 343px;
 	left : 226px;
@@ -64,7 +64,7 @@ body { font-family: Arial, sans-serif; }
 	left : 393px;
 }
 
-#strike_vert-adverse{
+#strike_verte-adverse,#strike_vert-adverse{
 	position: absolute;
 	top : 343px;
 	left : 540px;
@@ -82,7 +82,7 @@ body { font-family: Arial, sans-serif; }
 	left : 540px;
 }
 
-#teamwork_vert-adverse{
+#teamwork_verte-adverse,#teamwork_vert-adverse{
 	position: absolute;
 	top : 343px;
 	left : 702px;
@@ -98,6 +98,12 @@ body { font-family: Arial, sans-serif; }
 	position: absolute;
 	top : 115px;
 	left : 702px;
+}
+
+#avantage-adverse{
+	position: absolute;
+	top : 456px;
+	left : 520px;
 }
 
 #energie_verte{
@@ -136,7 +142,7 @@ body { font-family: Arial, sans-serif; }
 	left : 536px;
 }
 
-#strike_vert{
+#strike_verte,#strike_vert{
 	position: absolute;
 	top : 613px;
 	left : 393px;
@@ -154,7 +160,7 @@ body { font-family: Arial, sans-serif; }
 	left : 393px;
 }
 
-#teamwork_vert{
+#teamwork_verte,#teamwork_vert{
 	position: absolute;
 	top : 613px;
 	left : 226px;
@@ -170,5 +176,11 @@ body { font-family: Arial, sans-serif; }
 	position: absolute;
 	top : 841px;
 	left : 226px;
+}
+
+#avantage{
+	position: absolute;
+	top : 456px;
+	left : 215px;
 }
 

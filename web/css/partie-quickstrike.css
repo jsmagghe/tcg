@@ -184,3 +184,38 @@ body { font-family: Arial, sans-serif; }
 	left : 215px;
 }
 
+.energie_disponible {
+	position : absolute;
+	opacity : 0.5;
+}
+
+#energie_disponible_verte {
+	top : 630px;
+	left : 720px;
+}
+
+#energie_disponible_jaune {
+	top : 745px;
+	left : 720px;
+}
+
+#energie_disponible_rouge {
+	top : 858px;
+	left : 720px;
+}
+
+#energie_disponible_verte-adverse {
+	top : 360px;
+	left : 244px;
+}
+
+#energie_disponible_jaune-adverse {
+	top : 245px;
+	left : 244px;
+}
+
+#energie_disponible_rouge-adverse {
+	top : 133px;
+	left : 244px;
+}
+

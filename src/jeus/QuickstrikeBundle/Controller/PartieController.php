@@ -375,11 +375,13 @@ class PartieController extends Controller {
     private function attaquer($Partie,$joueurConcerne,$depart = true) {
         if ($depart)
             $this->viderCarte($Partie,$joueurConcerne);
+        $Partie->setJoueurZoneEnCours(($joueurConcerne==1)?2:1,'STRIKE_VERT');
         $this->viderCarte($Partie,($joueurConcerne==1)?2:1);
         //$this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DECK',$Partie->getJoueurZoneEnCours($joueurConcerne));
         $this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DECK',$Partie->getJoueurZoneEnCours(($joueurConcerne==1)?2:1));
-        if ($depart)
+        if ($depart) 
             $this->deplacerCarte($Partie,$joueurConcerne,1,'OPENING','STRIKE_VERT');
+
         if ($joueurConcerne==1) {
             $Partie->setJoueur1Etape('attente');
             $Partie->setJoueur2Etape('defense');
@@ -437,13 +439,31 @@ class PartieController extends Controller {
         return $payable;
     }
 
+    public function verificationRecrutement($Partie,$joueurConcerne,$CarteActive,$zoneEnCours,$zoneAControler) {
+        if ((isset($this->CarteEnJeus[$joueurConcerne][$zoneAControler])) && ($zoneEnCours!=$zoneAControler))  {
+            $Cartejeu = $this->CarteEnJeus[$joueurConcerne][$zoneAControler];
+            if (
+                ($Cartejeu!=null) 
+                && ($Cartejeu->getCarte()!=null) 
+                && ($CarteActive!=null) 
+                && ($CarteActive->getCarte()!=null) 
+                && ($Cartejeu->getCarte()->getNomCours()==$CarteActive->getCarte()->getNomCours()))
+                $this->deplacerCarte($Partie,$joueurConcerne,99,$zoneAControler,'DISCARD');
+        }
+    }
+
     private function jouer($Partie,$joueurConcerne,$action) {
         $zoneEnCours = $Partie->getJoueurZoneEnCours($joueurConcerne);
+        if (isset($this->CarteEnJeus[$joueurConcerne][$zoneEnCours]))
+            $CarteActive = $this->CarteEnJeus[$joueurConcerne][$zoneEnCours];
         if ($action=='avantager')
             $zoneCorrespondante = 'AVANTAGE';
         if ($action=='recruter') {
             $zoneCorrespondante = $this->zoneCorrespondante($zoneEnCours,'TEAMWORK');
             $this->deplacerCarte($Partie,$joueurConcerne,99,$zoneCorrespondante,'DISCARD');
+            $this->verificationRecrutement($Partie,$joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_VERTE');
+            $this->verificationRecrutement($Partie,$joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_JAUNE');
+            $this->verificationRecrutement($Partie,$joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_ROUGE');
         }
         $this->deplacerCarte($Partie,$joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
         $this->deplacerCarte($Partie,$joueurConcerne,1,'DECK',$zoneEnCours);
@@ -538,11 +558,15 @@ class PartieController extends Controller {
             $numeroDefenseur = $this->numeroDefenseur($Partie);
             $numeroAttaquant = $this->numeroAttaquant($Partie);
             if ($Partie->getJoueurZoneEnCours($numeroAttaquant)!='0') {
-                $CarteActive = $this->CarteEnJeus[$numeroAttaquant][$Partie->getJoueurZoneEnCours($numeroAttaquant)];
+                if (isset($this->CarteEnJeus[$numeroAttaquant][$Partie->getJoueurZoneEnCours($numeroAttaquant)])) {
+                    $CarteActive = $this->CarteEnJeus[$numeroAttaquant][$Partie->getJoueurZoneEnCours($numeroAttaquant)];
+                    $Carte = $CarteActive->getCarte();
+                }
+                else 
+                    $Carte = null;
 
-                $Carte = $CarteActive->getCarte();
                 if ($Carte == null) {
-                    return 0;
+                    return 4;
                 }
                 if (($Carte->getTypeCarte()->getTag()=='STRIKE') || ($Carte->getTypeCarte()->getTag()=='CHAMBER')){
                     $attaque += $Carte->getAttaque();  
@@ -626,6 +650,10 @@ class PartieController extends Controller {
             $energieVerteDisponible = count($this->CarteEnJeus[$joueurConcerne]['ENERGIE_VERTE']);
             $energieJauneDisponible = count($this->CarteEnJeus[$joueurConcerne]['ENERGIE_JAUNE']);
             $energieRougeDisponible = count($this->CarteEnJeus[$joueurConcerne]['ENERGIE_ROUGE']);
+            var_dump($energieVerteDisponible);
+            var_dump($energieJauneDisponible);
+            var_dump($energieRougeDisponible);
+            exit;
 
             if ($coutVert>0) {
                 $this->deplacerCarte($Partie,$joueurConcerne,$coutVert,'ENERGIE_VERTE','DISCARD',true);

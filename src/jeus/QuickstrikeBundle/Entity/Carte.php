@@ -427,4 +427,10 @@ class Carte {
         return $imageAgrandi;
     }
 
+    public function getNomCours() {
+        $nomCours = $this->getNom() . '-';
+        $nomCours = explode('-', $nomCours);
+        return $nomCours[0];
+    }
+
 }

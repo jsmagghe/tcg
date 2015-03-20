@@ -633,5 +633,33 @@ class Partie
         }
     }
 
+    public function isZoneChargee($joueurConcerne,$zone) {
+        if ($joueurConcerne==1) {
+            switch (true) {
+                case (strpos('VERT') || strpos('CHAMBER')) :
+                    return $this->getJoueur1ChamberCharge();
+                    break;
+                case (strpos('JAUNE') || strpos('DECK')) :
+                    return $this->getJoueur1DeckCharge();
+                    break;
+                case (strpos('ROUGE') || strpos('DISCARD')) :
+                    return $this->getJoueur1DiscardCharge();
+                    break;
+            }
+        } else {
+            switch (true) {
+                case (strpos('VERT') || strpos('CHAMBER')) :
+                    return $this->getJoueur2ChamberCharge();
+                    break;
+                case (strpos('JAUNE') || strpos('DECK')) :
+                    return $this->getJoueur2DeckCharge();
+                    break;
+                case (strpos('ROUGE') || strpos('DISCARD')) :
+                    return $this->getJoueur2DiscardCharge();
+                    break;
+            }
+        }
+    }
+
 
 }

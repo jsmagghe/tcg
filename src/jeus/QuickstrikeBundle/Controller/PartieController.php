@@ -157,6 +157,11 @@ class PartieController extends Controller {
                 }
             }
 
+            $emplacementCharges = array();
+            $emplacementChargeAdversaires = array();
+            if $Partie->isZoneChargee()
+
+
             return $this->render('::partie.html.twig', array(
                         'carteJoueurs' => $carteJoueurs,
                         'carteAdversaires' => $carteAdversaires,
@@ -456,8 +461,10 @@ class PartieController extends Controller {
         $zoneEnCours = $Partie->getJoueurZoneEnCours($joueurConcerne);
         if (isset($this->CarteEnJeus[$joueurConcerne][$zoneEnCours]))
             $CarteActive = $this->CarteEnJeus[$joueurConcerne][$zoneEnCours];
-        if ($action=='avantager')
+        if ($action=='avantager') {
             $zoneCorrespondante = 'AVANTAGE';
+            $Partie->chargerZone($joueurConcerne,$zoneEnCours);
+        }
         if ($action=='recruter') {
             $zoneCorrespondante = $this->zoneCorrespondante($zoneEnCours,'TEAMWORK');
             $this->deplacerCarte($Partie,$joueurConcerne,99,$zoneCorrespondante,'DISCARD');
@@ -467,7 +474,6 @@ class PartieController extends Controller {
         }
         $this->deplacerCarte($Partie,$joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
         $this->deplacerCarte($Partie,$joueurConcerne,1,'DECK',$zoneEnCours);
-        $Partie->chargerZone($joueurConcerne,$zoneEnCours);
     }
 
     private function contreAttaquer($Partie,$joueurConcerne) {

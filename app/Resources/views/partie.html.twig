@@ -29,7 +29,7 @@
         {% if carteAdversaires is defined %}
             <div id="cartes-adversaire">
                 {% for emplacement, cartes in carteAdversaires %}
-                    <div id="{{emplacement}}-adverse">
+                    <div id="{{emplacement}}-adverse" >
                         {% for carte in cartes %}
                             <div>
                                 <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card"/>

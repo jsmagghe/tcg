@@ -636,25 +636,25 @@ class Partie
     public function isZoneChargee($joueurConcerne,$zone) {
         if ($joueurConcerne==1) {
             switch (true) {
-                case (strpos('VERT') || strpos('CHAMBER')) :
+                case (strpos($zone,'VERT') || strpos($zone,'CHAMBER')) :
                     return $this->getJoueur1ChamberCharge();
                     break;
-                case (strpos('JAUNE') || strpos('DECK')) :
+                case (strpos($zone,'JAUNE') || strpos($zone,'DECK')) :
                     return $this->getJoueur1DeckCharge();
                     break;
-                case (strpos('ROUGE') || strpos('DISCARD')) :
+                case (strpos($zone,'ROUGE') || strpos($zone,'DISCARD')) :
                     return $this->getJoueur1DiscardCharge();
                     break;
             }
         } else {
             switch (true) {
-                case (strpos('VERT') || strpos('CHAMBER')) :
+                case (strpos($zone,'VERT') || strpos($zone,'CHAMBER')) :
                     return $this->getJoueur2ChamberCharge();
                     break;
-                case (strpos('JAUNE') || strpos('DECK')) :
+                case (strpos($zone,'JAUNE') || strpos($zone,'DECK')) :
                     return $this->getJoueur2DeckCharge();
                     break;
-                case (strpos('ROUGE') || strpos('DISCARD')) :
+                case (strpos($zone,'ROUGE') || strpos($zone,'DISCARD')) :
                     return $this->getJoueur2DiscardCharge();
                     break;
             }

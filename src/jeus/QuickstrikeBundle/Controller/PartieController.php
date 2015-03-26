@@ -179,6 +179,8 @@ class PartieController extends Controller {
                         'inversable' => $Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId(),
                         'choixPossibles' => $choixPossibles,
                         'Partie' => $Partie,
+                        'emplacementInclineJoueurs' => $emplacementCharges,
+                        'emplacementInclineAdversaires' => $emplacementChargeAdversaires,
             ));
         } else {
             return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));
@@ -189,6 +191,7 @@ class PartieController extends Controller {
         $this->em = $this->getDoctrine()->getManager();
         $this->CarteEnJeus=null;
         $this->chargerCarteEnJeu($Partie);
+        $this->em->persist($Partie);
         $Joueur = $this->get('security.context')->getToken()->getUser();
         $joueurConcerne = $this->numeroJoueur($Partie,$Joueur);
 

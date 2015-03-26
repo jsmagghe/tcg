@@ -29,10 +29,16 @@
         {% if carteAdversaires is defined %}
             <div id="cartes-adversaire">
                 {% for emplacement, cartes in carteAdversaires %}
-                    <div id="{{emplacement}}-adverse" >
+                    <div id="{{emplacement}}-adverse"  >
                         {% for carte in cartes %}
                             <div>
-                                <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card"/>
+                                <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card 
+                                {% for emplacementZone, chargee in emplacementInclineAdversaires%}
+                                    {% if emplacementZone == emplacement %}
+                                         chargee
+                                    {% endif %}
+                                {% endfor%}
+                                "/>
                             </div>
                         {% endfor %}
                     </div>
@@ -45,7 +51,13 @@
                     <div id="{{emplacement}}">
                         {% for carte in cartes %}
                             <div>
-                                <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card"/>
+                                <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card 
+                                {% for emplacementZone, chargee in emplacementInclineJoueurs%}
+                                    {% if emplacementZone == emplacement %}
+                                         chargee
+                                    {% endif %}
+                                {% endfor%}                                
+                                "/>
                             </div>
                         {% endfor %}
                     </div>

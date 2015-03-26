@@ -636,25 +636,25 @@ class Partie
     public function isZoneChargee($joueurConcerne,$zone) {
         if ($joueurConcerne==1) {
             switch (true) {
-                case (strpos($zone,'VERT') || strpos($zone,'CHAMBER')) :
+                case (strpos($zone,'VERT')!==false || strpos($zone,'CHAMBER')!==false) :
                     return $this->getJoueur1ChamberCharge();
                     break;
-                case (strpos($zone,'JAUNE') || strpos($zone,'DECK')) :
+                case (strpos($zone,'JAUNE')!==false || strpos($zone,'DECK')!==false) :
                     return $this->getJoueur1DeckCharge();
                     break;
-                case (strpos($zone,'ROUGE') || strpos($zone,'DISCARD')) :
+                case (strpos($zone,'ROUGE')!==false || strpos($zone,'DISCARD')!==false) :
                     return $this->getJoueur1DiscardCharge();
                     break;
             }
         } else {
             switch (true) {
-                case (strpos($zone,'VERT') || strpos($zone,'CHAMBER')) :
+                case (strpos($zone,'VERT')!==false || strpos($zone,'CHAMBER')!==false) :
                     return $this->getJoueur2ChamberCharge();
                     break;
-                case (strpos($zone,'JAUNE') || strpos($zone,'DECK')) :
+                case (strpos($zone,'JAUNE')!==false || strpos($zone,'DECK')!==false) :
                     return $this->getJoueur2DeckCharge();
                     break;
-                case (strpos($zone,'ROUGE') || strpos($zone,'DISCARD')) :
+                case (strpos($zone,'ROUGE')!==false || strpos($zone,'DISCARD')!==false) :
                     return $this->getJoueur2DiscardCharge();
                     break;
             }

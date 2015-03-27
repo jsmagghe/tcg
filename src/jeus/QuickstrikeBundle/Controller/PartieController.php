@@ -160,17 +160,17 @@ class PartieController extends Controller {
             $emplacementCharges = array();
             $emplacementChargeAdversaires = array();
             if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur),'CHAMBER'))
-                $emplacementCharges['CHAMBER'] = 'chargee';
+                $emplacementCharges['chamber'] = 'chargee';
             if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur),'DECK'))
-                $emplacementCharges['DECK'] = 'chargee';
+                $emplacementCharges['deck'] = 'chargee';
             if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur),'DISCARD'))
-                $emplacementCharges['DISCARD'] = 'chargee';
+                $emplacementCharges['discard'] = 'chargee';
             if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur,true),'CHAMBER'))
-                $emplacementChargeAdversaires['CHAMBER'] = 'chargee';
+                $emplacementChargeAdversaires['chamber'] = 'chargee';
             if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur,true),'DECK'))
-                $emplacementChargeAdversaires['DECK'] = 'chargee';
+                $emplacementChargeAdversaires['deck'] = 'chargee';
             if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur,true),'DISCARD'))
-                $emplacementChargeAdversaires['DISCARD'] = 'chargee';
+                $emplacementChargeAdversaires['discard'] = 'chargee';
 
             return $this->render('::partie.html.twig', array(
                         'carteJoueurs' => $carteJoueurs,

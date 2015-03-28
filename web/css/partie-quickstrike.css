@@ -27,6 +27,12 @@ body { font-family: Arial, sans-serif; }
 	display : block;
 }
 
+.chargee {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);	
+}
 
 #energie_verte-adverse,#energie_vert-adverse{
 	position: absolute;

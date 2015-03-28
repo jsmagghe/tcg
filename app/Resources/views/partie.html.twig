@@ -64,6 +64,11 @@
                 {% endfor %}
             </div>
         {% endif %}
+        {% for emplacement, energie in energieDisponibles %}
+            {% if energie>0 %}
+                <span class="informations" id="{{emplacement}}">{{energie}}</span>
+            {% endif %}
+        {% endfor %}
     </div>
 </div>
 

@@ -172,6 +172,14 @@ class PartieController extends Controller {
             if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur,true),'DISCARD'))
                 $emplacementChargeAdversaires['discard'] = 'chargee';
 
+            $energiedisponibles = array();
+            $energiedisponibles['energie_verte_disponible'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur),'VERTE');
+            $energiedisponibles['energie_jaune_disponible'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur),'JAUNE');
+            $energiedisponibles['energie_rouge_disponible'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur),'ROUGE');
+            $energiedisponibles['energie_verte_disponible-adverse'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur,true),'VERTE');
+            $energiedisponibles['energie_jaune_disponible-adverse'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur,true),'JAUNE');
+            $energiedisponibles['energie_rouge_disponible-adverse'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur,true),'ROUGE');
+
             return $this->render('::partie.html.twig', array(
                         'carteJoueurs' => $carteJoueurs,
                         'carteAdversaires' => $carteAdversaires,
@@ -181,6 +189,7 @@ class PartieController extends Controller {
                         'Partie' => $Partie,
                         'emplacementInclineJoueurs' => $emplacementCharges,
                         'emplacementInclineAdversaires' => $emplacementChargeAdversaires,
+                        'energieDisponibles' => $energiedisponibles,
             ));
         } else {
             return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));
@@ -391,14 +400,34 @@ class PartieController extends Controller {
     }
 
     private function attaquer($Partie,$joueurConcerne,$depart = true) {
-        if ($depart)
+        if ($depart) 
             $this->viderCarte($Partie,$joueurConcerne);
+            
         $Partie->setJoueurZoneEnCours(($joueurConcerne==1)?2:1,'STRIKE_VERT');
         $this->viderCarte($Partie,($joueurConcerne==1)?2:1);
         //$this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DECK',$Partie->getJoueurZoneEnCours($joueurConcerne));
         $this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DECK',$Partie->getJoueurZoneEnCours(($joueurConcerne==1)?2:1));
-        if ($depart) 
+        if ($depart) {
             $this->deplacerCarte($Partie,$joueurConcerne,1,'OPENING','STRIKE_VERT');
+            $this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DISCARD','ENERGIE_VERTE');
+        } else {
+            if ($Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE') {
+                $this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DISCARD','ENERGIE_ROUGE');
+            }
+            if (
+                ($Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE')
+                &&($Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_JAUNE')
+                ) {
+                $this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DISCARD','ENERGIE_JAUNE');
+            }
+            if (
+                ($Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE')
+                &&($Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_JAUNE')
+                &&($Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_VERT')
+                ) {
+                $this->deplacerCarte($Partie,($joueurConcerne==1)?2:1,1,'DISCARD','ENERGIE_VERTE');
+            }
+        }
 
         if ($joueurConcerne==1) {
             $Partie->setJoueur1Etape('attente');
@@ -726,6 +755,7 @@ class PartieController extends Controller {
             $etape = $Partie->getJoueur2Etape();
         }
 
+        ici
         if ($Partie->getPointVictoire()<=$Partie->getJoueur1Point()) {
             $etape = '';
             $action[] = '<a href="ici">Attaquer</a>';

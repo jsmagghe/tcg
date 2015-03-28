@@ -190,37 +190,40 @@ body { font-family: Arial, sans-serif; }
 	left : 215px;
 }
 
-.energie_disponible {
+.informations {
 	position : absolute;
-	opacity : 0.5;
+	opacity : 0.75;
+	z-index : 999;
+	font-size : 125%;
+	font-weight: bold;
 }
 
-#energie_disponible_verte {
+#energie_verte_disponible {
 	top : 630px;
 	left : 720px;
 }
 
-#energie_disponible_jaune {
+#energie_jaune_disponible {
 	top : 745px;
 	left : 720px;
 }
 
-#energie_disponible_rouge {
+#energie_rouge_disponible {
 	top : 858px;
 	left : 720px;
 }
 
-#energie_disponible_verte-adverse {
+#energie_verte_disponible-adverse {
 	top : 360px;
 	left : 244px;
 }
 
-#energie_disponible_jaune-adverse {
+#energie_jaune_disponible-adverse {
 	top : 245px;
 	left : 244px;
 }
 
-#energie_disponible_rouge-adverse {
+#energie_rouge_disponible-adverse {
 	top : 133px;
 	left : 244px;
 }

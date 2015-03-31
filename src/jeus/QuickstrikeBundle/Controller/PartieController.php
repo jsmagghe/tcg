@@ -558,7 +558,7 @@ class PartieController extends Controller {
     }
 
     private function pointPourAdversaire($Partie,$joueurConcerne){
-        $Partie->addPointAdversaire($joueurConcerne);
+        $Partie->addPointAdversaire(($joueurConcerne==1) ? 2 : 1);
         $Partie->setJoueurZoneEnCours($joueurConcerne,'STRIKE_VERT');
         $this->setEtapeJoueur($Partie,$joueurConcerne,'choixAttaquant');
     }
@@ -755,13 +755,38 @@ class PartieController extends Controller {
             $etape = $Partie->getJoueur2Etape();
         }
 
-        ici
-        if ($Partie->getPointVictoire()<=$Partie->getJoueur1Point()) {
-            $etape = '';
-            $action[] = '<a href="ici">Attaquer</a>';
-        } elseif ($Partie->getPointVictoire()<=$Partie->getJoueur2Point()) {
-
+        $victoire = '';
+        $score = '';
+        if ($this->numeroJoueur($Partie,$Joueur)==1) {
+            $score = $Partie->getJoueur1Point().'-'.$Partie->getJoueur2Point();
+        } else {
+            $score = $Partie->getJoueur2Point().'-'.$Partie->getJoueur1Point();
         }
+
+        if (($Partie->getPointVictoire()<=$Partie->getJoueur1Point()) || ($Partie->getPointVictoire()<=$Partie->getJoueur2Point())) {
+
+            if ($Partie->getJoueur1Point()<$Partie->getJoueur2Point()) {
+                if ($this->numeroJoueur($Partie,$Joueur)==1) {
+                    $victoire = 'perdu';
+                } else {
+                    $victoire = 'gagné';
+                }
+            } elseif ($Partie->getJoueur1Point()>$Partie->getJoueur2Point()) {
+                if ($this->numeroJoueur($Partie,$Joueur)==2) {
+                    $victoire = 'perdu';
+                } else {
+                    $victoire = 'gagné';
+                }
+            }
+            if ($victoire<>'')
+                $action[] = '<span class="partie-finie">Vous avez '.$victoire.'</span>';
+        }
+
+        $action[] = '<span class="score">score: '.$score.'</span>';
+
+        if ($victoire<>'')
+            return $action;
+
 
         switch ($etape) {
             case 'choix deck' :

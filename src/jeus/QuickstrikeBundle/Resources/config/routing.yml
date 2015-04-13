@@ -66,10 +66,10 @@ jeus_quickstrike_joueur_annulerAttente:
         expose: true
     
 jeus_quickstrike_joueur_affronter:
-    path:     /joueur/affronter/{idJoueur}
+    path:     /joueur/affronter/{idAdversaire}
     defaults: { _controller: jeusQuickstrikeBundle:Partie:joueurAffronter }
     requirements:
-        idJoueur: \d+
+        idAdversaire: \d+
     options:
         expose: true
     

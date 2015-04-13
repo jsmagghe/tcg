@@ -35,7 +35,7 @@
             {% else %}
                 {% for Joueur in liste %}
                     <p>
-                        <a href="{{ path('jeus_'~jeu~'_joueur_affronter', {'idJoueur':Joueur.id})}}">{{ Joueur.username }}</a>
+                        <a href="{{ path('jeus_'~jeu~'_joueur_affronter', {'idAdversaire':Joueur.id})}}">{{ Joueur.username }}</a>
                     </p>
                 {% endfor %}
             {% endif %}        

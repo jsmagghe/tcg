@@ -63,9 +63,10 @@ class PartieController extends Controller {
         return $this->redirect($this->generateUrl('jeus_quickstrike_parties'));
     }
 
-    public function joueurAffronterAction($Adversaire) {
+    public function joueurAffronterAction($idAdversaire) {
         $Joueur = $this->get('security.context')->getToken()->getUser();
         $this->em = $this->getDoctrine()->getManager();
+        $Adversaire = $this->em->getRepository('jeusJoueurBundle:Joueur')->find($idAdversaire); 
         if (($Adversaire != null) && ($Joueur != null)) {
             $Adversaire->setEnAttenteQuickstrike(false);
             $Joueur->setEnAttenteQuickstrike(false);
@@ -112,7 +113,7 @@ class PartieController extends Controller {
     public function choixDeckAction(Partie $Partie, $idDeck) {
         $Joueur = $this->get('security.context')->getToken()->getUser();
         $this->em = $this->getDoctrine()->getManager();
-        if (($Joueur == $Partie->getJoueur1()) && ($Joueur == $Partie->getJoueur2())) {
+        if (($Joueur == $Partie->getJoueur1()) || ($Joueur == $Partie->getJoueur2())) {
             $Deck = $this->em->getRepository('jeusQuickstrikeBundle:Deck')->find($idDeck);
             $this->choixDeck($Partie,$Deck,$Joueur);
             $this->em->persist($Partie);

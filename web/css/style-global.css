@@ -43,9 +43,9 @@ body { font-family: Arial, sans-serif; }
 		#main .container .card > img {
 			width: 93px;
 			height: 130px; }
-		#main .container .card .infos {
+		#main .container .card .infos, #tapis .infos {
 			display:none; }
-		#main .container .card:hover .infos {
+		#main .container .card:hover .infos, #tapis .infos .card:hover {
 			display:block; }
 		#main .container .card .infos .infos-absolute {
 			position: absolute;
@@ -55,6 +55,10 @@ body { font-family: Arial, sans-serif; }
 			top: 357px; }
 		#main .container .card .infos img {
 			max-width: 280px; }
+		#tapis .infos-absolute-partie {
+			position: absolute;
+			left: 0; 
+			top: 50;}
 
 
 

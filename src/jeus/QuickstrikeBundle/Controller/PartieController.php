@@ -146,6 +146,7 @@ class PartieController extends Controller {
             foreach($CarteParties as $CartePartie) {
                 $carte['id'] = $CartePartie->getId();
                 $carte['lien'] = $CartePartie->getLien();
+                $carte['agrandi'] = $CartePartie->getLienAgrandi();
                 if ($CartePartie->getEmplacement()!='OPENING') {
                     if ($this->numeroJoueur($Partie,$Joueur)==$CartePartie->getNumeroJoueur()) {
                         if ((!isset($carteJoueurs[strtolower($CartePartie->getEmplacement())])) || ($CartePartie->getEmplacement()=='AVANTAGE'))

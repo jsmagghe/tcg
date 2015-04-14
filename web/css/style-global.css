@@ -45,7 +45,7 @@ body { font-family: Arial, sans-serif; }
 			height: 130px; }
 		#main .container .card .infos, #tapis .infos {
 			display:none; }
-		#main .container .card:hover .infos, #tapis .infos .card:hover {
+		#main .container .card:hover .infos, #tapis .card:hover .infos {
 			display:block; }
 		#main .container .card .infos .infos-absolute {
 			position: absolute;

@@ -56,9 +56,9 @@ body { font-family: Arial, sans-serif; }
 		#main .container .card .infos img {
 			max-width: 280px; }
 		#tapis .infos-absolute-partie {
-			position: absolute;
+			position: fixed;
 			left: 0; 
-			top: 50;}
+			top: 250px;}
 
 
 
@@ -71,6 +71,10 @@ body { font-family: Arial, sans-serif; }
 
 .carte_classeur-agrandi {
 	width : 550px;
+}
+
+.carte_partie-agrandi {
+	width : 400px;
 }
 
 .carte_deck {

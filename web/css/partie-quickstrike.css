@@ -4,14 +4,14 @@ body { font-family: Arial, sans-serif; }
 	height : 419px;
 	background-image:url("../images/Quickstrike/playmat_reverse.png");
 	background-repeat:no-repeat;
-	background-position:left 200px top 0px;
+	background-position:left 500px top 0px;
 }
 
 #cartes-joueur{
 	height : 419px;
 	background-image:url("../images/Quickstrike/playmat.png");
 	background-repeat:no-repeat;
-	background-position:left 200px top 0px;
+	background-position:left 500px top 0px;
 }
 
 .card {
@@ -37,157 +37,157 @@ body { font-family: Arial, sans-serif; }
 #energie_verte-adverse,#energie_vert-adverse{
 	position: absolute;
 	top : 343px;
-	left : 226px;
+	left : 526px;
 }
 
 #energie_jaune-adverse{
 	position: absolute;
 	top : 228px;
-	left : 226px;
+	left : 526px;
 }
 
 #energie_rouge-adverse{
 	position: absolute;
 	top : 115px;
-	left : 226px;
+	left : 526px;
 }
 
 #chamber-adverse{
 	position: absolute;
 	top : 343px;
-	left : 393px;
+	left : 693px;
 }
 
 #deck-adverse{
 	position: absolute;
 	top : 228px;
-	left : 393px;
+	left : 693px;
 }
 
 #discard-adverse{
 	position: absolute;
 	top : 115px;
-	left : 393px;
+	left : 693px;
 }
 
 #strike_verte-adverse,#strike_vert-adverse{
 	position: absolute;
 	top : 343px;
-	left : 540px;
+	left : 840px;
 }
 
 #strike_jaune-adverse{
 	position: absolute;
 	top : 228px;
-	left : 540px;
+	left : 840px;
 }
 
 #strike_rouge-adverse{
 	position: absolute;
 	top : 115px;
-	left : 540px;
+	left : 840px;
 }
 
 #teamwork_verte-adverse,#teamwork_vert-adverse{
 	position: absolute;
 	top : 343px;
-	left : 702px;
+	left : 1002px;
 }
 
 #teamwork_jaune-adverse{
 	position: absolute;
 	top : 228px;
-	left : 702px;
+	left : 1002px;
 }
 
 #teamwork_rouge-adverse{
 	position: absolute;
 	top : 115px;
-	left : 702px;
+	left : 1002px;
 }
 
 #avantage-adverse{
 	position: absolute;
 	top : 456px;
-	left : 520px;
+	left : 820px;
 }
 
 #energie_verte{
 	position: absolute;
 	top : 613px;
-	left : 702px;
+	left : 1002px;
 }
 
 #energie_jaune{
 	position: absolute;
 	top : 728px;
-	left : 702px;
+	left : 1002px;
 }
 
 #energie_rouge{
 	position: absolute;
 	top : 841px;
-	left : 702px;
+	left : 1002px;
 }
 
 #chamber{
 	position: absolute;
 	top : 613px;
-	left : 536px;
+	left : 836px;
 }
 
 #deck{
 	position: absolute;
 	top : 728px;
-	left : 536px;
+	left : 836px;
 }
 
 #discard{
 	position: absolute;
 	top : 841px;
-	left : 536px;
+	left : 836px;
 }
 
 #strike_verte,#strike_vert{
 	position: absolute;
 	top : 613px;
-	left : 393px;
+	left : 693px;
 }
 
 #strike_jaune{
 	position: absolute;
 	top : 728px;
-	left : 393px;
+	left : 693px;
 }
 
 #strike_rouge{
 	position: absolute;
 	top : 841px;
-	left : 393px;
+	left : 693px;
 }
 
 #teamwork_verte,#teamwork_vert{
 	position: absolute;
 	top : 613px;
-	left : 226px;
+	left : 526px;
 }
 
 #teamwork_jaune{
 	position: absolute;
 	top : 728px;
-	left : 226px;
+	left : 526px;
 }
 
 #teamwork_rouge{
 	position: absolute;
 	top : 841px;
-	left : 226px;
+	left : 526px;
 }
 
 #avantage{
 	position: absolute;
 	top : 456px;
-	left : 215px;
+	left : 515px;
 }
 
 .informations {
@@ -200,31 +200,31 @@ body { font-family: Arial, sans-serif; }
 
 #energie_verte_disponible {
 	top : 630px;
-	left : 720px;
+	left : 1020px;
 }
 
 #energie_jaune_disponible {
 	top : 745px;
-	left : 720px;
+	left : 1020px;
 }
 
 #energie_rouge_disponible {
 	top : 858px;
-	left : 720px;
+	left : 1020px;
 }
 
 #energie_verte_disponible-adverse {
 	top : 360px;
-	left : 244px;
+	left : 544px;
 }
 
 #energie_jaune_disponible-adverse {
 	top : 245px;
-	left : 244px;
+	left : 544px;
 }
 
 #energie_rouge_disponible-adverse {
 	top : 133px;
-	left : 244px;
+	left : 544px;
 }
 

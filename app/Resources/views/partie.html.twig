@@ -40,7 +40,7 @@
                                 {% endfor%}
                                 <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card{{zoneChargee}}"/>
                                 <div class="infos infos-absolute-partie">
-                                    <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.agrandi) }}" class="carte_classeur-agrandi" id="aggrandi-{{ carte.id }}"/>
+                                    <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.agrandi) }}" class="carte_partie-agrandi" id="aggrandi-{{ carte.id }}"/>
                                 </div>
                             </div>
                         {% endfor %}
@@ -62,7 +62,7 @@
                                 {% endfor%}                                
                                 <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card{{zoneChargee}}"/>
                                 <div class="infos infos-absolute-partie">
-                                    <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.agrandi) }}" class="carte_classeur-agrandi" id="aggrandi-{{ carte.id }}"/>
+                                    <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.agrandi) }}" class="carte_partie-agrandi" id="aggrandi-{{ carte.id }}"/>
                                 </div>
                             </div>
                         {% endfor %}

@@ -76,7 +76,7 @@ class CarteRepository extends EntityRepository {
         if ((isset($criteres['nombreCarte'])) && ((int) $criteres['nombreCarte'] != 0)) {
             $QueryBuilder->setMaxResults((int) $criteres['nombreCarte']);
         } elseif (!isset($criteres['nombreCarte'])) {
-            //$QueryBuilder->setMaxResults(8);
+            $QueryBuilder->setMaxResults(60);
         }
 
         if (isset($criteres['page']))

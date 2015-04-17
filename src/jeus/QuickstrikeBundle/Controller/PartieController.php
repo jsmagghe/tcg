@@ -741,6 +741,45 @@ class PartieController extends Controller {
         }
     }
 
+    private function cartesJoueur($Partie,$Joueur) 
+    {
+        $CartesJoueur = null;
+        if ($Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId()) {
+            $JoueurBas = ($Partie->getJoueurBas() != null)?$Partie->getJoueurBas():1;
+        } else {
+            $JoueurBas = ($Joueur == $Partie->getJoueur1())?1:2;
+        }
+
+        $cartesJoueur = $this->CarteEnJeus[$JoueurBas];
+        return $cartesJoueur;
+    }
+
+    private function isChamberUtilisable($Partie, $Joueur) {
+        $cartesJoueur = $this->($Partie,$Joueur);
+        // ici
+
+        $isUtilisable = (
+            ($Partie->getEtape($Joueur) == 'utilisationChamber') 
+            && ($Partie->isZoneChargee($joueurConcerne,'CHAMBER'))
+            && ($Partie->isZoneChargee($joueurConcerne,'DECK'))
+            && ($Partie->isZoneChargee($joueurConcerne,'DISCARD'))
+            && ($this->attaqueEnCours($Partie)<=$this->defenseChamber($Partie,$Joueur))
+        );
+
+        // si on ne peut pas utiliser la chamber on passe directement à la defense
+        if (
+            ($Partie->getEtape($Joueur) == 'utilisationChamber') 
+            && (!$isUtilisable)
+            )
+        {
+            $this->defendre($Partie,$Joueur);
+        }
+
+        return $isUtilisable;
+    }
+
+
+
     private function actionPossibles($Partie,$Joueur) {
         $this->CarteEnJeus=null;
         $this->chargerCarteEnJeu($Partie);

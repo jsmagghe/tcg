@@ -552,6 +552,15 @@ class Partie
         return $this;
     }
 
+    public function getEtape($Joueur)
+    {
+        if ($this->JoueurConcerne($Joueur) == 2) {
+            return $this->getJoueur2Etape();
+        } else {
+            return $this->getJoueur1Etape();
+        }
+    }
+
     public function setEtape($Joueur, $etape)
     {
         if ($this->JoueurConcerne($Joueur) == 2) {

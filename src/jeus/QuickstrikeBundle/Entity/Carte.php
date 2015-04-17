@@ -407,11 +407,13 @@ class Carte {
     }
 
     public function getLien() {
-        $lien = '';
+        $lien = $this->getImage();
         if ($this->getTypeCarte()->getTag() === 'CHAMBER') {
-            $lien = 'recto-' . $this->getPersonnageChamber() . '.png';
-        } else {
-            $lien = $this->getImage();
+            if (strpos($lien, 'v.png')>0) {
+                $lien = 'verso-' . $this->getPersonnageChamber() . '.png';
+            } else {
+                $lien = 'recto-' . $this->getPersonnageChamber() . '.png';
+            }
         }
         $lien = str_replace(' ', '-', $lien);
         return $lien;

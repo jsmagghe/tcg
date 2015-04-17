@@ -199,7 +199,7 @@ class CartePartie
         return $lien;
     }
         
-    public function getLienAgrandi()
+    public function getLienAgrandi($adverse = false)
     {
         $lien = '';
         if (
@@ -207,8 +207,13 @@ class CartePartie
             || ($this->emplacement == 'ENERGIE_VERTE')
             || ($this->emplacement == 'ENERGIE_JAUNE')
             || ($this->emplacement == 'ENERGIE_ROUGE')
-            ) {
-            $lien = 'back.png';
+            || ($adverse)
+            )  {
+            if ($this->Carte->getTypeCarte()->getTag() === 'CHAMBER') {
+                $lien = $this->Carte->getLien();
+            } else {
+                $lien = 'back.png';                
+            }
         } else{
             $lien = $this->Carte->getImage();
         }

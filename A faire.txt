@@ -1,2 +1,3 @@
-aggrandi des cartes en partie
 utilisation des chambers
+pictos pour choix
+position des avantages en ligne et pas en colonne

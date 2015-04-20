@@ -755,9 +755,6 @@ class PartieController extends Controller {
     }
 
     private function isChamberUtilisable($Partie, $Joueur) {
-        $cartesJoueur = $this->($Partie,$Joueur);
-        // ici
-
         $isUtilisable = (
             ($Partie->getEtape($Joueur) == 'utilisationChamber') 
             && ($Partie->isZoneChargee($joueurConcerne,'CHAMBER'))

@@ -646,6 +646,31 @@ class PartieController extends Controller {
         return $bonus;
     }
 
+    private function defenseChamber($Partie) {
+        $attaque = 0;
+        if (($Partie->getJoueur1Etape()=='defense') || ($Partie->getJoueur2Etape()=='defense')) {
+            $numeroDefenseur = $this->numeroDefenseur($Partie);
+            $numeroAttaquant = $this->numeroAttaquant($Partie);
+
+                if (isset($this->CarteEnJeus[$numeroDefenseur]['CHAMBER'])) {
+                    $CarteActive = $this->CarteEnJeus[$numeroDefenseur]['CHAMBER'];
+                    $Carte = $CarteActive->getCarte();
+                }
+                else 
+                    $Carte = null;
+
+                if ($Carte == null) {
+                    return 4;
+                }
+                $attaque += $Carte->getAttaque();  
+            }
+        }
+
+        return $attaque;
+    }
+
+
+
     private function energiedisponible($joueurConcerne,$zone) {
         if (isset($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]))
             return count($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]);

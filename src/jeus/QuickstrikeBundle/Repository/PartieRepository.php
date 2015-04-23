@@ -24,7 +24,7 @@ class PartieRepository extends EntityRepository
     public function findPartieByJoueur($Joueur) {
         return $this->createQueryBuilder('p')
                 ->where('p.joueur1=:Joueur OR p.joueur2=:Joueur')
-                ->andWhere('p.pointVictoire<=p.Joueur1Point OR p.pointVictoire<=p.Joueur2Point')
+                ->andWhere('p.pointVictoire>p.Joueur1Point AND p.pointVictoire>p.Joueur2Point')
                 ->setParameter('Joueur', $Joueur)
                 ->getQuery()
                 ->getResult();        

@@ -13,19 +13,53 @@ class FormattageHM
 {
 
     protected $em;
+    protected $container;
+
     protected $Partie;
+    protected $Joueur;
     protected $CarteEnJeus;
     protected $numeroAttaquant;
     protected $numeroDefenseur;
+    protected $numeroJoueur;
+    protected $numeroAdversaire;
 
     public function __construct(ObjectManager $em)
     {
         $this->em = $em;
+        $this->container = $container;
     }
 
     public function chargement($Partie) {
         $this->Partie = $Partie;
+        $this->Joueur = $Joueur;
         $this->chargerCarteEnJeu();
+        $this->numeroDefenseur = $this->numeroDefenseur();
+        $this->numeroAttaquant = $this->numeroAttaquant();
+        $this->numeroJoueur = $this->numeroJoueur();
+        $this->numeroAdversaire = $this->numeroJoueur(true);
+    }
+
+    private function numeroAttaquant() {
+        $numeroAttaquant = ($this->Partie->getJoueur1Etape()=='defense') ? 2 : 1;
+        return $numeroAttaquant;
+    }
+
+    private function numeroDefenseur() {
+        $numeroDefenseur = ($this->Partie->getJoueur1Etape()=='defense') ? 1 : 2;
+        return $numeroDefenseur;
+    }
+
+    private function numeroJoueur($adversaire = false) {
+        $numero = 1;
+        if ($this->Partie->getJoueur1()->getId()==$this->Partie->getJoueur2()->getId()) {
+            $numero = ($this->Partie->getJoueurBas() != null) ? $this->Partie->getJoueurBas() : 1;
+        } else {
+            $numero = ($this->Partie->getJoueur2()->getId()==$this->Joueur->getId()) ? 2 : 1;
+        }
+        if ($adversaire)
+            $numero = ($numero==1) ? 2 : 1;
+
+        return $numero;
     }
 
     private function chargerCarteEnJeu() {
@@ -52,11 +86,9 @@ class FormattageHM
     private function attaqueEnCours($Partie) {
         $attaque = 0;
         if (($Partie->getJoueur1Etape()=='defense') || ($Partie->getJoueur2Etape()=='defense')) {
-            $numeroDefenseur = $this->numeroDefenseur($Partie);
-            $numeroAttaquant = $this->numeroAttaquant($Partie);
-            if ($Partie->getJoueurZoneEnCours($numeroAttaquant)!='0') {
-                if (isset($this->CarteEnJeus[$numeroAttaquant][$Partie->getJoueurZoneEnCours($numeroAttaquant)])) {
-                    $CarteActive = $this->CarteEnJeus[$numeroAttaquant][$Partie->getJoueurZoneEnCours($numeroAttaquant)];
+            if ($Partie->getJoueurZoneEnCours($this->numeroAttaquant)!='0') {
+                if (isset($this->CarteEnJeus[$this->numeroAttaquant][$Partie->getJoueurZoneEnCours($this->numeroAttaquant)])) {
+                    $CarteActive = $this->CarteEnJeus[$this->numeroAttaquant][$Partie->getJoueurZoneEnCours($this->numeroAttaquant)];
                     $Carte = $CarteActive->getCarte();
                 }
                 else 

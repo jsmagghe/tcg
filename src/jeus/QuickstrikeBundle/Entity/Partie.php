@@ -579,33 +579,6 @@ class Partie
         }
     }
 
-    public function getPartieAffichee($Joueur)
-    {
-        $PartieAffichee = array();
-        $PartieAffichee['id'] = $this->getId();
-
-        if ($this->getCarteParties() != null) {
-            if ($this->JoueurConcerne($Joueur) == 2) {
-                foreach ($this->getCarteParties() as $CartePartie) {
-                    if ($CartePartie->getNumeroJoueur() == 2) {
-                        //$PartieAffichee[2] = 
-                    } else {
-                        //$PartieAffichee[1] = 
-                    }
-                }
-            } else {
-                foreach ($this->getCarteParties() as $CartePartie) {
-                    if ($CartePartie->getNumeroJoueur() == 1) {
-                        //$PartieAffichee[1] = 
-                    } else {
-                        //$PartieAffichee[2] = 
-                    }
-                }
-            }
-        }
-        return $PartieAffichee;
-    }
-
     public function chargerZone($joueurConcerne,$zone) {
         $this->chargerDechargerZone($joueurConcerne,$zone,true);
     }

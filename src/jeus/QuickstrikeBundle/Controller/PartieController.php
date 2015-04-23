@@ -27,7 +27,6 @@ class PartieController extends Controller {
             return $this->redirect($this->generateUrl('jeus_quickstrike_carte'));
         } else {
             $this->em = $this->getDoctrine()->getManager();
-            //$listeJoueur = $this->em->getRepository('jeusJoueurBundle:Joueur')->findBy(array('enAttenteQuickstrike' => true));
             $listeJoueur = $this->em->getRepository('jeusJoueurBundle:Joueur')->findJoueurEnAttente($Joueur);
             $listePartie = $this->em->getRepository('jeusQuickstrikeBundle:Partie')->findPartieByJoueur($Joueur);
             
@@ -251,40 +250,6 @@ class PartieController extends Controller {
 
 
     // fonction de gestion de la partie
-
-    private function chargerCarteEnJeu($Partie) {
-        if ($this->CarteEnJeus==null) {
-            $CarteEnJeus = $this->em->getRepository('jeusQuickstrikeBundle:CartePartie')
-                                     ->findBy(array('Partie' => $Partie));
-
-            foreach($CarteEnJeus as $CartePartie) {
-                $emplacement = $CartePartie->getEmplacement();
-                $numeroJoueur = $CartePartie->getNumeroJoueur();
-                if (($emplacement!='AVANTAGE') && ($emplacement!='DECK') && ($emplacement!='DISCARD') && (strpos($emplacement,'ENERGIE_') === false)) {
-                    $this->CarteEnJeus[$numeroJoueur][$emplacement] = $CartePartie;
-                } else {
-                    $this->CarteEnJeus[$numeroJoueur][$emplacement][] = $CartePartie;
-                }
-                if (($emplacement!='DECK') && ($emplacement!='DISCARD') && (strpos($emplacement,'ENERGIE_') === false)) {
-                    $this->CarteEnJeus[$numeroJoueur]['ACTIVE'][] = $CartePartie;
-                }
-            }
-
-        }
-    }
-
-    private function numeroJoueur($Partie,$Joueur,$adversaire = false) {
-        $numero = 1;
-        if ($Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId()) {
-            $numero = ($Partie->getJoueurBas() != null) ? $Partie->getJoueurBas() : 1;
-        } else {
-            $numero = ($Partie->getJoueur2()->getId()==$Joueur->getId()) ? 2 : 1;
-        }
-        if ($adversaire)
-            $numero = ($numero==1) ? 2 : 1;
-
-        return $numero;
-    }
 
     private function choixDeck($Partie,$Deck, $Joueur)
     {
@@ -574,16 +539,6 @@ class PartieController extends Controller {
     private function joueurChoisi() {
         $numero = rand(1,1000);
         return ($numero<=500)? 1 : 2;
-    }
-
-    private function numeroAttaquant($Partie) {
-        $numeroAttaquant = ($Partie->getJoueur1Etape()=='defense') ? 2 : 1;
-        return $numeroAttaquant;
-    }
-
-    private function numeroDefenseur($Partie) {
-        $numeroDefenseur = ($Partie->getJoueur1Etape()=='defense') ? 1 : 2;
-        return $numeroDefenseur;
     }
 
     private function bonusAttaque($Partie) {

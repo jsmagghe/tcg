@@ -1,0 +1,8 @@
+services:
+#    itroom_metier.example:
+#        class: Itroom\MetierBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    jeus_quickstrike_partie:
+        class: jeus\QuickstrikeBundle\Services\Partie
+        arguments: [@doctrine.orm.entity_manager,@service_container]

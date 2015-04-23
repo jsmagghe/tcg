@@ -655,15 +655,13 @@ class PartieController extends Controller {
                 if (isset($this->CarteEnJeus[$numeroDefenseur]['CHAMBER'])) {
                     $CarteActive = $this->CarteEnJeus[$numeroDefenseur]['CHAMBER'];
                     $Carte = $CarteActive->getCarte();
-                }
-                else 
+                } else 
                     $Carte = null;
 
                 if ($Carte == null) {
                     return 4;
                 }
                 $attaque += $Carte->getAttaque();  
-            }
         }
 
         return $attaque;

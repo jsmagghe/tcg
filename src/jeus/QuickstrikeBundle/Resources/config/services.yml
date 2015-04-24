@@ -3,6 +3,12 @@ services:
 #        class: Itroom\MetierBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
 
+    jeus_quickstrike_tools:
+        class: jeus\QuickstrikeBundle\Services\Tools
+
+    jeus_quickstrike_effets:
+        class: jeus\QuickstrikeBundle\Services\Effets
+
     jeus_quickstrike_partie:
         class: jeus\QuickstrikeBundle\Services\Partie
-        arguments: [@doctrine.orm.entity_manager,@service_container]
+        arguments: [@doctrine.orm.entity_manager,@service_container,@jeus_quickstrike_tools]

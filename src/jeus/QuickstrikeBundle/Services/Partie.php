@@ -106,7 +106,7 @@ class FormattageHM
         return $attaque+$this->bonusAttaque($Partie);
     }
 
-    private function defenseChmaber() {
+    private function defenseChamber() {
 
     }
 

@@ -17,7 +17,6 @@ use jeus\QuickstrikeBundle\Entity\CartePartie;
 class PartieController extends Controller {
 
     private $em;
-    private $CarteEnJeus;
     private $Partie;
     private $Joueur;
 
@@ -114,7 +113,9 @@ class PartieController extends Controller {
         $this->em = $this->getDoctrine()->getManager();
         if (($Joueur == $Partie->getJoueur1()) || ($Joueur == $Partie->getJoueur2())) {
             $Deck = $this->em->getRepository('jeusQuickstrikeBundle:Deck')->find($idDeck);
-            $this->choixDeck($Partie,$Deck,$Joueur);
+            $servicePartie = $this->get('jeus_quickstrike_partie');
+            $servicePartie->chargement($Partie,$Joueur);
+            $servicePartie->choixDeck($Deck);
             $this->em->persist($Partie);
             $this->em->flush();    
             return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id' => $Partie->getId())));
@@ -127,11 +128,13 @@ class PartieController extends Controller {
         $Joueur = $this->get('security.context')->getToken()->getUser();
         $this->em = $this->getDoctrine()->getManager();
         if (($Joueur == $Partie->getJoueur1()) || ($Joueur == $Partie->getJoueur2())) {
-            $this->gestionPile($Partie);
+            $servicePartie = $this->get('jeus_quickstrike_partie');
+            $servicePartie->chargement($Partie,$Joueur);
+            $servicePartie->gestionPile();
             $this->em->persist($Partie);
             $this->em->flush();
             
-            $choixPossibles = $this->actionPossibles($Partie,$Joueur);
+            $choixPossibles = $servicePartie->actionPossibles();
             $carteJoueurs = array();
             $carteAdversaires = array();
             $CarteParties = $this->em
@@ -147,7 +150,7 @@ class PartieController extends Controller {
                 $carte['id'] = $CartePartie->getId();
                 $carte['lien'] = $CartePartie->getLien();
                 if ($CartePartie->getEmplacement()!='OPENING') {
-                    if ($this->numeroJoueur($Partie,$Joueur)==$CartePartie->getNumeroJoueur()) {
+                    if ($servicePartie->numeroJoueur==$CartePartie->getNumeroJoueur()) {
                         $carte['agrandi'] = $CartePartie->getLienAgrandi();
                         if ((!isset($carteJoueurs[strtolower($CartePartie->getEmplacement())])) || ($CartePartie->getEmplacement()=='AVANTAGE'))
                             $carteJoueurs[strtolower($CartePartie->getEmplacement())][]=$carte;
@@ -161,26 +164,26 @@ class PartieController extends Controller {
 
             $emplacementCharges = array();
             $emplacementChargeAdversaires = array();
-            if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur),'CHAMBER'))
+            if ($Partie->isZoneChargee($servicePartie->numeroJoueur,'CHAMBER'))
                 $emplacementCharges['chamber'] = 'chargee';
-            if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur),'DECK'))
+            if ($Partie->isZoneChargee($servicePartie->numeroJoueur,'DECK'))
                 $emplacementCharges['deck'] = 'chargee';
-            if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur),'DISCARD'))
+            if ($Partie->isZoneChargee($servicePartie->numeroJoueur,'DISCARD'))
                 $emplacementCharges['discard'] = 'chargee';
-            if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur,true),'CHAMBER'))
+            if ($Partie->isZoneChargee($servicePartie->numeroAdversaire,'CHAMBER'))
                 $emplacementChargeAdversaires['chamber'] = 'chargee';
-            if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur,true),'DECK'))
+            if ($Partie->isZoneChargee($servicePartie->numeroAdversaire,'DECK'))
                 $emplacementChargeAdversaires['deck'] = 'chargee';
-            if ($Partie->isZoneChargee($this->numeroJoueur($Partie,$Joueur,true),'DISCARD'))
+            if ($Partie->isZoneChargee($servicePartie->numeroAdversaire,'DISCARD'))
                 $emplacementChargeAdversaires['discard'] = 'chargee';
 
             $energiedisponibles = array();
-            $energiedisponibles['energie_verte_disponible'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur),'VERTE');
-            $energiedisponibles['energie_jaune_disponible'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur),'JAUNE');
-            $energiedisponibles['energie_rouge_disponible'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur),'ROUGE');
-            $energiedisponibles['energie_verte_disponible-adverse'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur,true),'VERTE');
-            $energiedisponibles['energie_jaune_disponible-adverse'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur,true),'JAUNE');
-            $energiedisponibles['energie_rouge_disponible-adverse'] = $this->energiedisponible($this->numeroJoueur($Partie,$Joueur,true),'ROUGE');
+            $energiedisponibles['energie_verte_disponible'] = $this->energiedisponible($servicePartie->numeroJoueur,'VERTE');
+            $energiedisponibles['energie_jaune_disponible'] = $this->energiedisponible($servicePartie->numeroJoueur,'JAUNE');
+            $energiedisponibles['energie_rouge_disponible'] = $this->energiedisponible($servicePartie->numeroJoueur,'ROUGE');
+            $energiedisponibles['energie_verte_disponible-adverse'] = $this->energiedisponible($servicePartie->numeroAdversaire,'VERTE');
+            $energiedisponibles['energie_jaune_disponible-adverse'] = $this->energiedisponible($servicePartie->numeroAdversaire,'JAUNE');
+            $energiedisponibles['energie_rouge_disponible-adverse'] = $this->energiedisponible($servicePartie->numeroAdversaire,'ROUGE');
 
             return $this->render('::partie.html.twig', array(
                         'carteJoueurs' => $carteJoueurs,
@@ -200,39 +203,39 @@ class PartieController extends Controller {
 
     public function choixEffetAction(Partie $Partie, $effet) {
         $this->em = $this->getDoctrine()->getManager();
-        $this->CarteEnJeus=null;
-        $this->chargerCarteEnJeu($Partie);
-        $this->em->persist($Partie);
         $Joueur = $this->get('security.context')->getToken()->getUser();
-        $joueurConcerne = $this->numeroJoueur($Partie,$Joueur);
+        $servicePartie = $this->get('jeus_quickstrike_partie');
+        $servicePartie->chargement($Partie,$Joueur);
+        $this->em->persist($Partie);
+        $joueurConcerne = $servicePartie->numeroJoueur;
 
         if (($effet=='avantager') || ($effet=='recruter') || ($effet=='contre_attaquer')) {
-            $this->payer($Partie,$joueurConcerne);
+            $servicePartie->payer($joueurConcerne);
         }
 
         if (($effet=='attaquer') || ($effet=='defendre')) {
-            $numeroAttaquant = $this->numeroJoueur($Partie,$Joueur,$effet=='defendre');
-            $this->attaquer($Partie,$numeroAttaquant);
+            $numeroAttaquant = $servicePartie->numeroJoueur($effet=='defendre');
+            $servicePartie->attaquer($numeroAttaquant);
         }
 
         if (($effet=='avantager') || ($effet=='recruter')) {
-            $this->jouer($Partie,$joueurConcerne,$effet);
+            $servicePartie->jouer($joueurConcerne,$effet);
         }
 
         if ($effet=='contre_attaquer') {
-            $this->contreAttaquer($Partie,$joueurConcerne);
+            $servicePartie->contreAttaquer($joueurConcerne);
         }
 
         if ($effet=='focuser') {
-            $this->focuser($Partie,$joueurConcerne,'focus');
+            $servicePartie->focuser($joueurConcerne,'focus');
         }
 
         if ($effet=='pitcher') {
-            $this->focuser($Partie,$joueurConcerne,'pitch');
+            $servicePartie->focuser($joueurConcerne,'pitch');
         }
 
         if ($effet=='discarder') {
-            $this->focuser($Partie,$joueurConcerne,'discard');
+            $servicePartie->focuser($joueurConcerne,'discard');
         }
         $this->em->flush();
 

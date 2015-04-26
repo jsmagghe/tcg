@@ -178,12 +178,12 @@ class PartieController extends Controller {
                 $emplacementChargeAdversaires['discard'] = 'chargee';
 
             $energiedisponibles = array();
-            $energiedisponibles['energie_verte_disponible'] = $this->energiedisponible($servicePartie->numeroJoueur,'VERTE');
-            $energiedisponibles['energie_jaune_disponible'] = $this->energiedisponible($servicePartie->numeroJoueur,'JAUNE');
-            $energiedisponibles['energie_rouge_disponible'] = $this->energiedisponible($servicePartie->numeroJoueur,'ROUGE');
-            $energiedisponibles['energie_verte_disponible-adverse'] = $this->energiedisponible($servicePartie->numeroAdversaire,'VERTE');
-            $energiedisponibles['energie_jaune_disponible-adverse'] = $this->energiedisponible($servicePartie->numeroAdversaire,'JAUNE');
-            $energiedisponibles['energie_rouge_disponible-adverse'] = $this->energiedisponible($servicePartie->numeroAdversaire,'ROUGE');
+            $energiedisponibles['energie_verte_disponible'] = $servicePartie->energiedisponible($servicePartie->numeroJoueur,'VERTE');
+            $energiedisponibles['energie_jaune_disponible'] = $servicePartie->energiedisponible($servicePartie->numeroJoueur,'JAUNE');
+            $energiedisponibles['energie_rouge_disponible'] = $servicePartie->energiedisponible($servicePartie->numeroJoueur,'ROUGE');
+            $energiedisponibles['energie_verte_disponible-adverse'] = $servicePartie->energiedisponible($servicePartie->numeroAdversaire,'VERTE');
+            $energiedisponibles['energie_jaune_disponible-adverse'] = $servicePartie->energiedisponible($servicePartie->numeroAdversaire,'JAUNE');
+            $energiedisponibles['energie_rouge_disponible-adverse'] = $servicePartie->energiedisponible($servicePartie->numeroAdversaire,'ROUGE');
 
             return $this->render('::partie.html.twig', array(
                         'carteJoueurs' => $carteJoueurs,
@@ -218,12 +218,16 @@ class PartieController extends Controller {
             $servicePartie->attaquer($numeroAttaquant);
         }
 
+        if ($effet=='no_chamber') {
+            $servicePartie->noChamber();
+        }
+
         if (($effet=='avantager') || ($effet=='recruter')) {
             $servicePartie->jouer($joueurConcerne,$effet);
         }
 
-        if ($effet=='contre_attaquer') {
-            $servicePartie->contreAttaquer($joueurConcerne);
+        if (($effet=='contre_attaquer') || ($effet=='joueur_chamber')) {
+            $servicePartie->contreAttaquer($joueurConcerne,$effet=='joueur_chamber');
         }
 
         if ($effet=='focuser') {

@@ -506,8 +506,8 @@ class Partie
         return $this;
     }
 
-    public function addPointAdversaire($numeroJoueur) {
-        if ($numeroJoueur==2) 
+    public function addPointAdversaire($numeroAdversaire) {
+        if ($numeroAdversaire==2) 
             $this->setJoueur2Point($this->getJoueur2Point()+1);
         else 
             $this->setJoueur1Point($this->getJoueur1Point()+1);
@@ -554,7 +554,7 @@ class Partie
 
     public function getEtape($Joueur)
     {
-        if ($this->JoueurConcerne($Joueur) == 2) {
+        if ( $this->JoueurConcerne($Joueur) == 2) {
             return $this->getJoueur2Etape();
         } else {
             return $this->getJoueur1Etape();

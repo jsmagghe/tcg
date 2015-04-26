@@ -11,4 +11,5 @@ services:
 
     jeus_quickstrike_partie:
         class: jeus\QuickstrikeBundle\Services\Partie
-        arguments: [@doctrine.orm.entity_manager,@service_container,@jeus_quickstrike_tools,@jeus_quickstrike_effets]
+        arguments: [@doctrine.orm.entity_manager,@service_container,@jeus_quickstrike_tools,@jeus_quickstrike_effets,@router]
+        scope: request

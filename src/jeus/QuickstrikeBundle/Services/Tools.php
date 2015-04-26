@@ -12,7 +12,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 class Tools
 {
 
-    private function zoneSuivante($zone) {
+    public function zoneSuivante($zone) {
         $zoneSuivante = 'STRIKE_VERT';
         switch ($zone) {
             case 'STRIKE_VERT' : 
@@ -28,7 +28,7 @@ class Tools
         return $zoneSuivante;
     }
 
-    private function zoneCorrespondante($zone,$type='STRIKE') {
+    public function zoneCorrespondante($zone,$type='STRIKE') {
         $zoneCorrespondante = 'STRIKE_VERT';
         switch ($zone) {
             case 'STRIKE_VERT' : 
@@ -46,7 +46,7 @@ class Tools
         return $zoneCorrespondante;
     }
 
-    private function joueurChoisi() {
+    public function joueurChoisi() {
         $numero = rand(1,1000);
         return ($numero<=500)? 1 : 2;
     }

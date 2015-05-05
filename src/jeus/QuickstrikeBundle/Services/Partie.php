@@ -223,6 +223,10 @@ class Partie
         if ($depart) {
             $this->deplacerCarte($joueurConcerne,1,'OPENING','STRIKE_VERT');
             $this->deplacerCarte(($joueurConcerne==1)?2:1,1,'DISCARD','ENERGIE_VERTE');
+        } elseif ($chamber) {
+            $this->Partie->dechargerZone($joueurConcerne,'STRIKE_VERT');
+            $this->Partie->dechargerZone($joueurConcerne,'STRIKE_JAUNE');
+            $this->Partie->dechargerZone($joueurConcerne,'STRIKE_ROUGE');
         } else {
             if ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE') {
                 $this->deplacerCarte(($joueurConcerne==1)?2:1,1,'DISCARD','ENERGIE_ROUGE');
@@ -501,15 +505,15 @@ class Partie
     public function isChamberUtilisable() {
         $isUtilisable = (
             ($this->Partie->getEtape($this->Joueur) == 'utilisationChamber') 
-            && ($this->Partie->isZoneChargee($joueurConcerne,'CHAMBER'))
-            && ($this->Partie->isZoneChargee($joueurConcerne,'DECK'))
-            && ($this->Partie->isZoneChargee($joueurConcerne,'DISCARD'))
+            && ($this->Partie->isZoneChargee($this->numeroJoueur,'CHAMBER'))
+            && ($this->Partie->isZoneChargee($this->numeroJoueur,'DECK'))
+            && ($this->Partie->isZoneChargee($this->numeroJoueur,'DISCARD'))
             && ($this->attaqueEnCours()<=$this->defenseChamber())
         );
 
         if (
             ($this->Partie->getEtape($this->Joueur) == 'utilisationChamber')
-            && ($isUtilisable!=false)
+            && ($isUtilisable==false)
             ) {
             $this->Partie->setEtapeByNumero($this->numeroJoueur,'defense');
             $this->Partie->setJoueurZoneEnCours($this->numeroJoueur,'STRIKE_VERT');
@@ -595,11 +599,12 @@ class Partie
 
                 if ($this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)!='0') {
                     $CarteActive = null;
+                    $Carte = null;
                     if (isset($CarteEnJeus[$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)])) {
                         $CarteActive = $CarteEnJeus[$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
                         $Carte = $CarteActive->getCarte();
                     }                    
-                    if ($this->isCartePayable( $this->numeroDefenseur, $Carte)) {
+                    if ($this->isCartePayable($this->numeroDefenseur, $Carte)) {
                         if ($Carte->getTypeCarte()->getTag()=='STRIKE') 
                         {
                             $defense = $Carte->getIntercept()+$this->bonusDefense();  

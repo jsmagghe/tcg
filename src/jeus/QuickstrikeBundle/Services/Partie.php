@@ -217,38 +217,39 @@ class Partie
     }
 
     public function attaquer($joueurConcerne,$depart = true, $chamber = false) {
+        $JoueurAdverse = ($joueurConcerne==1)?2:1;
         if ($depart) 
             $this->viderCarte($joueurConcerne);
             
         if ($depart) {
             $this->deplacerCarte($joueurConcerne,1,'OPENING','STRIKE_VERT');
-            $this->deplacerCarte(($joueurConcerne==1)?2:1,1,'DISCARD','ENERGIE_VERTE');
+            $this->deplacerCarte($JoueurAdverse,1,'DISCARD','ENERGIE_VERTE');
         } elseif ($chamber) {
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_VERT');
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_JAUNE');
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_ROUGE');
         } else {
             if ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE') {
-                $this->deplacerCarte(($joueurConcerne==1)?2:1,1,'DISCARD','ENERGIE_ROUGE');
+                $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_ROUGE');
             }
             if (
                 ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE')
                 || ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_JAUNE')
                 ) {
-                $this->deplacerCarte(($joueurConcerne==1)?2:1,1,'DISCARD','ENERGIE_JAUNE');
+                $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_JAUNE');
             }
             if (
                 ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE')
                 || ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_JAUNE')
                 || ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_VERT')
                 ) {
-                $this->deplacerCarte(($joueurConcerne==1)?2:1,1,'DISCARD','ENERGIE_VERTE');
+                $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
             }
         }
 
         $this->Partie->setEtapeByNumero($joueurConcerne,'attente');
-        $this->viderCarte(($joueurConcerne==1)?2:1);
-        $this->Partie->setEtapeByNumero(($joueurConcerne==1)?2:1,'utilisationChamber');
+        $this->viderCarte($joueurAdverse);
+        $this->Partie->setEtapeByNumero($joueurAdverse,'utilisationChamber');
     }
 
     public function choixDeck($Deck)

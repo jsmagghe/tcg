@@ -228,6 +228,7 @@ class Partie
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_VERT');
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_JAUNE');
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_ROUGE');
+            $this->Partie->setJoueurZoneEnCours($joueurConcerne,'CHAMBER');
         } else {
             if ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE') {
                 $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_ROUGE');

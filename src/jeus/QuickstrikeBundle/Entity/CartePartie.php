@@ -181,8 +181,9 @@ class CartePartie
         return $this->Carte;
     }
         
-    public function getLien()
+    public function getLien($parametres = null)
     {
+        $chamberVisible = (isset($parametres['chamberVisible'.$this->numeroJoueur])) ? $parametres['chamberVisible'.$this->numeroJoueur] : false;
         $lien = '';
         if (
             ($this->emplacement == 'DECK') 
@@ -192,15 +193,20 @@ class CartePartie
             ) {
             $lien = 'back.png';
         } elseif ($this->emplacement == 'CHAMBER') {
-            $lien = 'recto-' . $this->Carte->getPersonnageChamber() . '.png';
+            if ($chamberVisible==true) {
+                $lien = $this->Carte->getImage();
+            } else {
+                $lien = 'recto-' . $this->Carte->getPersonnageChamber() . '.png';                
+            }
         } else
             $lien = $this->Carte->getImage();
 
         return $lien;
     }
         
-    public function getLienAgrandi($adverse = false)
+    public function getLienAgrandi($parametres = null)
     {
+        $adverse = (isset($parametres['adverse'])) ? $parametres['adverse'] : false;
         $lien = '';
         if (
             ($this->emplacement == 'DECK') 
@@ -210,7 +216,7 @@ class CartePartie
             || ($adverse)
             )  {
             if ($this->Carte->getTypeCarte()->getTag() === 'CHAMBER') {
-                $lien = $this->Carte->getLien();
+                $lien = $this->getLien($parametres);
             } else {
                 $lien = 'back.png';                
             }

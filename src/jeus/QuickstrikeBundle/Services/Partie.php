@@ -217,13 +217,13 @@ class Partie
     }
 
     public function attaquer($joueurConcerne,$depart = true, $chamber = false) {
-        $JoueurAdverse = ($joueurConcerne==1)?2:1;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
         if ($depart) 
             $this->viderCarte($joueurConcerne);
             
         if ($depart) {
             $this->deplacerCarte($joueurConcerne,1,'OPENING','STRIKE_VERT');
-            $this->deplacerCarte($JoueurAdverse,1,'DISCARD','ENERGIE_VERTE');
+            $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
         } elseif ($chamber) {
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_VERT');
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_JAUNE');

@@ -146,16 +146,22 @@ class PartieController extends Controller {
                                     );
 
             $carte = array();
+            $parametres = array(
+                'chamberVisible1' => ($Partie->getJoueurZoneEnCours(1) == 'CHAMBER'),
+                'chamberVisible2' => ($Partie->getJoueurZoneEnCours(2) == 'CHAMBER'),
+                    );
+            $parametreAdverses = $parametres;
+            $parametreAdverses['adverse'] = true;
             foreach($CarteParties as $CartePartie) {
                 $carte['id'] = $CartePartie->getId();
-                $carte['lien'] = $CartePartie->getLien();
+                $carte['lien'] = $CartePartie->getLien($parametres);
                 if ($CartePartie->getEmplacement()!='OPENING') {
                     if ($servicePartie->numeroJoueur==$CartePartie->getNumeroJoueur()) {
-                        $carte['agrandi'] = $CartePartie->getLienAgrandi();
+                        $carte['agrandi'] = $CartePartie->getLienAgrandi($parametres);
                         if ((!isset($carteJoueurs[strtolower($CartePartie->getEmplacement())])) || ($CartePartie->getEmplacement()=='AVANTAGE'))
                             $carteJoueurs[strtolower($CartePartie->getEmplacement())][]=$carte;
                     } else {
-                        $carte['agrandi'] = $CartePartie->getLienAgrandi(true);
+                        $carte['agrandi'] = $CartePartie->getLienAgrandi($parametreAdverses);
                         if ((!isset($carteAdversaires[strtolower($CartePartie->getEmplacement())])) || ($CartePartie->getEmplacement()=='AVANTAGE'))
                             $carteAdversaires[strtolower($CartePartie->getEmplacement())][]=$carte;    
                     }
@@ -226,8 +232,8 @@ class PartieController extends Controller {
             $servicePartie->jouer($joueurConcerne,$effet);
         }
 
-        if (($effet=='contre_attaquer') || ($effet=='joueur_chamber')) {
-            $servicePartie->contreAttaquer($joueurConcerne,$effet=='joueur_chamber');
+        if (($effet=='contre_attaquer') || ($effet=='jouer_chamber')) {
+            $servicePartie->contreAttaquer($joueurConcerne,$effet=='jouer_chamber');
         }
 
         if ($effet=='focuser') {

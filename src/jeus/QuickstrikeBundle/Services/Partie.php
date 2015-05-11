@@ -222,6 +222,7 @@ class Partie
             $this->viderCarte($joueurConcerne);
             
         if ($depart) {
+            $this->Partie->setJoueurZoneEnCours($joueurConcerne,'STRIKE_VERT');
             $this->deplacerCarte($joueurConcerne,1,'OPENING','STRIKE_VERT');
             $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
         } elseif ($chamber) {
@@ -320,7 +321,15 @@ class Partie
     }
 
     public function contreAttaquer($joueurConcerne,$chamber) {
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+        if ($this->getJoueurZoneEnCours($joueurAdverse) == 'CHAMBER') {
+            $this->retournerChamber($joueurAdverse);
+        }
         $this->attaquer($joueurConcerne,false,$chamber);
+    }
+
+    public function retournerChamber($joueurConcerne) {
+        ici
     }
 
     public function focuserPitcher($joueurConcerne,$action) {

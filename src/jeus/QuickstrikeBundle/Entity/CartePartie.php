@@ -196,7 +196,11 @@ class CartePartie
             if ($chamberVisible==true) {
                 $lien = $this->Carte->getImage();
             } else {
-                $lien = 'recto-' . $this->Carte->getPersonnageChamber() . '.png';                
+                if (strpos($this->Carte->getNumero(), 'v') === false)  {
+                    $lien = 'recto-' . $this->Carte->getPersonnageChamber() . '.png';                    
+                } else {
+                    $lien = 'verso-' . $this->Carte->getPersonnageChamber() . '.png';                    
+                }
             }
         } else
             $lien = $this->Carte->getImage();

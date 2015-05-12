@@ -329,7 +329,26 @@ class Partie
     }
 
     public function retournerChamber($joueurConcerne) {
-        ici
+        if (
+            (isset($this->CarteEnJeus[$joueurConcerne]['CHAMBER'])) 
+            && ($this->CarteEnJeus[$joueurConcerne]['CHAMBER']->getCarte()!=null)
+            && ($this->CarteEnJeus[$joueurConcerne]['CHAMBER']->getCarte()->getNumero()!='')
+            )
+        {
+            $Chamber = $this->CarteEnJeus[$joueurConcerne]['CHAMBER'];
+            $numeroChamber = $Chamber->getCarte()->getNumero();
+            if (strpos($numeroChamber,'v') === false) {
+                $numeroChamber .= 'v';
+            } else {
+                $numeroChamber = str_replace('v', '', $numeroChamber);
+            }
+            $Carte = $this->em->getRepository('jeusQuickstrikeBundle:Carte')->findOneByNumero($numeroChamber);
+            if ($Carte!=null) {
+                $Chamber->setCarte($Carte);
+                $this->em->persist($Chamber);
+                $this->em->flush();
+            }           
+        }
     }
 
     public function focuserPitcher($joueurConcerne,$action) {

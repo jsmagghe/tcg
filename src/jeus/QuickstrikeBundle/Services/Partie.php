@@ -222,7 +222,10 @@ class Partie
             $this->viderCarte($joueurConcerne);
             
         if ($depart) {
+            $this->retournerChamber($joueurAdverse);
+
             $this->Partie->setJoueurZoneEnCours($joueurConcerne,'STRIKE_VERT');
+            $this->Partie->setJoueurZoneEnCours($joueurAdverse,'STRIKE_VERT');
             $this->deplacerCarte($joueurConcerne,1,'OPENING','STRIKE_VERT');
             $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
         } elseif ($chamber) {
@@ -274,10 +277,15 @@ class Partie
         return $this->redirect($this->router->generate('jeus_quickstrike_partie',array('id'=>$this->Partie->getId())));
     }
 
-    public function payer($joueurConcerne) {       
+    public function payer($joueurConcerne,$chamber=false) {       
         $payable = false;
         $Carte = null;
-        if (isset($this->CarteEnJeus[$joueurConcerne][$this->Partie->getJoueurZoneEnCours($joueurConcerne)])) {
+        if ($chamber) {
+            if (isset($this->CarteEnJeus[$joueurConcerne]['CHAMBER'])) {
+                $CarteActive = $this->CarteEnJeus[$joueurConcerne]['CHAMBER'];
+                $Carte = $CarteActive->getCarte();
+            }        
+        } else if (isset($this->CarteEnJeus[$joueurConcerne][$this->Partie->getJoueurZoneEnCours($joueurConcerne)])) {
             $CarteActive = $this->CarteEnJeus[$joueurConcerne][$this->Partie->getJoueurZoneEnCours($joueurConcerne)];
             $Carte = $CarteActive->getCarte();
         }
@@ -322,9 +330,7 @@ class Partie
 
     public function contreAttaquer($joueurConcerne,$chamber) {
         $joueurAdverse = ($joueurConcerne==1)?2:1;
-        if ($this->getJoueurZoneEnCours($joueurAdverse) == 'CHAMBER') {
-            $this->retournerChamber($joueurAdverse);
-        }
+        $this->retournerChamber($joueurAdverse);
         $this->attaquer($joueurConcerne,false,$chamber);
     }
 
@@ -333,6 +339,7 @@ class Partie
             (isset($this->CarteEnJeus[$joueurConcerne]['CHAMBER'])) 
             && ($this->CarteEnJeus[$joueurConcerne]['CHAMBER']->getCarte()!=null)
             && ($this->CarteEnJeus[$joueurConcerne]['CHAMBER']->getCarte()->getNumero()!='')
+            && ($this->Partie->getJoueurZoneEnCours($joueurConcerne) == 'CHAMBER')
             )
         {
             $Chamber = $this->CarteEnJeus[$joueurConcerne]['CHAMBER'];

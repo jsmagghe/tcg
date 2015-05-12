@@ -215,8 +215,8 @@ class PartieController extends Controller {
         $this->em->persist($Partie);
         $joueurConcerne = $servicePartie->numeroJoueur;
 
-        if (($effet=='avantager') || ($effet=='recruter') || ($effet=='contre_attaquer')) {
-            $servicePartie->payer($joueurConcerne);
+        if (($effet=='avantager') || ($effet=='recruter') || ($effet=='contre_attaquer') || ($effet=='jouer_chamber')) {
+            $servicePartie->payer($joueurConcerne,$effet=='jouer_chamber');
         }
 
         if (($effet=='attaquer') || ($effet=='defendre')) {

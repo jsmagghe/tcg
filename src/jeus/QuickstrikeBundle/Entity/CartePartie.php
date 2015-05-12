@@ -212,18 +212,19 @@ class CartePartie
     {
         $adverse = (isset($parametres['adverse'])) ? $parametres['adverse'] : false;
         $lien = '';
-        if (
+        if ($this->Carte->getTypeCarte()->getTag() === 'CHAMBER') {
+            if ($adverse) {
+                $lien = $this->getLien($parametres);                
+            } else {
+                $lien = $this->Carte->getImage();                
+            }
+        } else if (
             ($this->emplacement == 'DECK') 
             || ($this->emplacement == 'ENERGIE_VERTE')
             || ($this->emplacement == 'ENERGIE_JAUNE')
             || ($this->emplacement == 'ENERGIE_ROUGE')
-            || ($adverse)
             )  {
-            if ($this->Carte->getTypeCarte()->getTag() === 'CHAMBER') {
-                $lien = $this->getLien($parametres);
-            } else {
-                $lien = 'back.png';                
-            }
+            $lien = 'back.png';                
         } else{
             $lien = $this->Carte->getImage();
         }

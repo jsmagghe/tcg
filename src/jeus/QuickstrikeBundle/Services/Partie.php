@@ -5,6 +5,10 @@ namespace jeus\QuickstrikeBundle\Services;
 use Symfony\Component\DependencyInjection\Container;
 use Doctrine\Common\Persistence\ObjectManager;
 
+/* Entity */
+use jeus\QuickstrikeBundle\Entity\Deck;
+use jeus\QuickstrikeBundle\Entity\CartePartie;
+
 /**
  *
  * @author Julien S
@@ -243,7 +247,7 @@ class Partie
             $this->Partie->setEtape($this->numeroJoueur, 'attenteDebut');
         }
         //return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id'=>$this->Partie->getId())));
-        return $this->redirect($this->router->generate('jeus_quickstrike_partie',array('id'=>$this->Partie->getId())));
+        //return $this->redirect($this->router->generate('jeus_quickstrike_partie',array('id'=>$this->Partie->getId())));
     }
 
     public function payer($joueurConcerne,$chamber=false) {       
@@ -373,9 +377,15 @@ class Partie
     }
 
     public function infos(){
+        $ZoneAttaquant = $this->Partie->getJoueurZoneEnCours($this->numeroAttaquant);
+        $ZoneDefenseur = $this->Partie->getJoueurZoneEnCours($this->numeroDefenseur);
+        $couleurAttaquant = 
+
+
         return array(
             'ZoneAttaquant' => $this->Partie->getJoueurZoneEnCours($this->numeroAttaquant),
             'ZoneDefenseur' => $this->Partie->getJoueurZoneEnCours($this->numeroDefenseur),
+            //'couleurAttaquant' => 
             );
     }
 
@@ -621,7 +631,7 @@ class Partie
                     if ($this->isCartePayable($this->numeroDefenseur, $Carte)) {
                         if ($Carte->getTypeCarte()->getTag()=='STRIKE') 
                         {
-                            $defense = $Carte->getIntercept()+$this->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant,$this->infos());  
+                            $defense = $Carte->getIntercept()+$this->effets->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant,$this->infos());  
                             if ($defense>=$attaque) 
                                 $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'contre_attaquer')).'">Contre attaquer</a>';
                         }

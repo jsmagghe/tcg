@@ -6,20 +6,16 @@ Effets
 Effet 1;You may play Amidamaru's only if you are Yoh. If you counterattack from Amidamaru's zone, charge it.;;
 Effet 2;green ==> +1 Intercept.;;
 Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force
-Effet 4;Your strikes have +1 Intercept.;;
 Effet 5;Immediate. Before flipping your next card, draw two cards. Place one on top of your deck and the other in your discard pile.;;
-Effet 6;Your strikes have -2 Intercept and +2 Force.;;
-Effet 7;Your strikes have +1 Force.;;
 Effet 8;Immediate. You may move a teamwork to an empty zone controlled by the same player.;;
 Effet 9;Tactical: Green.;;
-Effet 10;Your strikes have +1 Force. In your opponent's red zone, your strikes have -4 Force.;;
 Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
 Effet 12;You may play Lee Pai-Long only if you are jun. Green ==> If you counterattack in Lee Pai-Long's zone, put a counter on him. Use only once. Remove a counter from Lee Pai-Long ==> Your strike in Lee Pai-Long's zone gets +1 Force.;;
 Effet 13;Eliminate Lililala ==> Before flipping, draw three cards. Place two in your discard pile and one on top of your deck.;;
 Effet 14;-3 Force ==> If you counterattack from Lyserg's zone with this strike, charge it.;;
 Effet 15;-2 Intercept ==> If your counterattack from Marco's zone with this strike, add a green furyoku. Use only once.;;
 Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
-Effet 17;Tactical: Green. Your strikes have -3 Intercept and +3 Force.;;
+Effet 17;Tactical: Green.
 Effet 18;Red ==> +4 Intercept. Use only once.;;
 Effet 19;Pitch ==> add two green furyoku.;;
 Effet 20;When flipped in a zone with a teamwork, United Front has "Tactical: Green.";;

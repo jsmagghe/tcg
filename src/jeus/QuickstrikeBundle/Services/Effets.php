@@ -25,6 +25,29 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+            	case 6 : 
+            		$bonus += 2;
+            		break;
+            	case 7 : 
+            		$bonus += 1;
+            		break;
+            	case 10 : 
+            		if ((isset($infos['ZoneDefenseur'])) && ($infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
+            			$bonus -= 4;
+            		} else {
+            			$bonus += 1;            			
+            		}
+            		break;
+            	case 17 : 
+            		$bonus += 3;
+            		break;
+            	case 23 : 
+            	
+            		$bonus += 2;
+            		break;
+            }
         }
 
         return $bonus;
@@ -37,6 +60,21 @@ class Effets
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+            	case 4 : 
+            		$bonus += 1;
+            		break;
+            	case 6 : 
+            		$bonus -= 2;
+            		break;
+            	case 17 : 
+            		$bonus -= 3;
+            		break;
+            	case 23 : 
+            		$bonus -= 2;
+            		break;
             }
         }
 

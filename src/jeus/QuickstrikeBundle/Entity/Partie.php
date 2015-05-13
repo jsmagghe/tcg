@@ -554,20 +554,37 @@ class Partie
 
     public function getEtape($Joueur)
     {
-        if ( $this->JoueurConcerne($Joueur) == 2) {
-            return $this->getJoueur2Etape();
+        if ($Joueur instanceof \jeus\JoueurBundle\Entity\Joueur) {
+            if ($this->JoueurConcerne($Joueur) == 2) {
+                return $this->getJoueur2Etape();
+            } else {
+                return $this->getJoueur1Etape();
+            }
         } else {
-            return $this->getJoueur1Etape();
+            if ($Joueur == 2) {
+                return $this->getJoueur2Etape();
+            } else {
+                return $this->getJoueur1Etape();
+            }
         }
     }
 
     public function setEtape($Joueur, $etape)
     {
-        if ($this->JoueurConcerne($Joueur) == 2) {
-            $this->setJoueur2Etape($etape);
+        if ($Joueur instanceof \jeus\JoueurBundle\Entity\Joueur) {
+            if ($this->JoueurConcerne($Joueur) == 2) {
+                $this->setJoueur2Etape($etape);
+            } else {
+                $this->setJoueur1Etape($etape);
+            }            
         } else {
-            $this->setJoueur1Etape($etape);
+            if ($Joueur == 2) {
+                $this->setJoueur2Etape($etape);
+            } else {
+                $this->setJoueur1Etape($etape);
+            }
         }
+
     }
 
     public function setEtapeByNumero($joueurConcerne, $etape)

@@ -379,13 +379,10 @@ class Partie
     public function infos(){
         $ZoneAttaquant = $this->Partie->getJoueurZoneEnCours($this->numeroAttaquant);
         $ZoneDefenseur = $this->Partie->getJoueurZoneEnCours($this->numeroDefenseur);
-        $couleurAttaquant = 
-
 
         return array(
             'ZoneAttaquant' => $this->Partie->getJoueurZoneEnCours($this->numeroAttaquant),
             'ZoneDefenseur' => $this->Partie->getJoueurZoneEnCours($this->numeroDefenseur),
-            //'couleurAttaquant' => 
             );
     }
 

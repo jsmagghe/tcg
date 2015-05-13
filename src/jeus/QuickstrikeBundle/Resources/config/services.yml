@@ -8,6 +8,7 @@ services:
 
     jeus_quickstrike_effets:
         class: jeus\QuickstrikeBundle\Services\Effets
+        arguments: [@jeus_quickstrike_tools]
 
     jeus_quickstrike_partie:
         class: jeus\QuickstrikeBundle\Services\Partie

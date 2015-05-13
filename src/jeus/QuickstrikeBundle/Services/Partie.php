@@ -70,24 +70,24 @@ class Partie
     }
 
     public function chargerCarteEnJeu() {
-        if ($this->CarteEnJeus==null) {
-            $CarteEnJeus = $this->em->getRepository('jeusQuickstrikeBundle:CartePartie')
-                                    ->findBy(array('Partie' => $this->Partie));
+        $this->CarteEnJeus = array();
+        $CarteEnJeus = $this->em->getRepository('jeusQuickstrikeBundle:CartePartie')
+                                ->findBy(array('Partie' => $this->Partie));
 
-            foreach($CarteEnJeus as $CartePartie) {
-                $emplacement = $CartePartie->getEmplacement();
-                $numeroJoueur = $CartePartie->getNumeroJoueur();
-                if (($emplacement!='AVANTAGE') && ($emplacement!='DECK') && ($emplacement!='DISCARD') && (strpos($emplacement,'ENERGIE_') === false)) {
-                    $this->CarteEnJeus[$numeroJoueur][$emplacement] = $CartePartie;
-                } else {
-                    $this->CarteEnJeus[$numeroJoueur][$emplacement][] = $CartePartie;
-                }
-                if (($emplacement!='DECK') && ($emplacement!='DISCARD') && (strpos($emplacement,'ENERGIE_') === false)) {
-                    $this->CarteEnJeus[$numeroJoueur]['ACTIVE'][] = $CartePartie;
-                }
+        foreach($CarteEnJeus as $CartePartie) {
+            $emplacement = $CartePartie->getEmplacement();
+            $numeroJoueur = $CartePartie->getNumeroJoueur();
+            if (($emplacement!='AVANTAGE') && ($emplacement!='DECK') && ($emplacement!='DISCARD') && (strpos($emplacement,'ENERGIE_') === false)) {
+                $this->CarteEnJeus[$numeroJoueur][$emplacement] = $CartePartie;
+            } else {
+                $this->CarteEnJeus[$numeroJoueur][$emplacement][] = $CartePartie;
             }
-
+            if (($emplacement!='DECK') && ($emplacement!='DISCARD') && (strpos($emplacement,'ENERGIE_') === false)) {
+                $this->CarteEnJeus[$numeroJoueur]['ACTIVE'][] = $CartePartie;
+            }
         }
+        $this->effets->chargerCarteEnJeu($this->CarteEnJeus);
+
     }
 
     public function melangerEmplacement($joueurConcerne,$emplacement='DECK') {
@@ -183,37 +183,6 @@ class Partie
         $this->deplacerCarte($joueurConcerne,99,'STRIKE_VERT','DISCARD');
         $this->deplacerCarte($joueurConcerne,99,'STRIKE_JAUNE','DISCARD');
         $this->deplacerCarte($joueurConcerne,99,'STRIKE_ROUGE','DISCARD');
-    }
-
-    public function bonusAttaque() {
-        $bonus = 0;
-        if (($this->Partie->getJoueur1Etape()=='defense') || ($this->Partie->getJoueur2Etape()=='defense')) {
-            $CarteEnJeus = $this->CarteEnJeus[$this->numeroAttaquant]['ACTIVE'];
-            foreach ($CarteEnJeus as $Cartejeu) {
-                $Carte = $Cartejeu->getCarte();
-                if ($Carte == null) {
-                    continue;
-                }
-            }
-        }
-
-        return $bonus;
-    }
-
-    public function bonusDefense() {
-        $bonus = 0;
-        if (($this->Partie->getJoueur1Etape()=='defense') || ($this->Partie->getJoueur2Etape()=='defense')) {
-            if ($this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)!='0') {
-                $CarteActive = $this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
-                $Carte = $CarteActive->getCarte();
-                if ($Carte == null) {
-                    continue;
-                }
-
-            }
-        }
-
-        return $bonus;
     }
 
     public function attaquer($joueurConcerne,$depart = true, $chamber = false) {
@@ -403,6 +372,13 @@ class Partie
         $this->Partie->setEtapeByNumero($joueurConcerne,$etape);
     }
 
+    public function infos(){
+        return array(
+            'ZoneAttaquant' => $this->Partie->getJoueurZoneEnCours($this->numeroAttaquant),
+            'ZoneDefenseur' => $this->Partie->getJoueurZoneEnCours($this->numeroDefenseur),
+            );
+    }
+
     public function attaqueEnCours() {
         $attaque = 0;
         if (($this->Partie->getJoueur1Etape()=='defense') || ($this->Partie->getJoueur2Etape()=='defense')) {
@@ -423,11 +399,11 @@ class Partie
             }
         }
 
-        return $attaque+$this->bonusAttaque();
+        return $attaque+$this->effets->bonusAttaque($this->numeroAttaquant,$this->numeroDefenseur,$this->infos());
     }
 
     public function defenseChamber() {
-        $attaque = 0;
+        $defense = 0;
         if (($this->Partie->getJoueur1Etape()=='defense') || ($this->Partie->getJoueur2Etape()=='defense')) {
 
                 if (isset($this->CarteEnJeus[$this->numeroDefenseur]['CHAMBER'])) {
@@ -439,10 +415,10 @@ class Partie
                 if ($Carte == null) {
                     return 4;
                 }
-                $attaque += $Carte->getAttaque();  
+                $defense += $Carte->getAttaque();  
         }
 
-        return $attaque;
+        return $defense+$this->effets->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant,$this->infos());
     }
 
     public function energiedisponible($joueurConcerne,$zone) {
@@ -645,7 +621,7 @@ class Partie
                     if ($this->isCartePayable($this->numeroDefenseur, $Carte)) {
                         if ($Carte->getTypeCarte()->getTag()=='STRIKE') 
                         {
-                            $defense = $Carte->getIntercept()+$this->bonusDefense();  
+                            $defense = $Carte->getIntercept()+$this->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant,$this->infos());  
                             if ($defense>=$attaque) 
                                 $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'contre_attaquer')).'">Contre attaquer</a>';
                         }

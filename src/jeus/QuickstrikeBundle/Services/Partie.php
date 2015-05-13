@@ -342,7 +342,7 @@ class Partie
             && ($this->Partie->getJoueurZoneEnCours($joueurConcerne) == 'CHAMBER')
             )
         {
-            $this->Partie->setJoueurZoneEnCours($joueurConcerne) = 'STRIKE_VERT';
+            $this->Partie->setJoueurZoneEnCours($joueurConcerne, 'STRIKE_VERT');
             $Chamber = $this->CarteEnJeus[$joueurConcerne]['CHAMBER'];
             $numeroChamber = $Chamber->getCarte()->getNumero();
             if (strpos($numeroChamber,'v') === false) {

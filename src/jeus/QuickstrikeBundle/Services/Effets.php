@@ -34,27 +34,18 @@ class Effets
             $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
             switch ($numeroEffet) {
                 case 7 : 
-            	case 34 : 
+                case 34 : 
+            	case 106 : 
             		$bonus += 1;
                     break;
                 case 6 : 
+                case 23 : 
+                case 63 : 
                 case 65 : 
                     $bonus += 2;
             		break;
                 case 17 : 
                     $bonus += 3;
-                    break;
-                // dans la zone du teamwork
-                case 106 : 
-                    if ($this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')==$CarteJeu->getEmplacement()) {
-                      $bonus += 1;                        
-                    }
-                    break;
-                case 23 : 
-                case 63 : 
-                    if ($this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')==$CarteJeu->getEmplacement()) {
-                      $bonus += 2;                        
-                    }
                     break;
 
                 // zone verte
@@ -68,6 +59,7 @@ class Effets
                         $bonus += 2;
                     }
                     break;
+
                 // zone rouge
                 case 10 : 
                     if ((isset($infos['ZoneDefenseur'])) && ($infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
@@ -109,7 +101,7 @@ class Effets
                     } 
                     break;
             	case 110 :
-                    if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')])) {
+                    if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')])) {
                         $bonus += 2;
                     } 
             		break;
@@ -133,29 +125,15 @@ class Effets
             		$bonus -= 3;
             		break;
                 case 6 : 
+                case 23 : 
                     $bonus -= 2;
                     break;
                 case 4 : 
                 case 24 : 
                 case 34 : 
-                    $bonus += 1;
-                    break;
-
-                // dans la zone du teamwork
-                case 23 : 
-                    if ($this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'TEAMWORK')==$CarteJeu->getEmplacement()) {
-                      $bonus -= 2;                        
-                    }
-                    break;
                 case 63 : 
-                    if ($this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'TEAMWORK')==$CarteJeu->getEmplacement()) {
-                      $bonus -= 1;                        
-                    }
-                    break;
                 case 116 : 
-                    if ($this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'TEAMWORK')==$CarteJeu->getEmplacement()) {
-                      $bonus += 1;                        
-                    }
+                    $bonus += 1;
                     break;
 
                 // zone rouge

@@ -86,7 +86,14 @@ class Partie
             } else {
                 $this->CarteEnJeus[$numeroJoueur][$emplacement][] = $CartePartie;
             }
-            if (($emplacement!='DECK') && ($emplacement!='DISCARD') && (strpos($emplacement,'ENERGIE_') === false)) {
+            if (
+                ($emplacement=='AVANTAGE') || ($emplacement=='STRIKE_VERT') 
+                || ($emplacement=='STRIKE_JAUNE') || ($emplacement=='STRIKE_ROUGE')
+                || (($emplacement=='CHAMBER') && ($this->Partie->getJoueurZoneEnCours($numeroJoueur)=='CHAMBER'))
+                || (($emplacement=='TEAMWORK_VERTE') && ($this->Partie->getJoueurZoneEnCours($numeroJoueur)=='STRIKE_VERT'))
+                || (($emplacement=='TEAMWORK_JAUNE') && ($this->Partie->getJoueurZoneEnCours($numeroJoueur)=='STRIKE_JAUNE'))
+                || (($emplacement=='TEAMWORK_ROUGE') && ($this->Partie->getJoueurZoneEnCours($numeroJoueur)=='STRIKE_ROUGE'))
+                ){
                 $this->CarteEnJeus[$numeroJoueur]['ACTIVE'][] = $CartePartie;
             }
         }

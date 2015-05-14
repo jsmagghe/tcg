@@ -50,26 +50,27 @@ class Effets
 
                 // zone verte
                 case 95 : 
-                    if ((isset($infos['ZoneDefenseur'])) && ($infos['ZoneDefenseur']=='STRIKE_VERT')) {
+                    if ($infos['ZoneDefenseur']=='STRIKE_VERT') {
                         $bonus -= 3;
                     }
                     break;
                 case 112 : 
-                    if ((isset($infos['ZoneDefenseur'])) && ($infos['ZoneDefenseur']=='STRIKE_VERT')) {
+                case 195 : 
+                    if ($infos['ZoneDefenseur']=='STRIKE_VERT') {
                         $bonus += 2;
                     }
                     break;
 
                 // zone rouge
                 case 10 : 
-                    if ((isset($infos['ZoneDefenseur'])) && ($infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
+                    if ($infos['ZoneDefenseur']=='STRIKE_ROUGE') {
                         $bonus -= 4;
                     } else {
                         $bonus += 1;                        
                     }
                     break;
                 case 24 : 
-                    if ((isset($infos['ZoneDefenseur'])) && ($infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
+                    if ($infos['ZoneDefenseur']=='STRIKE_ROUGE') {
                         $bonus -= 3;
                     }
                     break;
@@ -100,11 +101,34 @@ class Effets
                         $bonus += 1;
                     } 
                     break;
+                case 174 :
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERTE'])) {
+                        $bonus += 1;
+                    } 
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE'])) {
+                        $bonus += 1;
+                    } 
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_ROUGE'])) {
+                        $bonus += 1;
+                    } 
+                    break;
             	case 110 :
                     if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')])) {
                         $bonus += 2;
                     } 
             		break;
+
+                // zone chargée
+                case 130 : 
+                    if (
+                        (($infos['chamberChargeAttaquant']) && ($Cartejeu->getEmplacement()=='TEAMWORK_VERT'))
+                        || (($infos['deckChargeAttaquant']) && ($Cartejeu->getEmplacement()=='TEAMWORK_JAUNE'))
+                        || (($infos['discardChargeAttaquant']) && ($Cartejeu->getEmplacement()=='TEAMWORK_ROUGE'))
+                    ) {
+                        $bonus += 1;
+                    }
+                    break;
+
             }
         }
 
@@ -135,13 +159,50 @@ class Effets
                 case 116 : 
                     $bonus += 1;
                     break;
+                case 192 : 
+                    $bonus += 2;
+                    break;
 
                 // zone rouge
                 case 29 : 
-                    if ((isset($infos['ZoneDefenseur'])) && ($infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
+                    if (($infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
                         $bonus += 2;
                     }
                     break;
+
+                // nombre carte
+                case 127 :
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'])) {
+                        $bonus += 2;
+                    } 
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'])) {
+                        $bonus += 2;
+                    } 
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'])) {
+                        $bonus += 2;
+                    } 
+                    break;
+
+                // zone chargée
+                case 173 : 
+                    if (
+                        (($infos['chamberChargeAttaquant']) && ($Cartejeu->getEmplacement()=='STRIKE_VERT'))
+                        || (($infos['deckChargeAttaquant']) && ($Cartejeu->getEmplacement()=='STRIKE_JAUNE'))
+                        || (($infos['discardChargeAttaquant']) && ($Cartejeu->getEmplacement()=='STRIKE_ROUGE'))
+                    ) {
+                        $bonus += 2;
+                    }
+                    break;
+                case 193 : 
+                    if (
+                        (($infos['chamberChargeAttaquant']) && ($infos['ZoneDefenseur']=='STRIKE_VERT'))
+                        || (($infos['deckChargeAttaquant']) && ($infos['ZoneDefenseur']=='STRIKE_JAUNE'))
+                        || (($infos['discardChargeAttaquant']) && ($infos['ZoneDefenseur']=='STRIKE_ROUGE'))
+                    ) {
+                        $bonus += 2;
+                    }
+                    break;
+
             }
         }
 

@@ -386,10 +386,22 @@ class Partie
     public function infos(){
         $ZoneAttaquant = $this->Partie->getJoueurZoneEnCours($this->numeroAttaquant);
         $ZoneDefenseur = $this->Partie->getJoueurZoneEnCours($this->numeroDefenseur);
+        $chamberChargeAttaquant = $this->Partie->isZoneChargee($this->numeroAttaquant,'VERT');
+        $deckChargeAttaquant = $this->Partie->isZoneChargee($this->numeroAttaquant,'JAUNE');
+        $discardChargeAttaquant = $this->Partie->isZoneChargee($this->numeroAttaquant,'ROUGE');
+        $chamberChargeDefenseur = $this->Partie->isZoneChargee($this->numeroDefenseur,'VERT');
+        $deckChargeDefenseur = $this->Partie->isZoneChargee($this->numeroDefenseur,'JAUNE');
+        $discardChargeDefenseur = $this->Partie->isZoneChargee($this->numeroDefenseur,'ROUGE');
 
         return array(
-            'ZoneAttaquant' => $this->Partie->getJoueurZoneEnCours($this->numeroAttaquant),
-            'ZoneDefenseur' => $this->Partie->getJoueurZoneEnCours($this->numeroDefenseur),
+            'ZoneAttaquant' => $ZoneAttaquant,
+            'ZoneDefenseur' => $ZoneDefenseur,
+            'chamberChargeAttaquant' => $chamberChargeAttaquant,
+            'deckChargeAttaquant' => $deckChargeAttaquant,
+            'discardChargeAttaquant' => $discardChargeAttaquant,
+            'chamberChargeDefenseur' => $chamberChargeDefenseur,
+            'deckChargeDefenseur' => $deckChargeDefenseur,
+            'discardChargeDefenseur' => $discardChargeDefenseur,
             );
     }
 

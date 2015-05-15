@@ -35,13 +35,16 @@ class Effets
             switch ($numeroEffet) {
                 case 7 : 
                 case 34 : 
-            	case 106 : 
+                case 106 : 
+                case 220 : 
+            	case 237 : 
             		$bonus += 1;
                     break;
                 case 6 : 
                 case 23 : 
                 case 63 : 
                 case 65 : 
+                case 270 : 
                     $bonus += 2;
             		break;
                 case 17 : 
@@ -91,32 +94,21 @@ class Effets
                     }
                     break;
                 case 67 :
-                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'])) {
-                        $bonus += 1;
-                    } 
-                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'])) {
-                        $bonus += 1;
-                    } 
-                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'])) {
-                        $bonus += 1;
-                    } 
+                    $bonus += $infos['nombreTeamworkDefenseur'];
                     break;
                 case 174 :
-                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERTE'])) {
-                        $bonus += 1;
-                    } 
-                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE'])) {
-                        $bonus += 1;
-                    } 
-                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_ROUGE'])) {
-                        $bonus += 1;
-                    } 
+                    $bonus += $infos['nombreTeamworkAttaquant'];
                     break;
             	case 110 :
                     if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')])) {
                         $bonus += 2;
                     } 
             		break;
+                case 370 :
+                    if ($infos['nombreTeamworkDefenseur']<$infos['nombreTeamworkAttaquant']) {
+                        $bonus += 2;
+                    }
+                    break;
 
                 // zone chargée
                 case 130 : 
@@ -124,6 +116,17 @@ class Effets
                         (($infos['chamberChargeAttaquant']) && ($Cartejeu->getEmplacement()=='TEAMWORK_VERT'))
                         || (($infos['deckChargeAttaquant']) && ($Cartejeu->getEmplacement()=='TEAMWORK_JAUNE'))
                         || (($infos['discardChargeAttaquant']) && ($Cartejeu->getEmplacement()=='TEAMWORK_ROUGE'))
+                    ) {
+                        $bonus += 1;
+                    }
+                    break;
+                case 196 : 
+                case 197 : 
+                case 279 : 
+                    if (
+                        (($infos['chamberChargeAttaquant']) && ($infos['ZoneAttaquant']=='STRIKE_VERT'))
+                        || (($infos['deckChargeAttaquant']) && ($infos['ZoneAttaquant']=='STRIKE_JAUNE'))
+                        || (($infos['discardChargeAttaquant']) && ($infos['ZoneAttaquant']=='STRIKE_ROUGE'))
                     ) {
                         $bonus += 1;
                     }
@@ -152,11 +155,16 @@ class Effets
                 case 23 : 
                     $bonus -= 2;
                     break;
+                case 220 : 
+                case 270 : 
+                    $bonus -= 1;
+                    break;
                 case 4 : 
                 case 24 : 
                 case 34 : 
                 case 63 : 
                 case 116 : 
+                case 224 : 
                     $bonus += 1;
                     break;
                 case 192 : 
@@ -164,6 +172,11 @@ class Effets
                     break;
 
                 // zone rouge
+                case 220 : 
+                    if (($infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
+                        $bonus += 1;
+                    }
+                    break;
                 case 29 : 
                     if (($infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
                         $bonus += 2;
@@ -172,32 +185,31 @@ class Effets
 
                 // nombre carte
                 case 127 :
-                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'])) {
-                        $bonus += 2;
-                    } 
-                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'])) {
-                        $bonus += 2;
-                    } 
-                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'])) {
-                        $bonus += 2;
-                    } 
+                    $bonus += 2 * $infos['nombreTeamworkDefenseur'];
                     break;
-
-                // zone chargée
-                case 173 : 
-                    if (
-                        (($infos['chamberChargeAttaquant']) && ($Cartejeu->getEmplacement()=='STRIKE_VERT'))
-                        || (($infos['deckChargeAttaquant']) && ($Cartejeu->getEmplacement()=='STRIKE_JAUNE'))
-                        || (($infos['discardChargeAttaquant']) && ($Cartejeu->getEmplacement()=='STRIKE_ROUGE'))
-                    ) {
+                case 369 :
+                    if ($infos['nombreTeamworkDefenseur']>$infos['nombreTeamworkAttaquant']) {
                         $bonus += 2;
                     }
                     break;
+
+                // zone chargée
                 case 193 : 
+                case 196 : 
+                case 279 : 
                     if (
-                        (($infos['chamberChargeAttaquant']) && ($infos['ZoneDefenseur']=='STRIKE_VERT'))
-                        || (($infos['deckChargeAttaquant']) && ($infos['ZoneDefenseur']=='STRIKE_JAUNE'))
-                        || (($infos['discardChargeAttaquant']) && ($infos['ZoneDefenseur']=='STRIKE_ROUGE'))
+                        (($infos['chamberChargeDefenseur']) && ($infos['ZoneDefenseur']=='STRIKE_VERT'))
+                        || (($infos['deckChargeDefenseur']) && ($infos['ZoneDefenseur']=='STRIKE_JAUNE'))
+                        || (($infos['discardChargeDefenseur']) && ($infos['ZoneDefenseur']=='STRIKE_ROUGE'))
+                    ) {
+                        $bonus += 1;
+                    }
+                    break;
+                case 173 : 
+                    if (
+                        (($infos['chamberChargeDefenseur']) && ($Cartejeu->getEmplacement()=='STRIKE_VERT'))
+                        || (($infos['deckChargeDefenseur']) && ($Cartejeu->getEmplacement()=='STRIKE_JAUNE'))
+                        || (($infos['discardChargeDefenseur']) && ($Cartejeu->getEmplacement()=='STRIKE_ROUGE'))
                     ) {
                         $bonus += 2;
                     }

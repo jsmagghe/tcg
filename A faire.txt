@@ -1,6 +1,8 @@
 A faire
 pictos pour choix
 position des avantages en ligne et pas en colonne
+intercept et force au survol
+refresh auto
 
 Effets
 Effet 1;You may play Amidamaru's only if you are Yoh. If you counterattack from Amidamaru's zone, charge it.;;
@@ -175,8 +177,6 @@ Effet 189;Red, Green ==> +2 Intercept and +2 Force. Use only once.;;
 Effet 190;When you counterattack, your opponent eliminates one of his or her energy.;;
 Effet 191;Reflip: Green.;;
 Effet 194;Your opponent cannot focus or pitch.;;
-Effet 196;Your strikes have +1 Intercept and +1 Force while in one of your charged zones.;;
-Effet 197;Your strikes have +1 Force while in one of your charged zones.;;
 Effet 198;While your opponent is defending, your zones cannot be uncharged and your allies cannot be moved or eliminated.;;
 Effet 199;Immediate. Your opponent moves one of his or her allies to one of your empty ally spaces.;;
 Effet 200;Immediate. Look at the top two cards of your deck. Put them back in any order.;;
@@ -199,11 +199,8 @@ Effet 216;Reflip: Green. Immediate. You may uncharge any zone.;;
 Effet 217;When your opponent counterattacks from his or her green zone, you add two green energy.;;
 Effet 218;Immediate. You may eliminate an energy in this zone. If you do, eliminate one of your opponent's energy of the same color.;;
 Effet 219;Immediate. Your opponent uncharges one of his or her zones.;;
-Effet 220;Your strikes have -1 Intercept and +1 Force.;;
-Effet 221;Your strikes have +1 Intercept in your red zone.;;
 Effet 222;Immediate. Look at the top card of your deck. You may put it into your discard pile.;;
 Effet 223;Immediate. Your opponent eliminates one of his or her allies.;;
-Effet 224;In Aang's zone, your strikes have +1 Intercept.;;
 Effet 225;Whenever you flip a card in Appa's zone, you may swap Appa with an ally in one of your other zones.;;
 Effet 226;Yellow ==> When you counterattack from Katara's zone, charge this zone. Use only once per turn.;;
 Effet 227;In King Bumi's zone, your strikes have "Whenever your opponent focuses, this strike gets +1 Force while it's in King Bumi's zone.";;
@@ -216,7 +213,6 @@ Effet 233;When you counterattack from Pirate Captain's zone, look at the top car
 Effet 234;Eliminate an energy in prince zuko's zone ==> when you counterattack from prince zuko's zone, eliminate an energy of the same color. Use only once per turn.;;
 Effet 235;Whenever you would flip a card in Uncle Iroh's zone, you may first look at the top two cards of your deck. If you do, put them back in any order.;;
 Effet 236;When you counterattack from afiko's zone, you may eliminate one of your allies. If you do, your opponent charges one of your zones.;;
-Effet 237;Your strikes in Commander Zhao's zone have +1 Force.;;
 Effet 238;When you counterattack from fire nation elite's zone, your opponent turns the top card of his or her deck face up. you may have your opponent put that card into his or her discard pile.;;
 Effet 239;When you counterattack from kinto's zone, you may eliminate one of your allies. If you do, your opponent uncharges one of his or her zones.;;
 Effet 240;Red ==> when you counterattack from prison warden's zone, your opponent eliminates one of his or her allies. Use only once per turn.;;
@@ -247,9 +243,7 @@ Effet 264;When you counterattack, your opponent eliminates one or his or her all
 Effet 265;When you counterattack from a charged zone, you may charge any zone.;;
 Effet 266;Red ==> when you counterattack, charge any zone. Use only once.;;
 Effet 267;Uncharge this zone ==> when you counterattack, charge any zone.;;
-Effet 268;Exclusive - Aang;;
 Effet 269;Exclusive - Katara. Uncharge Sokka's zone ==> If you have a strike in sokka's zone, choose one: That strike gets +1 Intercept; or that strikes gets +1 Force. Use only once per turn.;;
-Effet 270;Exclusive - King Bumi. In Flopsie's zone, your strikes have -1 Intercept and +2 Force.;;
 Effet 271;Exclusive - jojo. When you counterattack from a zone, add an energy to that zone and eliminate one of your opponent's energy of the same color.;;
 Effet 272;Exclusive - malu. Your opponent skips defending in his or her green and yellow zones.;;
 Effet 273;Exclusive - Prince Zuko. When you counterattack ==> you may eliminate an energy.;;
@@ -258,7 +252,6 @@ Effet 275;Exclusive - Afiko. Turn your Chamber Card from the back to the front =
 Effet 276;Exclusive - Commander Zhao. When you counterattack, you may eliminate an ally.;;
 Effet 277;Exclusive - Kinto. Your opponent's strikes cost an additional red energy to play.;;
 Effet 278;Immediate. You may rearrange your allies.(you can only have one ally in each of your zones.);;
-Effet 279;While this zone is charged, sokka's mettle has +1 intercept and +1 Force.;;
 Effet 280;move up to three of your green furyoku to your yellow zone.;;
 Effet 281;Move all of your yellow furyoku to your red zone. Move all of your green furyoku to your yellow zone.;;
 Effet 282;-2 Intercept ==> Your opponent may not focus or pitch.;;
@@ -348,8 +341,6 @@ Effet 365;Two green ==> when you counterattack, eliminate up to two green energy
 Effet 366;while you have more allies than your opponent, brutes from the deep has +3 Force.;;
 Effet 367;when you celebrate, you may eliminate an ally;;
 Effet 368;when you celebrate, you may uncharge any zone;;
-Effet 369;While you have more allies than your opponent, hunted down has +2 intercept.;;
-Effet 370;While you have more allies than your opponent, knockout has +2 Force.;;
 Effet 371;Eliminate one of your allies ==> +1 Intercept and +1 Force. use only once.;;
 Effet 372;-2 Intercept ==> When you counterattack, your opponent uncharges one of his or her zones. use only once.;;
 Effet 373;Reflip: Green. Whenever your opponent focuses in a zone, eliminate an ally in that zone.;;

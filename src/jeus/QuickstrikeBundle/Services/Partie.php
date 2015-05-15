@@ -392,6 +392,27 @@ class Partie
         $chamberChargeDefenseur = $this->Partie->isZoneChargee($this->numeroDefenseur,'VERT');
         $deckChargeDefenseur = $this->Partie->isZoneChargee($this->numeroDefenseur,'JAUNE');
         $discardChargeDefenseur = $this->Partie->isZoneChargee($this->numeroDefenseur,'ROUGE');
+        $nombreTeamworkAttaquant = 0;
+        if (isset($this->CarteEnJeus[$this->numeroAttaquant]['TEAMWORK_VERTE'])) {
+            $nombreTeamworkAttaquant += 1;
+        } 
+        if (isset($this->CarteEnJeus[$this->numeroAttaquant]['TEAMWORK_JAUNE'])) {
+            $nombreTeamworkAttaquant += 1;
+        } 
+        if (isset($this->CarteEnJeus[$this->numeroAttaquant]['TEAMWORK_ROUGE'])) {
+            $nombreTeamworkAttaquant += 1;
+        } 
+        $nombreTeamworkDefenseur = 0;
+        if (isset($this->CarteEnJeus[$this->numeroDefenseur]['TEAMWORK_VERTE'])) {
+            $nombreTeamworkDefenseur += 1;
+        } 
+        if (isset($this->CarteEnJeus[$this->numeroDefenseur]['TEAMWORK_JAUNE'])) {
+            $nombreTeamworkDefenseur += 1;
+        } 
+        if (isset($this->CarteEnJeus[$this->numeroDefenseur]['TEAMWORK_ROUGE'])) {
+            $nombreTeamworkDefenseur += 1;
+        } 
+
 
         return array(
             'ZoneAttaquant' => $ZoneAttaquant,
@@ -402,6 +423,8 @@ class Partie
             'chamberChargeDefenseur' => $chamberChargeDefenseur,
             'deckChargeDefenseur' => $deckChargeDefenseur,
             'discardChargeDefenseur' => $discardChargeDefenseur,
+            'nombreTeamworkAttaquant' => $nombreTeamworkAttaquant,
+            'nombreTeamworkDefenseur' => $nombreTeamworkDefenseur,
             );
     }
 

@@ -33,18 +33,25 @@ class Effets
             }
             $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
             switch ($numeroEffet) {
+                case 428 : 
+            		$bonus -= 2;
+                    break;
                 case 7 : 
                 case 34 : 
                 case 106 : 
                 case 220 : 
-            	case 237 : 
-            		$bonus += 1;
+                case 237 : 
+                case 448 : 
+                case 466 : 
+                case 470 : 
+                    $bonus += 1;
                     break;
                 case 6 : 
                 case 23 : 
                 case 63 : 
                 case 65 : 
                 case 270 : 
+                case 445 : 
                     $bonus += 2;
             		break;
                 case 17 : 
@@ -97,18 +104,37 @@ class Effets
                     $bonus += $infos['nombreTeamworkDefenseur'];
                     break;
                 case 174 :
+                case 542 :
                     $bonus += $infos['nombreTeamworkAttaquant'];
                     break;
-            	case 110 :
+                case 422 :
+                    if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')])) {
+                        $bonus += 1;
+                    } 
+                    break;
+                case 110 :
+            	case 498 :
                     if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')])) {
                         $bonus += 2;
                     } 
             		break;
                 case 370 :
+                case 539 :
                     if ($infos['nombreTeamworkDefenseur']<$infos['nombreTeamworkAttaquant']) {
                         $bonus += 2;
                     }
                     break;
+                case 538 :
+                    if ($infos['nombreTeamworkDefenseur']<$infos['nombreTeamworkAttaquant']) {
+                        $bonus += 3;
+                    }
+                    break;
+                case 534 :
+                case 536 :
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['ENERGIE_ROUGE'])) {
+                        $bonus = count($this->CarteEnJeus[$numeroAttaquant]['ENERGIE_ROUGE']);
+                    }
+                    break;                    
 
                 // zone chargée
                 case 130 : 
@@ -134,6 +160,19 @@ class Effets
 
             }
         }
+        $CarteEnJeus = (isset($this->CarteEnJeus[$numeroDefenseur]['ACTIVE'])) ? $this->CarteEnJeus[$numeroDefenseur]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 502 : 
+                    $bonus -= 2;
+                    break;
+            }
+        }
 
         return $bonus;
     }
@@ -153,10 +192,13 @@ class Effets
             		break;
                 case 6 : 
                 case 23 : 
+                case 445 : 
                     $bonus -= 2;
                     break;
                 case 220 : 
                 case 270 : 
+                case 466 : 
+                case 472 : 
                     $bonus -= 1;
                     break;
                 case 4 : 
@@ -168,6 +210,7 @@ class Effets
                     $bonus += 1;
                     break;
                 case 192 : 
+                case 428 : 
                     $bonus += 2;
                     break;
 
@@ -184,6 +227,9 @@ class Effets
                     break;
 
                 // nombre carte
+                case 541 :
+                    $bonus += $infos['nombreTeamworkDefenseur'];
+                    break;
                 case 127 :
                     $bonus += 2 * $infos['nombreTeamworkDefenseur'];
                     break;
@@ -191,6 +237,11 @@ class Effets
                     if ($infos['nombreTeamworkDefenseur']>$infos['nombreTeamworkAttaquant']) {
                         $bonus += 2;
                     }
+                    break;
+                case 420 :
+                    if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'TEAMWORK')])) {
+                        $bonus += 1;
+                    } 
                     break;
 
                 // zone chargée

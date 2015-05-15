@@ -390,15 +390,12 @@ Effet 416;Reflip: Yellow.;;
 Effet 417;When you counterattack from a zone with an ally, add a green energy.;;
 Effet 418;Quite a Fall has "Reflip: Green" while in one of your zones with an ally.;;
 Effet 419;Yellow ==> +2 Force. Use only once.;;
-Effet 420;Your strikes have +1 Intercept while in one of your zones with an ally.;;
 Effet 421;Whenever your opponent focuses, your strike gets +1 Force.;;
-Effet 422;Your strikes have +1 Force while in one of your zones with an ally.;;
 Effet 423;While your opponent is defending, your allies and energy cannot be moved or eliminated.;;
 Effet 424;Your opponent cannot celebrate.;;
 Effet 425;Reflip: Green. While you are defending against a strike that has 7 Force or moren your strikes have +3 Intercept.;;
 Effet 426;Your opponent cannot play strikes or allies in his or her green zone.;;
 Effet 427;Your opponent cannot play signature moves. While your opponent is defending, his or her zones cannot be charged.;;
-Effet 428;Your strikes have +2 Intercept and -2 Force.;;
 Effet 429;Immediate. Look at the top three cards of your deck. Put two on the top of your deck in any order and the other one into your discard pile.;;
 Effet 430;Your strikes have "Reflip: Eliminate one of your advantages.";;
 Effet 431;Your allies have "Deploy: Free." (as you play an ally, you may move it to any of your empty ally spaces.);;
@@ -415,10 +412,9 @@ Effet 441;When your opponent counterattacks, he or she charges one of your zones
 Effet 442;When you celebrate, add a red energy.;;
 Effet 443;When you counterattack, move up to three of your green energy to your yellow zone.;;
 Effet 444;Immediate. You may eliminate an ally in any zone. If you do, add an energy to that zone.;;
-Effet 445;Reflip: Green. Your strikes have -2 Intercept and +2 Force.;;
+Effet 445;Reflip: Green. 
 Effet 446;When your opponent counterattacks from his or her green zone, that player uncharges one of his or her zones.;;
 Effet 447;When you counterattack, you may eliminate one of your allies. If you do, your opponent eliminates one of his or her allies.;;
-Effet 448;Your strikes have +1 Force;;
 Effet 449;Immediate. You may have your opponent uncharge one of his or her zones.;;
 Effet 450;Immediate. A player of your choice reveals the top card of his or her deck.;;
 Effet 451;Your strikes have "Reflip: Green.";;
@@ -436,13 +432,12 @@ Effet 462;when you counterattack from elizabeth swann's zone, you may eliminate 
 Effet 463;Green ==> Whenever you play an ally in joshamee gibbs's zone, you may move joshamee gibbs to one of your empty ally spaces.;;
 Effet 464;Deploy: Yellow. When you counterattack from marty's zone, add a green energy.;;
 Effet 465;Deploy: Yellow. Whenever you flip a card in tia dalma's zone, each player turns the top card of his or her deck face up.;;
-Effet 466;In will turner's zone, your strikes have -1 intercept and +1 Force;;
 Effet 467;Deploy: Yellow. In bootstrap bill's zone, your cards have "Reflip: Eliminate bootstrap bill.";;
 Effet 468;Yellow ==> when you counterattack from captain barbossa's zone, your opponent charges one of your zones. use only once per turn.;;
 Effet 469;When you counterattack from davy jones's zone, you may uncharge his zone. If you do, charge one of your zones;;
-Effet 470;Deploy: Red. In greenbeard's zone, your strikes have +1 Force.;;
+Effet 470;Deploy: Red. 
 Effet 471;Green ==> When you counterattack from jimmy legs's zone, you may eliminate him. If you do, eliminate one of your opponent's allies.;;
-Effet 472;Deploy: Free. In pintel and ragetti's zone, your strikes have -1 Intercept.;;
+Effet 472;Deploy: Free. 
 Effet 473;In sepahook's zone, your strikes have "when you celebrate, add a red energy.";;
 Effet 474;When you counterattack from catherine blades's zone, you may move her to an empty ally space in any zone.;;
 Effet 475;Yellow ==> In cotton's parrot's zone, your strikes have +1 Force. Use only once per turn.;;
@@ -468,11 +463,9 @@ Effet 494;When you flip ready the long nines, you may move it to your red zone. 
 Effet 495;When you flip through the smoke, you may move it to your red zone. When you counterattack from your red zone, your opponent uncharges one of his or her zones.;;
 Effet 496;exclusive - lord beckett. Your advantages and allies have "Reflip: Free".;;
 Effet 497;exclusive - elizabeth swann. When you counterattack, you may eliminate an energy.;;
-Effet 498;exclusive - will turner. Your strikes have +2 Force while in one of your zones with an ally;;
 Effet 499;exclusive - davy jones. Immediate - choose one : charge your red zone, or add a red energy;;
 Effet 500;exclusive - pintel and ragetti. If your opponent would celebrate, each player instead adds an energy to each of his or her zones with an ally;;
 Effet 501;exclusive - commodore norrington. Immediate. you may eliminate an ally. If you do, charge the zone that ally was in( you also charge this zone as normal);;
-Effet 502;exclusive - rachel darling. Your opponent's strikes have -2 Force.;;
 Effet 503;exclusive - greenbeard. Your opponent cannot play signature moves. Your opponent cannot play cards in hie or her green zone.;;
 Effet 504;exclusive - captain barbossa. Immediate. reveal the top four cards of your deck. You may put a strike card from among them on the top of your deck and the rest into your discard pile;;
 Effet 505;exclusive - jack sparrow. You may use yellow energy to pay red sidebar costs.;;
@@ -504,15 +497,9 @@ Effet 530;When you counterattack, you may move up to three of your energy to you
 Effet 531;When you counterattack, you may rearrange the allies in your ally spaces and then rearrange the allies in your opponent's ally spaces.;;
 Effet 532;When your opponent counterattacks, reveal the top four cards of your deck. Put one on the top of your deck and the rest into your discard pile.;;
 Effet 533;When you counterattack, eliminate all of your allies for each ally you eliminated, you may move one of your opponent's allies to one of your empty ally spaces.;;
-Effet 534;For each red energy you have, heavy ordnance has +1 Force;;
 Effet 535;While your opponent is defending, he or she cannot deploy or reflip, and his or her zones cannot be charged;;
-Effet 536;For each red energy you have, Rum and Gold has +1 Force;;
 Effet 537;Your opponent's strikes cost an additional red energy to play.;;
-Effet 538;While you have more allies than your opponent, Over the rails! has +3 Force;;
-Effet 539;While you have more allies than your opponent, swashbuckler has +2 Force;;
 Effet 540;Deadly accuracy has +X Intercept and when you counterattack, it gets +X Force, where X is the Force of your opponent's strike.;;
-Effet 541;For each ally you have, ju's like ol' bootstrap has +1 Intercept;;
-Effet 542;For each ally you have, hold your ground has +1 Force.;;
 Effet 543;Two Green ==> +1 Force;;
 Effet 544;In jack sparrow's zone, you may use green energy to pay yellow sidebar costs on your advantage and allies.;;
 Effet 545;When you counterattack with Lethal Riddle, eliminate an opponent energy or an opponent teamwork;;

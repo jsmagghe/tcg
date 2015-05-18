@@ -100,24 +100,71 @@ class Effets
                         }
                     }
                     break;
+                case 612 :
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['AVANTAGE'])) {
+                        foreach ($this->CarteEnJeus[$numeroAttaquant]['AVANTAGE'] as $CarteJeu) {
+                            if (
+                                ($CarteJeu->getCarte()!=null)
+                                && ($CarteJeu->getCarte()->getTypeCarte()!=null)
+                                && ($CarteJeu->getCarte()->getTypeCarte()->getTag()=='ADVANTAGE')
+                                ) {
+                                $bonus += 1;
+                            }
+                        }
+                    }
+                    break;
+                case 548 :
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['AVANTAGE'])) {
+                        foreach ($this->CarteEnJeus[$numeroDefenseur]['AVANTAGE'] as $CarteJeu) {
+                            if (
+                                ($CarteJeu->getCarte()!=null)
+                                && ($CarteJeu->getCarte()->getTypeCarte()!=null)
+                                && ($CarteJeu->getCarte()->getTypeCarte()->getTag()=='ADVANTAGE')
+                                ) {
+                                $bonus += 1;
+                            }
+                        }
+                    }
+                    break;
                 case 67 :
+                case 576 :
                     $bonus += $infos['nombreTeamworkDefenseur'];
                     break;
                 case 174 :
                 case 542 :
+                case 595 :
                     $bonus += $infos['nombreTeamworkAttaquant'];
                     break;
+                case 569 :
+                    $bonus += 2 * $infos['nombreTeamworkDefenseur'] + 2 * $infos['nombreTeamworkAttaquant'];
+                    break;
                 case 422 :
+                case 633 :
                     if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')])) {
                         $bonus += 1;
                     } 
                     break;
                 case 110 :
-            	case 498 :
+                case 498 :
                     if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')])) {
                         $bonus += 2;
                     } 
-            		break;
+                    break;
+                case 629 :
+                    if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')])) {
+                        $bonus += 3;
+                    } 
+                    break;
+                case 636 :
+                    if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($infos['ZoneAttaquant'],'TEAMWORK')])) {
+                        $bonus += 4;
+                    } 
+                    break;
+                case 602 :
+                    if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'TEAMWORK')]) == false) {
+                        $bonus += 1;
+                    } 
+                    break;
                 case 370 :
                 case 539 :
                     if ($infos['nombreTeamworkDefenseur']<$infos['nombreTeamworkAttaquant']) {
@@ -135,6 +182,16 @@ class Effets
                         $bonus = count($this->CarteEnJeus[$numeroAttaquant]['ENERGIE_ROUGE']);
                     }
                     break;                    
+                case 622 : 
+                    $bonus += (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERT'])) == false) ? 1 : 0;
+                    $bonus += (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE'])) == false) ? 1 : 0;
+                    $bonus += (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_ROUGE'])) == false) ? 1 : 0;
+                    break;
+                case 652 : 
+                    $bonus += (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERT'])) == false) ? 1 : 0;
+                    $bonus += (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'])) == false) ? 1 : 0;
+                    $bonus += (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'])) == false) ? 1 : 0;
+                    break;
 
                 // zone chargée
                 case 130 : 
@@ -156,6 +213,11 @@ class Effets
                     ) {
                         $bonus += 1;
                     }
+                    break;
+                case 584 : 
+                    $bonus += $infos['chamberChargeDefenseur']) ? 1 : 0;
+                    $bonus += $infos['deckChargeDefenseur']) ? 1 : 0;
+                    $bonus += $infos['discardChargeDefenseur']) ? 1 : 0;
                     break;
 
             }
@@ -228,6 +290,7 @@ class Effets
 
                 // nombre carte
                 case 541 :
+                case 563 :
                     $bonus += $infos['nombreTeamworkDefenseur'];
                     break;
                 case 127 :
@@ -239,8 +302,14 @@ class Effets
                     }
                     break;
                 case 420 :
+                case 636 :
                     if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'TEAMWORK')])) {
                         $bonus += 1;
+                    } 
+                    break;
+                case 633 :
+                    if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'TEAMWORK')]) == false) {
+                        $bonus += 4;
                     } 
                     break;
 

@@ -54,6 +54,7 @@ class Effets
                 case 6 : 
                 case 23 : 
                 case 63 : 
+                case 64 : 
                 case 65 : 
                 case 270 : 
                 case 445 : 

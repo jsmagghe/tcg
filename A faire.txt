@@ -58,7 +58,7 @@ Effet 58;You may play Captivate only if you are Lyserg. Move an opponent's teamw
 Effet 60;pitch ==> your opponent loses a yellow furyoku.;;
 Effet 61;Pitch ==> Move a yellow furyoku to your red zone.;;
 Effet 62;If you counterattack with Necrawakening, charge this zone.;;
-Effet 64;You may not play strikes in your yellow or green zone. Your strikes have +2 Force.;;
+Effet 64;You may not play strikes in your yellow or green zone. ;;
 Effet 65;You may not focus this turn. 
 Effet 66;-1 Intercept ==> +1 Force.;;
 Effet 68;You may play Viaticum only if you are Jeanne.;;

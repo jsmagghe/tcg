@@ -295,7 +295,9 @@ class Partie
             $CarteActive = $this->CarteEnJeus[$joueurConcerne][$zoneEnCours];
         if ($action=='avantager') {
             $zoneCorrespondante = 'AVANTAGE';
-            $this->Partie->chargerZone($joueurConcerne,$zoneEnCours);
+            if ($this->effets->chargementPossible($CarteActive,$joueurConcerne)) {
+                $this->Partie->chargerZone($joueurConcerne,$zoneEnCours);                
+            }
         }
         if ($action=='recruter') {
             $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'TEAMWORK');
@@ -304,7 +306,11 @@ class Partie
             $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_JAUNE');
             $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_ROUGE');
         }
-        $this->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
+        if ($this->effets->avantageImmediat($CarteActive)) {
+            $this->deplacerCarte($joueurConcerne,1,$zoneEnCours,'DISCARD');
+        } else {
+            $this->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);            
+        }
         $this->deplacerCarte($joueurConcerne,1,'DECK',$zoneEnCours);
     }
 

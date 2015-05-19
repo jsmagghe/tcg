@@ -369,7 +369,94 @@ class Effets
         return $bonus;
     }
 
+    public function chargementPossible($CarteActive,$joueurConcerne) {
+        $chargementPossible = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        $Carte = $CarteActive->getCarte();
+        if ($Carte == null) {
+            continue;
+        }
+        $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+        switch ($numeroEffet) {
+            case 38 : 
+            case 42 : 
+            case 72 : 
+            case 115 : 
+            case 546 : 
+            case 705 : 
+            case 707 : 
+            case 711 : 
+            case 712 : 
+            case 713 : 
+            case 715 : 
+            case 716 : 
+            case 718 : 
+            case 721 : 
+            case 722 : 
+            case 727 : 
+            case 728 : 
+            case 731 : 
+            case 735 : 
+            case 737 : 
+            case 738 : 
+                $chargementPossible = false;
+                break;
+        }
+
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 684 : 
+                    $chargementPossible = true;
+                    break;
+            }
+        }
 
 
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 22 : 
+                case 27 : 
+                case 284 : 
+                case 353 : 
+                case 427 : 
+                case 535 : 
+                case 617 : 
+                case 736 : 
+                    $chargementPossible = false;
+                    break;
+            }
+        }
+
+
+
+        return $chargementPossible;
+    }
+
+    public function avantageImmediat($CarteActive) {
+        $avantageImmediat = false;
+        $Carte = $CarteActive->getCarte();
+        if ($Carte == null) {
+            continue;
+        }
+        $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+        $avantageImmediat = in_array($numeroEffet,array(5,8,31,38,42,47,51,52,70,72,79,81,101,104,105,115,121,131,
+            199,200,201,202,204,208,209,210,212,213,214,215,216,218,219,222,223,278,429,432,433,434,435,436,438,
+            440,444,449,450,452,499,501,504,546,549,712,717,718,721,725,726,730,732,733,735,737,739,740,744,746,747));
+
+        return $avantageImmediat;
+    }
 
 }

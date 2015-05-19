@@ -25,7 +25,7 @@ Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts 
 Effet 22;Your opponent may not play his signature move or .;;
 Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
 Effet 26;Two yellow ==> If you counterattack from Zeke's zone, eliminate a teamwork.;;
-Effet 27;You may play Hijinks only if you are Lola. Your opponent may not focus, , pitch, or play his signature move.;;
+Effet 27;You may play Hijinks only if you are Lola. Your opponent may not , , pitch, or play his signature move.;;
 Effet 28;Your strikes start in your opponent's yellow zone.;;
 Effet 30;Green ==> +1 Intercept. Use only Once.;;
 Effet 31; Look at the top three cards of your deck and place them back on top in any order.;;
@@ -59,7 +59,6 @@ Effet 60;pitch ==> your opponent loses a yellow furyoku.;;
 Effet 61;Pitch ==> Move a yellow furyoku to your red zone.;;
 Effet 62;If you counterattack with Necrawakening, charge this zone.;;
 Effet 64;You may not play strikes in your yellow or green zone. ;;
-Effet 65;You may not focus this turn. 
 Effet 66;-1 Intercept ==> +1 Force.;;
 Effet 68;You may play Viaticum only if you are Jeanne.;;
 Effet 69;You may play or pitch Ultra Cavalry Charge only if you are Len. Pitch ==> Look at the top three cards of your deck and place them back on top in any order.;;

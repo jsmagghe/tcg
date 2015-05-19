@@ -445,7 +445,8 @@ class Effets
         return $chargementPossible;
     }
 
-    public function avantageImmediat($CarteActive) {
+    public function avantageImmediat($CarteActive) 
+    {
         $avantageImmediat = false;
         $Carte = $CarteActive->getCarte();
         if ($Carte == null) {
@@ -457,6 +458,43 @@ class Effets
             440,444,449,450,452,499,501,504,546,549,712,717,718,721,725,726,730,732,733,735,737,739,740,744,746,747));
 
         return $avantageImmediat;
+    }
+
+    public function focusPossible() {
+        $focusPossible = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 65 : 
+                    $focusPossible = true;
+                    break;
+            }
+        }
+
+
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 27 : 
+                    $focusPossible = false;
+                    break;
+            }
+        }
+
+        return $focusPossible;
+
     }
 
 }

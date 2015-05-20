@@ -688,6 +688,7 @@ class Partie
                         }
                         if (($Carte->getTypeCarte()->getTag()=='ADVANTAGE') 
                             && ($CarteActive->getEmplacement()==$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur))
+                            && ($this->effets->avantagePossible($this->numeroDefenseur))
                             )
                         {
                             $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'avantager')).'">Jouer</a>';
@@ -695,11 +696,13 @@ class Partie
                     }
                 }
 
-                $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'pitcher')).'">Pitch</a>';
+                if ($this->effets->pitchPossible($JoueurBas)){
+                    $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'pitcher')).'">Pitch</a>';
+                }
                 if ($this->effets->focusPossible($JoueurBas)){
                     $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'focuser')).'">Focus</a>';                    
                 }
-                if (count($action) == 0)
+                if (count($action) == 1)
                     $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'discarder')).'">Discard</a>';
                 break;
         }                

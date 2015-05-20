@@ -25,7 +25,7 @@ Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts 
 Effet 22;Your opponent may not play his signature move or .;;
 Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
 Effet 26;Two yellow ==> If you counterattack from Zeke's zone, eliminate a teamwork.;;
-Effet 27;You may play Hijinks only if you are Lola. Your opponent may not , , pitch, or play his signature move.;;
+Effet 27;You may play Hijinks only if you are Lola. Your opponent may not , , , or play his signature move.;;
 Effet 28;Your strikes start in your opponent's yellow zone.;;
 Effet 30;Green ==> +1 Intercept. Use only Once.;;
 Effet 31; Look at the top three cards of your deck and place them back on top in any order.;;
@@ -63,7 +63,6 @@ Effet 66;-1 Intercept ==> +1 Force.;;
 Effet 68;You may play Viaticum only if you are Jeanne.;;
 Effet 69;You may play or pitch Ultra Cavalry Charge only if you are Len. Pitch ==> Look at the top three cards of your deck and place them back on top in any order.;;
 Effet 70; Eliminate one of your opponent's furyoku.;;
-Effet 71;You may not focus Smoldering Confidence.;;
 Effet 72; Add two red furyoku. 
 Effet 73;Blinding Foray starts in your opponent's yellow zone.;;
 Effet 74;If you counterattack with Unerring Garrote, you may eliminate a teamwork.;;
@@ -83,7 +82,7 @@ Effet 87;If you counterattack with Bone Army, charge this zone.;;
 Effet 88;If you play a strike in Silva's zone, eliminate Silva. Before flipping a card, draw two cards. Place one in your discard pile and the other on top of your deck.;;
 Effet 89;Pitch any card in Jun's zone ==> Add two furyoku to this zone. You may only do this if you have one or fewer furyoku in Jun's zone.;;
 Effet 90;Green ==> Your strike in Venster's zone has -2 Intercept and +2 Force.;;
-Effet 91;You may not focus in Yohmei's zone. Before flipping in his zone, look at the top two cards of your deck and put them back on top in any order.;;
+Effet 91;. Before flipping in his zone, look at the top two cards of your deck and put them back on top in any order.;;
 Effet 92;Your opponent's strikes cost a green furyoku more to play in a zone without a teamwork.;;
 Effet 93;If you counterattack from Anna's zone with a strike that has red or yellow in its cost, add a green furyoku.;;
 Effet 94;Flip your Shaman from the back to the front ==> +3 Intercept and +3 Force.;;
@@ -110,7 +109,6 @@ Effet 119;If your opponent counterattacks from his green zone, gain a red furyok
 Effet 120;Uncharge this zone ==> +4 Intercept and +2 Force.;;
 Effet 121; Instead of defending in this zone, you are now defending in your green zone.;;
 Effet 122;Crackback starts in your opponent's yellow zone.;;
-Effet 123;Your opponent may not focus or pitch.;;
 Effet 124;If your counterattack from the red zone, add two red furyoku.;;
 Effet 125;-1 Intercept ==> If you counterattack with Stalefish Grab, add a green furyoku.;;
 Effet 126;If you counterattack with Point Blank, look at the top card of your deck. You may put it in your discard pile.;;
@@ -175,7 +173,6 @@ Effet 188;When you counterattack, you may move one of your opponent's allies to 
 Effet 189;Red, Green ==> +2 Intercept and +2 Force. Use only once.;;
 Effet 190;When you counterattack, your opponent eliminates one of his or her energy.;;
 Effet 191;Reflip: Green.;;
-Effet 194;Your opponent cannot focus or pitch.;;
 Effet 198;While your opponent is defending, your zones cannot be uncharged and your allies cannot be moved or eliminated.;;
 Effet 199; Your opponent moves one of his or her allies to one of your empty ally spaces.;;
 Effet 200; Look at the top two cards of your deck. Put them back in any order.;;
@@ -324,7 +321,6 @@ Effet 349;When you counterattack, you may eliminate up to two energy.;;
 Effet 350;When you counterattack, you may uncharge any zone.;;
 Effet 351;When you counterattack, uncharge all of your opponent's zones.;;
 Effet 352;When you counterattack, look at the top three cards of your deck. Put them back in any order.;;
-Effet 353;Your opponent cannot focus or pitch, 
 Effet 354;When you counterattack, look at the top two cards of your deck. Put them back in any order.;;
 Effet 355;Whenever your opponent flips a card, you may pay a green energy. If your do, your opponent discards that card and flips a new on in the same zone.;;
 Effet 356;-2 Intercept ==> When you counterattack, charge or uncharge any zone.;;
@@ -591,7 +587,6 @@ Effet 643;When you counterattack with Ready to ride, add an energy to the curren
 Effet 644;Batgirl Only. If you control a Robin Teamwork, this strike has +4 Force. If you control a Batman teamwork, this strike has +4 Intercept.;;
 Effet 645;When you celebrate, shuffle all the teamworks in your discard into your deck.;;
 Effet 646;When you counterattack with Police protection, your zones cannot be uncharged and your teamwork cannot be eliminated;;
-Effet 647;Inspector Beneth only. When you counterattack with Gotham law, your opponent cannot focus, pitch or play advantages;;
 Effet 648;When you counterattack with Restless protector, charge any zone;;
 Effet 649;When you counterattack with Cupid dilemma you may eliminate the teamwork in this zone to uncharge one of your opponent's zone;;
 Effet 650;When you counterattack with crawling spike, your opponent eliminates one of his yellow energy;;
@@ -650,7 +645,6 @@ Effet 708;When your opponent focuses, your strike gets +1 Force.;;
 Effet 710;If you opponent counterattacks from his green zone, add a yellow energy.;;
 Effet 711;If you opponent counterattacks from his green zone, add a red energy. 
 Effet 712; Search your discard pile for a teamwork and put it on the top of your deck. 
-Effet 714;Your opponent cannot pitch;;
 Effet 717; Eliminate an opponent's green energy.;;
 Effet 718; Put an advantage from your discard on the top of your deck. 
 Effet 719;When you counterattack, you may eliminate a teamwork.;;

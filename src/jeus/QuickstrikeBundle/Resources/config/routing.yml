@@ -81,15 +81,17 @@ jeus_quickstrike_partie_entrainement:
     path:     /partie-entrainement
     defaults: { _controller: jeusQuickstrikeBundle:Partie:entrainement }
     
+jeus_quickstrike_partie_timestamp:
+    path:     /partie-refresh/{id}
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:partieTimestamp }
+    requirements:
+        id: \d+
+    options:
+        expose: true
+    
 jeus_quickstrike_partie:
     path:     /partie/{id}
     defaults: { _controller: jeusQuickstrikeBundle:Partie:partie }
-    requirements:
-        id: \d+
-    
-jeus_quickstrike_partie_timestamp:
-    path:     /partie/{id}
-    defaults: { _controller: jeusQuickstrikeBundle:Partie:partieTimestamp }
     requirements:
         id: \d+
     

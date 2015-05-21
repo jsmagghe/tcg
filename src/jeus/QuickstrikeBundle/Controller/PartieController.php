@@ -247,9 +247,14 @@ class PartieController extends Controller {
         if ($effet=='discarder') {
             $servicePartie->focuser($joueurConcerne,'discard');
         }
+        $Partie->setDateDerniereAction(new \Datetime());
         $this->em->flush();
 
         return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id' => $Partie->getId())));
+    }
+
+    public function partieTimestampAction(Partie $Partie) {
+        die($Partie->getDateDerniereAction()->getTimestamp());
     }
 
 }

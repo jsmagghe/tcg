@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var urlEnCours = document.location.href,
-        jeu = '';
+        jeu = '',
+        idPartie;
         
     if (urlEnCours.indexOf('/bleach/')>0) {
         jeu = 'bleach';
@@ -10,6 +11,30 @@ $(document).ready(function() {
     }
     if (urlEnCours.indexOf('/saintseiya/')>0) {
         jeu = 'saintseiya';
+    }
+
+    if (urlEnCours.indexOf('/partie/')>0) {
+        var tableau = document.location.href;
+        tableau = tableau.split('/');
+        idPartie = tableau[tableau.length - 1];
+
+        setInterval(rafraichissement(), 1000);
+    }
+    
+    function rafraichissement(){
+        $.ajax({
+            url: Routing.generate('jeus_' + jeu + '_partie_timestamp', {
+                id: idPartie
+            }),
+            type: 'POST',
+            success: function(retour) {
+                if (retour>$('#timestamp').val()) {
+                    window.location.reload();                    
+                }
+            },
+            error: function(d, e, f) {
+            }
+        });
     }
     
     /*

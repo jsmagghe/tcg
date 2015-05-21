@@ -87,6 +87,12 @@ jeus_quickstrike_partie:
     requirements:
         id: \d+
     
+jeus_quickstrike_partie_timestamp:
+    path:     /partie/{id}
+    defaults: { _controller: jeusQuickstrikeBundle:Partie:partieTimestamp }
+    requirements:
+        id: \d+
+    
 jeus_quickstrike_partie_inverser:
     path:     /partie/{id}/inverser
     defaults: { _controller: jeusQuickstrikeBundle:Partie:inverser }

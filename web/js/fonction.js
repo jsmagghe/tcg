@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var urlEnCours = document.location.href,
         jeu = '',
-        idPartie;
+        idPartie = '';
         
     if (urlEnCours.indexOf('/bleach/')>0) {
         jeu = 'bleach';

@@ -28,7 +28,7 @@ $(document).ready(function() {
             }),
             type: 'POST',
             success: function(retour) {
-                if (retour>$('#timestamp').val()) {
+                if (retour.timestamp>$('#timestamp').val()) {
                     window.location.reload();                    
                 }
             },

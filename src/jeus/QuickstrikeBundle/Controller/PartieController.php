@@ -254,7 +254,21 @@ class PartieController extends Controller {
     }
 
     public function partieTimestampAction(Partie $Partie) {
-        die($Partie->getDateDerniereAction()->getTimestamp());
+        $retour = array(
+            'timestamp' => $Partie->getDateDerniereAction()->getTimestamp(),
+            /*'html' =>
+            $this->renderView('AppBundle:BackOffice:formulaire-code-agence.html.twig', array(
+                'titre' => 'Paramètre Code Agence',
+                'nom' => 'code_agence',
+                'Agences' => $CodeAgences,
+                'fields' => ParametreCodeAgence::getFields(),
+                'formulaire' => false,
+                'mode' => 'editer',
+                'paginationAgence' => $pagination,
+            ))*/
+        );
+
+        return new JsonResponse($retour);
     }
 
 }

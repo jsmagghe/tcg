@@ -38,7 +38,7 @@
                                         {% set zoneChargee = ' chargee' %}
                                     {% endif %}
                                 {% endfor%}
-                                <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card{{zoneChargee}}"/>
+                                <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card{{zoneChargee}}" {% if carte.hint is defined %}title="{{carte.hint}}"{% endif %} />
                                 <div class="infos infos-absolute-partie">
                                     <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.agrandi) }}" class="carte_partie-agrandi" id="aggrandi-{{ carte.id }}"/>
                                 </div>
@@ -60,7 +60,7 @@
                                         {% set zoneChargee = ' chargee' %}
                                     {% endif %}
                                 {% endfor%}                                
-                                <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card{{zoneChargee}}"/>
+                                <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.lien) }}" id="{{ carte.id }}" class="card{{zoneChargee}}" {% if carte.hint is defined %}title="{{carte.hint}}"{% endif %} />
                                 <div class="infos infos-absolute-partie">
                                     <img src="{{ asset('images/'~jeu|capitalize~'/'~carte.agrandi) }}" class="carte_partie-agrandi" id="aggrandi-{{ carte.id }}"/>
                                 </div>

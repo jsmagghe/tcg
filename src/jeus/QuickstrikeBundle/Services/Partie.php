@@ -457,6 +457,29 @@ class Partie
         return $attaque+$this->effets->bonusAttaque($this->numeroAttaquant,$this->numeroDefenseur,$this->infos());
     }
 
+    public function interceptEnCours() {
+        $intercept = 0;
+        if (($this->Partie->getJoueur1Etape()=='defense') || ($this->Partie->getJoueur2Etape()=='defense')) {
+            if ($this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)!='0') {
+                if (isset($this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)])) {
+                    $CarteActive = $this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
+                    $Carte = $CarteActive->getCarte();
+                }
+                else 
+                    $Carte = null;
+
+                if ($Carte == null) {
+                    return 4;
+                }
+                if (($Carte->getTypeCarte()->getTag()=='STRIKE') || ($Carte->getTypeCarte()->getTag()=='CHAMBER')){
+                    $intercept += $Carte->getIntercept();  
+                }                
+            }
+        }
+
+        return $intercept+$this->effets->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant,$this->infos());
+    }
+
     public function defenseChamber() {
         $defense = 0;
         if (($this->Partie->getJoueur1Etape()=='defense') || ($this->Partie->getJoueur2Etape()=='defense')) {

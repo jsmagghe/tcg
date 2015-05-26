@@ -146,7 +146,6 @@ class PartieController extends Controller {
                                       ,array('numeroJoueur'=>'ASC', 'emplacement'=>'ASC', 'position'=>'ASC')
                                     );
 
-            $carte = array();
             $parametres = array(
                 'chamberVisible1' => ($Partie->getJoueurZoneEnCours(1) == 'CHAMBER'),
                 'chamberVisible2' => ($Partie->getJoueurZoneEnCours(2) == 'CHAMBER'),
@@ -154,9 +153,25 @@ class PartieController extends Controller {
             $parametreAdverses = $parametres;
             $parametreAdverses['adverse'] = true;
             foreach($CarteParties as $CartePartie) {
+                $carte = array();
                 $carte['id'] = $CartePartie->getId();
                 $carte['lien'] = $CartePartie->getLien($parametres);
                 if ($CartePartie->getEmplacement()!='OPENING') {
+                    if (
+                        ($CartePartie->getEmplacement() == $Partie->getJoueurZoneEnCours($CartePartie->getNumeroJoueur())) 
+                        && (
+                            ($CartePartie->getCarte()->getTypeCarte()->getTag()=='STRIKE')
+                            || ($CartePartie->getCarte()->getTypeCarte()->getTag()=='CHAMBER')
+                            )
+                        )
+                        {
+                            ici
+                        if ($Partie->getJoueurActif() == $CartePartie->getNumeroJoueur()) {
+                            $carte['hint'] = 'intercept : ' . $servicePartie->interceptEnCours();
+                        } else {
+                            $carte['hint'] = 'force : ' . $servicePartie->attaqueEnCours();
+                        }
+                    }
                     if ($servicePartie->numeroJoueur==$CartePartie->getNumeroJoueur()) {
                         $carte['agrandi'] = $CartePartie->getLienAgrandi($parametres);
                         if ((!isset($carteJoueurs[strtolower($CartePartie->getEmplacement())])) || ($CartePartie->getEmplacement()=='AVANTAGE'))

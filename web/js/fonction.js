@@ -18,23 +18,21 @@ $(document).ready(function() {
         tableau = tableau.split('/');
         idPartie = tableau[tableau.length - 1];
 
-        setInterval(rafraichissement(), 1000);
-    }
-    
-    function rafraichissement(){
-        $.ajax({
-            url: Routing.generate('jeus_' + jeu + '_partie_timestamp', {
-                id: idPartie
-            }),
-            type: 'POST',
-            success: function(retour) {
-                if (retour.timestamp>$('#timestamp').val()) {
-                    window.location.reload();                    
+        setInterval(function (){
+            $.ajax({
+                url: Routing.generate('jeus_' + jeu + '_partie_timestamp', {
+                    id: idPartie
+                }),
+                type: 'POST',
+                success: function(retour) {
+                    if (retour.timestamp>$('#timestamp').val()) {
+                        document.location.reload();                    
+                    }
+                },
+                error: function(d, e, f) {
                 }
-            },
-            error: function(d, e, f) {
-            }
-        });
+            });
+        }, 500);
     }
     
     /*

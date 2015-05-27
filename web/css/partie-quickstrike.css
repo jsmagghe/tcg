@@ -17,6 +17,7 @@ body { font-family: Arial, sans-serif; }
 .card {
 	width: 71px;
 	height: 100px;
+	display: inline-block;
 }
 
 #choix {

@@ -1,8 +1,5 @@
 A faire
 pictos pour choix
-position des avantages en ligne et pas en colonne
-intercept et force au survol
-refresh auto
 
 Effets
 Effet 1;You may play Amidamaru's only if you are Yoh. If you counterattack from Amidamaru's zone, charge it.;;

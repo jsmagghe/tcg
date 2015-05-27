@@ -165,8 +165,8 @@ class PartieController extends Controller {
                             )
                         )
                         {
-                            ici
-                        if ($Partie->getJoueurActif() == $CartePartie->getNumeroJoueur()) {
+                        $etape = $Partie->getEtape($CartePartie->getNumeroJoueur());
+                        if (($etape=='defense') || ($etape == 'utilisationChamber')) {
                             $carte['hint'] = 'intercept : ' . $servicePartie->interceptEnCours();
                         } else {
                             $carte['hint'] = 'force : ' . $servicePartie->attaqueEnCours();

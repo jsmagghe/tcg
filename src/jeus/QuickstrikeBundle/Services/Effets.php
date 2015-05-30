@@ -612,26 +612,59 @@ class Effets
                 case 406 : 
                 case 425 : 
                 case 445 : 
+                case 487 : 
+                case 491 : 
                 case 671 : 
-                    if (in_array('reflip:green', $reflip)== false) {
-                        $reflip[] = 'reflip:green';
+                    if (in_array('reflip_green', $reflip)== false) {
+                        $reflip[] = 'reflip_green';
                     }
                     break;
                 case 416 : 
-                    if (in_array('reflip:yellow', $reflip)== false) {
-                        $reflip[] = 'reflip:yellow';
+                    if (in_array('reflip_yellow', $reflip)== false) {
+                        $reflip[] = 'reflip_yellow';
                     }
                     break;
+                case 479 : 
+                    if (
+                        ($Cartejeu->getEmplacement() == 'STRIKE_JAUNE')
+                        && (in_array('reflip_free', $reflip)== false) 
+                        ) {
+                        $reflip[] = 'reflip_free';
+                    }
+                    break;
+                // dans la zone d'un teamwork
                 case 20 :
                 case 418 :
                     if (
                         (isset($this->CarteEnJeus[$joueurConcerne][$this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'TEAMWORK')])) 
-                        && (in_array('reflip:green', $reflip)== false)
+                        && (in_array('reflip_green', $reflip)== false)
                         )
                         {
-                        $reflip[] = 'reflip:green';
+                        $reflip[] = 'reflip_green';
                     } 
                     break;
+                // defausser la carte donnabt le reflip
+                case 203 : 
+                    if (
+                        ($Cartejeu->getEmplacement() == 'AVANTAGE')
+                        && (in_array('reflip_' . $Cartejeu->getId(), $reflip)== false) 
+                        ) {
+                        $reflip[] = 'reflip_' . $Cartejeu->getId();
+                    }
+                    break;
+                case 467 : 
+                    if (
+                        (
+                            ($Cartejeu->getEmplacement() == 'TEAMWORK_VERT')
+                            || ($Cartejeu->getEmplacement() == 'TEAMWORK_JAUNE')
+                            || ($Cartejeu->getEmplacement() == 'TEAMWORK_ROUGE')
+                        )
+                        && (in_array('reflip_' . $Cartejeu->getId(), $reflip)== false) 
+                        ) {
+                        $reflip[] = 'reflip_' . $Cartejeu->getId();
+                    }
+                    break;
+
             }
         }
 

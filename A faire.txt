@@ -170,7 +170,6 @@ Effet 199; Your opponent moves one of his or her allies to one of your empty all
 Effet 200; Look at the top two cards of your deck. Put them back in any order.;;
 Effet 201; Your opponent turns the top card of his or her deck face up. You may have your opponent put that card into his or her discard pile.;;
 Effet 202; Look at the top three cards of your deck. Put them back in any order.;;
-Effet 203;While pai sho mastery is in your advantage area, your cards have "Reflip: Eliminate Pai sho mastery.";;
 Effet 204; You may move any player's ally to one of that player's empty ally spaces.;;
 Effet 205;As you play sculpted flame, choose one: Your strikes have +1 Intercept and -1 Force; or your strikes have -1 Intercept and +1 Force.;;
 Effet 206;Whenever you flip a card, turn the top card of your deck face up.;;
@@ -414,7 +413,7 @@ Effet 462;when you counterattack from elizabeth swann's zone, you may eliminate 
 Effet 463;Green ==> Whenever you play an ally in joshamee gibbs's zone, you may move joshamee gibbs to one of your empty ally spaces.;;
 Effet 464;Deploy: Yellow. When you counterattack from marty's zone, add a green energy.;;
 Effet 465;Deploy: Yellow. Whenever you flip a card in tia dalma's zone, each player turns the top card of his or her deck face up.;;
-Effet 467;Deploy: Yellow. In bootstrap bill's zone, your cards have "Reflip: Eliminate bootstrap bill.";;
+Effet 467;Deploy: Yellow. 
 Effet 468;Yellow ==> when you counterattack from captain barbossa's zone, your opponent charges one of your zones. use only once per turn.;;
 Effet 469;When you counterattack from davy jones's zone, you may uncharge his zone. If you do, charge one of your zones;;
 Effet 470;Deploy: Red. 
@@ -426,7 +425,6 @@ Effet 475;Yellow ==> In cotton's parrot's zone, your strikes have +1 Force. Use 
 Effet 476;Deploy: Green. When you counterattack from j. bennie's zone, each player eliminates another player's ally.;;
 Effet 477;Two Green ==> In jack the monkey's zone, your strikes have +1 Intercept. Use only once per turn.;;
 Effet 478;When you counterattack, you may move one of your opponent's yellow energy to his or her green zone.;;
-Effet 479;Hard to starboard has "Reflip: Free" while in your yellow zone.;;
 Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
 Effet 481;When you counterattack, you may move one of your allies to an empty ally space in any player's yellow zone.;;
 Effet 482;When you counterattack from your yellow zone, you may charge that zone.;;
@@ -434,11 +432,11 @@ Effet 483;When you counterattack, you may move one of your opponent's allies to 
 Effet 484;Two Green ==> Move nasty dagger up one zone;;
 Effet 485;when you counterattack from a zone without an ally, you may move one of your allies to that zone;;
 Effet 486;when you counterattack, you may charge your green zone.;;
-Effet 487;Reflip: Green. When you counterattack, you may rearrange the allies in your opponent's ally spaces;;
+Effet 487;. When you counterattack, you may rearrange the allies in your opponent's ally spaces;;
 Effet 488;Two Green ==> Move sneak aboard up one zone.;;
 Effet 489;When you counterattack, you may move one of your allies to an empty ally space in any player's green zone.;;
 Effet 490;Your opponent cannot play strikes in his or her green zone;;
-Effet 491;Reflip: Green. When you counterattack, you may move one of your allies to an empty ally space in any player's red zone;;
+Effet 491;. When you counterattack, you may move one of your allies to an empty ally space in any player's red zone;;
 Effet 492;When you counterattack, move hull breach to your red zone;;
 Effet 493;Yellow ==> When you counterattack, charge your red zone. Use only once;;
 Effet 494;When you flip ready the long nines, you may move it to your red zone. Ready the long nines has +3 Force while in your red zone.;;

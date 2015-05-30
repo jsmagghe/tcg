@@ -7,17 +7,14 @@ Effet 2;green ==> +1 Intercept.;;
 Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force
 Effet 5; Before flipping your next card, draw two cards. Place one on top of your deck and the other in your discard pile.;;
 Effet 8; You may move a teamwork to an empty zone controlled by the same player.;;
-Effet 9;Tactical: Green.;;
 Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
 Effet 12;You may play Lee Pai-Long only if you are jun. Green ==> If you counterattack in Lee Pai-Long's zone, put a counter on him. Use only once. Remove a counter from Lee Pai-Long ==> Your strike in Lee Pai-Long's zone gets +1 Force.;;
 Effet 13;Eliminate Lililala ==> Before flipping, draw three cards. Place two in your discard pile and one on top of your deck.;;
 Effet 14;-3 Force ==> If you counterattack from Lyserg's zone with this strike, charge it.;;
 Effet 15;-2 Intercept ==> If your counterattack from Marco's zone with this strike, add a green furyoku. Use only once.;;
 Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
-Effet 17;Tactical: Green.
 Effet 18;Red ==> +4 Intercept. Use only once.;;
 Effet 19;Pitch ==> add two green furyoku.;;
-Effet 20;When flipped in a zone with a teamwork, United Front has "Tactical: Green.";;
 Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts in your opponent's yellow zone.;;
 Effet 22;Your opponent may not play his signature move or .;;
 Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
@@ -32,7 +29,7 @@ Effet 35;Move a yellow furyoku to your green zone ==> If you counterattack with 
 Effet 36;Whenever your opponent focuses, -1 Force.;;
 Effet 37;If you counterattack with Ponchi Punch, your opponent loses a red furyoku.;;
 Effet 38; Add a yellow furyoku. 
-Effet 39;Tactical: Green. When you counterattack with Tandem Tomfoolery, eliminate one of your opponent's furyoku.;;
+Effet 39;. When you counterattack with Tandem Tomfoolery, eliminate one of your opponent's furyoku.;;
 Effet 40;-2 Intercept ==> +2 Force. Use only once.;;
 Effet 41;If you counterattack with Strafe, you may eliminate a teamwork.;;
 Effet 42; Add two yellow furyoku. 
@@ -72,7 +69,6 @@ Effet 80;Yellow ==> +4 Intercept and +1 Force. Use only once.;;
 Effet 81; You may eliminate a teamwork.;;
 Effet 82;-3 Intercept ==> If you counterattack from Jeanne's zone, add a yellow furyoku.;;
 Effet 83;In Joco's zone, you may pay yellow costs with green furyoku.;;
-Effet 84;Your strikes in Mikihasa's zone have "Tactical: Green.";;
 Effet 85;All Teamworks in Milly's zone have "Pitch ==> Put this teamwork in one of your empty zones.";;
 Effet 86;if your opponent's attack is 3 Force or less, +2 Force.;;
 Effet 87;If you counterattack with Bone Army, charge this zone.;;
@@ -89,7 +85,7 @@ Effet 98;If you counterattack from Matti's zone, your opponent loses a green fur
 Effet 99;Whenever your opponent focuses, -2 Force.;;
 Effet 100;When your opponent counterattacks, uncharge the zone from which he counterattacks.;;
 Effet 101; Eliminate one of your opponent's green or yellow furyoku.;;
-Effet 102;Tactical: Green. Pitch ==> Put this in your advantage area. Your strikes have +1 Force.;;
+Effet 102;. Pitch ==> Put this in your advantage area. Your strikes have +1 Force.;;
 Effet 103;Green, -5 Force ==> +5 Intercept. Use only once.;;
 Effet 104; Your opponent chosses a teamwork he controls and eliminates it.;;
 Effet 105; If you are defending in your yellow zone, you are now defending in your green zone. If you are defending in your red zone, you are now defending in your yellow zone.;;
@@ -127,7 +123,7 @@ Effet 143;When you counterattack, you may eliminate a green energy.;;
 Effet 144;When you counterattack, you may eliminate up to two green energy.;;
 Effet 145;When you counterattack against a strike that has 3 Force or less, Gout of Flame gets +3 Force.;;
 Effet 146;Red ==> Choose one: Jagged Ground gets +2 Intercept; or Jagged Ground gets +2 Force.;;
-Effet 147;Reflip: Green. Whenever your opponent focuses, he or she eliminates one of his or her green energy.;;
+Effet 147;. Whenever your opponent focuses, he or she eliminates one of his or her green energy.;;
 Effet 148;Whenever your opponent focuses, he or she eliminate one of his or her green energy.;;
 Effet 149;-4 Intercept ==> When you counterattack, eliminate all of your opponent's green energy.;;
 Effet 150;When you counterattack, your opponent eliminates one of his or her allies.;;
@@ -138,7 +134,7 @@ Effet 154;-1 Intercept ==> When you counterattack, move one of your green energy
 Effet 155;When you counterattack, look at the top two cards of your deck. Put one on the top of your deck and the other into your discard pile.;;
 Effet 156;While your opponent is defending, his or her zones cannot be charged.;;
 Effet 157;When you counterattack, you may move one of your yellow energy to your red zone.;;
-Effet 158;Reflip: Green. Your opponent's strikes cost an additional yellow energy to play.;;
+Effet 158;. Your opponent's strikes cost an additional yellow energy to play.;;
 Effet 159;Your opponent's strikes cost an additional yellow energy to play.;;
 Effet 160;When you counterattack, you may move an ally to the top of its owner's deck.;;
 Effet 161;Whenever your opponent focuses, Howling Cyclone gets -2 Force.;;
@@ -155,7 +151,7 @@ Effet 171;Your opponent skips defending in his or her green zone.;;
 Effet 172;-4 Intercept ==> When you counterattack, your opponent moves one of his or her allies to one of your empty ally spaces.;;
 Effet 175;when you counterattack from a charged zone, add a green energy.;;
 Effet 176;-2 Intercept ==> When you counterattack, charge this zone. Use only once.;;
-Effet 177;Reflip: Green. When you counterattack, charge this zone.;;
+Effet 177;. When you counterattack, charge this zone.;;
 Effet 178;When you counterattack, charge this zone.;;
 Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
 Effet 180;When you counterattack, add a green energy for each charged zone you have.;;
@@ -169,7 +165,6 @@ Effet 187;when you counterattack, your opponent uncharges one of his or her zone
 Effet 188;When you counterattack, you may move one of your opponent's allies to one of that player's empty ally spaces.;;
 Effet 189;Red, Green ==> +2 Intercept and +2 Force. Use only once.;;
 Effet 190;When you counterattack, your opponent eliminates one of his or her energy.;;
-Effet 191;Reflip: Green.;;
 Effet 198;While your opponent is defending, your zones cannot be uncharged and your allies cannot be moved or eliminated.;;
 Effet 199; Your opponent moves one of his or her allies to one of your empty ally spaces.;;
 Effet 200; Look at the top two cards of your deck. Put them back in any order.;;
@@ -185,10 +180,10 @@ Effet 209; If this zone is already charged, you may uncharge any zone.;;
 Effet 210; You may charge any zone.;;
 Effet 211;When you counterattack, add a yellow energy.;;
 Effet 212; You may eliminate one of your allies. If you do, eliminate one of your opponent's allies.;;
-Effet 213;Reflip: Green.  You may eliminate an ally.;;
+Effet 213;.  You may eliminate an ally.;;
 Effet 214; If this zone is already charged, you may charge any zone.;;
 Effet 215; Add a red energy.;;
-Effet 216;Reflip: Green.  You may uncharge any zone.;;
+Effet 216;.  You may uncharge any zone.;;
 Effet 217;When your opponent counterattacks from his or her green zone, you add two green energy.;;
 Effet 218; You may eliminate an energy in this zone. If you do, eliminate one of your opponent's energy of the same color.;;
 Effet 219; Your opponent uncharges one of his or her zones.;;
@@ -200,7 +195,7 @@ Effet 227;In King Bumi's zone, your strikes have "Whenever your opponent focuses
 Effet 228;When you counterattack from Momo's zone, each player adds a green energy.;;
 Effet 229;Whenever you flip a card in Monk Gyatso's zone turn the top card of your deck face up.;;
 Effet 230;When you counterattack from Jet's zone, each player eliminates one of his or her allies.;;
-Effet 231;Reflip: Green. When you counterattack from Jojo's zone, eliminate one of your opponent's green energy, and you add a green energy.;;
+Effet 231;. When you counterattack from Jojo's zone, eliminate one of your opponent's green energy, and you add a green energy.;;
 Effet 232;Two Green ==> In Malu's zone, your strikes have "Your opponent skips defending in his or her green zones.";;
 Effet 233;When you counterattack from Pirate Captain's zone, look at the top card of your deck. You may put into your discard pile.;;
 Effet 234;Eliminate an energy in prince zuko's zone ==> when you counterattack from prince zuko's zone, eliminate an energy of the same color. Use only once per turn.;;
@@ -213,7 +208,6 @@ Effet 241;Green ==> When you counterattack from Zhao's guard's zone, eliminate Z
 Effet 242;When you counterattack from cabbage merchant's zone, you may eliminate cabbage merchant. If you do, add a green energy.;;
 Effet 243;Whenever you flip a card in canyon guide's zone, your opponent turns the top card of his or her deck face up.;;
 Effet 244;Green ==> In Gan Jin Treibe's zone, you strikes have +1 intercept. Use only once per turn.;;
-Effet 245;In herbalist's zone, your strikes have "Reflip: Green.";;
 Effet 246;Green ==> In zhang tribe's zone, your strikes have +1 Force. Use only once per turn.;;
 Effet 247;When you flip air scooter in a zone without an ally, you may move one of your allies to this zone.;;
 Effet 248;Move chi absorption down one zone ==> add a yellow energy. (use only while defending in your green or yellow zone);;
@@ -225,7 +219,7 @@ Effet 253;Whenever your opponent focuses, boulder smash gets +1 Force.;;
 Effet 254;When your opponent counterattacks from a zone, eliminate an ally in that zone.;;
 Effet 255;when your opponent counterattacks from a zone, uncharge that zone.;;
 Effet 256;When your opponent counterattacks from a zone, uncharge that zone, eliminate an ally in that zone, and eliminate an energy in that one.;;
-Effet 257;Reflip: Green. Whenever your opponent focuses, quarry crush gets +1 Force.;;
+Effet 257;. Whenever your opponent focuses, quarry crush gets +1 Force.;;
 Effet 258;When your opponent counterattacks from a zone, eliminate an energy in that zone.;;
 Effet 259;When you counterattack , you may eliminate a yellow energy. Pitch ==> eliminate a yellow energy.;;
 Effet 260;When your counterattack, charge this zone. Pitch ==> charge this zone.;;
@@ -304,7 +298,6 @@ Effet 335;When you counterattack, add a red energy.;;
 Effet 336;Green ==> When you counterattack, each player charges one of his or her zones.;;
 Effet 337;Whenever your opponent focuses Omashu Dodgeball gets +1 Force.;;
 Effet 338;Whenever your opponent focuses Stone Heel of the King gets +1 Force.;;
-Effet 339;Your opponent's cards have "Reflip: Green";;
 Effet 340;Your opponent's strikes have "Green==>+1 Intercept.";;
 Effet 341;Whenever your opponent plays a card in a zone, eliminate an energy in that zone.;;
 Effet 342;Yellow ==> When you counterattack, move an ally to the top of it's owner's deck.;;
@@ -335,7 +328,7 @@ Effet 367;when you celebrate, you may eliminate an ally;;
 Effet 368;when you celebrate, you may uncharge any zone;;
 Effet 371;Eliminate one of your allies ==> +1 Intercept and +1 Force. use only once.;;
 Effet 372;-2 Intercept ==> When you counterattack, your opponent uncharges one of his or her zones. use only once.;;
-Effet 373;Reflip: Green. Whenever your opponent focuses in a zone, eliminate an ally in that zone.;;
+Effet 373;. Whenever your opponent focuses in a zone, eliminate an ally in that zone.;;
 Effet 374;Whenever your opponent focuses in a zone, eliminate an ally in that zone.;;
 Effet 375;-4 Intercept ==> When you counterattack, eliminate a yellow energy.;;
 Effet 376;green ==> when you counterattack , eliminate a green energy. use only once.;;
@@ -350,7 +343,7 @@ Effet 384;-1 Intercept ==> When you counterattack, reveal then top card of your 
 Effet 385;-2 Intercept ==> When you counterattack, look at the top card of your opponent's deck. You may put it into his or her discard pile. Use only once.;;
 Effet 386;Green ==> A player of your choice turns the top card of his or her deck face up.;;
 Effet 387;When you celebrate, your opponent adds an energy to each of his or her zones with an ally.;;
-Effet 388;Your opponent cannot deploy or reflip.;;
+Effet 388;Your opponent cannot deploy or.;;
 Effet 389;Two Yellow ==> +2 Intercept. Use only once.;;
 Effet 390;When you flip martial law, turn the top card of your deck face up.;;
 Effet 391;Your opponent's strikes have +2 Intercept while in one of his or her zones with an ally.;;
@@ -368,7 +361,7 @@ Effet 402;Yellow ==> +1 Intercept. Use up to as many times as the number of alli
 Effet 403;-3 Intercept ==> +3 Force.;;
 Effet 404;-2 Intercept ==> +2 Force.;;
 Effet 405;When your opponent counterattacks from a zone, you may charge your zone of the same color.;;
-Effet 406;Reflip: Green. When you counterattack, you may charge any zone.;;
+Effet 406;. When you counterattack, you may charge any zone.;;
 Effet 407;-3 Intercept ==> When you counterattack, charge this zone.;;
 Effet 408;While your opponent is defending, your energy cannot be moved or eliminated.;;
 Effet 409;when you counterattack from a charged zone, add a yellow energy.;;
@@ -378,14 +371,12 @@ Effet 412;when you counterattack, each player may move on of his or her green en
 Effet 413;Red ==> +2 Intercept or +2 Force. Use only once.;;
 Effet 414;When you counterattack, you may move one of your allies to one of your empty ally spaces.;;
 Effet 415;Yellow ==> +1 Intercept. Use only once.;;
-Effet 416;Reflip: Yellow.;;
 Effet 417;When you counterattack from a zone with an ally, add a green energy.;;
-Effet 418;Quite a Fall has "Reflip: Green" while in one of your zones with an ally.;;
 Effet 419;Yellow ==> +2 Force. Use only once.;;
 Effet 421;Whenever your opponent focuses, your strike gets +1 Force.;;
 Effet 423;While your opponent is defending, your allies and energy cannot be moved or eliminated.;;
 Effet 424;Your opponent cannot celebrate.;;
-Effet 425;Reflip: Green. While you are defending against a strike that has 7 Force or moren your strikes have +3 Intercept.;;
+Effet 425;. While you are defending against a strike that has 7 Force or moren your strikes have +3 Intercept.;;
 Effet 426;Your opponent cannot play strikes or allies in his or her green zone.;;
 Effet 427;Your opponent cannot play signature moves. 
 Effet 429; Look at the top three cards of your deck. Put two on the top of your deck in any order and the other one into your discard pile.;;
@@ -404,7 +395,6 @@ Effet 441;When your opponent counterattacks, he or she charges one of your zones
 Effet 442;When you celebrate, add a red energy.;;
 Effet 443;When you counterattack, move up to three of your green energy to your yellow zone.;;
 Effet 444; You may eliminate an ally in any zone. If you do, add an energy to that zone.;;
-Effet 445;Reflip: Green. 
 Effet 446;When your opponent counterattacks from his or her green zone, that player uncharges one of his or her zones.;;
 Effet 447;When you counterattack, you may eliminate one of your allies. If you do, your opponent eliminates one of his or her allies.;;
 Effet 449; You may have your opponent uncharge one of his or her zones.;;
@@ -489,7 +479,7 @@ Effet 530;When you counterattack, you may move up to three of your energy to you
 Effet 531;When you counterattack, you may rearrange the allies in your ally spaces and then rearrange the allies in your opponent's ally spaces.;;
 Effet 532;When your opponent counterattacks, reveal the top four cards of your deck. Put one on the top of your deck and the rest into your discard pile.;;
 Effet 533;When you counterattack, eliminate all of your allies for each ally you eliminated, you may move one of your opponent's allies to one of your empty ally spaces.;;
-Effet 535;While your opponent is defending, he or she cannot deploy or reflip, 
+Effet 535;While your opponent is defending, he or she cannot deploy or , 
 Effet 537;Your opponent's strikes cost an additional red energy to play.;;
 Effet 540;Deadly accuracy has +X Intercept and when you counterattack, it gets +X Force, where X is the Force of your opponent's strike.;;
 Effet 543;Two Green ==> +1 Force;;
@@ -605,7 +595,6 @@ Effet 666;Yellow ==> +3 Intercept. When you counterattack with extensible crimin
 Effet 667;When you counterattack with Fearless charge your opponent uncharges one fo his zone.;;
 Effet 668;When you celebrate, uncharge one of your opponent's zone;;
 Effet 669;When you celebrate, charge all your zones;;
-Effet 671;Your strike in Mayor grange's zone have "Reflip : Green";;
 Effet 672;Uncharge this zone ==> your strike in this zone starts in your opponent's yellow zone;;
 Effet 673;When you flip a card in News team's zone, both player reveal the top card of their deck;;
 Effet 674;-1 Intercept ==> +1 Force, use only once per turn;;

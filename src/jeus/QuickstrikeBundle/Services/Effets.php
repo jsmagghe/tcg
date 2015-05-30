@@ -581,4 +581,132 @@ class Effets
 
     }
 
+    public function reflipPossible($joueurConcerne) {
+        $reflip = array();
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 9 : 
+                case 17 : 
+                case 39 : 
+                case 84 : 
+                case 102 : 
+                case 147 : 
+                case 158 : 
+                case 177 : 
+                case 191 : 
+                case 213 : 
+                case 216 : 
+                case 231 : 
+                case 245 : 
+                case 257 : 
+                case 373 : 
+                case 406 : 
+                case 425 : 
+                case 445 : 
+                case 671 : 
+                    if (in_array('reflip:green', $reflip)== false) {
+                        $reflip[] = 'reflip:green';
+                    }
+                    break;
+                case 416 : 
+                    if (in_array('reflip:yellow', $reflip)== false) {
+                        $reflip[] = 'reflip:yellow';
+                    }
+                    break;
+                case 20 :
+                case 418 :
+                    if (
+                        (isset($this->CarteEnJeus[$joueurConcerne][$this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'TEAMWORK')])) 
+                        && (in_array('reflip:green', $reflip)== false)
+                        )
+                        {
+                        $reflip[] = 'reflip:green';
+                    } 
+                    break;
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 339 : 
+                    if (in_array('reflip:green', $reflip)== false) {
+                        $reflip[] = 'reflip:green';
+                    }
+                    break;
+            }
+        }
+        // carte adverse empechant le reflip
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 388 : 
+                case 535 : 
+                    $reflip = array();
+                    break;
+            }
+        }
+
+        return $reflip;
+    }
+
+    /*public function effetVoulu($joueurConcerne) {
+        $effetVoulu = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 0 : 
+                    $effetVoulu = false;
+                    break;
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 0 : 
+                    $effetVoulu = false;
+                    break;
+            }
+        }
+
+        return $effetVoulu;
+    }*/
+
+
+
 }

@@ -581,9 +581,13 @@ class Effets
 
     }
 
-    public function reflipPossible($joueurConcerne) {
+    public function reflipsPossible($joueurConcerne) {
         $reflip = array();
         $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        $energieVerteDisponible = $infos['energieVerteDisponibleAttaquant'] + $infos['energieJauneDisponibleAttaquant'] + $infos['energieRougeDisponibleAttaquant'];
+        $energieJauneDisponible = $infos['energieJauneDisponibleAttaquant'] + $infos['energieRougeDisponibleAttaquant'];
+        $energieRougeDisponible = $infos['energieRougeDisponibleAttaquant'];
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
@@ -615,21 +619,18 @@ class Effets
                 case 487 : 
                 case 491 : 
                 case 671 : 
-                    if (in_array('reflip_green', $reflip)== false) {
-                        $reflip[] = 'reflip_green';
+                    if ($energieVerteDisponibleAttaquant>1) {
+                        $reflip['reflip_green'] = 'Reflip: green';                        
                     }
                     break;
                 case 416 : 
-                    if (in_array('reflip_yellow', $reflip)== false) {
-                        $reflip[] = 'reflip_yellow';
+                    if ($energieJauneDisponibleAttaquant>1) {
+                        $reflip['reflip_yellow'] = 'Reflip: yellow';
                     }
                     break;
                 case 479 : 
-                    if (
-                        ($Cartejeu->getEmplacement() == 'STRIKE_JAUNE')
-                        && (in_array('reflip_free', $reflip)== false) 
-                        ) {
-                        $reflip[] = 'reflip_free';
+                    if ($Cartejeu->getEmplacement() == 'STRIKE_JAUNE') {
+                        $reflip['reflip_free'] = 'Reflip: free';
                     }
                     break;
                 // dans la zone d'un teamwork
@@ -637,31 +638,25 @@ class Effets
                 case 418 :
                     if (
                         (isset($this->CarteEnJeus[$joueurConcerne][$this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'TEAMWORK')])) 
-                        && (in_array('reflip_green', $reflip)== false)
+                        && ($energieVerteDisponibleAttaquant>1)
                         )
                         {
-                        $reflip[] = 'reflip_green';
+                        $reflip['reflip_green'] = 'Reflip: green';
                     } 
                     break;
                 // defausser la carte donnabt le reflip
                 case 203 : 
-                    if (
-                        ($Cartejeu->getEmplacement() == 'AVANTAGE')
-                        && (in_array('reflip_' . $Cartejeu->getId(), $reflip)== false) 
-                        ) {
-                        $reflip[] = 'reflip_' . $Cartejeu->getId();
+                    if ($Cartejeu->getEmplacement() == 'AVANTAGE') {
+                        $reflip['reflip_' . $Cartejeu->getId()] = 'Reflip: Eliminate Pai sho mastery';
                     }
                     break;
                 case 467 : 
                     if (
-                        (
-                            ($Cartejeu->getEmplacement() == 'TEAMWORK_VERT')
-                            || ($Cartejeu->getEmplacement() == 'TEAMWORK_JAUNE')
-                            || ($Cartejeu->getEmplacement() == 'TEAMWORK_ROUGE')
-                        )
-                        && (in_array('reflip_' . $Cartejeu->getId(), $reflip)== false) 
+                        ($Cartejeu->getEmplacement() == 'TEAMWORK_VERT')
+                        || ($Cartejeu->getEmplacement() == 'TEAMWORK_JAUNE')
+                        || ($Cartejeu->getEmplacement() == 'TEAMWORK_ROUGE')
                         ) {
-                        $reflip[] = 'reflip_' . $Cartejeu->getId();
+                        $reflip['reflip_' . $Cartejeu->getId()] = 'Reflip: Eliminate bootstrap bill';
                     }
                     break;
 
@@ -678,8 +673,8 @@ class Effets
             $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
             switch ($numeroEffet) {
                 case 339 : 
-                    if (in_array('reflip:green', $reflip)== false) {
-                        $reflip[] = 'reflip:green';
+                    if ($energieVerteDisponibleAttaquant>1) {
+                        $reflip['reflip_green'] = 'Reflip: green';
                     }
                     break;
             }

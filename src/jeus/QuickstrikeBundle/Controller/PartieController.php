@@ -253,15 +253,19 @@ class PartieController extends Controller {
         }
 
         if ($effet=='focuser') {
-            $servicePartie->focuser($joueurConcerne,'focus');
+            $servicePartie->focuserPitcher($joueurConcerne,'focus');
         }
 
         if ($effet=='pitcher') {
-            $servicePartie->focuser($joueurConcerne,'pitch');
+            $servicePartie->focuserPitcher($joueurConcerne,'pitch');
         }
 
         if ($effet=='discarder') {
-            $servicePartie->focuser($joueurConcerne,'discard');
+            $servicePartie->focuserPitcher($joueurConcerne,'discard');
+        }
+
+        if (strpos($effet,'reflip_')!==false) {
+            $servicePartie->focuserPitcher($joueurConcerne,$effet);
         }
         $Partie->setDateDerniereAction(new \Datetime());
         $this->em->flush();

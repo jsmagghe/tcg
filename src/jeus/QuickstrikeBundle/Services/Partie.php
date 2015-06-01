@@ -352,19 +352,14 @@ class Partie
         if ($action=='focus')              
             $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'ENERGIE');
         $this->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
-        $this->descendreDeZone($joueurConcerne);
-    }
-
-    public function focuser($joueurConcerne) {
-        $this->focuserPitcher($joueurConcerne,'focus');
-    }
-
-    public function pitcher($joueurConcerne) {
-        $this->focuserPitcher($joueurConcerne,'pitch');
-    }
-
-    public function discarder($joueurConcerne) {
-        $this->focuserPitcher($joueurConcerne,'discard');
+        if (strpos($action,'reflip_')===false) {
+            $this->descendreDeZone($joueurConcerne);
+        } else {
+            $tab = explode('_', $action);
+            if ($tab[1] == 'green') {
+                $this->
+            }
+        }
     }
 
     public function descendreDeZone($joueurConcerne) {
@@ -419,6 +414,9 @@ class Partie
             $nombreTeamworkDefenseur += 1;
         } 
 
+        $energieVerteDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'VERTE');
+        $energieJauneDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'JAUNE');
+        $energieRougeDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'ROUGE');
 
         return array(
             'ZoneAttaquant' => $ZoneAttaquant,
@@ -431,6 +429,9 @@ class Partie
             'discardChargeDefenseur' => $discardChargeDefenseur,
             'nombreTeamworkAttaquant' => $nombreTeamworkAttaquant,
             'nombreTeamworkDefenseur' => $nombreTeamworkDefenseur,
+            'energieVerteDisponibleAttaquant' => $energieVerteDisponibleAttaquant,
+            'energieJauneDisponibleAttaquant' => $energieJauneDisponibleAttaquant,
+            'energieRougeDisponibleAttaquant' => $energieRougeDisponibleAttaquant,
             );
     }
 
@@ -724,6 +725,11 @@ class Partie
                 }
                 if ($this->effets->focusPossible($JoueurBas)){
                     $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'focuser')).'">Focus</a>';                    
+                }
+                $reflips = $this->effets->reflipsPossible($JoueurBas) {
+                    foreach ($$reflips as $reflip => $libelle) {
+                        $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => $reflip)).'">'. $libelle .'</a>';                    
+                    }
                 }
                 if (count($action) == 1)
                     $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'discarder')).'">Discard</a>';

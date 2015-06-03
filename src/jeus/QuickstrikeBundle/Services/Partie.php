@@ -282,12 +282,29 @@ class Partie
             $couts = array($couts);
         }
         foreach($couts as $cout) {
-            switch ($cout) {
-                case 'free' :
+            switch (true) {
+                case ($cout == 'free') :
                     // rien
                     break;
-                case 'green' : 
-                ici
+                case (strpos($cout,'green')!==false) : 
+                    $coutVert = str_replace('green', '', $cout);
+                    $coutVert = ($coutVert != '') ? $coutVert : 1;
+                    $this->payerParEnergie($joueurConcerne, array('coutVert' => $coutVert));
+                    break;
+                case (strpos($cout,'yellow')!==false) : 
+                    $coutJaune = str_replace('yellow', '', $cout);
+                    $coutJaune = ($coutJaune != '') ? $coutJaune : 1;
+                    $this->payerParEnergie($joueurConcerne, array('coutJaune' => $coutJaune));
+                    break;
+                case (strpos($cout,'red')!==false) : 
+                    $coutRouge = str_replace('red', '', $cout);
+                    $coutRouge = ($coutRouge != '') ? $coutRouge : 1;
+                    $this->payerParEnergie($joueurConcerne, array('coutRouge' => $coutRouge));
+                    break;
+                case (is_int($cout)===true) : 
+                    $CartePartie = $this->em->getRepository('jeusQuickstrikeBundle:CartePartie')->find($cout);
+                    $CartePartie->setEmplacement('DISCARD');
+                    $this->em->flush();
                     break;
             }
         }
@@ -524,6 +541,32 @@ class Partie
             return 0;
     }
 
+    public function payerParEnergie($joueurConcerne,$couts) {
+        $coutVert = (isset($couts['coutVert'])) ? $couts['coutVert'] : 0;
+        $coutJaune = (isset($couts['coutJaune'])) ? $couts['coutJaune'] : 0;
+        $coutRouge = (isset($couts['coutRouge'])) ? $couts['coutRouge'] : 0;
+
+        $energieVerteDisponible = $this->energiedisponible($joueurConcerne,'VERTE');
+        $energieJauneDisponible = $this->energiedisponible($joueurConcerne,'JAUNE');
+        $energieRougeDisponible = $this->energiedisponible($joueurConcerne,'ROUGE');
+
+        if ($coutVert>0) {
+            $this->deplacerCarte($joueurConcerne,$coutVert,'ENERGIE_VERTE','DISCARD',true);
+            $coutVert -= $energieVerteDisponible;
+            $coutVert = ($coutVert>0) ? $coutVert : 0;
+        }
+        $coutJaune += $coutVert;
+        if ($coutJaune>0) {
+            $this->deplacerCarte($joueurConcerne,$coutJaune,'ENERGIE_JAUNE','DISCARD',true);
+            $coutJaune -= $energieJauneDisponible;
+            $coutJaune = ($coutJaune>0) ? $coutJaune : 0;
+        }
+        $coutRouge += $coutJaune;
+        if ($coutRouge>0) {
+            $this->deplacerCarte($joueurConcerne,$coutRouge,'ENERGIE_ROUGE','DISCARD',true);
+        }
+    }
+
     public function isCartePayable( $joueurConcerne, $Carte,$payer = false) {
         $payable = true;
         if ($Carte == null) 
@@ -568,28 +611,11 @@ class Partie
         $payable = (($coutVert<=0) && ($coutJaune<=0) && ($coutRouge<=0));
 
         if (($payer) && ($payable)) {
-            $coutVert = $Carte->getCoutVert();
-            $coutJaune = $Carte->getCoutJaune();
-            $coutRouge = $Carte->getCoutRouge();
-            $energieVerteDisponible = $this->energiedisponible($joueurConcerne,'VERTE');
-            $energieJauneDisponible = $this->energiedisponible($joueurConcerne,'JAUNE');
-            $energieRougeDisponible = $this->energiedisponible($joueurConcerne,'ROUGE');
-
-            if ($coutVert>0) {
-                $this->deplacerCarte($joueurConcerne,$coutVert,'ENERGIE_VERTE','DISCARD',true);
-                $coutVert -= $energieVerteDisponible;
-                $coutVert = ($coutVert>0) ? $coutVert : 0;
-            }
-            $coutJaune += $coutVert;
-            if ($coutJaune>0) {
-                $this->deplacerCarte($joueurConcerne,$coutJaune,'ENERGIE_JAUNE','DISCARD',true);
-                $coutJaune -= $energieJauneDisponible;
-                $coutJaune = ($coutJaune>0) ? $coutJaune : 0;
-            }
-            $coutRouge += $coutJaune;
-            if ($coutRouge>0) {
-                $this->deplacerCarte($joueurConcerne,$coutRouge,'ENERGIE_ROUGE','DISCARD',true);
-            }
+            $this->payerParEnergie($joueurConcerne, array(
+                'coutVert' => $Carte->getCoutVert(),
+                'coutJaune' => $Carte->getCoutJaune(),
+                'coutRouge' => $Carte->getCoutRouge(),
+                ));
         }
 
         return $payable;

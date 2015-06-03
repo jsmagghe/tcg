@@ -276,6 +276,25 @@ class Partie
         return $payable;
     }
 
+    public function payerCout($joueurConcerne,$couts) {       
+        $paye = false;
+        if (!is_array($couts)) {
+            $couts = array($couts);
+        }
+        foreach($couts as $cout) {
+            switch ($cout) {
+                case 'free' :
+                    // rien
+                    break;
+                case 'green' : 
+                ici
+                    break;
+            }
+        }
+
+        return $payable;
+    }
+
     public function verificationRecrutement($joueurConcerne,$CarteActive,$zoneEnCours,$zoneAControler) {
         if ((isset($this->CarteEnJeus[$joueurConcerne][$zoneAControler])) && ($zoneEnCours!=$zoneAControler))  {
             $Cartejeu = $this->CarteEnJeus[$joueurConcerne][$zoneAControler];
@@ -356,9 +375,7 @@ class Partie
             $this->descendreDeZone($joueurConcerne);
         } else {
             $tab = explode('_', $action);
-            if ($tab[1] == 'green') {
-                $this->
-            }
+            $this->payerCout($tab[1]);
         }
     }
 

@@ -451,6 +451,9 @@ class Partie
         $energieVerteDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'VERTE');
         $energieJauneDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'JAUNE');
         $energieRougeDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'ROUGE');
+        if isset($this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)]) {
+            $CartePartie = $this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
+        }
 
         return array(
             'ZoneAttaquant' => $ZoneAttaquant,
@@ -466,6 +469,7 @@ class Partie
             'energieVerteDisponibleAttaquant' => $energieVerteDisponibleAttaquant,
             'energieJauneDisponibleAttaquant' => $energieJauneDisponibleAttaquant,
             'energieRougeDisponibleAttaquant' => $energieRougeDisponibleAttaquant,
+            'typeCarteActive' => $CartePartie->getCarte()->getTypeCarte()->getTag(),
             );
     }
 

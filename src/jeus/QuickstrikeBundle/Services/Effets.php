@@ -633,6 +633,23 @@ class Effets
                         $reflip['reflip_free'] = 'Reflip: free';
                     }
                     break;
+                // type de carte
+                case 451 :
+                case 458 :
+                    if ($infos['typeCarteActive'] == 'STRIKE') {
+                        $reflip['reflip_green'] = 'Reflip: green';                        
+                    }
+                    break;
+                case 453 :
+                    if (($infos['typeCarteActive'] == 'ADVANTAGE') || ($infos['typeCarteActive'] == 'TEAMWORK')) {
+                        $reflip['reflip_green'] = 'Reflip: green';                        
+                    }
+                    break;
+                case 496 :
+                    if (($infos['typeCarteActive'] == 'ADVANTAGE') || ($infos['typeCarteActive'] == 'TEAMWORK')) {
+                        $reflip['reflip_free'] = 'Reflip: free';                        
+                    }
+                    break;
                 // dans la zone d'un teamwork
                 case 20 :
                 case 418 :

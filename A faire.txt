@@ -398,14 +398,12 @@ Effet 446;When your opponent counterattacks from his or her green zone, that pla
 Effet 447;When you counterattack, you may eliminate one of your allies. If you do, your opponent eliminates one of his or her allies.;;
 Effet 449; You may have your opponent uncharge one of his or her zones.;;
 Effet 450; A player of your choice reveals the top card of his or her deck.;;
-Effet 451;Your strikes have "Reflip: Green.";;
 Effet 452; Your opponent reveals his or her current signature move.;;
-Effet 453;Your advantages and allies have "Reflip: Green.";;
 Effet 454;In gillette's zone, your allies have "Deploy: Green.";;
 Effet 455;You cannot celebrate in jackson hill's zone. Green ==> when you counterattack from jackson hill's zone, charge his zone. Use only once per turn.;;
 Effet 456;Deploy: Green. You cannot celebrate in james norrington's zone. In james norrington's zone, your strikes have +1 Intercept.;;
 Effet 457;-2 Intercept ==> when you counterattack from jeremiah hampton's zone, charge his zone. Use only once per turn.;;
-Effet 458;Deploy: Green. Whenever you flip a strike in lord cuttler beckett's zone, turn the top card of your deck face up. In lord cuttler beckett's zone, your strikes have "Reflip: Green.";;
+Effet 458;Deploy: Green. Whenever you flip a strike in lord cuttler beckett's zone, turn the top card of your deck face up. 
 Effet 459;Green ==> In rachel darling's zone, your strike have +1 Intercept abd -1 Force. Use only oncer per turn.;;
 Effet 460;In weatherby swann's zone, your strikes have -1 Intercept. Green ==> when your counterattack from weartherby swann's zone, add a yellow energy.;;
 Effet 461;Eliminate one of your other allies ==> when you counterattack from cannibal warrior's zone, your opponent eliminates one of his or her allies;;
@@ -441,7 +439,6 @@ Effet 492;When you counterattack, move hull breach to your red zone;;
 Effet 493;Yellow ==> When you counterattack, charge your red zone. Use only once;;
 Effet 494;When you flip ready the long nines, you may move it to your red zone. Ready the long nines has +3 Force while in your red zone.;;
 Effet 495;When you flip through the smoke, you may move it to your red zone. When you counterattack from your red zone, your opponent uncharges one of his or her zones.;;
-Effet 496;exclusive - lord beckett. Your advantages and allies have "Reflip: Free".;;
 Effet 497;exclusive - elizabeth swann. When you counterattack, you may eliminate an energy.;;
 Effet 499;exclusive - davy jones.  - choose one : charge your red zone, or add a red energy;;
 Effet 500;exclusive - pintel and ragetti. If your opponent would celebrate, each player instead adds an energy to each of his or her zones with an ally;;

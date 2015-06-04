@@ -469,7 +469,7 @@ class Partie
             'energieVerteDisponibleAttaquant' => $energieVerteDisponibleAttaquant,
             'energieJauneDisponibleAttaquant' => $energieJauneDisponibleAttaquant,
             'energieRougeDisponibleAttaquant' => $energieRougeDisponibleAttaquant,
-            'typeCarteActive' => $CartePartie->getCarte()->getTypeCarte()->getTag(),
+            'typeCarteActive' => ($CartePartie != null) ? $CartePartie->getCarte()->getTypeCarte()->getTag() : 0,
             );
     }
 

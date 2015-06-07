@@ -715,6 +715,45 @@ class Effets
         return $reflip;
     }
 
+    public function effetJouer($joueurConcerne,$action) {
+        $effetVoulu = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 1 :
+                    if ($action == 'counter attack')  {
+                        ici
+                    }
+                    break;
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 0 : 
+                    $effetVoulu = false;
+                    break;
+            }
+        }
+
+        return $effetVoulu;
+    }
+
     /*public function effetVoulu($joueurConcerne) {
         $effetVoulu = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;

@@ -652,6 +652,7 @@ class Partie
             && ($this->Partie->isZoneChargee($this->numeroJoueur,'DECK'))
             && ($this->Partie->isZoneChargee($this->numeroJoueur,'DISCARD'))
             && ($this->attaqueEnCours()<=$this->defenseChamber())
+            && ($this->effets->signaturePossible($this->numeroJoueur))
         );
 
         if (
@@ -659,7 +660,7 @@ class Partie
             && ($isUtilisable==false)
             ) {
             $this->Partie->setEtapeByNumero($this->numeroJoueur,'defense');
-            $this->Partie->setJoueurZoneEnCours($this->numeroJoueur,'STRIKE_VERT');
+            $this->Partie->setJoueurZoneEnCours($this->numeroJoueur,$this->effets->zoneDepart($this->numeroJoueur));
             $this->deplacerCarte($this->numeroJoueur,1,'DECK',$this->Partie->getJoueurZoneEnCours($this->numeroJoueur));
         }
 

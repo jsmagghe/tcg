@@ -15,11 +15,8 @@ Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force o
 Effet 18;Red ==> +4 Intercept. Use only once.;;
 Effet 19;Pitch ==> add two green furyoku.;;
 Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts in your opponent's yellow zone.;;
-Effet 22;Your opponent may not play his signature move or .;;
 Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
 Effet 26;Two yellow ==> If you counterattack from Zeke's zone, eliminate a teamwork.;;
-Effet 27;You may play Hijinks only if you are Lola. Your opponent may not , , , or play his signature move.;;
-Effet 28;Your strikes start in your opponent's yellow zone.;;
 Effet 30;Green ==> +1 Intercept. Use only Once.;;
 Effet 31; Look at the top three cards of your deck and place them back on top in any order.;;
 Effet 32;If your opponent counterattacks from his green zone, gain a yellow furyoku.;;
@@ -57,7 +54,6 @@ Effet 68;You may play Viaticum only if you are Jeanne.;;
 Effet 69;You may play or pitch Ultra Cavalry Charge only if you are Len. Pitch ==> Look at the top three cards of your deck and place them back on top in any order.;;
 Effet 70; Eliminate one of your opponent's furyoku.;;
 Effet 72; Add two red furyoku. 
-Effet 73;Blinding Foray starts in your opponent's yellow zone.;;
 Effet 74;If you counterattack with Unerring Garrote, you may eliminate a teamwork.;;
 Effet 75;Your opponent loses a green furyoku.;;
 Effet 76;If you counterattack from Duncan's zone, whenever your opponent plays a non-strike, your attack gets +1 Force.;;
@@ -100,7 +96,6 @@ Effet 118;Green ==> +1 Force. use only once.;;
 Effet 119;If your opponent counterattacks from his green zone, gain a red furyoku.;;
 Effet 120;Uncharge this zone ==> +4 Intercept and +2 Force.;;
 Effet 121; Instead of defending in this zone, you are now defending in your green zone.;;
-Effet 122;Crackback starts in your opponent's yellow zone.;;
 Effet 124;If your counterattack from the red zone, add two red furyoku.;;
 Effet 125;-1 Intercept ==> If you counterattack with Stalefish Grab, add a green furyoku.;;
 Effet 126;If you counterattack with Point Blank, look at the top card of your deck. You may put it in your discard pile.;;
@@ -240,7 +235,6 @@ Effet 278; You may rearrange your allies.(you can only have one ally in each of 
 Effet 280;move up to three of your green furyoku to your yellow zone.;;
 Effet 281;Move all of your yellow furyoku to your red zone. Move all of your green furyoku to your yellow zone.;;
 Effet 282;-2 Intercept ==> Your opponent may not focus or pitch.;;
-Effet 283;This strike starts in your opponent's yellow zone.;;
 Effet 284;Your opponent cannot  or play his signature move.;;
 Effet 285;-1 Intercept, eliminate one of your opponent's yellow furyoku ==> Add a yellow furyoku.;;
 Effet 286;-1 Intercept ==> Add a red furyoku, or +1 Force.;;
@@ -264,16 +258,13 @@ Effet 303;Put a teamwork you control on top of its owner's deck ==> +1 Force, +1
 Effet 304;Put a teamwork on top of its owner's deck.;;
 Effet 305;Your opponent must discard advantages.;;
 Effet 306;If your opponent's attack is 3 Force or less, +3 Force.;;
-Effet 307;Slice and Dice starts in your opponent's yellow zone.;;
-Effet 308;Pumpkin Dumpkin starts in your opponent's red zone.;;
 Effet 309;If any of your zones has no furyoku, add a furyoku to that zone.;;
 Effet 310;Add three yellow furyoku.;;
 Effet 311;Remove all your teamwork cards. Place each in any empty zone you control.;;
 Effet 312;You may move an opponent's teamwork to one of your empty zones.;;
 Effet 313;Add two red furyoku.;;
-Effet 314;Grand Halo Blade starts in your opponent's yellow zone. For each teamwork you have in play, +1 Force.;;
+Effet 314; For each teamwork you have in play, +1 Force.;;
 Effet 315;Uncharge all of your opponent's zones. For each zone uncharged this way, +1 Force.;;
-Effet 316;Overhead Thwap starts in your opponent's yellow zone.;;
 Effet 317;Add two green furyoku, two yellow furyoku, and two red furyoku.;;
 Effet 318;Eliminate one of your opponent's teamworks ==> +2 Force. Use only once.;;
 Effet 319;Eliminate one of your opponent's teamworks ==> +2 Force.;;
@@ -489,8 +480,6 @@ Effet 553;green ==> +2 intercept;;
 Effet 554;if your opponent's attack is 4 Force or less, +3 Force.;;
 Effet 555;You may send up to 2 advantages in any order from your discard pile on the top of your deck;;
 Effet 556;your opponent eliminates an energy of each color. send all the advantages in your discard pile in your deck and shuffle it;;
-Effet 557;on bike starts in your opponent yellow zone;;
-Effet 558;rocket robin starts in your opponent's red zone;;
 Effet 559;add 2 energy to each zone you control;;
 Effet 560;-1 Intercept ==> add a green energy.;;
 Effet 561;When you counterattack with in the loop, charge every zone you control with a "batman team" teamwork in it.;;
@@ -503,7 +492,6 @@ Effet 568;Add 2 energy to each of your zone with a teamwork.;;
 Effet 570;If you celebrate, eliminate all your opponent's teamwork;;
 Effet 571;Your opponent cannot play advantages or teamwork.;;
 Effet 572;If you celebrate, turn your chamber on it's back side.;;
-Effet 573;Surprise delivery starts in your opponent's yellow zone.;;
 Effet 574;2 Green ==> eliminate an ally;;
 Effet 575;Your opponent uncharges one of his zone.;;
 Effet 577;Your opponent uncharges one of his zone, eliminates one of his ally and one of his energy.;;
@@ -514,7 +502,6 @@ Effet 581;-1 Intercept ==> your opponent eliminates one of his energy. -1 Force 
 Effet 582;Uncharge one of your opponent's zone;;
 Effet 583;Whenever your opponent plays a non-strike, -1 Force.;;
 Effet 584;Your opponent may uncharge all of his zone. 
-Effet 585;Fast and furious starts in your opponent's yellow zone;;
 Effet 586;Eliminate all teamworks.;;
 Effet 587;Your opponent eliminates an energy in each zone with a teamwork;;
 Effet 588;You may look at the top 3 cards of your deck and put them back in any order;;
@@ -553,13 +540,10 @@ Effet 625;When you counterattack with Frozen dome, your teamwork and energies ca
 Effet 626;When you counterattack with Don't you dare, your energy cannot be eliminated;;
 Effet 627;When you counterattack with Bestial behaviour, eliminate a teamwork;;
 Effet 628;-1 Intercept ==> When you counterattack with database you may look at the top 2 cards of your deck and place them in any order;;
-Effet 630;Sneak in starts in your opponent's red zone;;
 Effet 631;For each gotham city police department teamwork in play, +1 force;;
-Effet 632;Firefly starts in your opponent's yellow zone;;
 Effet 634;When you counterattack with I m not afraid of frost, look at the top 2 cards of your deck and put them back in any order;;
 Effet 635;When you celebrate, add an energy to each of your zone;;
 Effet 637;-3 Intercept ==> When you counterattack with ice blast, uncharge an opponent's zone;;
-Effet 638;Slider start in your opponent's red zone;;
 Effet 639;Your opponent's advantage cost 1 additionnal green energy to play;;
 Effet 640;When you counterattack with Thorn trap, move an opponent's teamwork to one of your empty zone.;;
 Effet 641;Inspector Yin only. When you counterattack with let's work together from a zone with a teamwork, you may charge any zone.;;
@@ -578,7 +562,6 @@ Effet 655;Robin Only. If your opponent's force is 4 or less Daredevil start in y
 Effet 656;When you counterattack with blizzard, your opponent eliminates one of his red energy.;;
 Effet 657;When you counterattack with Toxic inhalation, eliminate a teamwork.;;
 Effet 658;If there is a teamwork in this zone, Not my fault cost a less red energy to play;;
-Effet 659;The fatest thief start in your opponent's red zone;;
 Effet 660;Bane only. You may turn your chamber card on its other side;;
 Effet 661;When you celebrate, you may eliminate one of your opponent's teamwork.;;
 Effet 662;When you counterattack with Team penguin, your opponent uncharges one of his zone and you charge one of your zone;;
@@ -630,7 +613,6 @@ Effet 718; Put an advantage from your discard on the top of your deck.
 Effet 719;When you counterattack, you may eliminate a teamwork.;;
 Effet 720;Reveal the top card of your deck as long as this card is in your advantage area.;;
 Effet 721; Eliminate an opponent's energy from the same zone. 
-Effet 722;Your strikes starts in your opponent's red zone. 
 Effet 723;Your teamwork cannot be eliminated;;
 Effet 724;Your zones cannot be uncharged;;
 Effet 725; Put a strike from your discard pile on top of your deck;;

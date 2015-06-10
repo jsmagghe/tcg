@@ -586,6 +586,44 @@ class Effets
 
     }
 
+    public function signaturePossible($joueurConcerne) {
+        $signaturePossible = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 91 : 
+                    $signaturePossible = false;
+                    break;
+            }
+        }*/
+
+
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 22 : 
+                case 27 : 
+                    $signaturePossible = false;
+                    break;
+            }
+        }
+
+        return $signaturePossible;
+
+    }
+
     public function reflipsPossible($joueurConcerne) {
         $reflip = array();
         $joueurAdverse = ($joueurConcerne==1)?2:1;
@@ -757,6 +795,65 @@ class Effets
         }
 
         return $effetVoulu;
+    }
+
+    
+
+    public function zoneDepart($joueurConcerne) {
+        $zoneDepart = 'STRIKE_VERT';
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                /*case 0 : 
+                    $zoneDepart = false;
+                    break;*/
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 28 : 
+                case 73 : 
+                case 122 : 
+                case 283 : 
+                case 307 : 
+                case 314 : 
+                case 316 : 
+                case 557 : 
+                case 573 : 
+                case 585 : 
+                case 632 : 
+                    if ($zoneDepart == 'STRIKE_VERT') {
+                        $zoneDepart = 'STRIKE_JAUNE';                    
+                    }
+                    break;
+                case 308 : 
+                case 558 : 
+                case 630 : 
+                case 638 : 
+                case 659 : 
+                case 722 : 
+                    $zoneDepart = 'STRIKE_ROUGE';                    
+                    break;
+            }
+        }
+
+        return $zoneDepart;
     }
 
     /*public function effetVoulu($joueurConcerne) {

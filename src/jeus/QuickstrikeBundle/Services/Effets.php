@@ -13,6 +13,7 @@ class Effets
 {
     protected $tools;
     private $CarteEnJeus;
+    private $Partie;
 
     public function __construct($tools)
     {
@@ -21,6 +22,10 @@ class Effets
 
     public function chargerCarteEnJeu($CarteEnJeus) {
         $this->CarteEnJeus = $CarteEnJeus;
+    }
+
+    public function chargerPartie($Partie) {
+        $this->Partie = $Partie;
     }
 
     public function bonusAttaque($numeroAttaquant,$numeroDefenseur,$infos) {
@@ -730,7 +735,7 @@ class Effets
             switch ($numeroEffet) {
                 case 1 :
                     if ($action == 'counter attack')  {
-                        ici
+                        $this->Partie->chargerZone($joueurConcerne,$infos['ZoneDefenseur']);
                     }
                     break;
             }

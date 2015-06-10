@@ -47,6 +47,7 @@ class Partie
         $this->numeroAttaquant = $this->numeroAttaquant();
         $this->numeroJoueur = $this->numeroJoueur();
         $this->numeroAdversaire = $this->numeroJoueur(true);
+        $this->effets->chargerPartie($Partie);
     }
 
     public function numeroAttaquant() {
@@ -329,6 +330,7 @@ class Partie
         $zoneEnCours = $this->Partie->getJoueurZoneEnCours($joueurConcerne);
         if (isset($this->CarteEnJeus[$joueurConcerne][$zoneEnCours]))
             $CarteActive = $this->CarteEnJeus[$joueurConcerne][$zoneEnCours];
+        $this->effets->effetJouer($joueurConcerne,$action);
         if ($action=='avantager') {
             $zoneCorrespondante = 'AVANTAGE';
             if ($this->effets->chargementPossible($CarteActive,$joueurConcerne)) {
@@ -352,6 +354,7 @@ class Partie
 
     public function contreAttaquer($joueurConcerne,$chamber) {
         $joueurAdverse = ($joueurConcerne==1)?2:1;
+        $this->effets->effetJouer($joueurConcerne,'counter attack');
         $this->retournerChamber($joueurAdverse);
         $this->attaquer($joueurConcerne,false,$chamber);
     }

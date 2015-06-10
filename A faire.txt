@@ -2,7 +2,6 @@ A faire
 pictos pour choix
 
 Effets
-Effet 1;You may play Amidamaru's only if you are Yoh. If you counterattack from Amidamaru's zone, charge it.;;
 Effet 2;green ==> +1 Intercept.;;
 Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force
 Effet 5; Before flipping your next card, draw two cards. Place one on top of your deck and the other in your discard pile.;;

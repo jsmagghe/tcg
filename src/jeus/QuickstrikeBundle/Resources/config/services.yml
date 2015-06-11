@@ -8,9 +8,13 @@ services:
 
     jeus_quickstrike_effets:
         class: jeus\QuickstrikeBundle\Services\Effets
-        arguments: [@jeus_quickstrike_tools]
+        arguments: [@jeus_quickstrike_tools,@jeus_quickstrike_interactions]
+
+    jeus_quickstrike_interactions:
+        class: jeus\QuickstrikeBundle\Services\Interactions
+        arguments: [@doctrine.orm.entity_manager,@jeus_quickstrike_tools]
 
     jeus_quickstrike_partie:
         class: jeus\QuickstrikeBundle\Services\Partie
-        arguments: [@doctrine.orm.entity_manager,@service_container,@jeus_quickstrike_tools,@jeus_quickstrike_effets,@router]
+        arguments: [@doctrine.orm.entity_manager,@service_container,@jeus_quickstrike_tools,@jeus_quickstrike_effets,@jeus_quickstrike_interactions,@router]
         scope: request

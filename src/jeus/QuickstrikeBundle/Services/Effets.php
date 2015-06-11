@@ -12,12 +12,14 @@ use Doctrine\Common\Persistence\ObjectManager;
 class Effets
 {
     protected $tools;
+    protected $interactions;
     private $CarteEnJeus;
     private $Partie;
 
-    public function __construct($tools)
+    public function __construct($tools,$interactions)
     {
         $this->tools = $tools;
+        $this->interactions = $interactions;
     }
 
     public function chargerCarteEnJeu($CarteEnJeus) {
@@ -770,9 +772,54 @@ class Effets
             }
             $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
             switch ($numeroEffet) {
+                // effets qui charge
                 case 1 :
+                case 62 :
+                case 87 :
+                case 177 :
+                case 178 :
+                case 260 :
+                case 620 :
                     if ($action == 'counter attack')  {
                         $this->Partie->chargerZone($joueurConcerne,$infos['ZoneDefenseur']);
+                    }
+                    break;
+                // effets qui supprime des energies à l'adversaire
+                case 37 :
+                    if ($action == 'counter attack')  {
+                        $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_ROUGE','DISCARD');
+                    }
+                    break;
+                case 75 :
+                    if ($action == 'counter attack')  {
+                        $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_VERT','DISCARD');
+                    }
+                    break;
+                // effets qui ajoute des energies à l'adversaire
+                case 53 :
+                    if ($action == 'counter attack')  {
+                        $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_ROUGE');
+                    }
+                    break;
+                // effet qui rajoute ou déplace des énegies au joueur
+                case 38 :
+                    if ($action == 'jouer')  {
+                        $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
+                    }
+                    break;
+                case 42 :
+                    if ($action == 'jouer')  {
+                        $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_JAUNE');
+                    }
+                    break;
+                case 72 :
+                    if ($action == 'jouer')  {
+                        $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_ROUGE');
+                    }
+                    break;
+                case 45 :
+                    if ($action == 'counter attack')  {
+                        $this->interactions->deplacerCarte($joueurConcerne,1,'ENERGIE_JAUNE','ENERGIE_ROUGE');
                     }
                     break;
             }
@@ -787,9 +834,11 @@ class Effets
             }
             $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
             switch ($numeroEffet) {
-                /*case 0 : 
-                    $effetVoulu = false;
-                    break;*/
+                case 32 : 
+                    if (($action == 'counter attack') && ($infos['ZoneDefenseur'] == 'STRIKE_VERT')) {
+                        $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_JAUNE');
+                    }
+                    break;
             }
         }
     }
@@ -807,9 +856,21 @@ class Effets
             $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
             switch ($numeroEffet) {
                 case 19 :
-                    if ($action == 'counter attack')  { ici
-                        $this->interaction->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_VERTE');
-                    }
+                    $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_VERTE');
+                    break;
+                case 46 :
+                case 89 :
+                    $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD',$this->tools->zoneCorrespondante($infos['ZoneDefenseur'],'ENERGIE'));
+                    break;
+                case 60 :
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_JAUNE','DISCARD');
+                    break;
+                case 61 :
+                    $this->interactions->deplacerCarte($joueurConcerne,2,'ENERGIE_JAUNE','ENERGIE_ROUGE');
+                    break;
+                case 260 :
+                case 262 :
+                    $this->Partie->chargerZone($joueurConcerne,$infos['ZoneDefenseur']);
                     break;
             }
         }

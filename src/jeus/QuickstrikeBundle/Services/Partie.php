@@ -20,6 +20,7 @@ class Partie
     protected $container;
     protected $tools;
     protected $effets;
+    protected $interactions;
     protected $router;
 
     protected $Partie;
@@ -30,12 +31,13 @@ class Partie
     public $numeroJoueur;
     public $numeroAdversaire;
 
-    public function __construct(ObjectManager $em, $container, $tools, $effets,$router)
+    public function __construct(ObjectManager $em, $container, $tools, $effets,$interactions,$router)
     {
         $this->em = $em;
         $this->container = $container;
         $this->tools = $tools;
         $this->effets = $effets;
+        $this->interactions = $interactions;
         $this->router = $router;
     }
 
@@ -102,99 +104,19 @@ class Partie
 
     }
 
-    public function melangerEmplacement($joueurConcerne,$emplacement='DECK') {
-        $CarteParties = $this->em
-                             ->getRepository('jeusQuickstrikeBundle:CartePartie')
-                             ->findBy(array(
-                                  'Partie' => $this->Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacement
-                                  )
-                                  ,array('position'=>'ASC')
-                                );
-
-        $positions = array();       
-        $iteration = 0;
-        foreach($CarteParties as $CartePartie) {
-            $iteration++;            
-            $positions[$iteration] = $iteration;
-        }
-
-        for ($i = 1; $i <= 5; $i++) {
-            shuffle($positions);
-        }
-        $iteration = 0;
-        foreach($CarteParties as $CartePartie) {
-            $CartePartie->setPosition($positions[$iteration]);
-            $iteration++;
-        }
-        // on enregistre car au début de la fonction on va chercher les infos en bdd
-        $this->em->flush();
-    }
-
-    public function deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD',$melanderDestination=false) {
-        $CarteParties = $this->em
-        ->getRepository('jeusQuickstrikeBundle:CartePartie')
-        ->findBy(array(
-            'Partie' => $this->Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementOrigine
-            )
-            ,array('position'=>'ASC')
-        );
-        $order = 'DESC';
-        $CarteFinals = $this->em
-        ->getRepository('jeusQuickstrikeBundle:CartePartie')
-        ->findBy(array(
-            'Partie' => $this->Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementFinal
-            ),
-            array('position'=>$order),
-            1
-        );
-        $position = 0;
-        foreach($CarteFinals as $position=>$CartePartie) {
-            if ($CartePartie->getPosition()>=$position)
-                $position = $CartePartie->getPosition();
-        }
-        $position++;
-
-        foreach($CarteParties as $CartePartie) {
-            if ($nombre<=0) 
-                break;
-
-            // l'iopening ne peut êrte que dans la zone verte ou en attente dans la zone opening
-            if (($emplacementFinal!='STRIKE_VERT') && ($CartePartie->getCarte()->getNom()=='opening attack')) {
-                $CartePartie->setEmplacement('OPENING');
-            } else {
-                $CartePartie->setEmplacement($emplacementFinal);
-                $CartePartie->setPosition($position);
-                $position++;            
-            }
-
-
-            $nombre--;
-        }
-        $this->em->flush();
-        if ($melanderDestination) {
-            $this->melangerEmplacement($joueurConcerne,$emplacementFinal);
-        }
-        // s'il n'y a plus de carte dans le deck on récupère toutes les cartes de la discard que l'on met dans le deck
-        if (($nombre>0) && ($emplacementOrigine=='DECK')) {
-            $this->deplacerCarte($joueurConcerne,99,'DISCARD','DECK',true);
-            $this->deplacerCarte($joueurConcerne,5,'DECK','DISCARD');
-            $this->deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal,$melanderDestination);
-        }
-    }
-
     public function demarragePartie($joueurConcerne) {
-        $this->melangerEmplacement($joueurConcerne);
-        $this->deplacerCarte($joueurConcerne,5,'DECK','DISCARD');
-        $this->deplacerCarte($joueurConcerne,2,'DECK','ENERGIE_VERTE');
-        $this->deplacerCarte($joueurConcerne,2,'DECK','ENERGIE_JAUNE');
-        $this->deplacerCarte($joueurConcerne,2,'DECK','ENERGIE_ROUGE');
+        $this->interactions->melangerEmplacement($joueurConcerne);
+        $this->interactions->deplacerCarte($joueurConcerne,5,'DECK','DISCARD');
+        $this->interactions->deplacerCarte($joueurConcerne,2,'DECK','ENERGIE_VERTE');
+        $this->interactions->deplacerCarte($joueurConcerne,2,'DECK','ENERGIE_JAUNE');
+        $this->interactions->deplacerCarte($joueurConcerne,2,'DECK','ENERGIE_ROUGE');
     }
 
     public function viderCarte($joueurConcerne) {
-        $this->deplacerCarte($joueurConcerne,99,'AVANTAGE','DISCARD');
-        $this->deplacerCarte($joueurConcerne,99,'STRIKE_VERT','DISCARD');
-        $this->deplacerCarte($joueurConcerne,99,'STRIKE_JAUNE','DISCARD');
-        $this->deplacerCarte($joueurConcerne,99,'STRIKE_ROUGE','DISCARD');
+        $this->interactions->deplacerCarte($joueurConcerne,99,'AVANTAGE','DISCARD');
+        $this->interactions->deplacerCarte($joueurConcerne,99,'STRIKE_VERT','DISCARD');
+        $this->interactions->deplacerCarte($joueurConcerne,99,'STRIKE_JAUNE','DISCARD');
+        $this->interactions->deplacerCarte($joueurConcerne,99,'STRIKE_ROUGE','DISCARD');
     }
 
     public function attaquer($joueurConcerne,$depart = true, $chamber = false) {
@@ -207,8 +129,8 @@ class Partie
 
             $this->Partie->setJoueurZoneEnCours($joueurConcerne,'STRIKE_VERT');
             $this->Partie->setJoueurZoneEnCours($joueurAdverse,'STRIKE_VERT');
-            $this->deplacerCarte($joueurConcerne,1,'OPENING','STRIKE_VERT');
-            $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
+            $this->interactions->deplacerCarte($joueurConcerne,1,'OPENING','STRIKE_VERT');
+            $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
         } elseif ($chamber) {
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_VERT');
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_JAUNE');
@@ -216,20 +138,20 @@ class Partie
             $this->Partie->setJoueurZoneEnCours($joueurConcerne,'CHAMBER');
         } else {
             if ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE') {
-                $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_ROUGE');
+                $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_ROUGE');
             }
             if (
                 ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE')
                 || ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_JAUNE')
                 ) {
-                $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_JAUNE');
+                $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_JAUNE');
             }
             if (
                 ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE')
                 || ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_JAUNE')
                 || ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_VERT')
                 ) {
-                $this->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
+                $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
             }
         }
 
@@ -251,7 +173,7 @@ class Partie
                                  ->findOneBy(array('nom' => 'opening attack'));
             $CartePartie = new CartePartie($CarteOpening,$this->Partie,$this->numeroJoueur,'OPENING');
             $this->Partie->addCartePartie($CartePartie);
-            $this->melangerEmplacement($this->Partie,$this->numeroJoueur);
+            $this->interactions->melangerEmplacement($this->Partie,$this->numeroJoueur);
             $this->Partie->setEtape($this->numeroJoueur, 'attenteDebut');
         }
         //return $this->redirect($this->generateUrl('jeus_quickstrike_partie',array('id'=>$this->Partie->getId())));
@@ -322,7 +244,7 @@ class Partie
                 && ($CarteActive!=null) 
                 && ($CarteActive->getCarte()!=null) 
                 && ($Cartejeu->getCarte()->getNomCours()==$CarteActive->getCarte()->getNomCours()))
-                $this->deplacerCarte($joueurConcerne,99,$zoneAControler,'DISCARD');
+                $this->interactions->deplacerCarte($joueurConcerne,99,$zoneAControler,'DISCARD');
         }
     }
 
@@ -339,17 +261,17 @@ class Partie
         }
         if ($action=='recruter') {
             $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'TEAMWORK');
-            $this->deplacerCarte($joueurConcerne,99,$zoneCorrespondante,'DISCARD');
+            $this->interactions->deplacerCarte($joueurConcerne,99,$zoneCorrespondante,'DISCARD');
             $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_VERTE');
             $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_JAUNE');
             $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_ROUGE');
         }
         if ($this->effets->avantageImmediat($CarteActive)) {
-            $this->deplacerCarte($joueurConcerne,1,$zoneEnCours,'DISCARD');
+            $this->interactions->deplacerCarte($joueurConcerne,1,$zoneEnCours,'DISCARD');
         } else {
-            $this->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);            
+            $this->interactions->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);            
         }
-        $this->deplacerCarte($joueurConcerne,1,'DECK',$zoneEnCours);
+        $this->interactions->deplacerCarte($joueurConcerne,1,'DECK',$zoneEnCours);
     }
 
     public function contreAttaquer($joueurConcerne,$chamber) {
@@ -392,7 +314,7 @@ class Partie
             $this->effets->effetPitcher($joueurConcerne);
         if ($action=='focus')              
             $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'ENERGIE');
-        $this->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
+        $this->interactions->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
         if (strpos($action,'reflip_')===false) {
             $this->descendreDeZone($joueurConcerne);
         } else {
@@ -408,7 +330,7 @@ class Partie
             $this->pointPourAdversaire($joueurConcerne);
         } else {
             $this->Partie->setJoueurZoneEnCours($joueurConcerne,$zoneSuivante);
-            $this->deplacerCarte($joueurConcerne,1,'DECK',$this->Partie->getJoueurZoneEnCours($joueurConcerne));
+            $this->interactions->deplacerCarte($joueurConcerne,1,'DECK',$this->Partie->getJoueurZoneEnCours($joueurConcerne));
         }
     }
 
@@ -560,19 +482,19 @@ class Partie
         $energieRougeDisponible = $this->energiedisponible($joueurConcerne,'ROUGE');
 
         if ($coutVert>0) {
-            $this->deplacerCarte($joueurConcerne,$coutVert,'ENERGIE_VERTE','DISCARD',true);
+            $this->interactions->deplacerCarte($joueurConcerne,$coutVert,'ENERGIE_VERTE','DISCARD',true);
             $coutVert -= $energieVerteDisponible;
             $coutVert = ($coutVert>0) ? $coutVert : 0;
         }
         $coutJaune += $coutVert;
         if ($coutJaune>0) {
-            $this->deplacerCarte($joueurConcerne,$coutJaune,'ENERGIE_JAUNE','DISCARD',true);
+            $this->interactions->deplacerCarte($joueurConcerne,$coutJaune,'ENERGIE_JAUNE','DISCARD',true);
             $coutJaune -= $energieJauneDisponible;
             $coutJaune = ($coutJaune>0) ? $coutJaune : 0;
         }
         $coutRouge += $coutJaune;
         if ($coutRouge>0) {
-            $this->deplacerCarte($joueurConcerne,$coutRouge,'ENERGIE_ROUGE','DISCARD',true);
+            $this->interactions->deplacerCarte($joueurConcerne,$coutRouge,'ENERGIE_ROUGE','DISCARD',true);
         }
     }
 
@@ -663,7 +585,7 @@ class Partie
             ) {
             $this->Partie->setEtapeByNumero($this->numeroJoueur,'defense');
             $this->Partie->setJoueurZoneEnCours($this->numeroJoueur,$this->effets->zoneDepart($this->numeroJoueur));
-            $this->deplacerCarte($this->numeroJoueur,1,'DECK',$this->Partie->getJoueurZoneEnCours($this->numeroJoueur));
+            $this->interactions->deplacerCarte($this->numeroJoueur,1,'DECK',$this->Partie->getJoueurZoneEnCours($this->numeroJoueur));
         }
 
         return $isUtilisable;
@@ -673,7 +595,7 @@ class Partie
     {
         $this->Partie->setEtapeByNumero($this->numeroJoueur,'defense');
         $this->Partie->setJoueurZoneEnCours($this->numeroJoueur,'STRIKE_VERT');
-        $this->deplacerCarte($this->numeroJoueur,1,'DECK',$this->Partie->getJoueurZoneEnCours($this->numeroJoueur));
+        $this->interactions->deplacerCarte($this->numeroJoueur,1,'DECK',$this->Partie->getJoueurZoneEnCours($this->numeroJoueur));
     }
 
     public function actionPossibles() {

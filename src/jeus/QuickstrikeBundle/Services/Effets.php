@@ -759,7 +759,6 @@ class Effets
     }
 
     public function effetJouer($joueurConcerne,$action) {
-        $effetVoulu = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
         // effet des cartes du joueur concerné
@@ -788,13 +787,47 @@ class Effets
             }
             $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
             switch ($numeroEffet) {
-                case 0 : 
+                /*case 0 : 
                     $effetVoulu = false;
+                    break;*/
+            }
+        }
+    }
+
+    public function effetPitcher($joueurConcerne) {
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 19 :
+                    if ($action == 'counter attack')  { ici
+                        $this->interaction->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_VERTE');
+                    }
                     break;
             }
         }
 
-        return $effetVoulu;
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                /*case 0 : 
+                    $effetVoulu = false;
+                    break;*/
+            }
+        }
     }
 
     

@@ -13,7 +13,6 @@ Effet 14;-3 Force ==> If you counterattack from Lyserg's zone with this strike, 
 Effet 15;-2 Intercept ==> If your counterattack from Marco's zone with this strike, add a green furyoku. Use only once.;;
 Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
 Effet 18;Red ==> +4 Intercept. Use only once.;;
-Effet 19;Pitch ==> add two green furyoku.;;
 Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts in your opponent's yellow zone.;;
 Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
 Effet 26;Two yellow ==> If you counterattack from Zeke's zone, eliminate a teamwork.;;

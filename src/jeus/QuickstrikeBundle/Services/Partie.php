@@ -388,6 +388,8 @@ class Partie
         $zoneEnCours = $this->Partie->getJoueurZoneEnCours($joueurConcerne);
         $zoneSuivante = $this->tools->zoneSuivante($zoneEnCours);
         $zoneCorrespondante = 'DISCARD';
+        if ($action=='pitch')              
+            $this->effets->effetPitcher($joueurConcerne);
         if ($action=='focus')              
             $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'ENERGIE');
         $this->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);

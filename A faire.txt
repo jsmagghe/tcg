@@ -90,8 +90,6 @@ Effet 143;When you counterattack, you may eliminate a green energy.;;
 Effet 144;When you counterattack, you may eliminate up to two green energy.;;
 Effet 145;When you counterattack against a strike that has 3 Force or less, Gout of Flame gets +3 Force.;;
 Effet 146;Red ==> Choose one: Jagged Ground gets +2 Intercept; or Jagged Ground gets +2 Force.;;
-Effet 147;. Whenever your opponent focuses, he or she eliminates one of his or her green energy.;;
-Effet 148;Whenever your opponent focuses, he or she eliminate one of his or her green energy.;;
 Effet 149;-4 Intercept ==> When you counterattack, eliminate all of your opponent's green energy.;;
 Effet 150;When you counterattack, your opponent eliminates one of his or her allies.;;
 Effet 151;eliminate one of your allies ==> when you counterattack, eliminate up to two green energy.;;
@@ -111,14 +109,9 @@ Effet 164;-4 Intercept ==> When you counterattack, move an ally to the top of it
 Effet 165;-3 Intercept ==> When you counterattack, move one of your yellow energy to your red zone.;;
 Effet 166;Red ==> +2 Intercept. Use only once.;;
 Effet 167;-2 Intercept ==> While your opponent is defending, his or her zones cannot be charged.;;
-Effet 168;Your opponent cannot play signature moves.;;
-Effet 169;When you counterattack, you may move one of your green energy to your yellow zone.;;
-Effet 170;When you counterattack from a charged zone, add a green energy.;;
 Effet 172;-4 Intercept ==> When you counterattack, your opponent moves one of his or her allies to one of your empty ally spaces.;;
-Effet 175;when you counterattack from a charged zone, add a green energy.;;
 Effet 176;-2 Intercept ==> When you counterattack, charge this zone. Use only once.;;
 Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
-Effet 180;When you counterattack, add a green energy for each charged zone you have.;;
 Effet 181;-1 Intercept ==> When you counterattack, add a green energy.;;
 Effet 182;While you have an ally in this zone, tandem attack has +2 Force.;;
 Effet 183;-2 Intercept ==> When you counterattack from a charged zone, add a yellow energy.;;
@@ -140,13 +133,10 @@ Effet 206;Whenever you flip a card, turn the top card of your deck face up.;;
 Effet 207;When you counterattack, you may uncharge one of your zones. If you do, charge one of your zones.;;
 Effet 209; If this zone is already charged, you may uncharge any zone.;;
 Effet 210; You may charge any zone.;;
-Effet 211;When you counterattack, add a yellow energy.;;
 Effet 212; You may eliminate one of your allies. If you do, eliminate one of your opponent's allies.;;
 Effet 213;.  You may eliminate an ally.;;
 Effet 214; If this zone is already charged, you may charge any zone.;;
-Effet 215; Add a red energy.;;
 Effet 216;.  You may uncharge any zone.;;
-Effet 217;When your opponent counterattacks from his or her green zone, you add two green energy.;;
 Effet 218; You may eliminate an energy in this zone. If you do, eliminate one of your opponent's energy of the same color.;;
 Effet 219; Your opponent uncharges one of his or her zones.;;
 Effet 222; Look at the top card of your deck. You may put it into your discard pile.;;
@@ -154,10 +144,8 @@ Effet 223; Your opponent eliminates one of his or her allies.;;
 Effet 225;Whenever you flip a card in Appa's zone, you may swap Appa with an ally in one of your other zones.;;
 Effet 226;Yellow ==> When you counterattack from Katara's zone, charge this zone. Use only once per turn.;;
 Effet 227;In King Bumi's zone, your strikes have "Whenever your opponent focuses, this strike gets +1 Force while it's in King Bumi's zone.";;
-Effet 228;When you counterattack from Momo's zone, each player adds a green energy.;;
 Effet 229;Whenever you flip a card in Monk Gyatso's zone turn the top card of your deck face up.;;
 Effet 230;When you counterattack from Jet's zone, each player eliminates one of his or her allies.;;
-Effet 231;. When you counterattack from Jojo's zone, eliminate one of your opponent's green energy, and you add a green energy.;;
 Effet 232;Two Green ==> In Malu's zone, your strikes have "Your opponent skips defending in his or her green zones.";;
 Effet 233;When you counterattack from Pirate Captain's zone, look at the top card of your deck. You may put into your discard pile.;;
 Effet 234;Eliminate an energy in prince zuko's zone ==> when you counterattack from prince zuko's zone, eliminate an energy of the same color. Use only once per turn.;;
@@ -178,12 +166,7 @@ Effet 250;Two green ==> Move graceful leap up one zone (use only while defending
 Effet 251;Move open-palm pushback to your red zone ==> your opponent skips defending in his or her green zone. (Use only while defending in your green or yellow zone.);;
 Effet 252;Two Green ==> Move Zoom! up one zone (use only while defending in your yellow or red zone).;;
 Effet 253;Whenever your opponent focuses, boulder smash gets +1 Force.;;
-Effet 254;When your opponent counterattacks from a zone, eliminate an ally in that zone.;;
-Effet 255;when your opponent counterattacks from a zone, uncharge that zone.;;
-Effet 256;When your opponent counterattacks from a zone, uncharge that zone, eliminate an ally in that zone, and eliminate an energy in that one.;;
 Effet 257;. Whenever your opponent focuses, quarry crush gets +1 Force.;;
-Effet 258;When your opponent counterattacks from a zone, eliminate an energy in that zone.;;
-Effet 259;When you counterattack , you may eliminate a yellow energy. Pitch ==> eliminate a yellow energy.;;
 Effet 261;Pitch ==> eliminate up to two green energy.;;
 Effet 263;Green, Pitch ==> Your opponent eliminates one of his or her allies.;;
 Effet 264;When you counterattack, your opponent eliminates one or his or her allies. Green, Pitch ==> Your opponent eliminates one of his or her allies.;;
@@ -201,7 +184,6 @@ Effet 278; You may rearrange your allies.(you can only have one ally in each of 
 Effet 280;move up to three of your green furyoku to your yellow zone.;;
 Effet 281;Move all of your yellow furyoku to your red zone. Move all of your green furyoku to your yellow zone.;;
 Effet 282;-2 Intercept ==> Your opponent may not focus or pitch.;;
-Effet 284;Your opponent cannot  or play his signature move.;;
 Effet 285;-1 Intercept, eliminate one of your opponent's yellow furyoku ==> Add a yellow furyoku.;;
 Effet 286;-1 Intercept ==> Add a red furyoku, or +1 Force.;;
 Effet 287;-2 Intercept, eliminate one of an opponent's red furyoku ==> Add a red furyoku.;;
@@ -353,7 +335,6 @@ Effet 446;When your opponent counterattacks from his or her green zone, that pla
 Effet 447;When you counterattack, you may eliminate one of your allies. If you do, your opponent eliminates one of his or her allies.;;
 Effet 449; You may have your opponent uncharge one of his or her zones.;;
 Effet 450; A player of your choice reveals the top card of his or her deck.;;
-Effet 452; Your opponent reveals his or her current signature move.;;
 Effet 454;In gillette's zone, your allies have "Deploy: Green.";;
 Effet 455;You cannot celebrate in jackson hill's zone. Green ==> when you counterattack from jackson hill's zone, charge his zone. Use only once per turn.;;
 Effet 456;Deploy: Green. You cannot celebrate in james norrington's zone. In james norrington's zone, your strikes have +1 Intercept.;;
@@ -398,7 +379,7 @@ Effet 497;exclusive - elizabeth swann. When you counterattack, you may eliminate
 Effet 499;exclusive - davy jones.  - choose one : charge your red zone, or add a red energy;;
 Effet 500;exclusive - pintel and ragetti. If your opponent would celebrate, each player instead adds an energy to each of his or her zones with an ally;;
 Effet 501;exclusive - commodore norrington.  you may eliminate an ally. If you do, charge the zone that ally was in( you also charge this zone as normal);;
-Effet 503;exclusive - greenbeard. Your opponent cannot play signature moves. Your opponent cannot play cards in hie or her green zone.;;
+Effet 503;exclusive - greenbeard. . Your opponent cannot play cards in hie or her green zone.;;
 Effet 504;exclusive - captain barbossa.  reveal the top four cards of your deck. You may put a strike card from among them on the top of your deck and the rest into your discard pile;;
 Effet 505;exclusive - jack sparrow. You may use yellow energy to pay red sidebar costs.;;
 Effet 506;When you counterattack, you may swap one of your allies with another player's ally;;
@@ -544,7 +525,7 @@ Effet 676;Yellow ==> +1 Force. use max twice per turn.;;
 Effet 677;When this card leaves play, add a yellow energy.;;
 Effet 679;When you flip a card in Batgirl's zone, add a green energy.;;
 Effet 680;Yellow ==> your strike in this zone have +1 Intercept and +1 Force. Use only once per turn.;;
-Effet 682;When you counterattack from scarface's zone, your opponent cannot play his signature move. When this card leaves play, discard all advantages.;;
+Effet 682;When you counterattack from scarface's zone, . When this card leaves play, discard all advantages.;;
 Effet 683;Yellow ==> Your strike in firefly's zone starts in your opponent yellow zone.;;
 Effet 685;When you counterattack from Barbara Gordon's zone, add a green energy.;;
 Effet 686;Green ==> -1 Force and +1 Intercept.;;
@@ -554,7 +535,6 @@ Effet 689;Uncharge this zone ==> If you counterattack from Chief roja's zone, yo
 Effet 690;When you flip a card in Hugo Strange's zone, show the top card of your opponent's deck. You may pay one green to discard this card.;;
 Effet 691;When you counterattack from Lucius Fox's zone, your opponent's advantage cost 1 more green to play.;;
 Effet 692;Red ==> Your strikes in Robin's zone start in your opponent's red area.;;
-Effet 693;When you counterattack from Ghost's zone, your opponent cannot play his signature move.;;
 Effet 694;When this card leaves play, add an energy to each of your zones.;;
 Effet 695;Your strikes in Commissioner Gordon's zone have : "When you celebrate add 1 energy to this zone".;;
 Effet 696;Your teamwork in news anchor's zone have "Deploy : Yellow".;;
@@ -566,7 +546,6 @@ Effet 701;Your strikes in American ninja's zone have : "When you celebrate, add 
 Effet 702;Red ==> When you counterattack from Poison ivy's zone, eliminate a teamwork.;;
 Effet 703;Your strikes in Bruce Wayne's zone cost one less green energy to play.;;
 Effet 704;Your "Batman" Teamworks in Alfred Pennyworth's zone have "Deploy : Free".;;
-Effet 705;Your opponent cannot play his signature move. 
 Effet 707;When you celebrate, add a red energy. 
 Effet 708;When your opponent focuses, your strike gets +1 Force.;;
 Effet 710;If you opponent counterattacks from his green zone, add a yellow energy.;;
@@ -587,7 +566,6 @@ Effet 731;Your teamwork cannot be eliminated nor your zones uncharged.
 Effet 732; You may rearrange your teamworks;;
 Effet 733; add a red energy;;
 Effet 735; Shuffle up to 3 advantages from your discard pile into your deck. 
-Effet 736;Your opponent cannot or play his signature move;;
 Effet 738;Your teamworks cannot be eliminated. 
 Effet 739; Your opponent uncharges one of his zone or eliminates one of his teamwork.;;
 Effet 740; Uncharge an opponent's zone;;

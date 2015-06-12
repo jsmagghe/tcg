@@ -623,6 +623,14 @@ class Effets
             switch ($numeroEffet) {
                 case 22 : 
                 case 27 : 
+                case 168 : 
+                case 284 : 
+                case 427 : 
+                case 503 : 
+                case 682 : 
+                case 693 : 
+                case 705 : 
+                case 736 : 
                     $signaturePossible = false;
                     break;
             }
@@ -811,19 +819,16 @@ class Effets
                     break;
 
                 // effets qui supprime des energies à l'adversaire
+                case 75 :
+                case 98 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_VERTE','DISCARD');
+                    break;
+                case 259 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_JAUNE','DISCARD');
+                    break;
                 case 37 :
                     if ($action == 'counter attack')  {
                         $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_ROUGE','DISCARD');
-                    }
-                    break;
-                case 75 :
-                    if ($action == 'counter attack')  {
-                        $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_VERT','DISCARD');
-                    }
-                    break;
-                case 98 : 
-                    if ($action == 'counter attack') {
-                        $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_VERTE','DISCARD');
                     }
                     break;
                 // effets qui ajoute des energies à l'adversaire
@@ -833,14 +838,32 @@ class Effets
                     }
                     break;
                 // effet qui rajoute ou déplace des énegies au joueur
+                case 228 :
+                    if ($action == 'counter attack') {
+                        $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
+                        $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
+                    }
+                    break;
+                case 231 :
+                    if ($action == 'counter attack') {
+                        $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
+                        $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_VERTE','DISCARD');
+                    }
+                    break;
                 case 38 :
-                    if ($action == 'jouer')  {
+                case 211 :
+                    if (($action == 'jouer') && ($action == 'counter attack')) {
                         $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
                     }
                     break;
                 case 42 :
                     if ($action == 'jouer')  {
                         $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_JAUNE');
+                    }
+                    break;
+                case 215 :
+                    if ($action == 'jouer')  {
+                        $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');
                     }
                     break;
                 case 72 :
@@ -852,6 +875,11 @@ class Effets
                 case 45 :
                     if ($action == 'counter attack')  {
                         $this->interactions->deplacerCarte($joueurConcerne,1,'ENERGIE_JAUNE','ENERGIE_ROUGE');
+                    }
+                    break;
+                case 169 :
+                    if ($action == 'counter attack')  {
+                        $this->interactions->deplacerCarte($joueurConcerne,1,'ENERGIE_VERTE','ENERGIE_JAUNE');
                     }
                     break;
                 case 108 :
@@ -874,6 +902,31 @@ class Effets
                         $this->interactions->deplacerCarte($joueurConcerne,$this->infos['nombreTeamworkDefenseur'],'DISCARD','ENERGIE_VERTE');
                     }
                     break;
+                case 170 : 
+                case 175 : 
+                    if (($action == 'counter attack') && (
+                        (($this->infos['chamberChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_VERT'))
+                        || (($this->infos['deckChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_JAUNE'))
+                        || (($this->infos['discardChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_ROUGE'))
+                    )) {
+                        $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
+                    }
+                    break;
+                case 180 : 
+                    if ($action == 'counter attack') {
+                        $nombre = 0;
+                        if ($this->infos['chamberChargeDefenseur']) {
+                            $nombre++;
+                        }
+                        if ($this->infos['deckChargeDefenseur']) {
+                            $nombre++;
+                        }
+                        if ($this->infos['discardChargeDefenseur']) {
+                            $nombre++;
+                        }
+                        $this->interactions->deplacerCarte($joueurConcerne,$nombre,'DISCARD','ENERGIE_VERTE');                            
+                    }
+                    break;
             }
         }
 
@@ -886,6 +939,11 @@ class Effets
             }
             $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
             switch ($numeroEffet) {
+                case 217 : 
+                    if (($action == 'counter attack') && ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT')) {
+                        $this->interactions->deplacerCarte($joueurAdverse,2,'DISCARD','ENERGIE_VERTE');
+                    }
+                    break;
                 case 32 : 
                     if (($action == 'counter attack') && ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT')) {
                         $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_JAUNE');
@@ -897,8 +955,26 @@ class Effets
                     }
                     break;
                 case 100 :
+                case 255 :
                     if ($action == 'counter attack')  {
                         $this->Partie->dechargerZone($joueurConcerne,$this->infos['ZoneDefenseur']);
+                    }
+                    break;
+                case 254 : 
+                    if ($action == 'counter attack') {
+                        $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK'),'DISCARD');
+                    }
+                    break;
+                case 258 : 
+                    if ($action == 'counter attack') {
+                        $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'),'DISCARD');
+                    }
+                    break;
+                case 256 : 
+                    if ($action == 'counter attack') {
+                        $this->Partie->dechargerZone($joueurConcerne,$this->infos['ZoneDefenseur']);
+                        $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK'),'DISCARD');
+                        $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'),'DISCARD');
                     }
                     break;
             }
@@ -925,6 +1001,7 @@ class Effets
                     $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD',$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'));
                     break;
                 case 60 :
+                case 259 :
                     $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_JAUNE','DISCARD');
                     break;
                 case 61 :
@@ -949,6 +1026,41 @@ class Effets
                 /*case 0 : 
                     $effetVoulu = false;
                     break;*/
+            }
+        }
+    }
+
+    public function effetFocuser($joueurConcerne) {
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                /*case 147 :
+                    $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_VERTE');
+                    break;*/
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 147 : 
+                case 148 : 
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'ENERGIE_VERTE','DISCARD');
+                    break;
             }
         }
     }

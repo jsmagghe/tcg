@@ -315,8 +315,10 @@ class Partie
         $zoneCorrespondante = 'DISCARD';
         if ($action=='pitch')              
             $this->effets->effetPitcher($joueurConcerne);
-        if ($action=='focus')              
+        if ($action=='focus') {
             $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'ENERGIE');
+            $this->effets->effetFocuser($joueurConcerne);
+        }            
         $this->interactions->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
         if (strpos($action,'reflip_')===false) {
             $this->descendreDeZone($joueurConcerne);

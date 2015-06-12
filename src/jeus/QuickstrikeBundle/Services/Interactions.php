@@ -46,8 +46,9 @@ class Interactions
             'Partie' => $this->Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementFinal
             ),
             array('position'=>$order),
-            1
+            1  // limit
         );
+
         $position = 0;
         foreach($CarteFinals as $position=>$CartePartie) {
             if ($CartePartie->getPosition()>=$position)
@@ -59,7 +60,7 @@ class Interactions
             if ($nombre<=0) 
                 break;
 
-            // l'iopening ne peut êrte que dans la zone verte ou en attente dans la zone opening
+            // l'opening ne peut êrte que dans la zone verte ou en attente dans la zone opening
             if (($emplacementFinal!='STRIKE_VERT') && ($CartePartie->getCarte()->getNom()=='opening attack')) {
                 $CartePartie->setEmplacement('OPENING');
             } else {
@@ -67,7 +68,6 @@ class Interactions
                 $CartePartie->setPosition($position);
                 $position++;            
             }
-
 
             $nombre--;
         }

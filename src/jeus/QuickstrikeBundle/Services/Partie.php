@@ -50,6 +50,8 @@ class Partie
         $this->numeroJoueur = $this->numeroJoueur();
         $this->numeroAdversaire = $this->numeroJoueur(true);
         $this->effets->chargerPartie($Partie);
+        $this->effets->chargerInfos($this->infos());
+        $this->interactions->chargerPartie($Partie);
     }
 
     public function numeroAttaquant() {
@@ -101,6 +103,7 @@ class Partie
             }
         }
         $this->effets->chargerCarteEnJeu($this->CarteEnJeus);
+        $this->interactions->chargerCarteEnJeu($this->CarteEnJeus);
 
     }
 
@@ -378,7 +381,8 @@ class Partie
         $energieVerteDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'VERTE');
         $energieJauneDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'JAUNE');
         $energieRougeDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'ROUGE');
-        if isset($this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)]) {
+        $CartePartie = null;
+        if (isset($this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)])) {
             $CartePartie = $this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
         }
 
@@ -701,13 +705,13 @@ class Partie
                 if ($this->effets->focusPossible($JoueurBas)){
                     $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'focuser')).'">Focus</a>';                    
                 }
-                $reflips = $this->effets->reflipsPossible($JoueurBas) {
-                    foreach ($$reflips as $reflip => $libelle) {
-                        $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => $reflip)).'">'. $libelle .'</a>';                    
-                    }
+                $reflips = $this->effets->reflipsPossible($JoueurBas);
+                foreach ($reflips as $reflip => $libelle) {
+                    $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => $reflip)).'">'. $libelle .'</a>';                    
                 }
-                if (count($action) == 1)
-                    $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'discarder')).'">Discard</a>';
+                if (count($action) == 1) {
+                    $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'discarder')).'">Discard</a>';                    
+                }
                 break;
         }                
             

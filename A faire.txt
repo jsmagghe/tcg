@@ -19,6 +19,8 @@ Effet 329;Whenever your opponent focuses, Taming the Unagi gets -2 Force.;;
 Effet 99;Whenever your opponent focuses, -2 Force.;;
 Effet 161;Whenever your opponent focuses, Howling Cyclone gets -2 Force.;;
 Effet 589;Your opponent's strikes, advantages and teamwork cost an additional yellow to play. When your opponent focuses the big chill has -2 force.;;
+=< chargement +X force
+Effet 136;Whenever your opponent charges one of his or her zones, Boulder Roll gets +1 Force.;;
 ==> non strike + X force
 Effet 741;When your opponent plays a non strike, your strike has +1 force;;
 Effet 33;Whenever your opponent plays a non-strike, +1 Force.;;
@@ -35,10 +37,17 @@ Effet 306;If your opponent's attack is 3 Force or less, +3 Force.;;
 Effet 360;When you counterattack against a strike that has 3 Force or less, No Mercy for the Weak gets +3 Force.;;
 Effet 361;When you counterattack against a strike that has 3 Force or less, Open Fire gets +3 Force.;;
 Effet 607;If your opponent's force is 3 or less, +4 Force.;;
+==> bloqué usage de carte dans zone
+Effet 64;You may not play strikes in your yellow or green zone. ;;
+Effet 132;Your opponent cannot play advantages or allies in his or her green zone.;;
+=> protection carte
+Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
+Effet 117;Your teamworks cannot be eliminated.;;
+=> blocage effet
+Effet 156;While your opponent is defending, his or her zones cannot be charged.;;
+
 
 Effet 47; Eliminate all cards in all advantage areas: For each card eliminated, add a green furyoku.;;
-Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
-Effet 64;You may not play strikes in your yellow or green zone. ;;
 Effet 76;If you counterattack from Duncan's zone, whenever your opponent plays a non-strike, your attack gets +1 Force.;;
 Effet 78;In Faust VIII's zone, you may pay red costs with yellow furyoku.;;
 Effet 83;In Joco's zone, you may pay yellow costs with green furyoku.;;
@@ -46,12 +55,8 @@ Effet 92;Your opponent's strikes cost a green furyoku more to play in a zone wit
 Effet 96;If your opponent has not played a non-strike on his turn, +5 Force.;;
 Effet 97;Your opponent's strikes cost one green furyoku more if he has not played a non-strike on his turn.;;
 Effet 101; Eliminate one of your opponent's green or yellow furyoku.;;
-Effet 117;Your teamworks cannot be eliminated.;;
-Effet 132;Your opponent cannot play advantages or allies in his or her green zone.;;
-Effet 136;Whenever your opponent charges one of his or her zones, Boulder Roll gets +1 Force.;;
 Effet 143;When you counterattack, you may eliminate a green energy.;;
 Effet 144;When you counterattack, you may eliminate up to two green energy.;;
-Effet 156;While your opponent is defending, his or her zones cannot be charged.;;
 Effet 157;When you counterattack, you may move one of your yellow energy to your red zone.;;
 Effet 158;. Your opponent's strikes cost an additional yellow energy to play.;;
 Effet 159;Your opponent's strikes cost an additional yellow energy to play.;;

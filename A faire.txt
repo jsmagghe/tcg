@@ -2,51 +2,69 @@ A faire
 pictos pour choix
 
 // effet direct
-Effet 33;Whenever your opponent plays a non-strike, +1 Force.;;
-Effet 36;Whenever your opponent focuses, -1 Force.;;
-Effet 47; Eliminate all cards in all advantage areas: For each card eliminated, add a green furyoku.;;
+==> focuses +X force 
+Effet 708;When your opponent focuses, your strike gets +1 Force.;;
+Effet 421;Whenever your opponent focuses, your strike gets +1 Force.;;
 Effet 49;Whenever your opponent focuses, +1 Force.;;
+Effet 253;Whenever your opponent focuses, boulder smash gets +1 Force.;;
+Effet 257;. Whenever your opponent focuses, quarry crush gets +1 Force.;;
+Effet 337;Whenever your opponent focuses Omashu Dodgeball gets +1 Force.;;
+Effet 338;Whenever your opponent focuses Stone Heel of the King gets +1 Force.;;
+==> focuses -X force 
+Effet 36;Whenever your opponent focuses, -1 Force.;;
+Effet 162;Whenever your opponent focuses, Howling Squall gets -1 Force.;;
+Effet 163;Whenever your opponent focuses, Howling wind gets -1 Force.;;
+Effet 328;Whenever your opponent focuses, Penguin Sledding gets -1 Force.;;
+Effet 329;Whenever your opponent focuses, Taming the Unagi gets -2 Force.;;
+Effet 99;Whenever your opponent focuses, -2 Force.;;
+Effet 161;Whenever your opponent focuses, Howling Cyclone gets -2 Force.;;
+Effet 589;Your opponent's strikes, advantages and teamwork cost an additional yellow to play. When your opponent focuses the big chill has -2 force.;;
+==> non strike + X force
+Effet 741;When your opponent plays a non strike, your strike has +1 force;;
+Effet 33;Whenever your opponent plays a non-strike, +1 Force.;;
+==> non strike - X force
+Effet 583;Whenever your opponent plays a non-strike, -1 Force.;;
 Effet 55;Whenever your opponent plays a non-strike, -2 Force.;;
+=> - 3 force + X force
 Effet 56;If your opponent's attack is 3 Force or less, +4 Force.;;
+Effet 86;if your opponent's attack is 3 Force or less, +2 Force.;;
+Effet 137;When you counterattack against a strike that has 3 Force or less, Blazing Axe Kick gets +3 Force.;;
+Effet 138;When you counterattack against a strike that has 3 Force or less, Boiling Point gets +3 Force.;;
+Effet 145;When you counterattack against a strike that has 3 Force or less, Gout of Flame gets +3 Force.;;
+Effet 306;If your opponent's attack is 3 Force or less, +3 Force.;;
+Effet 360;When you counterattack against a strike that has 3 Force or less, No Mercy for the Weak gets +3 Force.;;
+Effet 361;When you counterattack against a strike that has 3 Force or less, Open Fire gets +3 Force.;;
+Effet 607;If your opponent's force is 3 or less, +4 Force.;;
+
+Effet 47; Eliminate all cards in all advantage areas: For each card eliminated, add a green furyoku.;;
+Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
 Effet 64;You may not play strikes in your yellow or green zone. ;;
 Effet 76;If you counterattack from Duncan's zone, whenever your opponent plays a non-strike, your attack gets +1 Force.;;
 Effet 78;In Faust VIII's zone, you may pay red costs with yellow furyoku.;;
 Effet 83;In Joco's zone, you may pay yellow costs with green furyoku.;;
-Effet 86;if your opponent's attack is 3 Force or less, +2 Force.;;
 Effet 92;Your opponent's strikes cost a green furyoku more to play in a zone without a teamwork.;;
 Effet 96;If your opponent has not played a non-strike on his turn, +5 Force.;;
 Effet 97;Your opponent's strikes cost one green furyoku more if he has not played a non-strike on his turn.;;
-Effet 99;Whenever your opponent focuses, -2 Force.;;
 Effet 101; Eliminate one of your opponent's green or yellow furyoku.;;
 Effet 117;Your teamworks cannot be eliminated.;;
 Effet 132;Your opponent cannot play advantages or allies in his or her green zone.;;
 Effet 136;Whenever your opponent charges one of his or her zones, Boulder Roll gets +1 Force.;;
-Effet 137;When you counterattack against a strike that has 3 Force or less, Blazing Axe Kick gets +3 Force.;;
-Effet 138;When you counterattack against a strike that has 3 Force or less, Boiling Point gets +3 Force.;;
 Effet 143;When you counterattack, you may eliminate a green energy.;;
 Effet 144;When you counterattack, you may eliminate up to two green energy.;;
-Effet 145;When you counterattack against a strike that has 3 Force or less, Gout of Flame gets +3 Force.;;
 Effet 156;While your opponent is defending, his or her zones cannot be charged.;;
 Effet 157;When you counterattack, you may move one of your yellow energy to your red zone.;;
 Effet 158;. Your opponent's strikes cost an additional yellow energy to play.;;
 Effet 159;Your opponent's strikes cost an additional yellow energy to play.;;
-Effet 161;Whenever your opponent focuses, Howling Cyclone gets -2 Force.;;
-Effet 162;Whenever your opponent focuses, Howling Squall gets -1 Force.;;
-Effet 163;Whenever your opponent focuses, Howling wind gets -1 Force.;;
-Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
 Effet 182;While you have an ally in this zone, tandem attack has +2 Force.;;
 Effet 185;While your opponent is defending, your zones cannot be uncharged.;;
 Effet 206;Whenever you flip a card, turn the top card of your deck face up.;;
 Effet 227;In King Bumi's zone, your strikes have "Whenever your opponent focuses, this strike gets +1 Force while it's in King Bumi's zone.";;
 Effet 229;Whenever you flip a card in Monk Gyatso's zone turn the top card of your deck face up.;;
-Effet 253;Whenever your opponent focuses, boulder smash gets +1 Force.;;
-Effet 257;. Whenever your opponent focuses, quarry crush gets +1 Force.;;
 Effet 277;Exclusive - Kinto. Your opponent's strikes cost an additional red energy to play.;;
 Effet 294;If your opponent's attack is 3 Force or less, you may eliminate up to three furyoku.;;
 Effet 297;Shooting Star's Intercept equals the Force of your opponent's attack.;;
 Effet 299;Engulfing Helix's Force and Intercept equal the Force of your opponent's attack.;;
 Effet 305;Your opponent must discard advantages.;;
-Effet 306;If your opponent's attack is 3 Force or less, +3 Force.;;
 Effet 309;If any of your zones has no furyoku, add a furyoku to that zone.;;
 Effet 310;Add three yellow furyoku.;;
 Effet 313;Add two red furyoku.;;
@@ -55,23 +73,17 @@ Effet 315;Uncharge all of your opponent's zones. For each zone uncharged this wa
 Effet 317;Add two green furyoku, two yellow furyoku, and two red furyoku.;;
 Effet 320;Add a red furyoku and your opponent loses a red furyoku.;;
 Effet 322;Charge all of your opponent's zones. For each charged this way, +2 Force.;;
-Effet 328;Whenever your opponent focuses, Penguin Sledding gets -1 Force.;;
-Effet 329;Whenever your opponent focuses, Taming the Unagi gets -2 Force.;;
 Effet 331;When you counterattack, add an energy to each of your zones.;;
 Effet 332;When you counterattack, eliminate all of your energy;;
 Effet 333;When you counterattack, charge your yellow zone.;;
 Effet 334;When you counterattack, add two red energy.;;
 Effet 335;When you counterattack, add a red energy.;;
-Effet 337;Whenever your opponent focuses Omashu Dodgeball gets +1 Force.;;
-Effet 338;Whenever your opponent focuses Stone Heel of the King gets +1 Force.;;
 Effet 341;Whenever your opponent plays a card in a zone, eliminate an energy in that zone.;;
 Effet 345;Whenever your opponent focuses in a zone, you add an energy of the same color as that zone.;;
 Effet 347;When you counterattack, Slingshot Stream gets +X Force, where X is the Force of your opponent's strike.;;
 Effet 349;When you counterattack, you may eliminate up to two energy.;;
 Effet 351;When you counterattack, uncharge all of your opponent's zones.;;
 Effet 357;When you clean up Storms Without End. Leave your Chamber Card turned to the back.;;
-Effet 360;When you counterattack against a strike that has 3 Force or less, No Mercy for the Weak gets +3 Force.;;
-Effet 361;When you counterattack against a strike that has 3 Force or less, Open Fire gets +3 Force.;;
 Effet 366;while you have more allies than your opponent, brutes from the deep has +3 Force.;;
 Effet 373;. Whenever your opponent focuses in a zone, eliminate an ally in that zone.;;
 Effet 374;Whenever your opponent focuses in a zone, eliminate an ally in that zone.;;
@@ -92,7 +104,6 @@ Effet 408;While your opponent is defending, your energy cannot be moved or elimi
 Effet 409;when you counterattack from a charged zone, add a yellow energy.;;
 Effet 412;when you counterattack, each player may move on of his or her green energy to that player's yellow zone.;;
 Effet 417;When you counterattack from a zone with an ally, add a green energy.;;
-Effet 421;Whenever your opponent focuses, your strike gets +1 Force.;;
 Effet 423;While your opponent is defending, your allies and energy cannot be moved or eliminated.;;
 Effet 424;Your opponent cannot celebrate.;;
 Effet 425;. While you are defending against a strike that has 7 Force or moren your strikes have +3 Intercept.;;
@@ -151,11 +162,9 @@ Effet 570;If you celebrate, eliminate all your opponent's teamwork;;
 Effet 571;Your opponent cannot play advantages or teamwork.;;
 Effet 572;If you celebrate, turn your chamber on it's back side.;;
 Effet 580;Your opponent eliminates a green energy and you gain a green energy;;
-Effet 583;Whenever your opponent plays a non-strike, -1 Force.;;
 Effet 584;Your opponent may uncharge all of his zone. 
 Effet 586;Eliminate all teamworks.;;
 Effet 587;Your opponent eliminates an energy in each zone with a teamwork;;
-Effet 589;Your opponent's strikes, advantages and teamwork cost an additional yellow to play. When your opponent focuses the big chill has -2 force.;;
 Effet 590;When you counterattack with small isn't weak, add an energy to the current zone.;;
 Effet 591;For each unteamed teamwork in play, +1 Intercept;;
 Effet 596;If your opponent's attack is 3 Force or less, Rush start in your opponent's yellow zone.;;
@@ -167,7 +176,6 @@ Effet 601;When you counterattack with Brave warden, your teamwork cannot be elim
 Effet 603;If your opponent's force is 3 or less, when you counterattack with trapped, charge this zone.;;
 Effet 604;This strike costs one less green energy for each advantages you played this turn;;
 Effet 606;Your opponent cannot play advantages.;;
-Effet 607;If your opponent's force is 3 or less, +4 Force.;;
 Effet 608;When you counterattack with Intense training, add an energy to the current zone.;;
 Effet 609;When you counterattack with leave this to me!, for each advantage in your area, add a green energy.;;
 Effet 611;When you celebrate, add 2 yellow energy.;;
@@ -213,20 +221,18 @@ Effet 701;Your strikes in American ninja's zone have : "When you celebrate, add 
 Effet 703;Your strikes in Bruce Wayne's zone cost one less green energy to play.;;
 Effet 704;Your "Batman" Teamworks in Alfred Pennyworth's zone have "Deploy : Free".;;
 Effet 707;When you celebrate, add a red energy. 
-Effet 708;When your opponent focuses, your strike gets +1 Force.;;
-Effet 710;If you opponent counterattacks from his green zone, add a yellow energy.;;
 Effet 711;If you opponent counterattacks from his green zone, add a red energy. 
 Effet 717; Eliminate an opponent's green energy.;;
 Effet 720;Reveal the top card of your deck as long as this card is in your advantage area.;;
 Effet 721; Eliminate an opponent's energy from the same zone. 
 Effet 723;Your teamwork cannot be eliminated;;
+Effet 710;If you opponent counterattacks from his green zone, add a yellow energy.;;
 Effet 724;Your zones cannot be uncharged;;
 Effet 729;Your teamwork cannot be targeted by your opponent's effects.;;
 Effet 730; eliminate an opponent's yellow energy or 2 green.;;
 Effet 731;Your teamwork cannot be eliminated nor your zones uncharged. 
 Effet 733; add a red energy;;
 Effet 738;Your teamworks cannot be eliminated. 
-Effet 741;When your opponent plays a non strike, your strike has +1 force;;
 Effet 746; Charge all you zones;;
 Effet 747; Turn your chamber in its other side;;
 Effet 748;Mr freeze only. When you counterattack from a zone, eliminate up to 4 of your opponent's energy in the same zone.;;

@@ -13,6 +13,7 @@ Effet 257;. Whenever your opponent focuses, quarry crush gets +1 Force.;;
 Effet 337;Whenever your opponent focuses Omashu Dodgeball gets +1 Force.;;
 Effet 338;Whenever your opponent focuses Stone Heel of the King gets +1 Force.;;
 Effet 227;In King Bumi's zone, your strikes have "Whenever your opponent focuses, this strike gets +1 Force while it's in King Bumi's zone.";;
+
 ==> focuses -X force 
 Effet 36;Whenever your opponent focuses, -1 Force.;;
 Effet 162;Whenever your opponent focuses, Howling Squall gets -1 Force.;;
@@ -22,16 +23,20 @@ Effet 329;Whenever your opponent focuses, Taming the Unagi gets -2 Force.;;
 Effet 99;Whenever your opponent focuses, -2 Force.;;
 Effet 161;Whenever your opponent focuses, Howling Cyclone gets -2 Force.;;
 Effet 589;Your opponent's strikes, advantages and teamwork cost an additional yellow to play. When your opponent focuses the big chill has -2 force.;;
+
 ==> chargement +X force
 Effet 136;Whenever your opponent charges one of his or her zones, Boulder Roll gets +1 Force.;;
+
 ==> non strike + X force
 Effet 741;When your opponent plays a non strike, your strike has +1 force;;
 Effet 33;Whenever your opponent plays a non-strike, +1 Force.;;
 Effet 76;If you counterattack from Duncan's zone, whenever your opponent plays a non-strike, your attack gets +1 Force.;;
 Effet 96;If your opponent has not played a non-strike on his turn, +5 Force.;;
+
 ==> non strike - X force
 Effet 583;Whenever your opponent plays a non-strike, -1 Force.;;
 Effet 55;Whenever your opponent plays a non-strike, -2 Force.;;
+
 ==> - 3 force + X force
 Effet 56;If your opponent's attack is 3 Force or less, +4 Force.;;
 Effet 86;if your opponent's attack is 3 Force or less, +2 Force.;;
@@ -42,6 +47,7 @@ Effet 306;If your opponent's attack is 3 Force or less, +3 Force.;;
 Effet 360;When you counterattack against a strike that has 3 Force or less, No Mercy for the Weak gets +3 Force.;;
 Effet 361;When you counterattack against a strike that has 3 Force or less, Open Fire gets +3 Force.;;
 Effet 607;If your opponent's force is 3 or less, +4 Force.;;
+
 ==> zone ou carte en jeu + X force
 Effet 299;Engulfing Helix's Force and Intercept equal the Force of your opponent's attack.;;
 Effet 297;Shooting Star's Intercept equals the Force of your opponent's attack.;;
@@ -58,18 +64,22 @@ Effet 554;if your opponent's attack is 4 Force or less, +3 Force.;;
 Effet 616;If your opponent's force is 3 or less, Aerial battle has +2 Force and starts in your opponent's yellow zone;;
 Effet 540;Deadly accuracy has +X Intercept and when you counterattack, it gets +X Force, where X is the Force of your opponent's strike.;;
 Effet 664;Batman only. This strike has +1 Force for each advantage you played this turn;;
+
 ==> zone ou carte en jeu + X intercept
 Effet 399;While this zone is charged, fire at will has +1 Intercept.;;
 Effet 425;. While you are defending against a strike that has 7 Force or moren your strikes have +3 Intercept.;;
 Effet 591;For each unteamed teamwork in play, +1 Intercept;;
+
 ==> modification force et intercept
 Effet 439;Your strikes have -1 Intercept and +1 Force.
 Effet 644;Batgirl Only. If you control a Robin Teamwork, this strike has +4 Force. If you control a Batman teamwork, this strike has +4 Intercept.;;
+
 ==> bloqué usage de carte dans zone
 Effet 64;You may not play strikes in your yellow or green zone. ;;
 Effet 132;Your opponent cannot play advantages or allies in his or her green zone.;;
 Effet 490;Your opponent cannot play strikes in his or her green zone;;
 Effet 503;exclusive - greenbeard. . Your opponent cannot play cards in hie or her green zone.;;
+
 ==> protection carte
 Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
 Effet 117;Your teamworks cannot be eliminated.;;
@@ -87,6 +97,7 @@ Effet 729;Your teamwork cannot be targeted by your opponent's effects.;;
 Effet 731;Your teamwork cannot be eliminated nor your zones uncharged. 
 Effet 738;Your teamworks cannot be eliminated. 
 Effet 198;While your opponent is defending, your zones cannot be uncharged and your allies cannot be moved or eliminated.;;
+
 ==> blocage effet
 Effet 156;While your opponent is defending, his or her zones cannot be charged.;;
 Effet 388;Your opponent cannot deploy or.;;
@@ -101,6 +112,7 @@ Effet 571;Your opponent cannot play advantages or teamwork.;;
 Effet 597;If your opponent's attack is 3 Force or less, your opponent cannot focus or pitch.;;
 Effet 606;Your opponent cannot play advantages.;;
 Effet 524;While your opponent is defending his or her zones cannot be charged;;
+
 ==> deploy
 Effet 456;Deploy: Green. 
 Effet 458;Deploy: Green. 
@@ -114,18 +126,35 @@ Effet 704;Your "Batman" Teamworks in Alfred Pennyworth's zone have "Deploy : Fre
 Effet 431;Your allies have "Deploy: Free." (as you play an ally, you may move it to any of your empty ally spaces.);;
 Effet 454;In gillette's zone, your allies have "Deploy: Green.";;
 Effet 476;Deploy: Green. 
+
 ==> ajout energie verte
 Effet 47; Eliminate all cards in all advantage areas: For each card eliminated, add a green furyoku.;;
+Effet 580;you gain a green energy;;
+Effet 511;When you counterattack, add a green energy for each ally you have.;;
+Effet 417;When you counterattack from a zone with an ally, add a green energy.;;
+Effet 464;When you counterattack from marty's zone, add a green energy.;;
+Effet 679;When you flip a card in Batgirl's zone, add a green energy.;;
+Effet 685;When you counterattack from Barbara Gordon's zone, add a green energy.;;
+Effet 609;When you counterattack with leave this to me!, for each advantage in your area, add a green energy.;;
+
 ==> ajout energie jaune
 Effet 310;Add three yellow furyoku.;;
 Effet 600;When you counterattack with Tech robbery gain a yellow energy.;;
 Effet 611;When you celebrate, add 2 yellow energy.;;
+Effet 409;when you counterattack from a charged zone, add a yellow energy.;;
+Effet 547;When you counterattack from catwoman's zone add a yellow energy;;
+Effet 677;When this card leaves play, add a yellow energy.;;
+Effet 700;When you play an advantage in Batman's zone, add a yellow energy.;;
+Effet 710;If you opponent counterattacks from his green zone, add a yellow energy.;;
+
 ==> ajout energie rouge
 Effet 313;Add two red furyoku.;;
 Effet 733; add a red energy;;
 Effet 334;When you counterattack, add two red energy.;;
 Effet 335;When you counterattack, add a red energy.;;
 Effet 320;Add a red furyoku and your opponent loses a red furyoku.;;
+Effet 711;If you opponent counterattacks from his green zone, add a red energy. 
+
 ==> ajout energie multiples
 Effet 317;Add two green furyoku, two yellow furyoku, and two red furyoku.;;
 Effet 562;Add an energy to each of your zone with a teamwork;;
@@ -133,21 +162,19 @@ Effet 568;Add 2 energy to each of your zone with a teamwork.;;
 Effet 559;add 2 energy to each zone you control;;
 Effet 309;If any of your zones has no furyoku, add a furyoku to that zone.;;
 Effet 331;When you counterattack, add an energy to each of your zones.;;
-==> suppression energie
-Effet 332;When you counterattack, eliminate all of your energy;;
-Effet 341;Whenever your opponent plays a card in a zone, eliminate an energy in that zone.;;
-Effet 101; Eliminate one of your opponent's green or yellow furyoku.;;
-Effet 143;When you counterattack, you may eliminate a green energy.;;
-Effet 144;When you counterattack, you may eliminate up to two green energy.;;
-==> paiment alternatif
-Effet 78;In Faust VIII's zone, you may pay red costs with yellow furyoku.;;
-Effet 505;exclusive - jack sparrow. You may use yellow energy to pay red sidebar costs.;;
-Effet 83;In Joco's zone, you may pay yellow costs with green furyoku.;;
-Effet 544;In jack sparrow's zone, you may use green energy to pay yellow sidebar costs on your advantage and allies.;;
+Effet 567;If your opponent's force is 3 or less, add 2 energy to each zone.;;
+Effet 590;When you counterattack with small isn't weak, add an energy to the current zone.;;
+Effet 608;When you counterattack with Intense training, add an energy to the current zone.;;
+Effet 643;When you counterattack with Ready to ride, add an energy to the current zone.;;
+Effet 345;Whenever your opponent focuses in a zone, you add an energy of the same color as that zone.;;
+Effet 401;When you counterattack from a zone with an ally, add an energy to that zone.;;
+Effet 694;When this card leaves play, add an energy to each of your zones.;;
+
 ==> diminution cout carte
 Effet 604;This strike costs one less green energy for each advantages you played this turn;;
 Effet 658;If there is a teamwork in this zone, Not my fault cost a less red energy to play;;
-==> augmebtation cout carte
+
+==> augmentation cout carte
 Effet 92;Your opponent's strikes cost a green furyoku more to play in a zone without a teamwork.;;
 Effet 158;. Your opponent's strikes cost an additional yellow energy to play.;;
 Effet 97;Your opponent's strikes cost one green furyoku more if he has not played a non-strike on his turn.;;
@@ -157,6 +184,7 @@ Effet 380;Your opponent's strikes cost an additional green energy to play.;;
 Effet 537;Your opponent's strikes cost an additional red energy to play.;;
 Effet 639;Your opponent's advantage cost 1 additionnal green energy to play;;
 Effet 691;When you counterattack from Lucius Fox's zone, your opponent's advantage cost 1 more green to play.;;
+
 ==> ajout energie a la celebration
 Effet 387;When you celebrate, your opponent adds an energy to each of his or her zones with an ally.;;
 Effet 395;When you celebrate, you may move up to two of your green energy to your yellow zone.;;
@@ -171,6 +199,7 @@ Effet 635;When you celebrate, add an energy to each of your zone;;
 Effet 707;When you celebrate, add a red energy. 
 Effet 695;Your strikes in Commissioner Gordon's zone have : "When you celebrate add 1 energy to this zone".;;
 Effet 701;Your strikes in American ninja's zone have : "When you celebrate, add an energy to this zone".;;
+
 ==> effets celebration
 Effet 526;When you celebrate, charge each of you zones with an ally.;;
 Effet 570;If you celebrate, eliminate all your opponent's teamwork;;
@@ -180,95 +209,103 @@ Effet 645;When you celebrate, shuffle all the teamworks in your discard into you
 Effet 669;When you celebrate, charge all your zones;;
 Effet 663;Gordon only. When you celebrate, add an energy to each of your zone and eliminate all your opponent's teamwork;;
 
-
-Effet 157;When you counterattack, you may move one of your yellow energy to your red zone.;;
+==> affichage carte du deck
 Effet 206;Whenever you flip a card, turn the top card of your deck face up.;;
 Effet 229;Whenever you flip a card in Monk Gyatso's zone turn the top card of your deck face up.;;
-Effet 294;If your opponent's attack is 3 Force or less, you may eliminate up to three furyoku.;;
-Effet 305;Your opponent must discard advantages.;;
-Effet 333;When you counterattack, charge your yellow zone.;;
-Effet 345;Whenever your opponent focuses in a zone, you add an energy of the same color as that zone.;;
-Effet 349;When you counterattack, you may eliminate up to two energy.;;
-Effet 351;When you counterattack, uncharge all of your opponent's zones.;;
-Effet 357;When you clean up Storms Without End. Leave your Chamber Card turned to the back.;;
-Effet 373;. Whenever your opponent focuses in a zone, eliminate an ally in that zone.;;
-Effet 374;Whenever your opponent focuses in a zone, eliminate an ally in that zone.;;
-Effet 379;When you counterattack, your opponent reveals his or her current signature move.;;
 Effet 381;When you flip blade and bullet, turn the top card of your deck face up.;;
 Effet 390;When you flip martial law, turn the top card of your deck face up.;;
-Effet 401;When you counterattack from a zone with an ally, add an energy to that zone.;;
-Effet 405;When your opponent counterattacks from a zone, you may charge your zone of the same color.;;
-Effet 409;when you counterattack from a charged zone, add a yellow energy.;;
-Effet 412;when you counterattack, each player may move on of his or her green energy to that player's yellow zone.;;
-Effet 417;When you counterattack from a zone with an ally, add a green energy.;;
-Effet 443;When you counterattack, move up to three of your green energy to your yellow zone.;;
 Effet 458;Whenever you flip a strike in lord cuttler beckett's zone, turn the top card of your deck face up. 
-Effet 464;When you counterattack from marty's zone, add a green energy.;;
 Effet 465;Whenever you flip a card in tia dalma's zone, each player turns the top card of his or her deck face up.;;
-Effet 478;When you counterattack, you may move one of your opponent's yellow energy to his or her green zone.;;
-Effet 482;When you counterattack from your yellow zone, you may charge that zone.;;
-Effet 486;when you counterattack, you may charge your green zone.;;
-Effet 492;When you counterattack, move hull breach to your red zone;;
+Effet 673;When you flip a card in News team's zone, both player reveal the top card of their deck;;
+Effet 720;Reveal the top card of your deck as long as this card is in your advantage area.;;
+Effet 379;When you counterattack, your opponent reveals his or her current signature move.;;
+
+==> suppression energie
+Effet 332;When you counterattack, eliminate all of your energy;;
+Effet 341;Whenever your opponent plays a card in a zone, eliminate an energy in that zone.;;
+Effet 101; Eliminate one of your opponent's green or yellow furyoku.;;
+Effet 143;When you counterattack, you may eliminate a green energy.;;
+Effet 144;When you counterattack, you may eliminate up to two green energy.;;
+Effet 349;When you counterattack, you may eliminate up to two energy.;;
 Effet 497;exclusive - elizabeth swann. When you counterattack, you may eliminate an energy.;;
-Effet 509;Whenever your opponent charges a zone, you may charge your zone of the same color;;
-Effet 511;When you counterattack, add a green energy for each ally you have.;;
-Effet 515;When you counterattack, you may uncharge each of your opponent's zones without an ally.;;
 Effet 517;When you counterattack, you may eliminate a green energy for each ally you have;;
 Effet 518;When you opponent counterattacks from a zone, eliminate all of his or her energy in that zone;;
 Effet 519;When you counterattack, you may eliminate up to three yellow energy.;;
 Effet 521;When you counterattack, you may eliminate a yellow energy.;;
-Effet 523;When you counterattack against a strike that has 3 Force or less, your opponent skips defending his or her green and yellow zones.;;
-Effet 528;When you counterattack, move all of your energy to your red zone.;;
-Effet 529;When you counterattack, you may move one of your enemy to your red zone;;
-Effet 530;When you counterattack, you may move up to three of your energy to your red zone;;
-Effet 547;When you counterattack from catwoman's zone add a yellow energy;;
+Effet 556;your opponent eliminates an energy of each color.
+Effet 580;Your opponent eliminates a green energy 
 Effet 552;your opponent eliminates 1 red energy;;
-Effet 556;your opponent eliminates an energy of each color. send all the advantages in your discard pile in your deck and shuffle it;;
-Effet 561;When you counterattack with in the loop, charge every zone you control with a "batman team" teamwork in it.;;
-Effet 567;If your opponent's force is 3 or less, add 2 energy to each zone.;;
-Effet 580;Your opponent eliminates a green energy and you gain a green energy;;
-Effet 584;Your opponent may uncharge all of his zone. 
-Effet 586;Eliminate all teamworks.;;
 Effet 587;Your opponent eliminates an energy in each zone with a teamwork;;
-Effet 590;When you counterattack with small isn't weak, add an energy to the current zone.;;
-Effet 596;If your opponent's attack is 3 Force or less, Rush start in your opponent's yellow zone.;;
-Effet 599;Your opponent loses 2 green energy.;;
-Effet 603;If your opponent's force is 3 or less, when you counterattack with trapped, charge this zone.;;
-Effet 608;When you counterattack with Intense training, add an energy to the current zone.;;
-Effet 609;When you counterattack with leave this to me!, for each advantage in your area, add a green energy.;;
-Effet 618;When you counterattack with Call the backup, charge the current zone if you control a teamwork on it;;
-Effet 619;Your opponent's teamwork effects don't apply.;;
-Effet 641;Inspector Yin only. When you counterattack with let's work together from a zone with a teamwork, you may charge any zone.;;
-Effet 642;When you counterattack with Wicked cruelty, your opponent moves one of his red energy to his yellow zone.;;
-Effet 643;When you counterattack with Ready to ride, add an energy to the current zone.;;
+Effet 294;If your opponent's attack is 3 Force or less, you may eliminate up to three furyoku.;;
 Effet 650;When you counterattack with crawling spike, your opponent eliminates one of his yellow energy;;
-Effet 651;If your opponent's attack is 3 Force or less, when you counterattack with fire extinguisher charge this zone;;
-Effet 655;Robin Only. If your opponent's force is 4 or less Daredevil start in your opponent's red zone;;
 Effet 656;When you counterattack with blizzard, your opponent eliminates one of his red energy.;;
 Effet 665;Eliminate one of your opponent's red energy.;;
-Effet 673;When you flip a card in News team's zone, both player reveal the top card of their deck;;
 Effet 675;When this card leaves play, eliminate an opponent energy.;;
-Effet 677;When this card leaves play, add a yellow energy.;;
-Effet 679;When you flip a card in Batgirl's zone, add a green energy.;;
-Effet 682;When you counterattack from scarface's zone, . When this card leaves play, discard all advantages.;;
-Effet 685;When you counterattack from Barbara Gordon's zone, add a green energy.;;
-Effet 694;When this card leaves play, add an energy to each of your zones.;;
-Effet 697;Penguin only. Your strikes in this zone cost none of that zone energy. When this card leaves play, gain 2 yellow energy.;;
-Effet 698;When you counterattack from Arkham warden's zone, your opponent's teamwork effects don't apply.;;
 Effet 699;Joker only. When you play an advantage in Harley quinn's zone, eliminate an opponent's energy of any color you paid. When this card leaves play, gain a red energy.;;
-Effet 700;When you play an advantage in Batman's zone, add a yellow energy.;;
-Effet 703;Your strikes in Bruce Wayne's zone cost one less green energy to play.;;
-Effet 711;If you opponent counterattacks from his green zone, add a red energy. 
 Effet 717; Eliminate an opponent's green energy.;;
-Effet 720;Reveal the top card of your deck as long as this card is in your advantage area.;;
 Effet 721; Eliminate an opponent's energy from the same zone. 
-Effet 710;If you opponent counterattacks from his green zone, add a yellow energy.;;
 Effet 730; eliminate an opponent's yellow energy or 2 green.;;
-Effet 746; Charge all you zones;;
-Effet 747; Turn your chamber in its other side;;
 Effet 748;Mr freeze only. When you counterattack from a zone, eliminate up to 4 of your opponent's energy in the same zone.;;
+Effet 599;Your opponent loses 2 green energy.;;
+
+==> chargement zone
+Effet 333;When you counterattack, charge your yellow zone.;;
+Effet 405;When your opponent counterattacks from a zone, you may charge your zone of the same color.;;
+Effet 482;When you counterattack from your yellow zone, you may charge that zone.;;
+Effet 486;when you counterattack, you may charge your green zone.;;
+Effet 509;Whenever your opponent charges a zone, you may charge your zone of the same color;;
+Effet 603;If your opponent's force is 3 or less, when you counterattack with trapped, charge this zone.;;
+Effet 746; Charge all you zones;;
+Effet 618;When you counterattack with Call the backup, charge the current zone if you control a teamwork on it;;
+Effet 651;If your opponent's attack is 3 Force or less, when you counterattack with fire extinguisher charge this zone;;
+Effet 561;When you counterattack with in the loop, charge every zone you control with a "batman team" teamwork in it.;;
+
+==> dechargemenbt zone
+Effet 351;When you counterattack, uncharge all of your opponent's zones.;;
+Effet 584;Your opponent may uncharge all of his zone. 
+Effet 515;When you counterattack, you may uncharge each of your opponent's zones without an ally.;;
+
+==> eliminer teamwork
+Effet 586;Eliminate all teamworks.;;
+Effet 373;. Whenever your opponent focuses in a zone, eliminate an ally in that zone.;;
+Effet 374;Whenever your opponent focuses in a zone, eliminate an ally in that zone.;;
+
+==> deplacement energie
+Effet 157;When you counterattack, you may move one of your yellow energy to your red zone.;;
+Effet 412;when you counterattack, each player may move on of his or her green energy to that player's yellow zone.;;
+Effet 443;When you counterattack, move up to three of your green energy to your yellow zone.;;
+Effet 478;When you counterattack, you may move one of your opponent's yellow energy to his or her green zone.;;
+Effet 642;When you counterattack with Wicked cruelty, your opponent moves one of his red energy to his yellow zone.;;
+Effet 529;When you counterattack, you may move one of your enemy to your red zone;;
+Effet 528;When you counterattack, move all of your energy to your red zone.;;
+Effet 530;When you counterattack, you may move up to three of your energy to your red zone;;
+
+==> paiment alternatif
+Effet 78;In Faust VIII's zone, you may pay red costs with yellow furyoku.;;
+Effet 505;exclusive - jack sparrow. You may use yellow energy to pay red sidebar costs.;;
+Effet 83;In Joco's zone, you may pay yellow costs with green furyoku.;;
+Effet 544;In jack sparrow's zone, you may use green energy to pay yellow sidebar costs on your advantage and allies.;;
+Effet 703;Your strikes in Bruce Wayne's zone cost one less green energy to play.;;
+Effet 697;Penguin only. Your strikes in this zone cost none of that zone energy. When this card leaves play, gain 2 yellow energy.;;
+
+==> zone de départ
+Effet 523;When you counterattack against a strike that has 3 Force or less, your opponent skips defending his or her green and yellow zones.;;
+Effet 596;If your opponent's attack is 3 Force or less, Rush start in your opponent's yellow zone.;;
+Effet 655;Robin Only. If your opponent's force is 4 or less Daredevil start in your opponent's red zone;;
+
+==> effet exotique
+Effet 698;When you counterattack from Arkham warden's zone, your opponent's teamwork effects don't apply.;;
+Effet 305;Your opponent must discard advantages.;;
+Effet 357;When you clean up Storms Without End. Leave your Chamber Card turned to the back.;;
+Effet 492;When you counterattack, move hull breach to your red zone;;
+Effet 556; send all the advantages in your discard pile in your deck and shuffle it;;
+Effet 619;Your opponent's teamwork effects don't apply.;;
+Effet 682;When you counterattack from scarface's zone, . When this card leaves play, discard all advantages.;;
+Effet 747; Turn your chamber in its other side;;
+
 
 Effets
+Effet 641;Inspector Yin only. When you counterattack with let's work together from a zone with a teamwork, you may charge any zone.;;
 Effet 2;green ==> +1 Intercept.;;
 Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force
 Effet 5; Before flipping your next card, draw two cards. Place one on top of your deck and the other in your discard pile.;;

@@ -57,6 +57,7 @@ class Effets
                 case 220 : 
                 case 237 : 
                 case 448 : 
+                case 439 : 
                 case 466 : 
                 case 470 : 
                 case 681 : 
@@ -292,6 +293,7 @@ class Effets
                 case 220 : 
                 case 270 : 
                 case 466 : 
+                case 439 : 
                 case 472 : 
                 case 727 : 
                     $bonus -= 1;
@@ -302,6 +304,7 @@ class Effets
                 case 63 : 
                 case 116 : 
                 case 224 : 
+                case 456 : 
                 case 670 : 
                 case 716 : 
                     $bonus += 1;
@@ -850,10 +853,12 @@ class Effets
                     break;
                 // effet qui rajoute ou déplace des énegies au joueur
                 case 228 :
-                    if ($action == 'counter attack') {
-                        $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
-                        $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
-                    }
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
+                    break;
+                case 320 :
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_ROUGE','DISCARD');
                     break;
                 case 231 :
                     if ($action == 'counter attack') {
@@ -868,20 +873,18 @@ class Effets
                     }
                     break;
                 case 42 :
-                    if ($action == 'jouer')  {
-                        $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_JAUNE');
-                    }
+                    $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_JAUNE');
                     break;
                 case 215 :
-                    if ($action == 'jouer')  {
-                        $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');
-                    }
+                case 335 :
+                case 733 :
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');
                     break;
                 case 72 :
                 case 115 :
-                    if ($action == 'jouer')  {
-                        $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_ROUGE');
-                    }
+                case 313 :
+                case 334 :
+                    $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_ROUGE');
                     break;
                 case 45 :
                     if ($action == 'counter attack')  {

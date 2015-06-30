@@ -2,8 +2,6 @@ A faire
 pictos pour choix
 faire hériter les différents services d'un même classes pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiqué les emplacements actifs et autre à prendre en compte)
 
-Effet 456;In james norrington's zone, your strikes have +1 Intercept.;;
-// effet direct
 ==> focuses +X force 
 Effet 708;When your opponent focuses, your strike gets +1 Force.;;
 Effet 421;Whenever your opponent focuses, your strike gets +1 Force.;;
@@ -71,7 +69,6 @@ Effet 425;. While you are defending against a strike that has 7 Force or moren y
 Effet 591;For each unteamed teamwork in play, +1 Intercept;;
 
 ==> modification force et intercept
-Effet 439;Your strikes have -1 Intercept and +1 Force.
 Effet 644;Batgirl Only. If you control a Robin Teamwork, this strike has +4 Force. If you control a Batman teamwork, this strike has +4 Intercept.;;
 
 ==> bloqué usage de carte dans zone
@@ -148,11 +145,6 @@ Effet 700;When you play an advantage in Batman's zone, add a yellow energy.;;
 Effet 710;If you opponent counterattacks from his green zone, add a yellow energy.;;
 
 ==> ajout energie rouge
-Effet 313;Add two red furyoku.;;
-Effet 733; add a red energy;;
-Effet 334;When you counterattack, add two red energy.;;
-Effet 335;When you counterattack, add a red energy.;;
-Effet 320;Add a red furyoku and your opponent loses a red furyoku.;;
 Effet 711;If you opponent counterattacks from his green zone, add a red energy. 
 
 ==> ajout energie multiples

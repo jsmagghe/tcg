@@ -1,6 +1,6 @@
 A faire
 pictos pour choix
-faire hériter les différents services d'un même classes pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiqué les emplacements actifs et autre à prendre en compte)
+faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
 
 ==> focuses +X force 
 Effet 708;When your opponent focuses, your strike gets +1 Force.;;

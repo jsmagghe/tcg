@@ -269,6 +269,14 @@ class Effets
             }
         }
 
+        $proprieteEffet = "getJoueur".$numeroAttaquant."Effets";
+
+        $effets = $this->Partie->$proprieteEffet();
+
+        foreach ($this->Partie-> as $key => $value) {
+            # code...
+        }
+
         return $bonus;
     }
 

@@ -96,6 +96,13 @@ class Partie
     private $Joueur1DeckCharge;
 
     /**
+     * @var array
+     *
+     * @ORM\Column(name="Joueur1Effets", type="array")
+     */
+    private $Joueur1Effets;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="Joueur1DiscardCharge", type="boolean")
@@ -138,6 +145,13 @@ class Partie
     private $Joueur2ZoneEnCours;
 
     /**
+     * @var array
+     *
+     * @ORM\Column(name="Joueur2Effets", type="array")
+     */
+    private $Joueur2Effets;
+
+    /**
      * @var datetime
      *
      * @ORM\Column(name="dateDerniereAction", type="datetime")
@@ -161,6 +175,7 @@ class Partie
         $this->Joueur1DeckCharge = false;
         $this->Joueur1DiscardCharge = false;
         $this->Joueur1ZoneEnCours = '';
+        $this->Joueur1Effets = array();
 
         $this->joueur2 = $joueur2;
         $this->Joueur2Point = 0;
@@ -169,6 +184,7 @@ class Partie
         $this->Joueur2DeckCharge = false;
         $this->Joueur2DiscardCharge = false;
         $this->Joueur2ZoneEnCours = '';
+        $this->Joueur2Effets = array();
         
         $this->dateDerniereAction = new \Datetime();
     }
@@ -482,6 +498,28 @@ class Partie
     public function setJoueur2ZoneEnCours($Joueur2ZoneEnCours)
     {
         $this->Joueur2ZoneEnCours = $Joueur2ZoneEnCours;
+        return $this;
+    }
+
+    public function getJoueur1Effets()
+    {
+        return $this->Joueur1Effets;
+    }
+
+    public function setJoueur1Effets($Joueur1Effets)
+    {
+        $this->Joueur1Effets = $Joueur1Effets;
+        return $this;
+    }
+
+    public function getJoueur2Effets()
+    {
+        return $this->Joueur1Effets;
+    }
+
+    public function setJoueur2Effets($Joueur2Effets)
+    {
+        $this->Joueur2Effets = $Joueur2Effets;
         return $this;
     }
 

@@ -273,7 +273,7 @@ class Effets
 
         $effets = $this->Partie->$proprieteEffet();
 
-        foreach ($this->Partie-> as $key => $value) {
+        foreach ($effets as $key => $value) {
             # code...
         }
 

@@ -270,11 +270,12 @@ class Effets
         }
 
         $proprieteEffet = "getJoueur".$numeroAttaquant."Effets";
-
         $effets = $this->Partie->$proprieteEffet();
 
-        foreach ($effets as $key => $value) {
-            # code...
+        foreach ($effets as $tab) {
+            if (isset($tab['attaque'])) {
+                $bonus += (int($tab['attaque']));
+            }
         }
 
         return $bonus;
@@ -369,6 +370,7 @@ class Effets
                 case 193 : 
                 case 196 : 
                 case 279 : 
+                case 399 : 
                     if (
                         (($this->infos['chamberChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_VERT'))
                         || (($this->infos['deckChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_JAUNE'))
@@ -386,6 +388,14 @@ class Effets
                         $bonus += 2;
                     }
                     break;
+
+                // force adverse
+                case 425 : 
+                    if ($this->infos['attaqueAttaquant']>=7) {
+                        $bonus += 3;
+                    }
+                    break;
+
 
             }
         }
@@ -960,6 +970,29 @@ class Effets
                     $this->interactions->deplacerCarte($joueurAdverse,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'),'DISCARD');
                     break;
 
+                // -3 force
+                case 86 : 
+                    if ($this->infos['attaqueAttaquant']<=3) {
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'attaque','2');
+                    }
+                    break;
+                case 137 : 
+                case 138 : 
+                case 145 : 
+                case 306 : 
+                case 360 : 
+                case 361 : 
+                    if ($this->infos['attaqueAttaquant']<=3) {
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'attaque','3');
+                    }
+                    break;
+                case 56 : 
+                case 607 : 
+                    if ($this->infos['attaqueAttaquant']<=3) {
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'attaque','4');
+                    }
+                    break;
+
             }
         }
 
@@ -1012,6 +1045,7 @@ class Effets
                     break;
             }
         }
+
     }
 
     public function effetPitcher($joueurConcerne) {

@@ -403,6 +403,7 @@ class Partie
             'energieJauneDisponibleAttaquant' => $energieJauneDisponibleAttaquant,
             'energieRougeDisponibleAttaquant' => $energieRougeDisponibleAttaquant,
             'typeCarteActive' => ($CartePartie != null) ? $CartePartie->getCarte()->getTypeCarte()->getTag() : 0,
+            'attaqueAttaquant' => $this->attaqueEnCours(),
             );
     }
 

@@ -35,17 +35,6 @@ Effet 96;If your opponent has not played a non-strike on his turn, +5 Force.;;
 Effet 583;Whenever your opponent plays a non-strike, -1 Force.;;
 Effet 55;Whenever your opponent plays a non-strike, -2 Force.;;
 
-==> - 3 force + X force
-Effet 56;If your opponent's attack is 3 Force or less, +4 Force.;;
-Effet 86;if your opponent's attack is 3 Force or less, +2 Force.;;
-Effet 137;When you counterattack against a strike that has 3 Force or less, Blazing Axe Kick gets +3 Force.;;
-Effet 138;When you counterattack against a strike that has 3 Force or less, Boiling Point gets +3 Force.;;
-Effet 145;When you counterattack against a strike that has 3 Force or less, Gout of Flame gets +3 Force.;;
-Effet 306;If your opponent's attack is 3 Force or less, +3 Force.;;
-Effet 360;When you counterattack against a strike that has 3 Force or less, No Mercy for the Weak gets +3 Force.;;
-Effet 361;When you counterattack against a strike that has 3 Force or less, Open Fire gets +3 Force.;;
-Effet 607;If your opponent's force is 3 or less, +4 Force.;;
-
 ==> zone ou carte en jeu + X force
 Effet 299;Engulfing Helix's Force and Intercept equal the Force of your opponent's attack.;;
 Effet 297;Shooting Star's Intercept equals the Force of your opponent's attack.;;
@@ -63,9 +52,7 @@ Effet 616;If your opponent's force is 3 or less, Aerial battle has +2 Force and 
 Effet 540;Deadly accuracy has +X Intercept and when you counterattack, it gets +X Force, where X is the Force of your opponent's strike.;;
 Effet 664;Batman only. This strike has +1 Force for each advantage you played this turn;;
 
-==> zone ou carte en jeu + X intercept
-Effet 399;While this zone is charged, fire at will has +1 Intercept.;;
-Effet 425;. While you are defending against a strike that has 7 Force or moren your strikes have +3 Intercept.;;
+==> carte en jeu + X intercept
 Effet 591;For each unteamed teamwork in play, +1 Intercept;;
 
 ==> modification force et intercept

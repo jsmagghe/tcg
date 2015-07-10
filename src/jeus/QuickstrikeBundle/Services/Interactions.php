@@ -111,6 +111,12 @@ class Interactions
         $this->em->flush();
     }
 
+    public function initialiserEffets($joueurConcerne) {
+        $setProprieteEffet = "setJoueur".$joueurConcerne."Effets";
+        $this->Partie->$setProprieteEffet(array());
+        $this->em->persist($this->Partie);
+        $this->em->flush();
+    }
     public function ajoutEffet($joueurConcerne,$idCarte,$typeEffet,$effet) {
         $getProprieteEffet = "getJoueur".$joueurConcerne."Effets";
         $setProprieteEffet = "setJoueur".$joueurConcerne."Effets";

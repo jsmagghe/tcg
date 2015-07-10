@@ -279,6 +279,7 @@ class Partie
 
     public function contreAttaquer($joueurConcerne,$chamber) {
         $joueurAdverse = ($joueurConcerne==1)?2:1;
+        $this->interactions->initialiserEffets($joueurAdverse);
         $this->effets->effetJouer($joueurConcerne,'counter attack');
         $this->retournerChamber($joueurAdverse);
         $this->attaquer($joueurConcerne,false,$chamber);

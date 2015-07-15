@@ -2,26 +2,6 @@ A faire
 pictos pour choix
 faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
 
-==> focuses +X force 
-Effet 708;When your opponent focuses, your strike gets +1 Force.;;
-Effet 421;Whenever your opponent focuses, your strike gets +1 Force.;;
-Effet 49;Whenever your opponent focuses, +1 Force.;;
-Effet 253;Whenever your opponent focuses, boulder smash gets +1 Force.;;
-Effet 257;. Whenever your opponent focuses, quarry crush gets +1 Force.;;
-Effet 337;Whenever your opponent focuses Omashu Dodgeball gets +1 Force.;;
-Effet 338;Whenever your opponent focuses Stone Heel of the King gets +1 Force.;;
-Effet 227;In King Bumi's zone, your strikes have "Whenever your opponent focuses, this strike gets +1 Force while it's in King Bumi's zone.";;
-
-==> focuses -X force 
-Effet 36;Whenever your opponent focuses, -1 Force.;;
-Effet 162;Whenever your opponent focuses, Howling Squall gets -1 Force.;;
-Effet 163;Whenever your opponent focuses, Howling wind gets -1 Force.;;
-Effet 328;Whenever your opponent focuses, Penguin Sledding gets -1 Force.;;
-Effet 329;Whenever your opponent focuses, Taming the Unagi gets -2 Force.;;
-Effet 99;Whenever your opponent focuses, -2 Force.;;
-Effet 161;Whenever your opponent focuses, Howling Cyclone gets -2 Force.;;
-Effet 589;Your opponent's strikes, advantages and teamwork cost an additional yellow to play. When your opponent focuses the big chill has -2 force.;;
-
 ==> chargement +X force
 Effet 136;Whenever your opponent charges one of his or her zones, Boulder Roll gets +1 Force.;;
 
@@ -163,6 +143,7 @@ Effet 380;Your opponent's strikes cost an additional green energy to play.;;
 Effet 537;Your opponent's strikes cost an additional red energy to play.;;
 Effet 639;Your opponent's advantage cost 1 additionnal green energy to play;;
 Effet 691;When you counterattack from Lucius Fox's zone, your opponent's advantage cost 1 more green to play.;;
+Effet 589;Your opponent's strikes, advantages and teamwork cost an additional yellow to play. 
 
 ==> ajout energie a la celebration
 Effet 387;When you celebrate, your opponent adds an energy to each of his or her zones with an ally.;;

@@ -273,8 +273,8 @@ class Effets
         $effets = $this->Partie->$proprieteEffet();
 
         foreach ($effets as $tab) {
-            if (isset($tab['attaque'])) {
-                $bonus += (int($tab['attaque']));
+            if (isset($tab['force'])) {
+                $bonus += (int($tab['force']));
             }
         }
 
@@ -799,6 +799,10 @@ class Effets
         $joueurAdverse = ($joueurConcerne==1)?2:1;
         $CarteJouee = $this->CarteEnJeus[$joueurConcerne][$this->infos['ZoneDefenseur']];
 
+        if ($this->infos['typeCarteActive'] != 'STRIKE') {
+            $this->interactions->ajoutEffet($joueurConcerne,null,'non-strike','oui');
+        }
+
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
         foreach ($CarteEnJeus as $Cartejeu) {
@@ -973,7 +977,7 @@ class Effets
                 // -3 force
                 case 86 : 
                     if ($this->infos['attaqueAttaquant']<=3) {
-                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'attaque','2');
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','2');
                     }
                     break;
                 case 137 : 
@@ -983,13 +987,13 @@ class Effets
                 case 360 : 
                 case 361 : 
                     if ($this->infos['attaqueAttaquant']<=3) {
-                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'attaque','3');
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','3');
                     }
                     break;
                 case 56 : 
                 case 607 : 
                     if ($this->infos['attaqueAttaquant']<=3) {
-                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'attaque','4');
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','4');
                     }
                     break;
 
@@ -1129,6 +1133,35 @@ class Effets
                 case 148 : 
                     $this->interactions->deplacerCarte($joueurConcerne,1,'ENERGIE_VERTE','DISCARD');
                     break;
+
+                // -2 force
+                case 99 : 
+                case 161 : 
+                case 329 : 
+                case 589 : 
+                    $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','-2');
+                    break;                    
+
+                // -1 force
+                case 36 : 
+                case 162 : 
+                case 163 : 
+                case 328 : 
+                    $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','-1');
+                    break;                    
+
+                // +1 force
+                case 49 : 
+                case 227 : 
+                case 253 : 
+                case 257 : 
+                case 337 : 
+                case 338 : 
+                case 421 : 
+                case 708 : 
+                    $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','1');
+                    break;
+
             }
         }
     }

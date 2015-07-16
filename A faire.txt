@@ -5,20 +5,11 @@ faire hériter les différents services d'un même classe pour les différents j
 ==> chargement +X force
 Effet 136;Whenever your opponent charges one of his or her zones, Boulder Roll gets +1 Force.;;
 
-==> non strike + X force
-Effet 741;When your opponent plays a non strike, your strike has +1 force;;
-Effet 33;Whenever your opponent plays a non-strike, +1 Force.;;
-Effet 76;If you counterattack from Duncan's zone, whenever your opponent plays a non-strike, your attack gets +1 Force.;;
-Effet 96;If your opponent has not played a non-strike on his turn, +5 Force.;;
-
-==> non strike - X force
-Effet 583;Whenever your opponent plays a non-strike, -1 Force.;;
-Effet 55;Whenever your opponent plays a non-strike, -2 Force.;;
-
 ==> zone ou carte en jeu + X force
 Effet 299;Engulfing Helix's Force and Intercept equal the Force of your opponent's attack.;;
 Effet 297;Shooting Star's Intercept equals the Force of your opponent's attack.;;
 Effet 347;When you counterattack, Slingshot Stream gets +X Force, where X is the Force of your opponent's strike.;;
+Effet 540;Deadly accuracy has +X Intercept and when you counterattack, it gets +X Force, where X is the Force of your opponent's strike.;;
 Effet 182;While you have an ally in this zone, tandem attack has +2 Force.;;
 Effet 314; For each teamwork you have in play, +1 Force.;;
 Effet 315;Uncharge all of your opponent's zones. For each zone uncharged this way, +1 Force.;;
@@ -27,9 +18,7 @@ Effet 366;while you have more allies than your opponent, brutes from the deep ha
 Effet 398;while you have an ally in this zone, direct hit has +1 Force. While this zone is charged, direct hit has +1 Force.;;
 Effet 513;While you have an ally in each of your zones, commodore's command has +2 Force;;
 Effet 631;For each gotham city police department teamwork in play, +1 force;;
-Effet 554;if your opponent's attack is 4 Force or less, +3 Force.;;
 Effet 616;If your opponent's force is 3 or less, Aerial battle has +2 Force and starts in your opponent's yellow zone;;
-Effet 540;Deadly accuracy has +X Intercept and when you counterattack, it gets +X Force, where X is the Force of your opponent's strike.;;
 Effet 664;Batman only. This strike has +1 Force for each advantage you played this turn;;
 
 ==> carte en jeu + X intercept

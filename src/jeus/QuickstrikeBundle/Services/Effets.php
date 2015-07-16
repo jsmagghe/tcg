@@ -37,6 +37,10 @@ class Effets
 
     public function bonusAttaque($numeroAttaquant,$numeroDefenseur) {
         $bonus = 0;
+
+        $proprieteEffetAttaquant = "getJoueur".$numeroAttaquant."Effets";
+        $proprieteEffetDefenseur = "getJoueur".$numeroDefenseur."Effets";
+
         $CarteEnJeus = (isset($this->CarteEnJeus[$numeroAttaquant]['ACTIVE'])) ? $this->CarteEnJeus[$numeroAttaquant]['ACTIVE'] : null;
         foreach ($CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
@@ -241,6 +245,21 @@ class Effets
                     $bonus += $this->infos['deckChargeDefenseur'] ? 1 : 0;
                     $bonus += $this->infos['discardChargeDefenseur'] ? 1 : 0;
                     break;
+                // aucun non strike
+                case 96 :
+                    $effets = $this->Partie->$proprieteEffetDefenseur();
+                    $trouve = false;
+                    foreach ($$effets as $tab) {
+                        if (isset($tab['non-strike'])) {
+                            $trouve = true;
+                            break;
+                        }
+                    }
+                    if ($trouve) {
+                        $bonus += 5;
+                    }
+                    break;
+
 
             }
         }
@@ -269,8 +288,7 @@ class Effets
             }
         }
 
-        $proprieteEffet = "getJoueur".$numeroAttaquant."Effets";
-        $effets = $this->Partie->$proprieteEffet();
+        $effets = $this->Partie->$proprieteEffetAttaquant();
 
         foreach ($effets as $tab) {
             if (isset($tab['force'])) {
@@ -996,6 +1014,12 @@ class Effets
                         $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','4');
                     }
                     break;
+                // -4 force
+                case 554 : 
+                    if ($this->infos['attaqueAttaquant']<=4) {
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','3');
+                    }
+                    break;
 
             }
         }
@@ -1045,6 +1069,25 @@ class Effets
                         $this->Partie->dechargerZone($joueurConcerne,$this->infos['ZoneDefenseur']);
                         $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK'),'DISCARD');
                         $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'),'DISCARD');
+                    }
+                    break;
+                // - x force 
+                case 55 : 
+                    if ($this->infos['typeCarteActive'] != 'STRIKE') {
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','-2');
+                    }
+                    break;
+                case 583 : 
+                    if ($this->infos['typeCarteActive'] != 'STRIKE') {
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','-1');
+                    }
+                    break;
+                // + x force 
+                case 33 : 
+                case 76 : 
+                case 741 : 
+                    if ($this->infos['typeCarteActive'] != 'STRIKE') {
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','1');
                     }
                     break;
             }

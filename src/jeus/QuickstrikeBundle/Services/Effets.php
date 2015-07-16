@@ -904,6 +904,12 @@ class Effets
                         $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_VERTE','DISCARD');
                     }
                     break;
+                // +1 vert \ joueur
+                case 464 :
+                case 580 :
+                case 685 :
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
+                    break;
                 case 38 :
                 case 211 :
                     if (($action == 'jouer') && ($action == 'counter attack')) {

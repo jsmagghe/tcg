@@ -82,12 +82,9 @@ Effet 476;Deploy: Green.
 
 ==> ajout energie verte
 Effet 47; Eliminate all cards in all advantage areas: For each card eliminated, add a green furyoku.;;
-Effet 580;you gain a green energy;;
 Effet 511;When you counterattack, add a green energy for each ally you have.;;
 Effet 417;When you counterattack from a zone with an ally, add a green energy.;;
-Effet 464;When you counterattack from marty's zone, add a green energy.;;
 Effet 679;When you flip a card in Batgirl's zone, add a green energy.;;
-Effet 685;When you counterattack from Barbara Gordon's zone, add a green energy.;;
 Effet 609;When you counterattack with leave this to me!, for each advantage in your area, add a green energy.;;
 
 ==> ajout energie jaune

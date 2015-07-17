@@ -223,6 +223,11 @@ class Effets
                     $bonus += (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']) == false) ? 1 : 0;
                     $bonus += (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']) == false) ? 1 : 0;
                     break;
+                case 398 :
+                    if ($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')]) {
+                        $bonus += 1;
+                    }
+                    break;
 
                 // zone chargée
                 case 130 : 

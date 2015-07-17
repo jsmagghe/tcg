@@ -156,6 +156,7 @@ class Effets
                     $bonus += $this->infos['nombreTeamworkDefenseur'];
                     break;
                 case 174 :
+                case 314 :
                 case 542 :
                 case 595 :
                     $bonus += $this->infos['nombreTeamworkAttaquant'];
@@ -190,6 +191,11 @@ class Effets
                         $bonus += 1;
                     } 
                     break;
+                case 513 : 
+                    if ($this->infos['nombreTeamworkDefenseur'] == 3) {
+                        $bonus += 2;
+                    }
+                    break;
                 case 370 :
                 case 539 :
                     if ($this->infos['nombreTeamworkDefenseur']<$this->infos['nombreTeamworkAttaquant']) {
@@ -197,6 +203,7 @@ class Effets
                     }
                     break;
                 case 111 :
+                case 366 :
                 case 538 :
                     if ($this->infos['nombreTeamworkDefenseur']<$this->infos['nombreTeamworkAttaquant']) {
                         $bonus += 3;
@@ -209,9 +216,7 @@ class Effets
                     }
                     break;                    
                 case 622 : 
-                    $bonus += (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERT']) == false) ? 1 : 0;
-                    $bonus += (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE']) == false) ? 1 : 0;
-                    $bonus += (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_ROUGE']) == false) ? 1 : 0;
+                    $bonus += 3 - $this->infos['nombreTeamworkAttaquant'];
                     break;
                 case 652 : 
                     $bonus += (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERT']) == false) ? 1 : 0;
@@ -1000,6 +1005,7 @@ class Effets
 
                 // -3 force
                 case 86 : 
+                case 616 : 
                     if ($this->infos['attaqueAttaquant']<=3) {
                         $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','2');
                     }

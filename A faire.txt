@@ -11,14 +11,11 @@ Effet 297;Shooting Star's Intercept equals the Force of your opponent's attack.;
 Effet 347;When you counterattack, Slingshot Stream gets +X Force, where X is the Force of your opponent's strike.;;
 Effet 540;Deadly accuracy has +X Intercept and when you counterattack, it gets +X Force, where X is the Force of your opponent's strike.;;
 Effet 182;While you have an ally in this zone, tandem attack has +2 Force.;;
-Effet 314; For each teamwork you have in play, +1 Force.;;
 Effet 315;Uncharge all of your opponent's zones. For each zone uncharged this way, +1 Force.;;
 Effet 322;Charge all of your opponent's zones. For each charged this way, +2 Force.;;
-Effet 366;while you have more allies than your opponent, brutes from the deep has +3 Force.;;
 Effet 398;while you have an ally in this zone, direct hit has +1 Force. While this zone is charged, direct hit has +1 Force.;;
-Effet 513;While you have an ally in each of your zones, commodore's command has +2 Force;;
 Effet 631;For each gotham city police department teamwork in play, +1 force;;
-Effet 616;If your opponent's force is 3 or less, Aerial battle has +2 Force and starts in your opponent's yellow zone;;
+Effet 616;If your opponent's force is 3 or less, Aerial battle  and starts in your opponent's yellow zone;;
 Effet 664;Batman only. This strike has +1 Force for each advantage you played this turn;;
 
 ==> carte en jeu + X intercept

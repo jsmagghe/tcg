@@ -643,6 +643,65 @@ class Effets
 
     }
 
+    public function jouerPossible($joueurConcerne) {
+        $jouerPossible = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 64 : 
+                    if (
+                        ($this->infos['typeCarteActive']=='STRIKE')
+                        && (($this->infos['ZoneDefenseur']=='STRIKE_VERT') || ($this->infos['ZoneDefenseur']=='STRIKE_JAUNE'))
+                        ) {
+                        $jouerPossible = false;                        
+                    }
+                    break;
+            }
+        }
+
+
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 132 : 
+                    if (
+                        ($this->infos['ZoneDefenseur']=='STRIKE_VERT')
+                        && (($this->infos['typeCarteActive']=='TEAMWORK') || ($this->infos['typeCarteActive']=='AVANTAGE'))
+                        ) {
+                        $jouerPossible = false;                        
+                    }
+                    break;
+                case 490 : 
+                    if (
+                        ($this->infos['ZoneDefenseur']=='STRIKE_VERT') && ($this->infos['typeCarteActive']=='STRIKE')
+                        ) {
+                        $jouerPossible = false;                        
+                    }
+                    break;
+                case 503 : 
+                    if ($this->infos['ZoneDefenseur']=='STRIKE_VERT') {
+                        $jouerPossible = false;                        
+                    }
+                    break;
+            }
+        }
+
+        return $jouerPossible;
+
+    }
+
     public function signaturePossible($joueurConcerne) {
         $signaturePossible = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;
@@ -1061,6 +1120,7 @@ class Effets
                     }
                     break;
                 case 119 : 
+                case 711 : 
                     if (($action == 'counter attack') && ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT')) {
                         $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_ROUGE');
                     }

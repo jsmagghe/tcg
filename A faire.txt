@@ -24,12 +24,6 @@ Effet 591;For each unteamed teamwork in play, +1 Intercept;;
 ==> modification force et intercept
 Effet 644;Batgirl Only. If you control a Robin Teamwork, this strike has +4 Force. If you control a Batman teamwork, this strike has +4 Intercept.;;
 
-==> bloqué usage de carte dans zone
-Effet 64;You may not play strikes in your yellow or green zone. ;;
-Effet 132;Your opponent cannot play advantages or allies in his or her green zone.;;
-Effet 490;Your opponent cannot play strikes in his or her green zone;;
-Effet 503;exclusive - greenbeard. . Your opponent cannot play cards in hie or her green zone.;;
-
 ==> protection carte
 Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
 Effet 117;Your teamworks cannot be eliminated.;;
@@ -48,6 +42,20 @@ Effet 731;Your teamwork cannot be eliminated nor your zones uncharged.
 Effet 738;Your teamworks cannot be eliminated. 
 Effet 198;While your opponent is defending, your zones cannot be uncharged and your allies cannot be moved or eliminated.;;
 
+==> deploy
+Effet 456;Deploy: Green. 
+Effet 458;Deploy: Green. 
+Effet 464;Deploy: Yellow. 
+Effet 465;Deploy: Yellow.
+Effet 467;Deploy: Yellow. 
+Effet 470;Deploy: Red. 
+Effet 472;Deploy: Free. 
+Effet 696;Your teamwork in news anchor's zone have "Deploy : Yellow".;;
+Effet 704;Your "Batman" Teamworks in Alfred Pennyworth's zone have "Deploy : Free".;;
+Effet 431;Your allies have "Deploy: Free." (as you play an ally, you may move it to any of your empty ally spaces.);;
+Effet 454;In gillette's zone, your allies have "Deploy: Green.";;
+Effet 476;Deploy: Green. 
+
 ==> blocage effet
 Effet 156;While your opponent is defending, his or her zones cannot be charged.;;
 Effet 388;Your opponent cannot deploy or.;;
@@ -62,20 +70,6 @@ Effet 571;Your opponent cannot play advantages or teamwork.;;
 Effet 597;If your opponent's attack is 3 Force or less, your opponent cannot focus or pitch.;;
 Effet 606;Your opponent cannot play advantages.;;
 Effet 524;While your opponent is defending his or her zones cannot be charged;;
-
-==> deploy
-Effet 456;Deploy: Green. 
-Effet 458;Deploy: Green. 
-Effet 464;Deploy: Yellow. 
-Effet 465;Deploy: Yellow.
-Effet 467;Deploy: Yellow. 
-Effet 470;Deploy: Red. 
-Effet 472;Deploy: Free. 
-Effet 696;Your teamwork in news anchor's zone have "Deploy : Yellow".;;
-Effet 704;Your "Batman" Teamworks in Alfred Pennyworth's zone have "Deploy : Free".;;
-Effet 431;Your allies have "Deploy: Free." (as you play an ally, you may move it to any of your empty ally spaces.);;
-Effet 454;In gillette's zone, your allies have "Deploy: Green.";;
-Effet 476;Deploy: Green. 
 
 ==> ajout energie verte
 Effet 47; Eliminate all cards in all advantage areas: For each card eliminated, add a green furyoku.;;
@@ -93,9 +87,6 @@ Effet 547;When you counterattack from catwoman's zone add a yellow energy;;
 Effet 677;When this card leaves play, add a yellow energy.;;
 Effet 700;When you play an advantage in Batman's zone, add a yellow energy.;;
 Effet 710;If you opponent counterattacks from his green zone, add a yellow energy.;;
-
-==> ajout energie rouge
-Effet 711;If you opponent counterattacks from his green zone, add a red energy. 
 
 ==> ajout energie multiples
 Effet 317;Add two green furyoku, two yellow furyoku, and two red furyoku.;;

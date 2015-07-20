@@ -680,7 +680,10 @@ class Partie
                         $CarteActive = $CarteEnJeus[$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
                         $Carte = $CarteActive->getCarte();
                     }                    
-                    if ($this->isCartePayable($this->numeroDefenseur, $Carte)) {
+                    if (
+                        ($this->isCartePayable($this->numeroDefenseur, $Carte)) 
+                        && ($this->effets->jouerPossible($this->numeroDefenseur))
+                    {
                         if ($Carte->getTypeCarte()->getTag()=='STRIKE') 
                         {
                             $defense = $Carte->getIntercept()+$this->effets->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant,$this->infos());  

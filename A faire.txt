@@ -73,32 +73,20 @@ Effet 524;While your opponent is defending his or her zones cannot be charged;;
 
 ==> ajout energie verte
 Effet 47; Eliminate all cards in all advantage areas: For each card eliminated, add a green furyoku.;;
-Effet 511;When you counterattack, add a green energy for each ally you have.;;
 Effet 417;When you counterattack from a zone with an ally, add a green energy.;;
 Effet 679;When you flip a card in Batgirl's zone, add a green energy.;;
 Effet 609;When you counterattack with leave this to me!, for each advantage in your area, add a green energy.;;
 
 ==> ajout energie jaune
-Effet 310;Add three yellow furyoku.;;
-Effet 600;When you counterattack with Tech robbery gain a yellow energy.;;
 Effet 611;When you celebrate, add 2 yellow energy.;;
 Effet 409;when you counterattack from a charged zone, add a yellow energy.;;
-Effet 547;When you counterattack from catwoman's zone add a yellow energy;;
 Effet 677;When this card leaves play, add a yellow energy.;;
-Effet 700;When you play an advantage in Batman's zone, add a yellow energy.;;
-Effet 710;If you opponent counterattacks from his green zone, add a yellow energy.;;
 
 ==> ajout energie multiples
-Effet 317;Add two green furyoku, two yellow furyoku, and two red furyoku.;;
 Effet 562;Add an energy to each of your zone with a teamwork;;
 Effet 568;Add 2 energy to each of your zone with a teamwork.;;
-Effet 559;add 2 energy to each zone you control;;
 Effet 309;If any of your zones has no furyoku, add a furyoku to that zone.;;
-Effet 331;When you counterattack, add an energy to each of your zones.;;
 Effet 567;If your opponent's force is 3 or less, add 2 energy to each zone.;;
-Effet 590;When you counterattack with small isn't weak, add an energy to the current zone.;;
-Effet 608;When you counterattack with Intense training, add an energy to the current zone.;;
-Effet 643;When you counterattack with Ready to ride, add an energy to the current zone.;;
 Effet 345;Whenever your opponent focuses in a zone, you add an energy of the same color as that zone.;;
 Effet 401;When you counterattack from a zone with an ally, add an energy to that zone.;;
 Effet 694;When this card leaves play, add an energy to each of your zones.;;

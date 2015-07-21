@@ -43,18 +43,8 @@ Effet 738;Your teamworks cannot be eliminated.
 Effet 198;While your opponent is defending, your zones cannot be uncharged and your allies cannot be moved or eliminated.;;
 
 ==> deploy
-Effet 456;Deploy: Green. 
-Effet 458;Deploy: Green. 
-Effet 464;Deploy: Yellow. 
-Effet 465;Deploy: Yellow.
-Effet 467;Deploy: Yellow. 
-Effet 470;Deploy: Red. 
-Effet 472;Deploy: Free. 
-Effet 696;Your teamwork in news anchor's zone have "Deploy : Yellow".;;
-Effet 704;Your "Batman" Teamworks in Alfred Pennyworth's zone have "Deploy : Free".;;
 Effet 431;Your allies have "Deploy: Free." (as you play an ally, you may move it to any of your empty ally spaces.);;
-Effet 454;In gillette's zone, your allies have "Deploy: Green.";;
-Effet 476;Deploy: Green. 
+Effet 704;Your "Batman" Teamworks in Alfred Pennyworth's zone have "Deploy : Free".;;
 
 ==> blocage effet
 Effet 156;While your opponent is defending, his or her zones cannot be charged.;;

@@ -329,6 +329,26 @@ class Partie
         }
     }
 
+    public function deployer($joueurConcerne,$action) {
+        ici
+        $zoneEnCours = $this->Partie->getJoueurZoneEnCours($joueurConcerne);
+        $zoneSuivante = $this->tools->zoneSuivante($zoneEnCours);
+        $zoneCorrespondante = 'DISCARD';
+        if ($action=='pitch')              
+            $this->effets->effetPitcher($joueurConcerne);
+        if ($action=='focus') {
+            $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'ENERGIE');
+            $this->effets->effetFocuser($joueurConcerne);
+        }            
+        $this->interactions->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
+        if (strpos($action,'reflip_')===false) {
+            $this->descendreDeZone($joueurConcerne);
+        } else {
+            $tab = explode('_', $action);
+            $this->payerCout($tab[1]);
+        }
+    }
+
     public function descendreDeZone($joueurConcerne) {
         $zoneEnCours = $this->Partie->getJoueurZoneEnCours($joueurConcerne);
         $zoneSuivante = $this->tools->zoneSuivante($zoneEnCours);

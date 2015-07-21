@@ -51,35 +51,43 @@ class Tools
         return ($numero<=500)? 1 : 2;
     }
 
-    public function isCarteCorrespondante($CarteActive,$filtres) {
+    public function isCarteCorrespondante($CartePartie,$filtres) {
         $result = true;
         if (
-            ($CarteActive!=null) 
-            && ($CarteActive->getCarte())
+            ($CartePartie!=null) 
+            && ($CartePartie->getCarte())
             )
         {
-            $Carte = $CarteActive->getCarte();
+            $Carte = $CartePartie->getCarte();
             if (
-                (isset($filtres['extension']))
+                ($result)
+                && (isset($filtres['extension']))
                 && (strtolower($Carte->getExtension()->getLibelle()) != strtolower($filtres['extension']))
                 ) {
                 $result = false;
             }
             if (
-                (isset($filtres['type']))
+                ($result)
+                && (isset($filtres['type']))
                 && (strtolower($Carte->getTypeCarte()->getLibelle()) != strtolower($filtres['type']))
                 ) {
                 $result = false;
             }
-            if (isset($filtres['trait'])){
-                $TraitCartes = $Carte->getTraitCartes();
-                foreach ($$TraitCartes as $TraitCarte) {
-                    //ici
-                }
-
-                && (strtolower(->getLibelle()) != strtolower($filtres['type']))
+            if (
+                ($result)
+                && (isset($filtres['trait']))
                 ) {
-                $result = false;
+                $TraitCartes = $Carte->getTraitCartes();
+                $trouve = false;
+                foreach ($$TraitCartes as $TraitCarte) {
+                    if (strtolower($TraitCarte->getLibelle()) == $filtres['trait']) {
+                        $trouve = true;
+                        break;
+                    }
+                }
+                if (!$trouve) {
+                    $result = false;
+                }
             }
         }
         return $result;

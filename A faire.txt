@@ -44,12 +44,9 @@ Effet 198;While your opponent is defending, your zones cannot be uncharged and y
 
 ==> deploy
 Effet 431;Your allies have "Deploy: Free." (as you play an ally, you may move it to any of your empty ally spaces.);;
-Effet 704;Your "Batman" Teamworks in Alfred Pennyworth's zone have "Deploy : Free".;;
 
 ==> blocage effet
 Effet 156;While your opponent is defending, his or her zones cannot be charged.;;
-Effet 388;Your opponent cannot deploy or.;;
-Effet 394;Your opponent cannot deploy.;;
 Effet 424;Your opponent cannot celebrate.;;
 Effet 426;Your opponent cannot play strikes or allies in his or her green zone.;;
 Effet 427;Your opponent cannot play signature moves. 

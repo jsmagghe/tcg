@@ -267,6 +267,10 @@ class PartieController extends Controller {
         if (strpos($effet,'reflip_')!==false) {
             $servicePartie->focuserPitcher($joueurConcerne,$effet);
         }
+
+        if (strpos($effet,'deploy_')!==false) {
+            $servicePartie->deployer($joueurConcerne,$effet);
+        }
         $Partie->setDateDerniereAction(new \Datetime());
         $this->em->flush();
 

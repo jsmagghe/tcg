@@ -882,6 +882,26 @@ class Effets
         return $reflip;
     }
 
+    public function coutsCarte($joueurConcerne,$CartePartie) {
+        $coutVert = 0;
+        $coutJaune = 0;
+        $coutRouge = 0;
+
+        if ($CartePartie!=null) {
+            $Carte = $CartePartie->getCarte();
+
+            $coutVert = $Carte->getCoutVert();
+            $coutJaune = $Carte->getCoutJaune();
+            $coutRouge = $Carte->getCoutRouge();
+        }
+
+        return array(
+            'coutVert' => $coutVert,
+            'coutJaune' => $coutJaune,
+            'coutRouge' => $coutRouge,
+            );
+    }
+
     public function deployPossible($joueurConcerne) {
         $deploy = array();
         if ($this->infos['typeCarteActive'] !== 'TEAMWORK') {
@@ -892,6 +912,10 @@ class Effets
         $energieVerteDisponible = $this->infos['energieVerteDisponibleDefenseur'] + $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
         $energieJauneDisponible = $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
         $energieRougeDisponible = $this->infos['energieRougeDisponibleDefenseur'];
+        $coutsCarte = $this->coutsCarte($joueurConcerne,$this->CarteEnJeus[$joueurConcerne]['ACTIVE']);
+        $energieRougeDisponible -= $coutsCarte['coutRouge'];
+        $energieJauneDisponible -= $coutsCarte['coutRouge'] - $coutsCarte['coutJaune'];
+        $energieVerteDisponible -= $coutsCarte['coutRouge'] - $coutsCarte['coutJaune'] - $coutsCarte['coutVert'];
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
@@ -904,11 +928,27 @@ class Effets
             switch ($numeroEffet) {
                 case 431 : 
                 case 472 : 
-                    $deploy['deploy_free'] = 'Deploy: free';
+                    if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']) {
+                        $deploy['deploy_green_free'] = 'Deploy green: free';
+                    }
+                    if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']) {
+                        $deploy['deploy_yellow_free'] = 'Deploy yellow: free';
+                    }
+                    if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']) {
+                        $deploy['deploy_red_free'] = 'Deploy red: free';
+                    }
                     break;
                 case 704 : 
                     if ($this->tools->isCarteCorrespondante($this->infos['CarteActive'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'light'))) {
-                        $deploy['deploy_free'] = 'Deploy: free';                    
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']) {
+                            $deploy['deploy_green_free'] = 'Deploy green: free';
+                        }
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']) {
+                            $deploy['deploy_yellow_free'] = 'Deploy yellow: free';
+                        }
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']) {
+                            $deploy['deploy_red_free'] = 'Deploy red: free';
+                        }
                     }
                     break;
                 case 454 : 
@@ -916,7 +956,15 @@ class Effets
                 case 458 : 
                 case 476 : 
                     if ($energieVerteDisponibleDefenseur>1) {
-                        $deploy['deploy_green'] = 'Deploy: green';                        
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']) {
+                            $deploy['deploy_green_green'] = 'Deploy green: green';
+                        }
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']) {
+                            $deploy['deploy_yellow_green'] = 'Deploy yellow: green';
+                        }
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']) {
+                            $deploy['deploy_red_green'] = 'Deploy red: green';
+                        }
                     }
                     break;
                 case 464 : 
@@ -924,33 +972,33 @@ class Effets
                 case 467 : 
                 case 696 : 
                     if ($energieJauneDisponibleDefenseur>1) {
-                        $deploy['deploy_yellow'] = 'Deploy: yellow';
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']) {
+                            $deploy['deploy_green_yellow'] = 'Deploy green: yellow';
+                        }
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']) {
+                            $deploy['deploy_yellow_yellow'] = 'Deploy yellow: yellow';
+                        }
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']) {
+                            $deploy['deploy_red_yellow'] = 'Deploy red: yellow';
+                        }
                     }
                     break;
                 case 470 : 
                     if ($energieRougeDisponibleDefenseur>1) {
-                        $deploy['deploy_red'] = 'Deploy: red';
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']) {
+                            $deploy['deploy_green_red'] = 'Deploy green: red';
+                        }
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']) {
+                            $deploy['deploy_yellow_red'] = 'Deploy yellow: red';
+                        }
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']) {
+                            $deploy['deploy_red_red'] = 'Deploy red: red';
+                        }
                     }
                     break;
             }
         }
 
-        // effet des cartes de l'adversaire
-        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
-            $Carte = $Cartejeu->getCarte();
-            if ($Carte == null) {
-                continue;
-            }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
-            switch ($numeroEffet) {
-                case 339 : 
-                    if ($energieVerteDisponibleDefenseur>1) {
-                        $deploy['deploy_green'] = 'Deploy: green';
-                    }
-                    break;
-            }
-        }
         // carte adverse empechant le deploy
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
         foreach ($CarteEnJeus as $Cartejeu) {
@@ -961,7 +1009,7 @@ class Effets
             $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
             switch ($numeroEffet) {
                 case 388 : 
-                case 535 : 
+                case 394 : 
                     $deploy = array();
                     break;
             }

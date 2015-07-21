@@ -381,9 +381,9 @@ class Partie
             $nombreTeamworkDefenseur += 1;
         } 
 
-        $energieVerteDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'VERTE');
-        $energieJauneDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'JAUNE');
-        $energieRougeDisponibleAttaquant = $this->energiedisponible($this->numeroAttaquant,'ROUGE');
+        $energieVerteDisponibleDefenseur = $this->energiedisponible($this->numeroDefenseur,'VERTE');
+        $energieJauneDisponibleDefenseur = $this->energiedisponible($this->numeroDefenseur,'JAUNE');
+        $energieRougeDisponibleDefenseur = $this->energiedisponible($this->numeroDefenseur,'ROUGE');
         $CartePartie = null;
         if (isset($this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)])) {
             $CartePartie = $this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
@@ -400,11 +400,12 @@ class Partie
             'discardChargeDefenseur' => $discardChargeDefenseur,
             'nombreTeamworkAttaquant' => $nombreTeamworkAttaquant,
             'nombreTeamworkDefenseur' => $nombreTeamworkDefenseur,
-            'energieVerteDisponibleAttaquant' => $energieVerteDisponibleAttaquant,
-            'energieJauneDisponibleAttaquant' => $energieJauneDisponibleAttaquant,
-            'energieRougeDisponibleAttaquant' => $energieRougeDisponibleAttaquant,
+            'energieVerteDisponibleDefenseur' => $energieVerteDisponibleDefenseur,
+            'energieJauneDisponibleDefenseur' => $energieJauneDisponibleDefenseur,
+            'energieRougeDisponibleDefenseur' => $energieRougeDisponibleDefenseur,
             'typeCarteActive' => ($CartePartie != null) ? $CartePartie->getCarte()->getTypeCarte()->getTag() : 0,
             'attaqueAttaquant' => $this->attaqueEnCours(),
+            'carteActive' => $CartePartie,
             );
     }
 

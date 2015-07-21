@@ -51,6 +51,40 @@ class Tools
         return ($numero<=500)? 1 : 2;
     }
 
+    public function isCarteCorrespondante($CarteActive,$filtres) {
+        $result = true;
+        if (
+            ($CarteActive!=null) 
+            && ($CarteActive->getCarte())
+            )
+        {
+            $Carte = $CarteActive->getCarte();
+            if (
+                (isset($filtres['extension']))
+                && (strtolower($Carte->getExtension()->getLibelle()) != strtolower($filtres['extension']))
+                ) {
+                $result = false;
+            }
+            if (
+                (isset($filtres['type']))
+                && (strtolower($Carte->getTypeCarte()->getLibelle()) != strtolower($filtres['type']))
+                ) {
+                $result = false;
+            }
+            if (isset($filtres['trait'])){
+                $TraitCartes = $Carte->getTraitCartes();
+                foreach ($$TraitCartes as $TraitCarte) {
+                    //ici
+                }
+
+                && (strtolower(->getLibelle()) != strtolower($filtres['type']))
+                ) {
+                $result = false;
+            }
+        }
+        return $result;
+    }
+
 
 
 }

@@ -752,9 +752,9 @@ class Effets
         $reflip = array();
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
-        $energieVerteDisponible = $this->infos['energieVerteDisponibleAttaquant'] + $this->infos['energieJauneDisponibleAttaquant'] + $this->infos['energieRougeDisponibleAttaquant'];
-        $energieJauneDisponible = $this->infos['energieJauneDisponibleAttaquant'] + $this->infos['energieRougeDisponibleAttaquant'];
-        $energieRougeDisponible = $this->infos['energieRougeDisponibleAttaquant'];
+        $energieVerteDisponible = $this->infos['energieVerteDisponibleDefenseur'] + $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
+        $energieJauneDisponible = $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
+        $energieRougeDisponible = $this->infos['energieRougeDisponibleDefenseur'];
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
@@ -786,12 +786,12 @@ class Effets
                 case 487 : 
                 case 491 : 
                 case 671 : 
-                    if ($energieVerteDisponibleAttaquant>1) {
+                    if ($energieVerteDisponibleDefenseur>1) {
                         $reflip['reflip_green'] = 'Reflip: green';                        
                     }
                     break;
                 case 416 : 
-                    if ($energieJauneDisponibleAttaquant>1) {
+                    if ($energieJauneDisponibleDefenseur>1) {
                         $reflip['reflip_yellow'] = 'Reflip: yellow';
                     }
                     break;
@@ -822,7 +822,7 @@ class Effets
                 case 418 :
                     if (
                         (isset($this->CarteEnJeus[$joueurConcerne][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) 
-                        && ($energieVerteDisponibleAttaquant>1)
+                        && ($energieVerteDisponibleDefenseur>1)
                         )
                         {
                         $reflip['reflip_green'] = 'Reflip: green';
@@ -857,7 +857,7 @@ class Effets
             $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
             switch ($numeroEffet) {
                 case 339 : 
-                    if ($energieVerteDisponibleAttaquant>1) {
+                    if ($energieVerteDisponibleDefenseur>1) {
                         $reflip['reflip_green'] = 'Reflip: green';
                     }
                     break;
@@ -880,6 +880,94 @@ class Effets
         }
 
         return $reflip;
+    }
+
+    public function deployPossible($joueurConcerne) {
+        $deploy = array();
+        if ($this->infos['typeCarteActive'] !== 'TEAMWORK') {
+            return $deploy;
+        }
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        $energieVerteDisponible = $this->infos['energieVerteDisponibleDefenseur'] + $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
+        $energieJauneDisponible = $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
+        $energieRougeDisponible = $this->infos['energieRougeDisponibleDefenseur'];
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 431 : 
+                case 472 : 
+                    $deploy['deploy_free'] = 'Deploy: free';
+                    break;
+                case 704 : 
+                    if ($this->tools->isCarteCorrespondante($this->infos['CarteActive'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'light'))) {
+                        $deploy['deploy_free'] = 'Deploy: free';                    
+                    }
+                    break;
+                case 454 : 
+                case 456 : 
+                case 458 : 
+                case 476 : 
+                    if ($energieVerteDisponibleDefenseur>1) {
+                        $deploy['deploy_green'] = 'Deploy: green';                        
+                    }
+                    break;
+                case 464 : 
+                case 465 : 
+                case 467 : 
+                case 696 : 
+                    if ($energieJauneDisponibleDefenseur>1) {
+                        $deploy['deploy_yellow'] = 'Deploy: yellow';
+                    }
+                    break;
+                case 470 : 
+                    if ($energieRougeDisponibleDefenseur>1) {
+                        $deploy['deploy_red'] = 'Deploy: red';
+                    }
+                    break;
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 339 : 
+                    if ($energieVerteDisponibleDefenseur>1) {
+                        $deploy['deploy_green'] = 'Deploy: green';
+                    }
+                    break;
+            }
+        }
+        // carte adverse empechant le deploy
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 388 : 
+                case 535 : 
+                    $deploy = array();
+                    break;
+            }
+        }
+
+        return $deploy;
     }
 
     public function effetJouer($joueurConcerne,$action) {

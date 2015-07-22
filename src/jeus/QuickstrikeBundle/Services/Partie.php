@@ -330,23 +330,21 @@ class Partie
     }
 
     public function deployer($joueurConcerne,$action) {
-        ici
         $zoneEnCours = $this->Partie->getJoueurZoneEnCours($joueurConcerne);
-        $zoneSuivante = $this->tools->zoneSuivante($zoneEnCours);
-        $zoneCorrespondante = 'DISCARD';
-        if ($action=='pitch')              
-            $this->effets->effetPitcher($joueurConcerne);
-        if ($action=='focus') {
-            $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'ENERGIE');
-            $this->effets->effetFocuser($joueurConcerne);
-        }            
-        $this->interactions->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);
-        if (strpos($action,'reflip_')===false) {
-            $this->descendreDeZone($joueurConcerne);
+        $tab = explode('_', $action);
+        $this->payerCout($tab[2]);
+
+        if ($tab[1]=='red') {
+            $this->interactions->deplacerCarte($joueurConcerne,1,$zoneEnCours,'TEAMWORK_ROUGE');            
+        } else if ($tab[1]=='yellow') {
+            $this->interactions->deplacerCarte($joueurConcerne,1,$zoneEnCours,'TEAMWORK_JAUNE');            
         } else {
-            $tab = explode('_', $action);
-            $this->payerCout($tab[1]);
+            $this->interactions->deplacerCarte($joueurConcerne,1,$zoneEnCours,'TEAMWORK_VERTE');                        
         }
+        $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_VERTE');
+        $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_JAUNE');
+        $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_ROUGE');
+        $this->interactions->deplacerCarte($joueurConcerne,1,'DECK',$zoneEnCours);                        
     }
 
     public function descendreDeZone($joueurConcerne) {

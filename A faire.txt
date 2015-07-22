@@ -18,9 +18,6 @@ Effet 631;For each gotham city police department teamwork in play, +1 force;;
 Effet 616;If your opponent's force is 3 or less, Aerial battle  and starts in your opponent's yellow zone;;
 Effet 664;Batman only. This strike has +1 Force for each advantage you played this turn;;
 
-==> carte en jeu + X intercept
-Effet 591;For each unteamed teamwork in play, +1 Intercept;;
-
 ==> modification force et intercept
 Effet 644;Batgirl Only. If you control a Robin Teamwork, this strike has +4 Force. If you control a Batman teamwork, this strike has +4 Intercept.;;
 
@@ -41,9 +38,6 @@ Effet 729;Your teamwork cannot be targeted by your opponent's effects.;;
 Effet 731;Your teamwork cannot be eliminated nor your zones uncharged. 
 Effet 738;Your teamworks cannot be eliminated. 
 Effet 198;While your opponent is defending, your zones cannot be uncharged and your allies cannot be moved or eliminated.;;
-
-==> deploy
-Effet 431;Your allies have "Deploy: Free." (as you play an ally, you may move it to any of your empty ally spaces.);;
 
 ==> blocage effet
 Effet 156;While your opponent is defending, his or her zones cannot be charged.;;
@@ -70,8 +64,6 @@ Effet 409;when you counterattack from a charged zone, add a yellow energy.;;
 Effet 677;When this card leaves play, add a yellow energy.;;
 
 ==> ajout energie multiples
-Effet 562;Add an energy to each of your zone with a teamwork;;
-Effet 568;Add 2 energy to each of your zone with a teamwork.;;
 Effet 309;If any of your zones has no furyoku, add a furyoku to that zone.;;
 Effet 567;If your opponent's force is 3 or less, add 2 energy to each zone.;;
 Effet 345;Whenever your opponent focuses in a zone, you add an energy of the same color as that zone.;;
@@ -204,11 +196,11 @@ Effet 655;Robin Only. If your opponent's force is 4 or less Daredevil start in y
 
 ==> effet exotique
 Effet 698;When you counterattack from Arkham warden's zone, your opponent's teamwork effects don't apply.;;
+Effet 619;Your opponent's teamwork effects don't apply.;;
 Effet 305;Your opponent must discard advantages.;;
 Effet 357;When you clean up Storms Without End. Leave your Chamber Card turned to the back.;;
 Effet 492;When you counterattack, move hull breach to your red zone;;
 Effet 556; send all the advantages in your discard pile in your deck and shuffle it;;
-Effet 619;Your opponent's teamwork effects don't apply.;;
 Effet 682;When you counterattack from scarface's zone, . When this card leaves play, discard all advantages.;;
 Effet 747; Turn your chamber in its other side;;
 

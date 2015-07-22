@@ -269,6 +269,15 @@ class Effets
                         $bonus += 5;
                     }
                     break;
+                case 644 : 
+                    if (
+                        (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'nom' => 'robin'))))
+                        && (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'nom' => 'robin'))))
+                        && (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'nom' => 'robin'))))
+                        ) {
+                        $bionus += 4;
+                    }
+                    break;
 
 
             }
@@ -425,14 +434,23 @@ class Effets
                     break;
 
                 case 591 : 
-                    if isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'trait' => 'neutre'))) {
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'trait' => 'neutre')))) {
                         $bionus += 1;
                     }
-                    if isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'trait' => 'neutre'))) {
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'trait' => 'neutre')))) {
                         $bionus += 1;
                     }
-                    if isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'trait' => 'neutre'))) {
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'trait' => 'neutre')))) {
                         $bionus += 1;
+                    }
+                    break;
+                case 644 : 
+                    if (
+                        (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'nom' => 'batman'))))
+                        && (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'nom' => 'batman'))))
+                        && (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'nom' => 'batman'))))
+                        ) {
+                        $bionus += 4;
                     }
                     break;
             }

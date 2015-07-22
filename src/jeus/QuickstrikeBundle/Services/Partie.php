@@ -530,9 +530,10 @@ class Partie
         if ($Carte == null) 
             return false;
 
-        $coutVert = $Carte->getCoutVert();
-        $coutJaune = $Carte->getCoutJaune();
-        $coutRouge = $Carte->getCoutRouge();
+        $tab = $this->effets->coutsCarte($joueurConcerne,$Carte);
+        $coutVert = $tab['coutVert'];
+        $coutJaune = $tab['coutJaune'];
+        $coutRouge = $tab['coutRouge'];
 
         $energieVerteDisponible = $this->energiedisponible($joueurConcerne,'VERTE');
         $energieJauneDisponible = $this->energiedisponible($joueurConcerne,'JAUNE');

@@ -18,9 +18,6 @@ Effet 631;For each gotham city police department teamwork in play, +1 force;;
 Effet 616;If your opponent's force is 3 or less, Aerial battle  and starts in your opponent's yellow zone;;
 Effet 664;Batman only. This strike has +1 Force for each advantage you played this turn;;
 
-==> modification force et intercept
-Effet 644;Batgirl Only. If you control a Robin Teamwork, this strike has +4 Force. If you control a Batman teamwork, this strike has +4 Intercept.;;
-
 ==> protection carte
 Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
 Effet 117;Your teamworks cannot be eliminated.;;

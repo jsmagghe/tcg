@@ -75,6 +75,13 @@ class Tools
             }
             if (
                 ($result)
+                && (isset($filtres['nom']))
+                && (strtolower($Carte->getNomCours()) != strtolower($filtres['nom']))
+                ) {
+                $result = false;
+            }
+            if (
+                ($result)
                 && (isset($filtres['trait']))
                 ) {
                 $TraitCartes = $Carte->getTraitCartes();

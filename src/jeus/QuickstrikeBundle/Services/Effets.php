@@ -1103,6 +1103,15 @@ class Effets
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_JAUNE','DISCARD');
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_ROUGE','DISCARD');
                     break;                    
+                // discard all teamwork
+                case 586 : 
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'TEAMWORK_VERT','DISCARD');
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'TEAMWORK_JAUNE','DISCARD');
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'TEAMWORK_ROUGE','DISCARD');
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_VERT','DISCARD');
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_JAUNE','DISCARD');
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_ROUGE','DISCARD');
+                    break;                    
                 // -1 verte \ adversaire
                 case 75 :
                 case 98 : 
@@ -1276,6 +1285,48 @@ class Effets
                         $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_JAUNE');                        
                         $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_ROUGE');                        
                     }
+                    break;
+                // discard all energie
+                case 332 : 
+                    $this->interactions->deplacerCarte($joueurConcerne,99,'ENERGIE_VERTE','DISCARD');
+                    $this->interactions->deplacerCarte($joueurConcerne,99,'ENERGIE_JAUNE','DISCARD');                        
+                    $this->interactions->deplacerCarte($joueurConcerne,99,'ENERGIE_ROUGE','DISCARD');                        
+                    break;
+                // -1 vert \ adversaire
+                case 143 : 
+                case 580 : 
+                case 717 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_VERTE','DISCARD');
+                    break;
+                // -2 vert \ adversaire
+                case 144 : 
+                case 599 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,2,'ENERGIE_VERTE','DISCARD');
+                    break;
+                // -x vert \ adversaire (x nb teamwork)
+                case 517 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,$this->infos['nombreTeamworkDefenseur'],'ENERGIE_VERTE','DISCARD');
+                    break;
+                // -1 jaune \ adversaire
+                case 521 : 
+                case 650 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_JAUNE','DISCARD');
+                    break;
+                // -3 jaune \ adversaire
+                case 519 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,3,'ENERGIE_JAUNE','DISCARD');
+                    break;
+                // -1 rouge \ adversaire
+                case 552 : 
+                case 656 : 
+                case 665 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'ENERGIE_ROUGE','DISCARD');
+                    break;
+                // -1 vert -1 jaune -1 rouge \ adversaire
+                case 556 : 
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'ENERGIE_VERTE','DISCARD');
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'ENERGIE_JAUNE','DISCARD');                        
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'ENERGIE_ROUGE','DISCARD');                        
                     break;
                 case 281 :
                     $this->interactions->deplacerCarte($joueurConcerne,99,'ENERGIE_JAUNE','ENERGIE_ROUGE');
@@ -1554,6 +1605,12 @@ class Effets
                     $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','1');
                     break;
 
+                // discard teamwork de la zone
+                case 373 : 
+                case 374 : 
+                    $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK'),'DISCARD');
+                    break;
+
             }
         }
     }
@@ -1614,6 +1671,25 @@ class Effets
                 case 722 : 
                     $zoneDepart = 'STRIKE_ROUGE';                    
                     break;
+                case 596 :
+                    if (
+                        ($this->infos['attaqueAttaquant']<=3) 
+                        &&($zoneDepart == 'STRIKE_VERT')
+                        ) {
+                        $zoneDepart = 'STRIKE_JAUNE';                    
+                    }
+                    break;
+                case 523 :
+                    if ($this->infos['attaqueAttaquant']<=3) {
+                        $zoneDepart = 'STRIKE_ROUGE';                    
+                    }
+                    break;
+                case 655 :
+                    if ($this->infos['attaqueAttaquant']<=4) {
+                        $zoneDepart = 'STRIKE_ROUGE';                    
+                    }
+                    break;
+
             }
         }
 

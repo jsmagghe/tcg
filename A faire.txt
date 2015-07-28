@@ -55,7 +55,6 @@ Effet 679;When you flip a card in Batgirl's zone, add a green energy.;;
 Effet 609;When you counterattack with leave this to me!, for each advantage in your area, add a green energy.;;
 
 ==> ajout energie jaune
-Effet 611;When you celebrate, add 2 yellow energy.;;
 Effet 677;When this card leaves play, add a yellow energy.;;
 
 ==> ajout energie multiples
@@ -79,6 +78,7 @@ Effet 691;When you counterattack from Lucius Fox's zone, your opponent's advanta
 Effet 589;Your opponent's strikes, advantages and teamwork cost an additional yellow to play. 
 
 ==> ajout energie a la celebration
+Effet 611;When you celebrate, add 2 yellow energy.;;
 Effet 387;When you celebrate, your opponent adds an energy to each of his or her zones with an ally.;;
 Effet 395;When you celebrate, you may move up to two of your green energy to your yellow zone.;;
 Effet 396;When you celebrate, each player adds an energy to each of his or her zones with an ally. (This is in addition to your normal celebration.);;
@@ -115,8 +115,6 @@ Effet 379;When you counterattack, your opponent reveals his or her current signa
 
 ==> suppression energie
 Effet 341;Whenever your opponent plays a card in a zone, eliminate an energy in that zone.;;
-Effet 101; Eliminate one of your opponent's green or yellow furyoku.;;
-Effet 349;When you counterattack, you may eliminate up to two energy.;;
 Effet 497;exclusive - elizabeth swann. When you counterattack, you may eliminate an energy.;;
 Effet 518;When you opponent counterattacks from a zone, eliminate all of his or her energy in that zone;;
 Effet 587;Your opponent eliminates an energy in each zone with a teamwork;;
@@ -128,31 +126,10 @@ Effet 748;Mr freeze only. When you counterattack from a zone, eliminate up to 4 
 Effet 730; eliminate an opponent's yellow energy or 2 green.;;
 
 ==> chargement zone
-Effet 333;When you counterattack, charge your yellow zone.;;
-Effet 405;When your opponent counterattacks from a zone, you may charge your zone of the same color.;;
-Effet 482;When you counterattack from your yellow zone, you may charge that zone.;;
-Effet 486;when you counterattack, you may charge your green zone.;;
 Effet 509;Whenever your opponent charges a zone, you may charge your zone of the same color;;
-Effet 603;If your opponent's force is 3 or less, when you counterattack with trapped, charge this zone.;;
-Effet 746; Charge all you zones;;
-Effet 618;When you counterattack with Call the backup, charge the current zone if you control a teamwork on it;;
-Effet 651;If your opponent's attack is 3 Force or less, when you counterattack with fire extinguisher charge this zone;;
-Effet 561;When you counterattack with in the loop, charge every zone you control with a "batman team" teamwork in it.;;
-
-==> dechargement zone
-Effet 351;When you counterattack, uncharge all of your opponent's zones.;;
-Effet 584;Your opponent may uncharge all of his zone. 
-Effet 515;When you counterattack, you may uncharge each of your opponent's zones without an ally.;;
 
 ==> deplacement energie
-Effet 157;When you counterattack, you may move one of your yellow energy to your red zone.;;
-Effet 412;when you counterattack, each player may move on of his or her green energy to that player's yellow zone.;;
-Effet 443;When you counterattack, move up to three of your green energy to your yellow zone.;;
-Effet 478;When you counterattack, you may move one of your opponent's yellow energy to his or her green zone.;;
-Effet 642;When you counterattack with Wicked cruelty, your opponent moves one of his red energy to his yellow zone.;;
 Effet 529;When you counterattack, you may move one of your enemy to your red zone;;
-Effet 528;When you counterattack, move all of your energy to your red zone.;;
-Effet 530;When you counterattack, you may move up to three of your energy to your red zone;;
 
 ==> paiment alternatif
 Effet 78;In Faust VIII's zone, you may pay red costs with yellow furyoku.;;
@@ -174,6 +151,7 @@ Effet 747; Turn your chamber in its other side;;
 
 
 Effets
+Effet 584;Your opponent may uncharge all of his zone. 
 Effet 641;Inspector Yin only. When you counterattack with let's work together from a zone with a teamwork, you may charge any zone.;;
 Effet 2;green ==> +1 Intercept.;;
 Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force

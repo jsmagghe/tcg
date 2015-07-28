@@ -31,7 +31,7 @@ class Interactions
         $this->Partie = $Partie;
     }
 
-    public function deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD',$melanderDestination=false) {
+    public function deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD',$melanderDestination=false,$nombreDejaDeplace=0) {
         $CarteParties = $this->em
         ->getRepository('jeusQuickstrikeBundle:CartePartie')
         ->findBy(array(
@@ -66,6 +66,7 @@ class Interactions
             } else {
                 $CartePartie->setEmplacement($emplacementFinal);
                 $CartePartie->setPosition($position);
+                $nombreDejaDeplace++;
                 $position++;            
             }
 
@@ -79,8 +80,9 @@ class Interactions
         if (($nombre>0) && ($emplacementOrigine=='DECK')) {
             $this->deplacerCarte($joueurConcerne,99,'DISCARD','DECK',true);
             $this->deplacerCarte($joueurConcerne,5,'DECK','DISCARD');
-            $this->deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal,$melanderDestination);
+            $this->deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal,$melanderDestination,$nombreDejaDeplace);
         }
+        return $nombreDejaDeplace;
     }
 
     public function melangerEmplacement($joueurConcerne,$emplacement='DECK') {

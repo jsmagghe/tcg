@@ -58,24 +58,10 @@ Effet 609;When you counterattack with leave this to me!, for each advantage in y
 Effet 677;When this card leaves play, add a yellow energy.;;
 
 ==> ajout energie multiples
-Effet 345;Whenever your opponent focuses in a zone, you add an energy of the same color as that zone.;;
 Effet 694;When this card leaves play, add an energy to each of your zones.;;
 
 ==> diminution cout carte
 Effet 604;This strike costs one less green energy for each advantages you played this turn;;
-Effet 658;If there is a teamwork in this zone, Not my fault cost a less red energy to play;;
-
-==> augmentation cout carte
-Effet 92;Your opponent's strikes cost a green furyoku more to play in a zone without a teamwork.;;
-Effet 158;. Your opponent's strikes cost an additional yellow energy to play.;;
-Effet 97;Your opponent's strikes cost one green furyoku more if he has not played a non-strike on his turn.;;
-Effet 159;Your opponent's strikes cost an additional yellow energy to play.;;
-Effet 277;Exclusive - Kinto. Your opponent's strikes cost an additional red energy to play.;;
-Effet 380;Your opponent's strikes cost an additional green energy to play.;;
-Effet 537;Your opponent's strikes cost an additional red energy to play.;;
-Effet 639;Your opponent's advantage cost 1 additionnal green energy to play;;
-Effet 691;When you counterattack from Lucius Fox's zone, your opponent's advantage cost 1 more green to play.;;
-Effet 589;Your opponent's strikes, advantages and teamwork cost an additional yellow to play. 
 
 ==> ajout energie a la celebration
 Effet 611;When you celebrate, add 2 yellow energy.;;
@@ -127,9 +113,6 @@ Effet 730; eliminate an opponent's yellow energy or 2 green.;;
 
 ==> chargement zone
 Effet 509;Whenever your opponent charges a zone, you may charge your zone of the same color;;
-
-==> deplacement energie
-Effet 529;When you counterattack, you may move one of your enemy to your red zone;;
 
 ==> paiment alternatif
 Effet 78;In Faust VIII's zone, you may pay red costs with yellow furyoku.;;

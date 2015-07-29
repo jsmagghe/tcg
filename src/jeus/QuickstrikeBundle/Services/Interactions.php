@@ -32,6 +32,9 @@ class Interactions
     }
 
     public function deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD',$melanderDestination=false,$nombreDejaDeplace=0) {
+        if ($nombre <=0) {
+            exit;
+        }
         $CarteParties = $this->em
         ->getRepository('jeusQuickstrikeBundle:CartePartie')
         ->findBy(array(

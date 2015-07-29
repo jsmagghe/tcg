@@ -112,8 +112,8 @@ class Effets
 
                 // nombre carte
                 case 59 :
-                    if (isset($this->CarteEnJeus[$numeroAttaquant]['AVANTAGE'])) {
-                        foreach ($this->CarteEnJeus[$numeroAttaquant]['AVANTAGE'] as $CarteJeu) {
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['ADVANTAGE'])) {
+                        foreach ($this->CarteEnJeus[$numeroAttaquant]['ADVANTAGE'] as $CarteJeu) {
                             if (
                                 ($CarteJeu->getCarte()!=null)
                                 && ($CarteJeu->getCarte()->getTypeCarte()!=null)
@@ -126,8 +126,8 @@ class Effets
                     }
                     break;
                 case 612 :
-                    if (isset($this->CarteEnJeus[$numeroAttaquant]['AVANTAGE'])) {
-                        foreach ($this->CarteEnJeus[$numeroAttaquant]['AVANTAGE'] as $CarteJeu) {
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['ADVANTAGE'])) {
+                        foreach ($this->CarteEnJeus[$numeroAttaquant]['ADVANTAGE'] as $CarteJeu) {
                             if (
                                 ($CarteJeu->getCarte()!=null)
                                 && ($CarteJeu->getCarte()->getTypeCarte()!=null)
@@ -139,8 +139,8 @@ class Effets
                     }
                     break;
                 case 548 :
-                    if (isset($this->CarteEnJeus[$numeroDefenseur]['AVANTAGE'])) {
-                        foreach ($this->CarteEnJeus[$numeroDefenseur]['AVANTAGE'] as $CarteJeu) {
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['ADVANTAGE'])) {
+                        foreach ($this->CarteEnJeus[$numeroDefenseur]['ADVANTAGE'] as $CarteJeu) {
                             if (
                                 ($CarteJeu->getCarte()!=null)
                                 && ($CarteJeu->getCarte()->getTypeCarte()!=null)
@@ -706,7 +706,7 @@ class Effets
                 case 132 : 
                     if (
                         ($this->infos['ZoneDefenseur']=='STRIKE_VERT')
-                        && (($this->infos['typeCarteActive']=='TEAMWORK') || ($this->infos['typeCarteActive']=='AVANTAGE'))
+                        && (($this->infos['typeCarteActive']=='TEAMWORK') || ($this->infos['typeCarteActive']=='ADVANTAGE'))
                         ) {
                         $jouerPossible = false;                        
                     }
@@ -858,7 +858,7 @@ class Effets
                     break;
                 // defausser la carte donnabt le reflip
                 case 203 : 
-                    if ($Cartejeu->getEmplacement() == 'AVANTAGE') {
+                    if ($Cartejeu->getEmplacement() == 'ADVANTAGE') {
                         $reflip['reflip_' . $Cartejeu->getId()] = 'Reflip: Eliminate Pai sho mastery';
                     }
                     break;
@@ -921,7 +921,99 @@ class Effets
             $coutVert = $Carte->getCoutVert();
             $coutJaune = $Carte->getCoutJaune();
             $coutRouge = $Carte->getCoutRouge();
+
+            $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+            // effet des cartes du joueur concerné
+            $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+            foreach ($CarteEnJeus as $Cartejeu) {
+                $Carte = $Cartejeu->getCarte();
+                if ($Carte == null) {
+                    continue;
+                }
+                $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+                switch ($numeroEffet) {
+                    // -1 rouge si teamwork
+                    case 658 : 
+                        if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) {
+                            $coutRouge--;
+                        }
+                        break;
+                }
+            }
+
+            // effet des cartes de l'adversaire
+            $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+            foreach ($CarteEnJeus as $Cartejeu) {
+                $Carte = $Cartejeu->getCarte();
+                if ($Carte == null) {
+                    continue;
+                }
+                $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+                switch ($numeroEffet) {
+                    // +1 jaune
+                    case 589 :
+                        $coutJaune++;                            
+                        break;
+                    // +1 vert \ strike
+                    case 380 :
+                    case 639 :
+                        if ($this->infos['typeCarteActive']=='STRIKE') {
+                            $coutVert++;                            
+                        }
+                        break;
+                    // +1 vert \ avantage
+                    case 691 :
+                        if ($this->infos['typeCarteActive']=='ADVANTAGE') {
+                            $coutVert++;                            
+                        }
+                        break;
+                    // +1 vert si pas de non strike
+                    case 97 :
+                        $effets = $this->Partie->$proprieteEffetDefenseur();
+                        $trouve = false;
+                        foreach ($$effets as $tab) {
+                            if (isset($tab['non-strike'])) {
+                                $trouve = true;
+                                break;
+                            }
+                        }
+                        if (!$trouve) {
+                            $coutVert++;                                                        
+                        }
+                        break;
+                    // +1 jaune \ strike
+                    case 158 :
+                    case 159 :
+                        if ($this->infos['typeCarteActive']=='STRIKE') {
+                            $coutJaune++;                            
+                        }
+                        break;
+                    // +1 rouge \ strike
+                    case 277 :
+                    case 537 :
+                        if ($this->infos['typeCarteActive']=='STRIKE') {
+                            $coutRouge++;                            
+                        }
+                        break;
+                    // +1 vert \ strike  si pas de teamwork
+                    case 92 : 
+                        if (
+                            ($this->infos['typeCarteActive']=='STRIKE')
+                            && (!isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')]))
+                            ) {
+                            $coutVert++;
+                        }
+                        break;
+                }
+            }
+
+
         }
+
+        $coutVert = max($coutVert,0);
+        $coutJaune = max($coutJaune,0);
+        $coutRouge = max($coutRouge,0);
 
         return array(
             'coutVert' => $coutVert,
@@ -1165,7 +1257,7 @@ class Effets
                     break;
                 // discard teamwork et avantage
                 case 293 : 
-                    $this->interactions->deplacerCarte($joueurAdverse,99,'AVANTAGE','DISCARD');
+                    $this->interactions->deplacerCarte($joueurAdverse,99,'ADVANTAGE','DISCARD');
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_VERT','DISCARD');
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_JAUNE','DISCARD');
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_ROUGE','DISCARD');
@@ -1291,6 +1383,14 @@ class Effets
                 case 334 :
                     $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_ROUGE');
                     break;
+                // deplacer 1 energie adverse vers rouge joueur
+                case 529 :
+                    $nombre = 1;
+                    $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_ROUGE','DISCARD');
+                    $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_JAUNE','DISCARD');
+                    $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_VERTE','DISCARD');
+                    $this->interactions->deplacerCarte($joueurConcerne,1-$nombre,'DISCARD','ENERGIE_ROUGE');
+                    break;                    
                 case 45 :
                 case 157 :
                     if ($action == 'counter attack')  {
@@ -1728,6 +1828,10 @@ class Effets
                 case 373 : 
                 case 374 : 
                     $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK'),'DISCARD');
+                    break;
+                // +1 energie de cette zone
+                case 345 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD',$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'));
                     break;
 
             }

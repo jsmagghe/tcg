@@ -171,6 +171,7 @@ class Effets
                     } 
                     break;
                 case 110 :
+                case 182 :
                 case 498 :
                     if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')])) {
                         $bonus += 2;
@@ -914,6 +915,11 @@ class Effets
         $coutVert = 0;
         $coutJaune = 0;
         $coutRouge = 0;
+        $jauneEnVert = false;
+        $rougeEnJaune = false;
+        $pasVert = false;
+        $pasJaune = false;
+        $pasRouge = false;
 
         if ($CartePartie!=null) {
             $Carte = $CartePartie->getCarte();
@@ -933,10 +939,46 @@ class Effets
                 }
                 $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
                 switch ($numeroEffet) {
+                    // payer les jaunes en vertes
+                    case 83 : 
+                        $jauneEnVert = true;
+                        break;
+
+                    // payer les jaunes en vertes pour les avantages et alliés
+                    case 544 : 
+                        if (($this->infos['typeCarteActive']=='ADVANTAGE') || ($this->infos['typeCarteActive']=='TEAMWORK')) {
+                            $jauneEnVert = true;
+                        }
+                        break;
+                    // payer les rouges en jaunes
+                    case 78 : 
+                    case 505 : 
+                        $rougeEnJaune = true;
+                        break;
+                    // -1 vert si strike
+                    case 703 :
+                        if ($this->infos['typeCarteActive']=='STRIKE') {
+                            $coutVert--;
+                        }
+                        break;
                     // -1 rouge si teamwork
                     case 658 : 
                         if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) {
                             $coutRouge--;
+                        }
+                        break;
+                    // pas de cout de la zone en cours pour les strikes
+                    case 697 : 
+                        if ($this->infos['typeCarteActive']=='STRIKE') {
+                            if ($this->infos['ZoneDefenseur']=='STRIKE_VERT') {
+                                $pasVert = true;
+                            }
+                            if ($this->infos['ZoneDefenseur']=='STRIKE_JAUNE') {
+                                $pasJaune = true;
+                            }
+                            if ($this->infos['ZoneDefenseur']=='STRIKE_ROUGE') {
+                                $pasRouge = true;
+                            }
                         }
                         break;
                 }
@@ -1014,6 +1056,25 @@ class Effets
         $coutVert = max($coutVert,0);
         $coutJaune = max($coutJaune,0);
         $coutRouge = max($coutRouge,0);
+
+        if ($pasVert) {
+            $coutVert = 0;
+        }
+        if ($pasJaune) {
+            $coutJaune = 0;
+        }
+        if ($pasRouge) {
+            $coutRouge = 0;
+        }
+
+        if ($jauneEnVert) {
+            $coutVert += $coutJaune;
+            $coutJaune = 0;
+        }
+        if ($rougeEnJaune) {
+            $coutJaune += $coutRouge;
+            $coutRouge = 0;
+        }
 
         return array(
             'coutVert' => $coutVert,
@@ -1684,6 +1745,10 @@ class Effets
                         $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'),'DISCARD');
                     }
                     break;
+                // supprimer des energies pour chaque carte jouée
+                case 341 : 
+                    $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'),'DISCARD');
+                    break;
                 // charger zone à la contre attaque
                 case 405 :
                     if ($action == 'counter attack') {
@@ -1838,7 +1903,43 @@ class Effets
         }
     }
 
-    
+    public function effetCharger($joueurConcerne) {
+        $effetVoulu = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 0 : 
+                    $effetVoulu = false;
+                    break;
+            }
+        }*/
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 136 : 
+                    $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','1');
+                    break;
+            }
+        }
+
+        return $effetVoulu;
+    }
+
 
     public function zoneDepart($joueurConcerne) {
         $zoneDepart = 'STRIKE_VERT';
@@ -1895,6 +1996,7 @@ class Effets
                     $zoneDepart = 'STRIKE_ROUGE';                    
                     break;
                 case 596 :
+                case 616 :
                     if (
                         ($this->infos['attaqueAttaquant']<=3) 
                         &&($zoneDepart == 'STRIKE_VERT')

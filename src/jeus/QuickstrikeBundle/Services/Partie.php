@@ -259,6 +259,7 @@ class Partie
         if ($action=='avantager') {
             $zoneCorrespondante = 'AVANTAGE';
             if ($this->effets->chargementPossible($CarteActive,$joueurConcerne)) {
+                $this->effets->effetCharger($joueurConcerne);
                 $this->Partie->chargerZone($joueurConcerne,$zoneEnCours);                
             }
         }

@@ -100,12 +100,6 @@ Effet 587;Your opponent eliminates an energy in each zone with a teamwork;;
 Effet 294;If your opponent's attack is 3 Force or less, you may eliminate up to three furyoku.;;
 Effet 675;When this card leaves play, eliminate an opponent energy.;;
 Effet 699;Joker only. When you play an advantage in Harley quinn's zone, eliminate an opponent's energy of any color you paid. When this card leaves play, gain a red energy.;;
-Effet 721; Eliminate an opponent's energy from the same zone. 
-Effet 748;Mr freeze only. When you counterattack from a zone, eliminate up to 4 of your opponent's energy in the same zone.;;
-Effet 730; eliminate an opponent's yellow energy or 2 green.;;
-
-==> chargement zone
-Effet 509;Whenever your opponent charges a zone, you may charge your zone of the same color;;
 
 ==> effet exotique
 Effet 698;When you counterattack from Arkham warden's zone, your opponent's teamwork effects don't apply.;;

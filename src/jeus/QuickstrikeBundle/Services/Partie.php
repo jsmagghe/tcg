@@ -347,12 +347,25 @@ class Partie
         $this->interactions->deplacerCarte($joueurConcerne,1,'DECK',$zoneEnCours);                        
     }
 
+    public function celebration($joueurConcerne) {
+        if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERT'])) {
+            $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');                        
+        }
+        if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
+            $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');                        
+        }
+        if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
+            $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');                        
+        }
+        $this->effets->effetCelebration($joueurConcerne);
+    }
+
     public function descendreDeZone($joueurConcerne) {
         $zoneEnCours = $this->Partie->getJoueurZoneEnCours($joueurConcerne);
         $zoneSuivante = $this->tools->zoneSuivante($zoneEnCours);
         if ( $zoneSuivante == 'POINT') {
             $this->pointPourAdversaire($joueurConcerne);
-            $this->effets->effetCelebration(($joueurConcerne==1) ? 2 : 1);
+            $this->celebration(($joueurConcerne==1) ? 2 : 1);
         } else {
             $this->Partie->setJoueurZoneEnCours($joueurConcerne,$zoneSuivante);
             $this->interactions->deplacerCarte($joueurConcerne,1,'DECK',$this->Partie->getJoueurZoneEnCours($joueurConcerne));

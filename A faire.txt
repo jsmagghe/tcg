@@ -57,23 +57,10 @@ Effet 697; When this card leaves play, gain 2 yellow energy.;;
 ==> diminution cout carte
 Effet 604;This strike costs one less green energy for each advantages you played this turn;;
 
-==> ajout energie a la celebration
-Effet 611;When you celebrate, add 2 yellow energy.;;
-Effet 387;When you celebrate, your opponent adds an energy to each of his or her zones with an ally.;;
-Effet 395;When you celebrate, you may move up to two of your green energy to your yellow zone.;;
-Effet 396;When you celebrate, each player adds an energy to each of his or her zones with an ally. (This is in addition to your normal celebration.);;
-Effet 439; When you celebrate, you may add a yellow energy.;;
-Effet 442;When you celebrate, add a red energy.;;
-Effet 473;In sepahook's zone, your strikes have "when you celebrate, add a red energy.";;
-Effet 510;When you celebrate, add an energy to each of your zones with an ally;;
-Effet 500;exclusive - pintel and ragetti. If your opponent would celebrate, each player instead adds an energy to each of his or her zones with an ally;;
-Effet 598;When you celebrate, add a green energy.;;
+==> effets celebration
 Effet 635;When you celebrate, add an energy to each of your zone;;
-Effet 707;When you celebrate, add a red energy. 
 Effet 695;Your strikes in Commissioner Gordon's zone have : "When you celebrate add 1 energy to this zone".;;
 Effet 701;Your strikes in American ninja's zone have : "When you celebrate, add an energy to this zone".;;
-
-==> effets celebration
 Effet 526;When you celebrate, charge each of you zones with an ally.;;
 Effet 570;If you celebrate, eliminate all your opponent's teamwork;;
 Effet 572;If you celebrate, turn your chamber on it's back side.;;

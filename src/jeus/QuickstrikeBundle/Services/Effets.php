@@ -1365,12 +1365,28 @@ class Effets
                         $this->interactions->deplacerCarte($joueurAdverse,2,'ENERGIE_VERTE','DISCARD');                        
                     }
                     break;
+                // -1 energie \ adversaire
+                case 497 :
+                    $nombre = 1;
+                    $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_ROUGE','DISCARD');
+                    $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_JAUNE','DISCARD');
+                    $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_VERTE','DISCARD');
+                    break;
                 // -2 energie \ adversaire
                 case 349 :
                     $nombre = 2;
                     $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_ROUGE','DISCARD');
                     $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_JAUNE','DISCARD');
                     $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_VERTE','DISCARD');
+                    break;
+                // si force <3 -3 energie \ adversaire
+                case 294 :
+                    if ($this->infos['attaqueAttaquant']<=3) {
+                        $nombre = 3;
+                        $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_ROUGE','DISCARD');
+                        $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_JAUNE','DISCARD');
+                        $nombre -= $this->interactions->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_VERTE','DISCARD');                        
+                    }
                     break;
                 // -1 energie de la zone en cours \ adversaire
                 case 721 :
@@ -1618,6 +1634,18 @@ class Effets
                     $this->interactions->deplacerCarte($joueurConcerne,1,'ENERGIE_JAUNE','DISCARD');                        
                     $this->interactions->deplacerCarte($joueurConcerne,1,'ENERGIE_ROUGE','DISCARD');                        
                     break;
+                // -1 energie \ adversaire pour chaque zone avec teamwork
+                case 331 :
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERT'])) {
+                        $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');                        
+                    }
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE'])) {
+                        $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_JAUNE');                        
+                    }
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_ROUGE'])) {
+                        $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_ROUGE');
+                    }
+                    break;
                 case 281 :
                     $this->interactions->deplacerCarte($joueurConcerne,99,'ENERGIE_JAUNE','ENERGIE_ROUGE');
                     $this->interactions->deplacerCarte($joueurConcerne,99,'ENERGIE_VERTE','ENERGIE_JAUNE');
@@ -1752,6 +1780,11 @@ class Effets
                 case 258 : 
                     if ($action == 'counter attack') {
                         $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'),'DISCARD');
+                    }
+                    break;
+                case 518 : 
+                    if ($action == 'counter attack') {
+                        $this->interactions->deplacerCarte($joueurConcerne,99,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'),'DISCARD');
                     }
                     break;
                 case 256 : 
@@ -2046,6 +2079,44 @@ class Effets
         }
 
         return $zoneDepart;
+    }
+
+    effetCelebration
+
+    public function effetCelebration($joueurConcerne) {
+        $effetsSupplementaire = array();
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                /*case 0 : 
+                    $effetVoulu = false;
+                    break;*/
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ($CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                /*case 0 : 
+                    $effetVoulu = false;
+                    break;*/
+            }
+        }
+        return $effetsSupplementaire;
     }
 
     /*public function effetVoulu($joueurConcerne) {

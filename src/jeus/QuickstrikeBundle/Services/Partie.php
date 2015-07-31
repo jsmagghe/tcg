@@ -352,6 +352,7 @@ class Partie
         $zoneSuivante = $this->tools->zoneSuivante($zoneEnCours);
         if ( $zoneSuivante == 'POINT') {
             $this->pointPourAdversaire($joueurConcerne);
+            $this->effets->effetCelebration(($joueurConcerne==1) ? 2 : 1);
         } else {
             $this->Partie->setJoueurZoneEnCours($joueurConcerne,$zoneSuivante);
             $this->interactions->deplacerCarte($joueurConcerne,1,'DECK',$this->Partie->getJoueurZoneEnCours($joueurConcerne));

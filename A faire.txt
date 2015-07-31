@@ -94,10 +94,6 @@ Effet 720;Reveal the top card of your deck as long as this card is in your advan
 Effet 379;When you counterattack, your opponent reveals his or her current signature move.;;
 
 ==> suppression energie
-Effet 497;exclusive - elizabeth swann. When you counterattack, you may eliminate an energy.;;
-Effet 518;When you opponent counterattacks from a zone, eliminate all of his or her energy in that zone;;
-Effet 587;Your opponent eliminates an energy in each zone with a teamwork;;
-Effet 294;If your opponent's attack is 3 Force or less, you may eliminate up to three furyoku.;;
 Effet 675;When this card leaves play, eliminate an opponent energy.;;
 Effet 699;Joker only. When you play an advantage in Harley quinn's zone, eliminate an opponent's energy of any color you paid. When this card leaves play, gain a red energy.;;
 

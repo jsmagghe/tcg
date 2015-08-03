@@ -220,7 +220,7 @@ class Effets
                     $bonus += 3 - $this->infos['nombreTeamworkAttaquant'];
                     break;
                 case 652 : 
-                    $bonus += (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERT']) == false) ? 1 : 0;
+                    $bonus += (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE']) == false) ? 1 : 0;
                     $bonus += (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']) == false) ? 1 : 0;
                     $bonus += (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']) == false) ? 1 : 0;
                     break;
@@ -233,7 +233,7 @@ class Effets
                 // zone chargée
                 case 130 : 
                     if (
-                        (($this->infos['chamberChargeAttaquant']) && ($Cartejeu->getEmplacement()=='TEAMWORK_VERT'))
+                        (($this->infos['chamberChargeAttaquant']) && ($Cartejeu->getEmplacement()=='TEAMWORK_VERTE'))
                         || (($this->infos['deckChargeAttaquant']) && ($Cartejeu->getEmplacement()=='TEAMWORK_JAUNE'))
                         || (($this->infos['discardChargeAttaquant']) && ($Cartejeu->getEmplacement()=='TEAMWORK_ROUGE'))
                     ) {
@@ -865,7 +865,7 @@ class Effets
                     break;
                 case 467 : 
                     if (
-                        ($Cartejeu->getEmplacement() == 'TEAMWORK_VERT')
+                        ($Cartejeu->getEmplacement() == 'TEAMWORK_VERTE')
                         || ($Cartejeu->getEmplacement() == 'TEAMWORK_JAUNE')
                         || ($Cartejeu->getEmplacement() == 'TEAMWORK_ROUGE')
                         ) {
@@ -1319,22 +1319,22 @@ class Effets
                 // discard teamwork et avantage
                 case 293 : 
                     $this->interactions->deplacerCarte($joueurAdverse,99,'ADVANTAGE','DISCARD');
-                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_VERT','DISCARD');
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_VERTE','DISCARD');
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_JAUNE','DISCARD');
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_ROUGE','DISCARD');
                     break;                    
                 // discard teamwork
                 case 295 : 
-                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_VERT','DISCARD');
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_VERTE','DISCARD');
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_JAUNE','DISCARD');
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_ROUGE','DISCARD');
                     break;                    
                 // discard all teamwork
                 case 586 : 
-                    $this->interactions->deplacerCarte($joueurConcerne,1,'TEAMWORK_VERT','DISCARD');
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'TEAMWORK_VERTE','DISCARD');
                     $this->interactions->deplacerCarte($joueurConcerne,1,'TEAMWORK_JAUNE','DISCARD');
                     $this->interactions->deplacerCarte($joueurConcerne,1,'TEAMWORK_ROUGE','DISCARD');
-                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_VERT','DISCARD');
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_VERTE','DISCARD');
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_JAUNE','DISCARD');
                     $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_ROUGE','DISCARD');
                     break;                    
@@ -1541,7 +1541,7 @@ class Effets
                     break;
                 // +1 vert / +1 jaune / +1 rouge \ joueur pour chaque zone avec teamwork
                 case 331 :
-                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERT'])) {
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'])) {
                         $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');                        
                     }
                     if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'])) {
@@ -1574,7 +1574,7 @@ class Effets
                     break;
                 // +2 vert / +2 jaune / +2 rouge \ joueur pour chaque zone avec teamwork
                 case 331 :
-                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERT'])) {
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'])) {
                         $this->interactions->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_VERTE');                        
                     }
                     if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'])) {
@@ -1636,7 +1636,7 @@ class Effets
                     break;
                 // -1 energie \ adversaire pour chaque zone avec teamwork
                 case 331 :
-                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERT'])) {
+                    if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERTE'])) {
                         $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');                        
                     }
                     if (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE'])) {
@@ -2112,13 +2112,25 @@ class Effets
                 case 707 :
                     $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');
                     break;
+                // +1 energie par zone
+                case 635 :
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');
+                    break;
+                // +1 energie par zone
+                case 695 :
+                case 701 :
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD',$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'));
+                    break;
                 // 2 vert => 2 jaune \ joueur
                 case 395 :
                     $this->interactions->deplacerCarte($joueurConcerne,2,'ENERGIE_VERTE','ENERGIE_JAUNE');
                     break;
-                // +1 energie par zone avce teamwork \ chaque joueur
+                // +1 energie par zone avec teamwork \ chaque joueur
                 case 510 :
-                    if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERT'])) {
+                case 526 :
+                    if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                         $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');                        
                     }
                     if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
@@ -2128,9 +2140,9 @@ class Effets
                         $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');                        
                     }
                     break;
-                // +1 energie par zone avce teamwork \ adversaire 
+                // +1 energie par zone avec teamwork \ adversaire 
                 case 387 :
-                    if (isset($this->CarteEnJeus[$joueurAdverse]['TEAMWORK_VERT'])) {
+                    if (isset($this->CarteEnJeus[$joueurAdverse]['TEAMWORK_VERTE'])) {
                         $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');                        
                     }
                     if (isset($this->CarteEnJeus[$joueurAdverse]['TEAMWORK_JAUNE'])) {
@@ -2140,9 +2152,9 @@ class Effets
                         $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_ROUGE');                        
                     }
                     break;
-                // +1 energie par zone avce teamwork \ chaque joueur
+                // +1 energie par zone avec teamwork \ chaque joueur
                 case 396 :
-                    if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERT'])) {
+                    if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                         $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');                        
                     }
                     if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
@@ -2151,7 +2163,7 @@ class Effets
                     if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
                         $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');                        
                     }
-                    if (isset($this->CarteEnJeus[$joueurAdverse]['TEAMWORK_VERT'])) {
+                    if (isset($this->CarteEnJeus[$joueurAdverse]['TEAMWORK_VERTE'])) {
                         $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');                        
                     }
                     if (isset($this->CarteEnJeus[$joueurAdverse]['TEAMWORK_JAUNE'])) {
@@ -2160,6 +2172,31 @@ class Effets
                     if (isset($this->CarteEnJeus[$joueurAdverse]['TEAMWORK_ROUGE'])) {
                         $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_ROUGE');                        
                     }
+                    break;
+                // celebrer deux fois
+                case 623 :
+                    $effetsSupplementaire['twice'] = true;
+                    break;
+                // eliminer tous les teamworks adverses
+                case 570 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_VERTE','DISCARD');     
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_JAUNE','DISCARD');     
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_ROUGE','DISCARD');     
+                    break;                   
+                // eliminer tous les teamworks adverses et +1 energie dans chaque zone
+                case 663 : 
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_VERTE','DISCARD');     
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_JAUNE','DISCARD');     
+                    $this->interactions->deplacerCarte($joueurAdverse,1,'TEAMWORK_ROUGE','DISCARD');     
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
+                    $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');
+                    break;                   
+                // charger toutes les zones
+                case 669 :
+                    $this->chargerUneZone($joueurConcerne,'STRIKE_VERT');
+                    $this->chargerUneZone($joueurConcerne,'STRIKE_JAUNE');
+                    $this->chargerUneZone($joueurConcerne,'STRIKE_ROUGE');                    
                     break;
             }
         }
@@ -2175,7 +2212,7 @@ class Effets
             switch ($numeroEffet) {
                 // +1 energie par zone avec teamwork \ adversaire 
                 case 500 :
-                    if (isset($this->CarteEnJeus[$joueurAdverse]['TEAMWORK_VERT'])) {
+                    if (isset($this->CarteEnJeus[$joueurAdverse]['TEAMWORK_VERTE'])) {
                         $this->interactions->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');                        
                     }
                     if (isset($this->CarteEnJeus[$joueurAdverse]['TEAMWORK_JAUNE'])) {

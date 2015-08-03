@@ -58,16 +58,8 @@ Effet 697; When this card leaves play, gain 2 yellow energy.;;
 Effet 604;This strike costs one less green energy for each advantages you played this turn;;
 
 ==> effets celebration
-Effet 635;When you celebrate, add an energy to each of your zone;;
-Effet 695;Your strikes in Commissioner Gordon's zone have : "When you celebrate add 1 energy to this zone".;;
-Effet 701;Your strikes in American ninja's zone have : "When you celebrate, add an energy to this zone".;;
-Effet 526;When you celebrate, charge each of you zones with an ally.;;
-Effet 570;If you celebrate, eliminate all your opponent's teamwork;;
 Effet 572;If you celebrate, turn your chamber on it's back side.;;
-Effet 623;When you celebrate, celebrate twice;;
 Effet 645;When you celebrate, shuffle all the teamworks in your discard into your deck.;;
-Effet 669;When you celebrate, charge all your zones;;
-Effet 663;Gordon only. When you celebrate, add an energy to each of your zone and eliminate all your opponent's teamwork;;
 
 ==> affichage carte du deck
 Effet 206;Whenever you flip a card, turn the top card of your deck face up.;;

@@ -347,7 +347,7 @@ class Partie
         $this->interactions->deplacerCarte($joueurConcerne,1,'DECK',$zoneEnCours);                        
     }
 
-    public function celebration($joueurConcerne) {
+    public function celebration($joueurConcerne,$parEffet = false) {
         if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERT'])) {
             $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');                        
         }
@@ -357,7 +357,10 @@ class Partie
         if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
             $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');                        
         }
-        $this->effets->effetCelebration($joueurConcerne);
+        $effetSupplementaires = $this->effets->effetCelebration($joueurConcerne);
+        if (($parEffet == false) && (isset($effetSupplementaires['twice'])) {
+            $this->celebration($joueurConcerne,true);
+        }
     }
 
     public function descendreDeZone($joueurConcerne) {

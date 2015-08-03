@@ -1207,6 +1207,10 @@ class Effets
             $this->interactions->ajoutEffet($joueurConcerne,null,'non-strike','oui');
         }
 
+        if ($this->infos['typeCarteActive'] == 'ADVANTAGE') {
+            $this->interactions->ajoutEffet($joueurConcerne,null,'avantage','1');
+        }
+
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
         foreach ($CarteEnJeus as $Cartejeu) {

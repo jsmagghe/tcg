@@ -3,15 +3,8 @@ pictos pour choix
 faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
 
 ==> zone ou carte en jeu + X force
-Effet 299;Engulfing Helix's Force and Intercept equal the Force of your opponent's attack.;;
-Effet 297;Shooting Star's Intercept equals the Force of your opponent's attack.;;
-Effet 347;When you counterattack, Slingshot Stream gets +X Force, where X is the Force of your opponent's strike.;;
-Effet 540;Deadly accuracy has +X Intercept and when you counterattack, it gets +X Force, where X is the Force of your opponent's strike.;;
 Effet 315;Uncharge all of your opponent's zones. For each zone uncharged this way, +1 Force.;;
 Effet 322;Charge all of your opponent's zones. For each charged this way, +2 Force.;;
-Effet 398;while you have an ally in this zone, direct . While this zone is charged, direct hit has +1 Force.;;
-Effet 631;For each gotham city police department teamwork in play, +1 force;;
-Effet 664;Batman only. This strike has +1 Force for each advantage you played this turn;;
 
 ==> protection carte
 Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
@@ -53,9 +46,7 @@ Effet 609;When you counterattack with leave this to me!, for each advantage in y
 Effet 677;When this card leaves play, add a yellow energy.;;
 Effet 694;When this card leaves play, add an energy to each of your zones.;;
 Effet 697; When this card leaves play, gain 2 yellow energy.;;
-
-==> diminution cout carte
-Effet 604;This strike costs one less green energy for each advantages you played this turn;;
+Effet 682;When you counterattack from scarface's zone, . When this card leaves play, discard all advantages.;;
 
 ==> effets celebration
 Effet 572;If you celebrate, turn your chamber on it's back side.;;
@@ -83,7 +74,6 @@ Effet 305;Your opponent must discard advantages.;;
 Effet 357;When you clean up Storms Without End. Leave your Chamber Card turned to the back.;;
 Effet 492;When you counterattack, move hull breach to your red zone;;
 Effet 556; send all the advantages in your discard pile in your deck and shuffle it;;
-Effet 682;When you counterattack from scarface's zone, . When this card leaves play, discard all advantages.;;
 Effet 747; Turn your chamber in its other side;;
 
 

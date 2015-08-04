@@ -83,6 +83,39 @@ class Effets
                     $bonus += 3;
                     break;
 
+                // +1 force par avantage joué ce tour
+                case 664 :
+                    $effets = $this->Partie->$proprieteEffetAttaquant();
+                    foreach ($$effets as $tab) {
+                        if (isset($tab['avantage'])) {
+                            $bonus++;
+                        }
+                    }
+                    break;
+
+                // +1 force / teamwork GCPD
+                case 664 :
+                        if (
+                            (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERTE']) 
+                            && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'extension' => 'batman', 'trait' => 'shadow'))))
+                            ) {
+                            $bonus++;
+                        }
+                        if (
+                            (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE']) 
+                            && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'extension' => 'batman', 'trait' => 'shadow'))))
+                            ) {
+                            $bonus++;
+                        }
+                        if (
+                            (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_ROUGE']) 
+                            && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'extension' => 'batman', 'trait' => 'shadow'))))
+                            ) {
+                            $bonus++;
+                        }
+                    break;
+
+
                 // zone verte
                 case 95 : 
                     if ($this->infos['ZoneDefenseur']=='STRIKE_VERT') {
@@ -243,6 +276,7 @@ class Effets
                 case 196 : 
                 case 197 : 
                 case 279 : 
+                case 398 : 
                     if (
                         (($this->infos['chamberChargeAttaquant']) && ($this->infos['ZoneAttaquant']=='STRIKE_VERT'))
                         || (($this->infos['deckChargeAttaquant']) && ($this->infos['ZoneAttaquant']=='STRIKE_JAUNE'))
@@ -276,7 +310,7 @@ class Effets
                         && (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'nom' => 'robin'))))
                         && (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'nom' => 'robin'))))
                         ) {
-                        $bionus += 4;
+                        $bonus += 4;
                     }
                     break;
 
@@ -366,6 +400,13 @@ class Effets
                     $bonus += 3;
                     break;
 
+                // = force adverse 
+                case 297 : 
+                case 299 : 
+                case 540 : 
+                    $bonus += $this->infos['attaqueAttaquant'];
+                    break;
+
                 // zone rouge
                 case 220 : 
                     if (($this->infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
@@ -436,13 +477,13 @@ class Effets
 
                 case 591 : 
                     if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'trait' => 'neutre')))) {
-                        $bionus += 1;
+                        $bonus += 1;
                     }
                     if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'trait' => 'neutre')))) {
-                        $bionus += 1;
+                        $bonus += 1;
                     }
                     if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'trait' => 'neutre')))) {
-                        $bionus += 1;
+                        $bonus += 1;
                     }
                     break;
                 case 644 : 
@@ -451,7 +492,7 @@ class Effets
                         && (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'nom' => 'batman'))))
                         && (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']) && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'nom' => 'batman'))))
                         ) {
-                        $bionus += 4;
+                        $bonus += 4;
                     }
                     break;
             }
@@ -959,6 +1000,15 @@ class Effets
                     case 703 :
                         if ($this->infos['typeCarteActive']=='STRIKE') {
                             $coutVert--;
+                        }
+                        break;
+                    // -1 vert par avantage joué ce tour
+                    case 604 :
+                        $effets = $this->Partie->$proprieteEffetDefenseur();
+                        foreach ($$effets as $tab) {
+                            if (isset($tab['avantage'])) {
+                                $coutVert--;
+                            }
                         }
                         break;
                     // -1 rouge si teamwork
@@ -1711,6 +1761,14 @@ class Effets
                     $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD',$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'));
                     break;
 
+                // force = force adverse 
+                case 297 : 
+                case 299 : 
+                case 347 : 
+                case 540 : 
+                    $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force',$this->infos['attaqueAttaquant']);
+                    break;
+                    
                 // -3 force
                 case 86 : 
                 case 616 : 

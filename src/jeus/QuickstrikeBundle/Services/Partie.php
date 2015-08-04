@@ -348,18 +348,20 @@ class Partie
     }
 
     public function celebration($joueurConcerne,$parEffet = false) {
-        if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERT'])) {
-            $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');                        
-        }
-        if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
-            $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');                        
-        }
-        if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
-            $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');                        
-        }
-        $effetSupplementaires = $this->effets->effetCelebration($joueurConcerne);
-        if (($parEffet == false) && (isset($effetSupplementaires['twice'])) {
-            $this->celebration($joueurConcerne,true);
+        if ($this->effets->celebrationPossible($joueurConcerne)) {
+            if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERT'])) {
+                $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');                        
+            }
+            if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
+                $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');                        
+            }
+            if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
+                $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');                        
+            }
+            $effetSupplementaires = $this->effets->effetCelebration($joueurConcerne);
+            if (($parEffet == false) && (isset($effetSupplementaires['twice']))) {
+                $this->celebration($joueurConcerne,true);
+            }
         }
     }
 
@@ -386,7 +388,7 @@ class Partie
         $this->Partie->setEtapeByNumero($joueurConcerne,$etape);
     }
 
-    public function infos(){
+    public function infos($provenance = ''){
         $ZoneAttaquant = $this->Partie->getJoueurZoneEnCours($this->numeroAttaquant);
         $ZoneDefenseur = $this->Partie->getJoueurZoneEnCours($this->numeroDefenseur);
         $chamberChargeAttaquant = $this->Partie->isZoneChargee($this->numeroAttaquant,'VERT');
@@ -424,7 +426,7 @@ class Partie
             $CartePartie = $this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
         }
 
-        return array(
+        $tabInfos = array(
             'ZoneAttaquant' => $ZoneAttaquant,
             'ZoneDefenseur' => $ZoneDefenseur,
             'chamberChargeAttaquant' => $chamberChargeAttaquant,
@@ -439,9 +441,14 @@ class Partie
             'energieJauneDisponibleDefenseur' => $energieJauneDisponibleDefenseur,
             'energieRougeDisponibleDefenseur' => $energieRougeDisponibleDefenseur,
             'typeCarteActive' => ($CartePartie != null) ? $CartePartie->getCarte()->getTypeCarte()->getTag() : 0,
-            'attaqueAttaquant' => $this->attaqueEnCours(),
             'carteActive' => $CartePartie,
             );
+
+        if ($provenance !='attaqueEnCours') {
+            $tabInfos['attaqueAttaquant'] = $this->attaqueEnCours();
+        }
+
+        return $tabInfos;
     }
 
     public function attaqueEnCours() {
@@ -464,7 +471,7 @@ class Partie
             }
         }
 
-        return $attaque+$this->effets->bonusAttaque($this->numeroAttaquant,$this->numeroDefenseur,$this->infos());
+        return $attaque+$this->effets->bonusAttaque($this->numeroAttaquant,$this->numeroDefenseur,$this->infos('attaqueEnCours'));
     }
 
     public function interceptEnCours() {
@@ -720,6 +727,7 @@ class Partie
                     if (
                         ($this->isCartePayable($this->numeroDefenseur, $Carte)) 
                         && ($this->effets->jouerPossible($this->numeroDefenseur))
+                        )
                     {
                         if ($Carte->getTypeCarte()->getTag()=='STRIKE') 
                         {

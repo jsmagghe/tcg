@@ -26,11 +26,8 @@ Effet 198;While your opponent is defending, your zones cannot be uncharged and y
 
 ==> blocage effet
 Effet 156;While your opponent is defending, his or her zones cannot be charged.;;
-Effet 424;Your opponent cannot celebrate.;;
 Effet 426;Your opponent cannot play strikes or allies in his or her green zone.;;
 Effet 427;Your opponent cannot play signature moves. 
-Effet 456;You cannot celebrate in james norrington's zone. 
-Effet 514;You cannot celebrate.;;
 Effet 535;While your opponent is defending, he or she cannot deploy or , 
 Effet 571;Your opponent cannot play advantages or teamwork.;;
 Effet 597;If your opponent's attack is 3 Force or less, your opponent cannot focus or pitch.;;
@@ -47,6 +44,7 @@ Effet 677;When this card leaves play, add a yellow energy.;;
 Effet 694;When this card leaves play, add an energy to each of your zones.;;
 Effet 697; When this card leaves play, gain 2 yellow energy.;;
 Effet 682;When you counterattack from scarface's zone, . When this card leaves play, discard all advantages.;;
+Effet 675;When this card leaves play, eliminate an opponent energy.;;
 
 ==> effets celebration
 Effet 572;If you celebrate, turn your chamber on it's back side.;;
@@ -64,7 +62,6 @@ Effet 720;Reveal the top card of your deck as long as this card is in your advan
 Effet 379;When you counterattack, your opponent reveals his or her current signature move.;;
 
 ==> suppression energie
-Effet 675;When this card leaves play, eliminate an opponent energy.;;
 Effet 699;Joker only. When you play an advantage in Harley quinn's zone, eliminate an opponent's energy of any color you paid. When this card leaves play, gain a red energy.;;
 
 ==> effet exotique

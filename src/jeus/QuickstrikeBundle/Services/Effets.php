@@ -42,7 +42,7 @@ class Effets
         $proprieteEffetDefenseur = "getJoueur".$numeroDefenseur."Effets";
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$numeroAttaquant]['ACTIVE'])) ? $this->CarteEnJeus[$numeroAttaquant]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -318,7 +318,7 @@ class Effets
             }
         }
         $CarteEnJeus = (isset($this->CarteEnJeus[$numeroDefenseur]['ACTIVE'])) ? $this->CarteEnJeus[$numeroDefenseur]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -356,7 +356,7 @@ class Effets
     public function bonusDefense($numeroDefenseur,$numeroAttaquant) {
         $bonus = 0;
         $CarteEnJeus = $this->CarteEnJeus[$numeroDefenseur]['ACTIVE'];
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -435,7 +435,7 @@ class Effets
                     break;
                 case 420 :
                 case 636 :
-                    if (cc[$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) {
+                    if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) {
                         $bonus += 1;
                     } 
                     break;
@@ -537,7 +537,7 @@ class Effets
         }
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -552,7 +552,7 @@ class Effets
 
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -597,7 +597,7 @@ class Effets
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
         /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -611,7 +611,7 @@ class Effets
         }*/
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -633,7 +633,7 @@ class Effets
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -650,7 +650,7 @@ class Effets
 
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -676,7 +676,7 @@ class Effets
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
         /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -691,7 +691,7 @@ class Effets
 
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -718,7 +718,7 @@ class Effets
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -738,7 +738,7 @@ class Effets
 
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -777,7 +777,7 @@ class Effets
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
         /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -792,7 +792,7 @@ class Effets
 
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -828,7 +828,7 @@ class Effets
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -919,7 +919,7 @@ class Effets
 
         // effet des cartes de l'adversaire
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -935,7 +935,7 @@ class Effets
         }
         // carte adverse empechant le reflip
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -973,7 +973,7 @@ class Effets
 
             // effet des cartes du joueur concerné
             $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-            foreach ($CarteEnJeus as $Cartejeu) {
+            foreach ((array)$CarteEnJeus as $Cartejeu) {
                 $Carte = $Cartejeu->getCarte();
                 if ($Carte == null) {
                     continue;
@@ -1036,7 +1036,7 @@ class Effets
 
             // effet des cartes de l'adversaire
             $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-            foreach ($CarteEnJeus as $Cartejeu) {
+            foreach ((array)$CarteEnJeus as $Cartejeu) {
                 $Carte = $Cartejeu->getCarte();
                 if ($Carte == null) {
                     continue;
@@ -1150,7 +1150,7 @@ class Effets
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -1159,25 +1159,25 @@ class Effets
             switch ($numeroEffet) {
                 case 431 : 
                 case 472 : 
-                    if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']) {
+                    if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                         $deploy['deploy_green_free'] = 'Deploy green: free';
                     }
-                    if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']) {
+                    if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
                         $deploy['deploy_yellow_free'] = 'Deploy yellow: free';
                     }
-                    if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']) {
+                    if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
                         $deploy['deploy_red_free'] = 'Deploy red: free';
                     }
                     break;
                 case 704 : 
                     if ($this->tools->isCarteCorrespondante($this->infos['CarteActive'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'light'))) {
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                             $deploy['deploy_green_free'] = 'Deploy green: free';
                         }
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
                             $deploy['deploy_yellow_free'] = 'Deploy yellow: free';
                         }
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
                             $deploy['deploy_red_free'] = 'Deploy red: free';
                         }
                     }
@@ -1187,13 +1187,13 @@ class Effets
                 case 458 : 
                 case 476 : 
                     if ($energieVerteDisponibleDefenseur>1) {
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                             $deploy['deploy_green_green'] = 'Deploy green: green';
                         }
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
                             $deploy['deploy_yellow_green'] = 'Deploy yellow: green';
                         }
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
                             $deploy['deploy_red_green'] = 'Deploy red: green';
                         }
                     }
@@ -1203,26 +1203,26 @@ class Effets
                 case 467 : 
                 case 696 : 
                     if ($energieJauneDisponibleDefenseur>1) {
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                             $deploy['deploy_green_yellow'] = 'Deploy green: yellow';
                         }
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
                             $deploy['deploy_yellow_yellow'] = 'Deploy yellow: yellow';
                         }
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
                             $deploy['deploy_red_yellow'] = 'Deploy red: yellow';
                         }
                     }
                     break;
                 case 470 : 
                     if ($energieRougeDisponibleDefenseur>1) {
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                             $deploy['deploy_green_red'] = 'Deploy green: red';
                         }
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
                             $deploy['deploy_yellow_red'] = 'Deploy yellow: red';
                         }
-                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']) {
+                        if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
                             $deploy['deploy_red_red'] = 'Deploy red: red';
                         }
                     }
@@ -1232,7 +1232,7 @@ class Effets
 
         // carte adverse empechant le deploy
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -1263,7 +1263,7 @@ class Effets
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -1316,19 +1316,19 @@ class Effets
                 // charge toutes les zones avec teamwork batman
                 case 561 : 
                     if (
-                        (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'])
+                        (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE']))
                         && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'light')))
                             ) {
                         $this->chargerUneZone($joueurConcerne,'STRIKE_VERT');                            
                     }
                     if (
-                        (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'])
+                        (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']))
                         && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'light')))
                             ) {
                         $this->chargerUneZone($joueurConcerne,'STRIKE_JAUNE');
                     }
                     if (
-                        (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'])
+                        (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']))
                         && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'light')))
                             ) {
                         $this->chargerUneZone($joueurConcerne,'STRIKE_ROUGE');
@@ -1804,7 +1804,7 @@ class Effets
 
         // effet des cartes de l'adversaire
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -1895,7 +1895,7 @@ class Effets
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -1926,7 +1926,7 @@ class Effets
 
         // effet des cartes de l'adversaire
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -1945,7 +1945,7 @@ class Effets
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -1960,7 +1960,7 @@ class Effets
 
         // effet des cartes de l'adversaire
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -2028,7 +2028,7 @@ class Effets
 
         // effet des cartes du joueur concerné
         /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -2043,7 +2043,7 @@ class Effets
 
         // effet des cartes de l'adversaire
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -2069,7 +2069,7 @@ class Effets
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -2084,7 +2084,7 @@ class Effets
 
         // effet des cartes de l'adversaire
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -2149,7 +2149,7 @@ class Effets
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -2265,7 +2265,7 @@ class Effets
 
         // effet des cartes de l'adversaire
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -2289,13 +2289,51 @@ class Effets
         return $effetsSupplementaire;
     }
 
+    public function celebrationPossible($joueurConcerne) {
+        $celebrationPossible = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 456 : 
+                    $celebrationPossible = false;
+                    break;
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 424 : 
+                case 514 : 
+                    $celebrationPossible = false;
+                    break;
+            }
+        }
+
+        return $celebrationPossible;
+    }
+
     /*public function effetVoulu($joueurConcerne) {
         $effetVoulu = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;
@@ -2310,7 +2348,7 @@ class Effets
 
         // effet des cartes de l'adversaire
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
-        foreach ($CarteEnJeus as $Cartejeu) {
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
                 continue;

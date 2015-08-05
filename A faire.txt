@@ -5,31 +5,20 @@ faire hériter les différents services d'un même classe pour les différents j
 ==> protection carte
 Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
 Effet 117;Your teamworks cannot be eliminated.;;
-Effet 185;While your opponent is defending, your zones cannot be uncharged.;;
 Effet 408;While your opponent is defending, your energy cannot be moved or eliminated.;;
 Effet 423;While your opponent is defending, your allies and energy cannot be moved or eliminated.;;
 Effet 601;When you counterattack with Brave warden, your teamwork cannot be eliminated.;;
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
 Effet 625;When you counterattack with Frozen dome, your teamwork and energies cannot be eliminated;;
 Effet 626;When you counterattack with Don't you dare, your energy cannot be eliminated;;
-Effet 646;When you counterattack with Police protection, your zones cannot be uncharged and your teamwork cannot be eliminated;;
+Effet 646;When you counterattack with Police protection, your zones cannot be and your teamwork cannot be eliminated;;
 Effet 723;Your teamwork cannot be eliminated;;
-Effet 724;Your zones cannot be uncharged;;
 Effet 729;Your teamwork cannot be targeted by your opponent's effects.;;
-Effet 731;Your teamwork cannot be eliminated nor your zones uncharged. 
+Effet 731;Your teamwork cannot be eliminated nor 
 Effet 738;Your teamworks cannot be eliminated. 
-Effet 198;While your opponent is defending, your zones cannot be uncharged and your allies cannot be moved or eliminated.;;
-
-==> blocage effet
-Effet 426;Your opponent cannot play strikes or allies in his or her green zone.;;
-Effet 427;Your opponent cannot play signature moves. 
-Effet 535;While your opponent is defending, he or she cannot deploy or , 
-Effet 571;Your opponent cannot play advantages or teamwork.;;
-Effet 597;If your opponent's attack is 3 Force or less, your opponent cannot focus or pitch.;;
-Effet 606;Your opponent cannot play advantages.;;
+Effet 198;While your opponent is defending,  and your allies cannot be moved or eliminated.;;
 
 ==> ajout energie verte
-Effet 47; Eliminate all cards in all advantage areas: For each card eliminated, add a green furyoku.;;
 Effet 679;When you flip a card in Batgirl's zone, add a green energy.;;
 Effet 609;When you counterattack with leave this to me!, for each advantage in your area, add a green energy.;;
 

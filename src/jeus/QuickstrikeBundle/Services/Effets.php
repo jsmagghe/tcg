@@ -579,6 +579,53 @@ class Effets
         return $chargementPossible;
     }
 
+    public function dechargementPossible($CarteActive,$joueurConcerne) {
+        $dechargementPossible = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 724 : 
+                case 731 : 
+                    $dechargementPossible = false;
+                    break;
+                // non déchargeable quand on attauqe
+                case 185 : 
+                case 198 : 
+                case 646 : 
+                    if ($joueurConcerne == $this->numeroAttaquant) {
+                        $dechargementPossible = false;                        
+                    }
+                    break;
+            }
+        }
+
+
+        /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            switch ($numeroEffet) {
+                case 0 : 
+                    $dechargementPossible = false;
+                    break;
+            }
+        }*/
+
+
+
+        return $dechargementPossible;
+    }
+
     public function avantageImmediat($CarteActive) 
     {
         $avantageImmediat = false;
@@ -634,6 +681,14 @@ class Effets
         $focusPossible = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
+        $proprieteEffetJoueurConcerne = "getJoueur".$joueurConcerne."Effets";
+        $effets = $this->Partie->$proprieteEffetJoueurConcerne();
+        foreach ($$effets as $tab) {
+            if (isset($tab['no-focus'])) {
+                $focusPossible = false;
+            }
+        }
+
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
         foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
@@ -676,6 +731,14 @@ class Effets
     public function pitchPossible($joueurConcerne) {
         $pitchPossible = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        $proprieteEffetJoueurConcerne = "getJoueur".$joueurConcerne."Effets";
+        $effets = $this->Partie->$proprieteEffetJoueurConcerne();
+        foreach ($$effets as $tab) {
+            if (isset($tab['no-pitch'])) {
+                $pitchPossible = false;
+            }
+        }
 
         /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
         foreach ((array)$CarteEnJeus as $Cartejeu) {
@@ -755,6 +818,14 @@ class Effets
                         $jouerPossible = false;                        
                     }
                     break;
+                case 426 : 
+                    if (
+                        ($this->infos['ZoneDefenseur']=='STRIKE_VERT')
+                        && (($this->infos['typeCarteActive']=='STRIKE') || ($this->infos['typeCarteActive']=='TEAMWORK'))
+                        ) {
+                        $jouerPossible = false;                        
+                    }
+                    break;
                 case 490 : 
                     if (
                         ($this->infos['ZoneDefenseur']=='STRIKE_VERT') && ($this->infos['typeCarteActive']=='STRIKE')
@@ -764,6 +835,16 @@ class Effets
                     break;
                 case 503 : 
                     if ($this->infos['ZoneDefenseur']=='STRIKE_VERT') {
+                        $jouerPossible = false;                        
+                    }
+                    break;
+                case 571 : 
+                    if (($this->infos['typeCarteActive']=='ADVANTAGE') || ($this->infos['typeCarteActive']=='TEAMWORK')) {
+                        $jouerPossible = false;                        
+                    }
+                    break;
+                case 606 : 
+                    if ($this->infos['typeCarteActive']=='ADVANTAGE') {
                         $jouerPossible = false;                        
                     }
                     break;
@@ -965,7 +1046,11 @@ class Effets
         $pasRouge = false;
 
         if ($CartePartie!=null) {
-            $Carte = $CartePartie->getCarte();
+            if ($CartePartie instanceof \jeus\JoueurBundle\Entity\CartePartie) {
+                $Carte = $CartePartie->getCarte();
+            } else {
+                $Carte = $CartePartie;
+            }
 
             $coutVert = $Carte->getCoutVert();
             $coutJaune = $Carte->getCoutJaune();
@@ -1243,6 +1328,7 @@ class Effets
             switch ($numeroEffet) {
                 case 388 : 
                 case 394 : 
+                case 535 : 
                     $deploy = array();
                     break;
             }
@@ -1488,6 +1574,12 @@ class Effets
                     if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) {
                         $this->interactions->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
                     }
+                    break;
+                // +1 vert pour chaque carte en avantage discardé \ joueur
+                case 47 :
+                    $nombre += $this->interactions->deplacerCarte($joueurConcerne,99,'ADVANTAGE','DISCARD');
+                    $nombre += $this->interactions->deplacerCarte($joueurAdverse,99,'ADVANTAGE','DISCARD');
+                    $this->interactions->deplacerCarte($joueurConcerne,$nombre,'DISCARD','ENERGIE_VERTE');
                     break;
                 // +1 jaune \ joueur
                 case 38 :
@@ -1771,11 +1863,20 @@ class Effets
                     $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force',$this->infos['attaqueAttaquant']);
                     break;
                     
-                // -3 force
+                // -3 force => +2 force
                 case 86 : 
                 case 616 : 
                     if ($this->infos['attaqueAttaquant']<=3) {
                         $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','2');
+                    }
+                    break;
+
+                // -3 force => pas de focus ou de pitch
+                case 86 : 
+                case 616 : 
+                    if ($this->infos['attaqueAttaquant']<=3) {
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'no-focus',true);
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'no-pitch',true);
                     }
                     break;
 

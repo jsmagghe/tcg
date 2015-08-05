@@ -258,9 +258,7 @@ class Partie
         $this->effets->effetJouer($joueurConcerne,$action);
         if ($action=='avantager') {
             $zoneCorrespondante = 'AVANTAGE';
-            if ($this->effets->chargementPossible($CarteActive,$joueurConcerne)) {
-                $this->effets->chargerUneZone($joueurConcerne,$zoneEnCours);                
-            }
+            $this->effets->chargerUneZone($joueurConcerne,$zoneEnCours);                
         }
         if ($action=='recruter') {
             $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'TEAMWORK');

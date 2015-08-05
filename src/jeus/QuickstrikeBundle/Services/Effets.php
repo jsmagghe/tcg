@@ -561,9 +561,11 @@ class Effets
             switch ($numeroEffet) {
                 case 22 : 
                 case 27 : 
+                case 156 : 
                 case 284 : 
                 case 353 : 
                 case 427 : 
+                case 524 : 
                 case 535 : 
                 case 617 : 
                 case 736 : 
@@ -1336,20 +1338,20 @@ class Effets
                     break;
                 // decharger toutes les zones
                 case 351 : 
-                    $this->Partie->dechargerZone($joueurAdverse,'STRIKE_VERT');
-                    $this->Partie->dechargerZone($joueurAdverse,'STRIKE_JAUNE');
-                    $this->Partie->dechargerZone($joueurAdverse,'STRIKE_ROUGE');
+                    $this->dechargerUneZone($joueurAdverse,'STRIKE_VERT');
+                    $this->dechargerUneZone($joueurAdverse,'STRIKE_JAUNE');
+                    $this->dechargerUneZone($joueurAdverse,'STRIKE_ROUGE');
                     break;
                 // decharger toutes les zones sans teamwork
                 case 515 : 
                     if (!isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'])) {
-                        $this->Partie->dechargerZone($joueurAdverse,'STRIKE_VERT');
+                        $this->dechargerUneZone($joueurAdverse,'STRIKE_VERT');
                     }
                     if (!isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'])) {
-                        $this->Partie->dechargerZone($joueurAdverse,'STRIKE_JAUNE');
+                        $this->dechargerUneZone($joueurAdverse,'STRIKE_JAUNE');
                     }
                     if (!isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'])) {
-                        $this->Partie->dechargerZone($joueurAdverse,'STRIKE_ROUGE');
+                        $this->dechargerUneZone($joueurAdverse,'STRIKE_ROUGE');
                     }
                     break;
 
@@ -1776,6 +1778,39 @@ class Effets
                         $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','2');
                     }
                     break;
+
+                // decharge toutes les zones adverses +1 force pour chaque zone déchargée
+                case 315 : 
+                    $force = 0;
+                    if ($this->dechargerUneZone($joueurAdverse,'STRIKE_VERT')) {
+                        $force++;
+                    }
+                    if ($this->dechargerUneZone($joueurAdverse,'STRIKE_JAUNE')) {
+                        $force++;
+                    }
+                    if ($this->dechargerUneZone($joueurAdverse,'STRIKE_ROUGE')) {
+                        $force++;
+                    }
+                    if ($force>0) {
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force',$force);                        
+                    }
+                    break;
+                // charge toutes les zones adverses +2 force pour chaque zone chargée
+                case 322 : 
+                    $force = 0;
+                    if ($this->chargerUneZone($joueurAdverse,'STRIKE_VERT')) {
+                        $force++;
+                    }
+                    if ($this->chargerUneZone($joueurAdverse,'STRIKE_JAUNE')) {
+                        $force++;
+                    }
+                    if ($this->chargerUneZone($joueurAdverse,'STRIKE_ROUGE')) {
+                        $force++;
+                    }
+                    if ($force>0) {
+                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force',2*$force);                        
+                    }
+                    break;
                 case 137 : 
                 case 138 : 
                 case 145 : 
@@ -1831,7 +1866,7 @@ class Effets
                 case 100 :
                 case 255 :
                     if ($action == 'counter attack')  {
-                        $this->Partie->dechargerZone($joueurConcerne,$this->infos['ZoneDefenseur']);
+                        $this->dechargerUneZone($joueurConcerne,$this->infos['ZoneDefenseur']);
                     }
                     break;
                 case 254 : 
@@ -1851,7 +1886,7 @@ class Effets
                     break;
                 case 256 : 
                     if ($action == 'counter attack') {
-                        $this->Partie->dechargerZone($joueurConcerne,$this->infos['ZoneDefenseur']);
+                        $this->dechargerUneZone($joueurConcerne,$this->infos['ZoneDefenseur']);
                         $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK'),'DISCARD');
                         $this->interactions->deplacerCarte($joueurConcerne,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'),'DISCARD');
                     }
@@ -2015,8 +2050,34 @@ class Effets
     }
 
     public function chargerUneZone($joueurConcerne,$zoneChargee) {
-        $this->Partie->chargerZone($joueurAdverse,$zoneChargee);
-        $this->effetCharger($joueurConcerne,$zoneChargee);
+        $zone = explode('_', $zoneChargee);
+        if (isset($zone[1])) { 
+            $chargementFait = false;
+            $zone = $zone[1];
+            if ((!$this->Partie->isZoneChargee($joueurConcerne,$zone)) && ($this->chargementPossible($joueurConcerne))) {
+                $this->Partie->chargerZone($joueurAdverse,$zoneChargee);
+                $this->effetCharger($joueurConcerne,$zoneChargee);
+                $chargementFait = $this->Partie->isZoneChargee($joueurConcerne,$zone);
+            }
+            return $chargementFait;
+        } else {
+            return false;
+        }
+    }
+
+    public function dechargerUneZone($joueurConcerne,$zoneDechargee) {
+        $zone = explode('_', $zoneDechargee);
+        if (isset($zone[1])) { 
+            $dechargementFait = false;
+            $zone = $zone[1];
+            if (($this->Partie->isZoneChargee($joueurConcerne,$zone)) && ($this->dechargementPossible($joueurConcerne))) {
+                $this->dechargerUneZone($joueurAdverse,$zoneDechargee);
+                $dechargementFait = $this->Partie->isZoneChargee($joueurConcerne,$zone);
+            }
+            return $dechargementFait;
+        } else {
+            return false;
+        }
     }
 
     public function effetCharger($joueurConcerne,$zoneChargee = '') {

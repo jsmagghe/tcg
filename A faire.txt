@@ -3,20 +3,8 @@ pictos pour choix
 faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
 
 ==> protection carte
-Effet 179;While your opponent is defending, your allies cannot be moved or be eliminated.;;
-Effet 117;Your teamworks cannot be eliminated.;;
-Effet 408;While your opponent is defending, your energy cannot be moved or eliminated.;;
-Effet 423;While your opponent is defending, your allies and energy cannot be moved or eliminated.;;
-Effet 601;When you counterattack with Brave warden, your teamwork cannot be eliminated.;;
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
-Effet 625;When you counterattack with Frozen dome, your teamwork and energies cannot be eliminated;;
-Effet 626;When you counterattack with Don't you dare, your energy cannot be eliminated;;
-Effet 646;When you counterattack with Police protection, your zones cannot be and your teamwork cannot be eliminated;;
-Effet 723;Your teamwork cannot be eliminated;;
 Effet 729;Your teamwork cannot be targeted by your opponent's effects.;;
-Effet 731;Your teamwork cannot be eliminated nor 
-Effet 738;Your teamworks cannot be eliminated. 
-Effet 198;While your opponent is defending,  and your allies cannot be moved or eliminated.;;
 
 ==> ajout energie verte
 Effet 679;When you flip a card in Batgirl's zone, add a green energy.;;

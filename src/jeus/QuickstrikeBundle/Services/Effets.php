@@ -86,7 +86,7 @@ class Effets
                 // +1 force par avantage joué ce tour
                 case 664 :
                     $effets = $this->Partie->$proprieteEffetAttaquant();
-                    foreach ($$effets as $tab) {
+                    foreach ($effets as $tab) {
                         if (isset($tab['avantage'])) {
                             $bonus++;
                         }
@@ -294,7 +294,7 @@ class Effets
                 case 96 :
                     $effets = $this->Partie->$proprieteEffetDefenseur();
                     $trouve = false;
-                    foreach ($$effets as $tab) {
+                    foreach ($effets as $tab) {
                         if (isset($tab['non-strike'])) {
                             $trouve = true;
                             break;
@@ -683,7 +683,7 @@ class Effets
 
         $proprieteEffetJoueurConcerne = "getJoueur".$joueurConcerne."Effets";
         $effets = $this->Partie->$proprieteEffetJoueurConcerne();
-        foreach ($$effets as $tab) {
+        foreach ($effets as $tab) {
             if (isset($tab['no-focus'])) {
                 $focusPossible = false;
             }
@@ -734,7 +734,7 @@ class Effets
 
         $proprieteEffetJoueurConcerne = "getJoueur".$joueurConcerne."Effets";
         $effets = $this->Partie->$proprieteEffetJoueurConcerne();
-        foreach ($$effets as $tab) {
+        foreach ($effets as $tab) {
             if (isset($tab['no-pitch'])) {
                 $pitchPossible = false;
             }
@@ -1092,7 +1092,7 @@ class Effets
                     // -1 vert par avantage joué ce tour
                     case 604 :
                         $effets = $this->Partie->$proprieteEffetDefenseur();
-                        foreach ($$effets as $tab) {
+                        foreach ($effets as $tab) {
                             if (isset($tab['avantage'])) {
                                 $coutVert--;
                             }
@@ -1151,7 +1151,7 @@ class Effets
                     case 97 :
                         $effets = $this->Partie->$proprieteEffetDefenseur();
                         $trouve = false;
-                        foreach ($$effets as $tab) {
+                        foreach ($effets as $tab) {
                             if (isset($tab['non-strike'])) {
                                 $trouve = true;
                                 break;

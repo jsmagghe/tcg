@@ -2598,20 +2598,19 @@ class Effets
     }
 
     public function deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD',$melanderDestination=false,$nombreDejaDeplace=0) {
-        $nombre = 0;
         $tab = explode('_',$emplacementOrigine);
         $typeCarte = $tab[0];
         if ($emplacementFinal=='DISCARD') {
             if ($this->eliminationPossible($joueurConcerne,$typeCarte)) {
-                $nombre += $this->interactions->deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal,$melanderDestination,$nombreDejaDeplace);
+                $nombreDejaDeplace += $this->interactions->deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal,$melanderDestination,$nombreDejaDeplace);
             }
         } else {
             if ($this->deplacementPossible($joueurConcerne,$typeCarte)) {
-                $nombre += $this->interactions->deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal,$melanderDestination,$nombreDejaDeplace);
+                $nombreDejaDeplace += $this->interactions->deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal,$melanderDestination,$nombreDejaDeplace);
             }
         }
 
-        return $nombre;
+        return $nombreDejaDeplace;
     }
 
     /*public function effetVoulu($joueurConcerne) {

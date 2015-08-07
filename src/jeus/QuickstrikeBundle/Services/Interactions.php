@@ -32,58 +32,57 @@ class Interactions
     }
 
     public function deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD',$melanderDestination=false,$nombreDejaDeplace=0) {
-        if ($nombre <=0) {
-            exit;
-        }
-        $CarteParties = $this->em
-        ->getRepository('jeusQuickstrikeBundle:CartePartie')
-        ->findBy(array(
-            'Partie' => $this->Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementOrigine
-            )
-            ,array('position'=>'ASC')
-        );
-        $order = 'DESC';
-        $CarteFinals = $this->em
-        ->getRepository('jeusQuickstrikeBundle:CartePartie')
-        ->findBy(array(
-            'Partie' => $this->Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementFinal
-            ),
-            array('position'=>$order),
-            1  // limit
-        );
+        if ($nombre >0) {
+            $CarteParties = $this->em
+            ->getRepository('jeusQuickstrikeBundle:CartePartie')
+            ->findBy(array(
+                'Partie' => $this->Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementOrigine
+                )
+                ,array('position'=>'ASC')
+            );
+            $order = 'DESC';
+            $CarteFinals = $this->em
+            ->getRepository('jeusQuickstrikeBundle:CartePartie')
+            ->findBy(array(
+                'Partie' => $this->Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementFinal
+                ),
+                array('position'=>$order),
+                1  // limit
+            );
 
-        $position = 0;
-        foreach($CarteFinals as $position=>$CartePartie) {
-            if ($CartePartie->getPosition()>=$position)
-                $position = $CartePartie->getPosition();
-        }
-        $position++;
-
-        foreach($CarteParties as $CartePartie) {
-            if ($nombre<=0) 
-                break;
-
-            // l'opening ne peut êrte que dans la zone verte ou en attente dans la zone opening
-            if (($emplacementFinal!='STRIKE_VERT') && ($CartePartie->getCarte()->getNom()=='opening attack')) {
-                $CartePartie->setEmplacement('OPENING');
-            } else {
-                $CartePartie->setEmplacement($emplacementFinal);
-                $CartePartie->setPosition($position);
-                $nombreDejaDeplace++;
-                $position++;            
+            $position = 0;
+            foreach($CarteFinals as $position=>$CartePartie) {
+                if ($CartePartie->getPosition()>=$position)
+                    $position = $CartePartie->getPosition();
             }
+            $position++;
 
-            $nombre--;
-        }
-        $this->em->flush();
-        if ($melanderDestination) {
-            $this->melangerEmplacement($joueurConcerne,$emplacementFinal);
-        }
-        // s'il n'y a plus de carte dans le deck on récupère toutes les cartes de la discard que l'on met dans le deck
-        if (($nombre>0) && ($emplacementOrigine=='DECK')) {
-            $this->deplacerCarte($joueurConcerne,99,'DISCARD','DECK',true);
-            $this->deplacerCarte($joueurConcerne,5,'DECK','DISCARD');
-            $this->deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal,$melanderDestination,$nombreDejaDeplace);
+            foreach($CarteParties as $CartePartie) {
+                if ($nombre<=0) 
+                    break;
+
+                // l'opening ne peut êrte que dans la zone verte ou en attente dans la zone opening
+                if (($emplacementFinal!='STRIKE_VERT') && ($CartePartie->getCarte()->getNom()=='opening attack')) {
+                    $CartePartie->setEmplacement('OPENING');
+                } else {
+                    $CartePartie->setEmplacement($emplacementFinal);
+                    $CartePartie->setPosition($position);
+                    $nombreDejaDeplace++;
+                    $position++;            
+                }
+
+                $nombre--;
+            }
+            $this->em->flush();
+            if ($melanderDestination) {
+                $this->melangerEmplacement($joueurConcerne,$emplacementFinal);
+            }
+            // s'il n'y a plus de carte dans le deck on récupère toutes les cartes de la discard que l'on met dans le deck
+            if (($nombre>0) && ($emplacementOrigine=='DECK')) {
+                $this->deplacerCarte($joueurConcerne,99,'DISCARD','DECK',true);
+                $this->deplacerCarte($joueurConcerne,5,'DECK','DISCARD');
+                $this->deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal,$melanderDestination,$nombreDejaDeplace);
+            }
         }
         return $nombreDejaDeplace;
     }

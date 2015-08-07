@@ -346,7 +346,7 @@ class Effets
 
         foreach ($effets as $tab) {
             if (isset($tab['force'])) {
-                $bonus += (int($tab['force']));
+                $bonus += (int)$tab['force'];
             }
         }
 
@@ -501,7 +501,7 @@ class Effets
         return $bonus;
     }
 
-    public function chargementPossible($CarteActive,$joueurConcerne) {
+    public function chargementPossible($joueurConcerne,$CarteActive=null) {
         $chargementPossible = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
@@ -579,7 +579,7 @@ class Effets
         return $chargementPossible;
     }
 
-    public function dechargementPossible($CarteActive,$joueurConcerne) {
+    public function dechargementPossible($joueurConcerne) {
         $dechargementPossible = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
@@ -2150,13 +2150,13 @@ class Effets
         }
     }
 
-    public function chargerUneZone($joueurConcerne,$zoneChargee) {
+    public function chargerUneZone($joueurConcerne,$zoneChargee,$CarteActive = null) {
         $zone = explode('_', $zoneChargee);
         if (isset($zone[1])) { 
             $chargementFait = false;
             $zone = $zone[1];
-            if ((!$this->Partie->isZoneChargee($joueurConcerne,$zone)) && ($this->chargementPossible($joueurConcerne))) {
-                $this->Partie->chargerZone($joueurAdverse,$zoneChargee);
+            if ((!$this->Partie->isZoneChargee($joueurConcerne,$zone)) && ($this->chargementPossible($joueurConcerne,$CarteActive))) {
+                $this->Partie->chargerZone($joueurConcerne,$zoneChargee);
                 $this->effetCharger($joueurConcerne,$zoneChargee);
                 $chargementFait = $this->Partie->isZoneChargee($joueurConcerne,$zone);
             }
@@ -2172,7 +2172,7 @@ class Effets
             $dechargementFait = false;
             $zone = $zone[1];
             if (($this->Partie->isZoneChargee($joueurConcerne,$zone)) && ($this->dechargementPossible($joueurConcerne))) {
-                $this->dechargerUneZone($joueurAdverse,$zoneDechargee);
+                $this->dechargerUneZone($joueurConcerne,$zoneDechargee);
                 $dechargementFait = $this->Partie->isZoneChargee($joueurConcerne,$zone);
             }
             return $dechargementFait;

@@ -1,6 +1,7 @@
 A faire
 pictos pour choix
 faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
+pour accélerer le temps faire décompte des effets en jeu pour ne parcourir que les fonctions utiles
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
@@ -36,8 +37,6 @@ Effet 379;When you counterattack, your opponent reveals his or her current signa
 Effet 699;Joker only. When you play an advantage in Harley quinn's zone, eliminate an opponent's energy of any color you paid. When this card leaves play, gain a red energy.;;
 
 ==> effet exotique
-Effet 698;When you counterattack from Arkham warden's zone, your opponent's teamwork effects don't apply.;;
-Effet 619;Your opponent's teamwork effects don't apply.;;
 Effet 305;Your opponent must discard advantages.;;
 Effet 357;When you clean up Storms Without End. Leave your Chamber Card turned to the back.;;
 Effet 492;When you counterattack, move hull breach to your red zone;;

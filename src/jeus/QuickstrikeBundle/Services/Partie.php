@@ -94,8 +94,8 @@ class Partie
             if (
                 ($emplacement=='AVANTAGE') || ($emplacement=='STRIKE_VERT') 
                 || ($emplacement=='STRIKE_JAUNE') || ($emplacement=='STRIKE_ROUGE')
-                || (($emplacement=='CHAMBER') && ($this->Partie->getJoueurZoneEnCours($numeroJoueur)=='CHAMBER'))
-                || (($emplacement=='TEAMWORK_VERTE') && ($this->Partie->getJoueurZoneEnCours($numeroJoueur)=='STRIKE_VERT'))
+                || (($emplacement=='CHAMBER') && ($this->Partie->getEtape($numeroJoueur)=='utilisationChamber'))
+                || (($emplacement=='TEAMWORK_VERTE') && ($this->Partie->getJoueurZoneEnCours($numeroJoueur)=='STRIKE_VERT') && ($this->Partie->getEtape($numeroJoueur)!='utilisationChamber'))
                 || (($emplacement=='TEAMWORK_JAUNE') && ($this->Partie->getJoueurZoneEnCours($numeroJoueur)=='STRIKE_JAUNE'))
                 || (($emplacement=='TEAMWORK_ROUGE') && ($this->Partie->getJoueurZoneEnCours($numeroJoueur)=='STRIKE_ROUGE'))
                 ){
@@ -269,7 +269,7 @@ class Partie
             $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_JAUNE');
             $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_ROUGE');
         }
-        if ($this->effets->avantageImmediat($CarteActive)) {
+        if ($this->effets->avantageImmediat($joueurConcerne,$CarteActive)) {
             $this->effets->deplacerCarte($joueurConcerne,1,$zoneEnCours,'DISCARD');
         } else {
             $this->effets->deplacerCarte($joueurConcerne,1,$zoneEnCours,$zoneCorrespondante);            
@@ -453,7 +453,12 @@ class Partie
 
     public function attaqueEnCours() {
         $attaque = 0;
-        if (($this->Partie->getJoueur1Etape()=='defense') || ($this->Partie->getJoueur2Etape()=='defense')) {
+        if (
+            ($this->Partie->getJoueur1Etape()=='defense') 
+            || ($this->Partie->getJoueur2Etape()=='defense')
+            || ($this->Partie->getJoueur1Etape()=='utilisationChamber')
+            || ($this->Partie->getJoueur2Etape()=='utilisationChamber')
+            ) {
             if ($this->Partie->getJoueurZoneEnCours($this->numeroAttaquant)!='0') {
                 if (isset($this->CarteEnJeus[$this->numeroAttaquant][$this->Partie->getJoueurZoneEnCours($this->numeroAttaquant)])) {
                     $CarteActive = $this->CarteEnJeus[$this->numeroAttaquant][$this->Partie->getJoueurZoneEnCours($this->numeroAttaquant)];
@@ -461,6 +466,7 @@ class Partie
                 }
                 else 
                     $Carte = null;
+
 
                 if ($Carte == null) {
                     return 4;

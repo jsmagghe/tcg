@@ -47,7 +47,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($numeroAttaquant,$Carte);
             switch ($numeroEffet) {
                 case 428 : 
                     $bonus -= 2;
@@ -323,7 +323,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($numeroDefenseur,$Carte);
             switch ($numeroEffet) {
                 case 502 : 
                     $bonus -= 2;
@@ -361,7 +361,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($numeroDefenseur,$Carte);
             switch ($numeroEffet) {
             	case 17 : 
             		$bonus -= 3;
@@ -509,7 +509,7 @@ class Effets
         if ($Carte == null) {
             continue;
         }
-        $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+        $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
         switch ($numeroEffet) {
             case 38 : 
             case 42 : 
@@ -542,7 +542,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 684 : 
                     $chargementPossible = true;
@@ -557,7 +557,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 22 : 
                 case 27 : 
@@ -589,7 +589,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 724 : 
                 case 731 : 
@@ -613,7 +613,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 0 : 
                     $dechargementPossible = false;
@@ -626,14 +626,14 @@ class Effets
         return $dechargementPossible;
     }
 
-    public function avantageImmediat($CarteActive) 
+    public function avantageImmediat($joueurConcerne, $CarteActive) 
     {
         $avantageImmediat = false;
         $Carte = $CarteActive->getCarte();
         if ($Carte == null) {
             continue;
         }
-        $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+        $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
         $avantageImmediat = in_array($numeroEffet,array(5,8,31,38,42,47,51,52,70,72,79,81,101,104,105,115,121,131,
             199,200,201,202,204,208,209,210,212,213,214,215,216,218,219,222,223,278,429,432,433,434,435,436,438,
             440,444,449,450,452,499,501,504,546,549,712,717,718,721,725,726,730,732,733,735,737,739,740,744,746,747));
@@ -651,7 +651,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 91 : 
                     $avantagePossible = false;
@@ -665,7 +665,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 647 : 
                     $avantagePossible = false;
@@ -695,7 +695,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 65 : 
                 case 71 : 
@@ -712,7 +712,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 27 : 
                 case 123 : 
@@ -746,7 +746,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 91 : 
                     $pitchPossible = false;
@@ -761,7 +761,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 27 : 
                 case 123 : 
@@ -788,7 +788,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 64 : 
                     if (
@@ -808,7 +808,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 132 : 
                     if (
@@ -865,7 +865,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 91 : 
                     $signaturePossible = false;
@@ -880,7 +880,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 22 : 
                 case 27 : 
@@ -916,7 +916,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 9 : 
                 case 17 : 
@@ -1007,7 +1007,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 339 : 
                     if ($energieVerteDisponibleDefenseur>1) {
@@ -1023,7 +1023,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 388 : 
                 case 535 : 
@@ -1065,7 +1065,7 @@ class Effets
                 if ($Carte == null) {
                     continue;
                 }
-                $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+                $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
                 switch ($numeroEffet) {
                     // payer les jaunes en vertes
                     case 83 : 
@@ -1128,7 +1128,7 @@ class Effets
                 if ($Carte == null) {
                     continue;
                 }
-                $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+                $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
                 switch ($numeroEffet) {
                     // +1 jaune
                     case 589 :
@@ -1242,7 +1242,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 431 : 
                 case 472 : 
@@ -1324,7 +1324,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 388 : 
                 case 394 : 
@@ -1356,7 +1356,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 // charge zone en cours
                 case 1 :
@@ -1945,7 +1945,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 217 : 
                     if (($action == 'counter attack') && ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT')) {
@@ -2036,7 +2036,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 19 :
                 case 261 :
@@ -2067,7 +2067,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 /*case 0 : 
                     $effetVoulu = false;
@@ -2086,7 +2086,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 /*case 147 :
                     $this->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_VERTE');
@@ -2101,7 +2101,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 147 : 
                 case 148 : 
@@ -2195,7 +2195,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 0 : 
                     $effetVoulu = false;
@@ -2210,7 +2210,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 136 : 
                     $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','1');
@@ -2236,7 +2236,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 /*case 0 : 
                     $zoneDepart = false;
@@ -2251,7 +2251,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 28 : 
                 case 73 : 
@@ -2316,7 +2316,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 // +1 vert \ joueur
                 case 598 :
@@ -2432,7 +2432,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 // +1 energie par zone avec teamwork \ adversaire 
                 case 500 :
@@ -2462,7 +2462,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 456 : 
                     $celebrationPossible = false;
@@ -2477,7 +2477,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 424 : 
                 case 514 : 
@@ -2500,7 +2500,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 117 : 
                 case 179 : 
@@ -2536,7 +2536,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 0 : 
                     $eliminationPossible = false;
@@ -2558,7 +2558,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 179 : 
                 case 198 : 
@@ -2586,7 +2586,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 0 : 
                     $deplacementPossible = false;
@@ -2613,6 +2613,33 @@ class Effets
         return $nombreDejaDeplace;
     }
 
+    public function numeroEffet($joueurConcerne,$CarteVoulu) {
+        $numeroEffet = (($CarteVoulu!=null) && ($CarteVoulu->getEffet()!=null)) ? $CarteVoulu->getEffet()->getNumero(): 0;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        if ($numeroEffet != 0) {
+            // effet des cartes de l'adversaire
+            $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+            foreach ((array)$CarteEnJeus as $Cartejeu) {
+                $Carte = $Cartejeu->getCarte();
+                if ($Carte == null) {
+                    continue;
+                }
+                $numeroEffetCarte = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+                switch ($numeroEffetCarte) {
+                    case 698 : 
+                    case 619 : 
+                        if ($Carte->getTypeCarte()->getTag()=='TEAMWORK') {
+                            $numeroEffet = 0;                        
+                        }
+                        break;
+                }
+            }
+        }
+
+        return $numeroEffet;
+    }
+
     /*public function effetVoulu($joueurConcerne) {
         $effetVoulu = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;
@@ -2624,7 +2651,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 0 : 
                     $effetVoulu = false;
@@ -2639,7 +2666,7 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
-            $numeroEffet = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 0 : 
                     $effetVoulu = false;

@@ -149,8 +149,8 @@ class PartieController extends Controller {
             $parametres = array(
                 'chamberVisible1' => ($Partie->getJoueurZoneEnCours(1) == 'CHAMBER'),
                 'chamberVisible2' => ($Partie->getJoueurZoneEnCours(2) == 'CHAMBER'),
-                'deckVisible1' => $servicePartie->deckVisible(1);
-                'deckVisible2' => $servicePartie->deckVisible(2);
+                'deckVisible1' => $servicePartie->deckVisible(1),
+                'deckVisible2' => $servicePartie->deckVisible(2),
                     );
             $parametreAdverses = $parametres;
             $parametreAdverses['adverse'] = true;

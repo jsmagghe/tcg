@@ -505,7 +505,7 @@ class Partie
 
     public function defenseChamber() {
         $defense = 0;
-        if (($this->Partie->getJoueur1Etape()=='defense') || ($this->Partie->getJoueur2Etape()=='defense')) {
+        if (($this->Partie->getJoueur1Etape()=='utilisationChamber') || ($this->Partie->getJoueur2Etape()=='utilisationChamber')) {
 
                 if (isset($this->CarteEnJeus[$this->numeroDefenseur]['CHAMBER'])) {
                     $CarteActive = $this->CarteEnJeus[$this->numeroDefenseur]['CHAMBER'];

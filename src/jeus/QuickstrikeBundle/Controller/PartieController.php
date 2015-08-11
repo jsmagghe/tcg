@@ -149,6 +149,8 @@ class PartieController extends Controller {
             $parametres = array(
                 'chamberVisible1' => ($Partie->getJoueurZoneEnCours(1) == 'CHAMBER'),
                 'chamberVisible2' => ($Partie->getJoueurZoneEnCours(2) == 'CHAMBER'),
+                'deckVisible1' => $servicePartie->deckVisible(1);
+                'deckVisible2' => $servicePartie->deckVisible(2);
                     );
             $parametreAdverses = $parametres;
             $parametreAdverses['adverse'] = true;
@@ -206,6 +208,7 @@ class PartieController extends Controller {
             $energiedisponibles['energie_verte_disponible-adverse'] = $servicePartie->energiedisponible($servicePartie->numeroAdversaire,'VERTE');
             $energiedisponibles['energie_jaune_disponible-adverse'] = $servicePartie->energiedisponible($servicePartie->numeroAdversaire,'JAUNE');
             $energiedisponibles['energie_rouge_disponible-adverse'] = $servicePartie->energiedisponible($servicePartie->numeroAdversaire,'ROUGE');
+            $choixPossibles = $servicePartie->actionPossibles();
 
             return $this->render('::partie.html.twig', array(
                         'carteJoueurs' => $carteJoueurs,

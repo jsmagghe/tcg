@@ -656,6 +656,11 @@ class Partie
         $this->effets->deplacerCarte($this->numeroJoueur,1,'DECK',$this->Partie->getJoueurZoneEnCours($this->numeroJoueur));
     }
 
+    public function deckVisible($joueurConcerne) 
+    {
+        return $this->effets->deckVisible($joueurConcerne);
+    }
+
     public function actionPossibles() {
         $this->CarteEnJeus=null;
         $this->chargerCarteEnJeu();

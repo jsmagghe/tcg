@@ -23,14 +23,6 @@ Effet 572;If you celebrate, turn your chamber on it's back side.;;
 Effet 645;When you celebrate, shuffle all the teamworks in your discard into your deck.;;
 
 ==> affichage carte du deck
-Effet 206;Whenever you flip a card, turn the top card of your deck face up.;;
-Effet 229;Whenever you flip a card in Monk Gyatso's zone turn the top card of your deck face up.;;
-Effet 381;When you flip blade and bullet, turn the top card of your deck face up.;;
-Effet 390;When you flip martial law, turn the top card of your deck face up.;;
-Effet 458;Whenever you flip a strike in lord cuttler beckett's zone, turn the top card of your deck face up. 
-Effet 465;Whenever you flip a card in tia dalma's zone, each player turns the top card of his or her deck face up.;;
-Effet 673;When you flip a card in News team's zone, both player reveal the top card of their deck;;
-Effet 720;Reveal the top card of your deck as long as this card is in your advantage area.;;
 Effet 379;When you counterattack, your opponent reveals his or her current signature move.;;
 
 ==> suppression energie

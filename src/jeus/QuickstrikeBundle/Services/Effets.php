@@ -2640,6 +2640,55 @@ class Effets
         return $numeroEffet;
     }
 
+    public function deckVisible($joueurConcerne) {
+        $deckVisible = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
+            switch ($numeroEffet) {
+                case 206 : 
+                case 229 : 
+                case 381 : 
+                case 390 : 
+                case 458 : 
+                case 465 : 
+                case 673 : 
+                    $deckVisible = false;
+                    break;
+                case 720 : 
+                    if ($Cartejeu->getEmplacement()=='ADVANTAGE') {
+                        $deckVisible = false;                        
+                    }
+                    break;
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
+            switch ($numeroEffet) {
+                case 465 : 
+                case 673 : 
+                    $deckVisible = false;
+                    break;
+            }
+        }
+
+        return $deckVisible;
+    }
+
     /*public function effetVoulu($joueurConcerne) {
         $effetVoulu = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;

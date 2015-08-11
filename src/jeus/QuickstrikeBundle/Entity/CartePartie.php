@@ -186,7 +186,7 @@ class CartePartie
         $chamberVisible = (isset($parametres['chamberVisible'.$this->numeroJoueur])) ? $parametres['chamberVisible'.$this->numeroJoueur] : false;
         $lien = '';
         if (
-            ($this->emplacement == 'DECK') 
+            (($this->emplacement == 'DECK') && ($parametres['deckVisible'.$this->numeroJoueur] == false)) 
             || ($this->emplacement == 'ENERGIE_VERTE')
             || ($this->emplacement == 'ENERGIE_JAUNE')
             || ($this->emplacement == 'ENERGIE_ROUGE')
@@ -219,7 +219,7 @@ class CartePartie
                 $lien = $this->Carte->getImage();                
             }
         } else if (
-            ($this->emplacement == 'DECK') 
+            (($this->emplacement == 'DECK') && ($parametres['deckVisible'.$this->numeroJoueur] == false)) 
             || ($this->emplacement == 'ENERGIE_VERTE')
             || ($this->emplacement == 'ENERGIE_JAUNE')
             || ($this->emplacement == 'ENERGIE_ROUGE')

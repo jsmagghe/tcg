@@ -34,36 +34,48 @@ Effet 357;When you clean up Storms Without End. Leave your Chamber Card turned t
 Effet 492;When you counterattack, move hull breach to your red zone;;
 Effet 556; send all the advantages in your discard pile in your deck and shuffle it;;
 Effet 747; Turn your chamber in its other side;;
+----------------------------------------------------------------------------------------
 
+effets par choix simple du joueur
+=> ajout intercept ou force
+---intercept
+Effet 2;green ==> +1 Intercept.;;
+Effet 30;Green ==> +1 Intercept. Use only Once.;;
+Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force
+Effet 18;Red ==> +4 Intercept. Use only once.;;
+Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
+---force
+Effet 40;-2 Intercept ==> +2 Force. Use only once.;;
+---les deux ou l'un ou l'autre
+Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
+Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
+Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
+=> chargement de zone
+Effet 14;-3 Force ==> If you counterattack from Lyserg's zone with this strike, charge it.;;
+Effet 35;Move a yellow furyoku to your green zone ==> If you counterattack with Rain of Bones, charge this zone.;;
+Effet 51; Instead of charging this zone, charge any zone instead.;;
+=> ajout energie
+Effet 15;-2 Intercept ==> If your counterattack from Marco's zone with this strike, add a green furyoku. Use only once.;;
+Effet 44;-3 Intercept ==> If you counterattack with Owned!, add a yellow furyoku.;;
+=> suppression d'énérgie
+Effet 39;. When you counterattack with Tandem Tomfoolery, eliminate one of your opponent's furyoku.;;
+Effet 50;Elilminate a furyoku you control ==> You may eliminate a furyoku of the same color if you counterattack from Mari's zone. Use only once.;;
+=> zone de départ
+Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts in your opponent's yellow zone.;;
+=> élimination teamwork
+Effet 41;If you counterattack with Strafe, you may eliminate a teamwork.;;
+Effet 26;Two yellow ==> If you counterattack from Zeke's zone, eliminate a teamwork.;;
 
 Effets
 Effet 584;Your opponent may uncharge all of his zone. 
 Effet 641;Inspector Yin only. When you counterattack with let's work together from a zone with a teamwork, you may charge any zone.;;
-Effet 2;green ==> +1 Intercept.;;
-Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force
 Effet 5; Before flipping your next card, draw two cards. Place one on top of your deck and the other in your discard pile.;;
 Effet 8; You may move a teamwork to an empty zone controlled by the same player.;;
-Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
 Effet 12;You may play Lee Pai-Long only if you are jun. Green ==> If you counterattack in Lee Pai-Long's zone, put a counter on him. Use only once. Remove a counter from Lee Pai-Long ==> Your strike in Lee Pai-Long's zone gets +1 Force.;;
 Effet 13;Eliminate Lililala ==> Before flipping, draw three cards. Place two in your discard pile and one on top of your deck.;;
-Effet 14;-3 Force ==> If you counterattack from Lyserg's zone with this strike, charge it.;;
-Effet 15;-2 Intercept ==> If your counterattack from Marco's zone with this strike, add a green furyoku. Use only once.;;
-Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
-Effet 18;Red ==> +4 Intercept. Use only once.;;
-Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts in your opponent's yellow zone.;;
-Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
-Effet 26;Two yellow ==> If you counterattack from Zeke's zone, eliminate a teamwork.;;
-Effet 30;Green ==> +1 Intercept. Use only Once.;;
 Effet 31; Look at the top three cards of your deck and place them back on top in any order.;;
-Effet 35;Move a yellow furyoku to your green zone ==> If you counterattack with Rain of Bones, charge this zone.;;
-Effet 39;. When you counterattack with Tandem Tomfoolery, eliminate one of your opponent's furyoku.;;
-Effet 40;-2 Intercept ==> +2 Force. Use only once.;;
-Effet 41;If you counterattack with Strafe, you may eliminate a teamwork.;;
-Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
-Effet 44;-3 Intercept ==> If you counterattack with Owned!, add a yellow furyoku.;;
 Effet 48;Green ==> If you counterattack from Kanna's zone, your opponent doesn't replenish furyoku of the same color as Kanna's zone.;;
-Effet 50;Elilminate a furyoku you control ==> You may eliminate a furyoku of the same color if you counterattack from Mari's zone. Use only once.;;
-Effet 51; Instead of charging this zone, charge any zone instead.;;
+-----------a trier
 Effet 52; Your opponent chooses and uncharges one of his charged zones. Instead of charging this zone, charge any zone instead.;;
 Effet 54;Two Yellow ==> +2 Intercept, +2 Force. Use only once.;;
 Effet 57;Pitch ==> Move a teamwork you control to one of your empty zones.;;

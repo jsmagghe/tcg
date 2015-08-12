@@ -45,6 +45,7 @@ Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Fo
 Effet 18;Red ==> +4 Intercept. Use only once.;;
 Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
 ---force
+Effet 66;-1 Intercept ==> +1 Force.;;
 Effet 40;-2 Intercept ==> +2 Force. Use only once.;;
 ---les deux ou l'un ou l'autre
 Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
@@ -80,7 +81,6 @@ Effet 52; Your opponent chooses and uncharges one of his charged zones. Instead 
 Effet 54;Two Yellow ==> +2 Intercept, +2 Force. Use only once.;;
 Effet 57;Pitch ==> Move a teamwork you control to one of your empty zones.;;
 Effet 58;You may play Captivate only if you are Lyserg. Move an opponent's teamwork to this zone.;;
-Effet 66;-1 Intercept ==> +1 Force.;;
 Effet 69;You may play or pitch Ultra Cavalry Charge only if you are Len. Pitch ==> Look at the top three cards of your deck and place them back on top in any order.;;
 Effet 70; Eliminate one of your opponent's furyoku.;;
 Effet 74;If you counterattack with Unerring Garrote, you may eliminate a teamwork.;;

@@ -1339,7 +1339,11 @@ class Effets
 
     public function effetJouer($joueurConcerne,$action) {
         $joueurAdverse = ($joueurConcerne==1)?2:1;
-        $CarteJouee = $this->CarteEnJeus[$joueurConcerne][$this->infos['ZoneDefenseur']];
+        if ($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber') {
+            $CarteJouee = $this->CarteEnJeus[$joueurConcerne]['CHAMBER'];
+        } else {
+            $CarteJouee = $this->CarteEnJeus[$joueurConcerne][$this->infos['ZoneDefenseur']];            
+        }
 
         if ($this->infos['typeCarteActive'] != 'STRIKE') {
             $this->interactions->ajoutEffet($joueurConcerne,null,'non-strike','oui');

@@ -104,7 +104,6 @@ class Partie
         }
         $this->effets->chargerCarteEnJeu($this->CarteEnJeus);
         $this->interactions->chargerCarteEnJeu($this->CarteEnJeus);
-
     }
 
     public function demarragePartie($joueurConcerne) {
@@ -349,7 +348,7 @@ class Partie
 
     public function celebration($joueurConcerne,$parEffet = false) {
         if ($this->effets->celebrationPossible($joueurConcerne)) {
-            if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERT'])) {
+            if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                 $this->effets->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');                        
             }
             if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
@@ -671,6 +670,14 @@ class Partie
             $JoueurBas = ($this->Joueur == $this->Partie->getJoueur1())?1:2;
         }
 
+        if ($this->Partie->getJoueurZoneEnCours($JoueurBas)!='0') {
+            if (isset($this->CarteEnJeus[$JoueurBas][$this->Partie->getJoueurZoneEnCours($JoueurBas)])) {
+                $CarteActive = $this->CarteEnJeus[$JoueurBas][$this->Partie->getJoueurZoneEnCours($JoueurBas)];
+                $Carte = $CarteActive->getCarte();
+                $action[] = '<span class="infos">Carte en cours: '.$Carte->getNom().'</span><br/>';
+            }                    
+        }
+
         $choixPossible = array();
         $this->isChamberUtilisable();
         $etape = $this->Partie->getEtape($this->Joueur);
@@ -684,8 +691,6 @@ class Partie
         }
 
         if (($this->Partie->getPointVictoire()<=$this->Partie->getJoueur1Point()) || ($this->Partie->getPointVictoire()<=$this->Partie->getJoueur2Point())) {
-
-
             if ($this->Partie->getJoueur1Point()<$this->Partie->getJoueur2Point()) {
                 if ($this->numeroJoueur==1) {
                     $victoire = 'perdu';

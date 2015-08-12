@@ -2,6 +2,7 @@ A faire
 pictos pour choix
 faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
 pour accélerer le temps faire décompte des effets en jeu pour ne parcourir que les fonctions utiles
+mettre en place loggable pour pouvoir revenir en arrière et tester les effets 
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
@@ -27,6 +28,7 @@ Effet 379;When you counterattack, your opponent reveals his or her current signa
 
 ==> suppression energie
 Effet 699;Joker only. When you play an advantage in Harley quinn's zone, eliminate an opponent's energy of any color you paid. When this card leaves play, gain a red energy.;;
+Effet 70; Eliminate one of your opponent's furyoku.;;
 
 ==> effet exotique
 Effet 305;Your opponent must discard advantages.;;
@@ -51,6 +53,8 @@ Effet 40;-2 Intercept ==> +2 Force. Use only once.;;
 Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
 Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
 Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
+Effet 54;Two Yellow ==> +2 Intercept, +2 Force. Use only once.;;
+Effet 80;Yellow ==> +4 Intercept and +1 Force. Use only once.;;
 => chargement de zone
 Effet 14;-3 Force ==> If you counterattack from Lyserg's zone with this strike, charge it.;;
 Effet 35;Move a yellow furyoku to your green zone ==> If you counterattack with Rain of Bones, charge this zone.;;
@@ -61,11 +65,15 @@ Effet 44;-3 Intercept ==> If you counterattack with Owned!, add a yellow furyoku
 => suppression d'énérgie
 Effet 39;. When you counterattack with Tandem Tomfoolery, eliminate one of your opponent's furyoku.;;
 Effet 50;Elilminate a furyoku you control ==> You may eliminate a furyoku of the same color if you counterattack from Mari's zone. Use only once.;;
+Effet 82;-3 Intercept ==> If you counterattack from Jeanne's zone, add a yellow furyoku.;;
 => zone de départ
 Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts in your opponent's yellow zone.;;
 => élimination teamwork
 Effet 41;If you counterattack with Strafe, you may eliminate a teamwork.;;
 Effet 26;Two yellow ==> If you counterattack from Zeke's zone, eliminate a teamwork.;;
+Effet 74;If you counterattack with Unerring Garrote, you may eliminate a teamwork.;;
+Effet 77;Red, Green ==> If you counterattack with Snowdrift, eliminate all teamworks.;;
+Effet 81; You may eliminate a teamwork.;;
 
 Effets
 Effet 584;Your opponent may uncharge all of his zone. 
@@ -76,19 +84,12 @@ Effet 12;You may play Lee Pai-Long only if you are jun. Green ==> If you counter
 Effet 13;Eliminate Lililala ==> Before flipping, draw three cards. Place two in your discard pile and one on top of your deck.;;
 Effet 31; Look at the top three cards of your deck and place them back on top in any order.;;
 Effet 48;Green ==> If you counterattack from Kanna's zone, your opponent doesn't replenish furyoku of the same color as Kanna's zone.;;
------------a trier
 Effet 52; Your opponent chooses and uncharges one of his charged zones. Instead of charging this zone, charge any zone instead.;;
-Effet 54;Two Yellow ==> +2 Intercept, +2 Force. Use only once.;;
 Effet 57;Pitch ==> Move a teamwork you control to one of your empty zones.;;
 Effet 58;You may play Captivate only if you are Lyserg. Move an opponent's teamwork to this zone.;;
 Effet 69;You may play or pitch Ultra Cavalry Charge only if you are Len. Pitch ==> Look at the top three cards of your deck and place them back on top in any order.;;
-Effet 70; Eliminate one of your opponent's furyoku.;;
-Effet 74;If you counterattack with Unerring Garrote, you may eliminate a teamwork.;;
-Effet 77;Red, Green ==> If you counterattack with Snowdrift, eliminate all teamworks.;;
 Effet 79; Before flipping your next card, draw three cards. Place one on top of your deck and put the rest in your discard pile.;;
-Effet 80;Yellow ==> +4 Intercept and +1 Force. Use only once.;;
-Effet 81; You may eliminate a teamwork.;;
-Effet 82;-3 Intercept ==> If you counterattack from Jeanne's zone, add a yellow furyoku.;;
+-----------a trier
 Effet 85;All Teamworks in Milly's zone have "Pitch ==> Put this teamwork in one of your empty zones.";;
 Effet 88;If you play a strike in Silva's zone, eliminate Silva. Before flipping a card, draw two cards. Place one in your discard pile and the other on top of your deck.;;
 Effet 90;Green ==> Your strike in Venster's zone has -2 Intercept and +2 Force.;;

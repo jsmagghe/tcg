@@ -46,26 +46,59 @@ Effet 30;Green ==> +1 Intercept. Use only Once.;;
 Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force
 Effet 18;Red ==> +4 Intercept. Use only once.;;
 Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
+Effet 103;Green, -5 Force ==> +5 Intercept. Use only once.;;
+Effet 166;Red ==> +2 Intercept. Use only once.;;
 ---force
 Effet 66;-1 Intercept ==> +1 Force.;;
 Effet 40;-2 Intercept ==> +2 Force. Use only once.;;
+Effet 118;Green ==> +1 Force. use only once.;;
+Effet 141;Yellow ==> +4 Force. Use only once.;;
+Effet 186;Red ==> +5 Force. Use only once.;;
 ---les deux ou l'un ou l'autre
 Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
 Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
 Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
 Effet 54;Two Yellow ==> +2 Intercept, +2 Force. Use only once.;;
 Effet 80;Yellow ==> +4 Intercept and +1 Force. Use only once.;;
+Effet 90;Green ==> Your strike in Venster's zone has -2 Intercept and +2 Force.;;
+Effet 94;Flip your Shaman from the back to the front ==> +3 Intercept and +3 Force.;;
+Effet 120;Uncharge this zone ==> +4 Intercept and +2 Force.;;
+Effet 128;You may play or pitch Baby Steps only if you are Matti. Pitch ==> Put this in your advantage area. Your strikes have +1 Force and +1 Intercept.;;
+Effet 142;Eliminates one of your allies ==> +1 Intercept. Use only once.;;
+Effet 146;Red ==> Choose one: Jagged Ground gets +2 Intercept; or Jagged Ground gets +2 Force.;;
+Effet 184;Two red ==> +3 Intercept and +3 Force. Use only once.;;
+Effet 189;Red, Green ==> +2 Intercept and +2 Force. Use only once.;;
+Effet 205;As you play sculpted flame, choose one: Your strikes have +1 Intercept and -1 Force; or your strikes have -1 Intercept and +1 Force.;;
 => chargement de zone
 Effet 14;-3 Force ==> If you counterattack from Lyserg's zone with this strike, charge it.;;
 Effet 35;Move a yellow furyoku to your green zone ==> If you counterattack with Rain of Bones, charge this zone.;;
 Effet 51; Instead of charging this zone, charge any zone instead.;;
+Effet 109;Red ==> If you counterattack with Ancestral Apparitions, charge any zone.;;
+Effet 129;Uncharge one of your other zones ==> when you counterattack from Toph's zone, charge her zone.;;
+Effet 135;-3 Intercept ==> when you counterattack, charge any zone.;;
+Effet 176;-2 Intercept ==> When you counterattack, charge this zone. Use only once.;;
+Effet 207;When you counterattack, you may uncharge one of your zones. If you do, charge one of your zones.;;
+Effet 210; You may charge any zone.;;
+Effet 214; If this zone is already charged, you may charge any zone.;;
+=> decharger zone
+Effet 114;-3 Intercept ==> If you counterattack with Rouge Shot, uncharge any zone.;;
+Effet 209; If this zone is already charged, you may uncharge any zone.;;
+Effet 216;.  You may uncharge any zone.;;
 => ajout energie
 Effet 15;-2 Intercept ==> If your counterattack from Marco's zone with this strike, add a green furyoku. Use only once.;;
 Effet 44;-3 Intercept ==> If you counterattack with Owned!, add a yellow furyoku.;;
+Effet 113;-2 Intercept ==> If you counterattack with Rail Bird, add a yellow furyoku.;;
+Effet 125;-1 Intercept ==> If you counterattack with Stalefish Grab, add a green furyoku.;;
+Effet 154;-1 Intercept ==> When you counterattack, move one of your green energy to your yellow zone.;;
+Effet 165;-3 Intercept ==> When you counterattack, move one of your yellow energy to your red zone.;;
+Effet 181;-1 Intercept ==> When you counterattack, add a green energy.;;
+Effet 183;-2 Intercept ==> When you counterattack from a charged zone, add a yellow energy.;;
 => suppression d'énérgie
 Effet 39;. When you counterattack with Tandem Tomfoolery, eliminate one of your opponent's furyoku.;;
 Effet 50;Elilminate a furyoku you control ==> You may eliminate a furyoku of the same color if you counterattack from Mari's zone. Use only once.;;
 Effet 82;-3 Intercept ==> If you counterattack from Jeanne's zone, add a yellow furyoku.;;
+Effet 149;-4 Intercept ==> When you counterattack, eliminate all of your opponent's green energy.;;
+Effet 151;eliminate one of your allies ==> when you counterattack, eliminate up to two green energy.;;
 => zone de départ
 Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts in your opponent's yellow zone.;;
 => élimination teamwork
@@ -74,6 +107,17 @@ Effet 26;Two yellow ==> If you counterattack from Zeke's zone, eliminate a teamw
 Effet 74;If you counterattack with Unerring Garrote, you may eliminate a teamwork.;;
 Effet 77;Red, Green ==> If you counterattack with Snowdrift, eliminate all teamworks.;;
 Effet 81; You may eliminate a teamwork.;;
+Effet 212; You may eliminate one of your allies. If you do, eliminate one of your opponent's allies.;;
+Effet 213;.  You may eliminate an ally.;;
+=> deplacement teamwork
+Effet 160;When you counterattack, you may move an ally to the top of its owner's deck.;;
+Effet 164;-4 Intercept ==> When you counterattack, move an ally to the top of its owner's deck.;;
+Effet 188;When you counterattack, you may move one of your opponent's allies to one of that player's empty ally spaces.;;
+Effet 204; You may move any player's ally to one of that player's empty ally spaces.;;
+=> blocage chargement
+Effet 167;-2 Intercept ==> While your opponent is defending, his or her zones cannot be charged.;;
+=> discarder carte
+Effet 201; Your opponent turns the top card of his or her deck face up. You may have your opponent put that card into his or her discard pile.;;
 
 Effets
 Effet 584;Your opponent may uncharge all of his zone. 
@@ -89,68 +133,28 @@ Effet 57;Pitch ==> Move a teamwork you control to one of your empty zones.;;
 Effet 58;You may play Captivate only if you are Lyserg. Move an opponent's teamwork to this zone.;;
 Effet 69;You may play or pitch Ultra Cavalry Charge only if you are Len. Pitch ==> Look at the top three cards of your deck and place them back on top in any order.;;
 Effet 79; Before flipping your next card, draw three cards. Place one on top of your deck and put the rest in your discard pile.;;
------------a trier
 Effet 85;All Teamworks in Milly's zone have "Pitch ==> Put this teamwork in one of your empty zones.";;
 Effet 88;If you play a strike in Silva's zone, eliminate Silva. Before flipping a card, draw two cards. Place one in your discard pile and the other on top of your deck.;;
-Effet 90;Green ==> Your strike in Venster's zone has -2 Intercept and +2 Force.;;
 Effet 91;. Before flipping in his zone, look at the top two cards of your deck and put them back on top in any order.;;
-Effet 94;Flip your Shaman from the back to the front ==> +3 Intercept and +3 Force.;;
 Effet 102;. Pitch ==> Put this in your advantage area. Your strikes have +1 Force.;;
-Effet 103;Green, -5 Force ==> +5 Intercept. Use only once.;;
 Effet 104; Your opponent chosses a teamwork he controls and eliminates it.;;
 Effet 107;When you counterattack with Director's Cut, you may move a teamwork you control to one of your empty zones.;;
-Effet 109;Red ==> If you counterattack with Ancestral Apparitions, charge any zone.;;
-Effet 113;-2 Intercept ==> If you counterattack with Rail Bird, add a yellow furyoku.;;
-Effet 114;-3 Intercept ==> If you counterattack with Rouge Shot, uncharge any zone.;;
-Effet 118;Green ==> +1 Force. use only once.;;
-Effet 120;Uncharge this zone ==> +4 Intercept and +2 Force.;;
-Effet 125;-1 Intercept ==> If you counterattack with Stalefish Grab, add a green furyoku.;;
 Effet 126;If you counterattack with Point Blank, look at the top card of your deck. You may put it in your discard pile.;;
-Effet 128;You may play or pitch Baby Steps only if you are Matti. Pitch ==> Put this in your advantage area. Your strikes have +1 Force and +1 Intercept.;;
-Effet 129;Uncharge one of your other zones ==> when you counterattack from Toph's zone, charge her zone.;;
 Effet 133;When you counterattack, you may rearrange the allies in your ally spaces.;;
 Effet 134;Pitch ==> Each player eliminates one of his or her allies.;;
-Effet 135;-3 Intercept ==> when you counterattack, charge any zone.;;
 Effet 139;when you counterattack, your opponent uncharges one of his or her zones.;;
 Effet 140;-4 Intercept ==> When you counterattack, your opponent uncharges one of his or her zones.;;
-Effet 141;Yellow ==> +4 Force. Use only once.;;
-Effet 142;Eliminates one of your allies ==> +1 Intercept. Use only once.;;
-Effet 146;Red ==> Choose one: Jagged Ground gets +2 Intercept; or Jagged Ground gets +2 Force.;;
-Effet 149;-4 Intercept ==> When you counterattack, eliminate all of your opponent's green energy.;;
 Effet 150;When you counterattack, your opponent eliminates one of his or her allies.;;
-Effet 151;eliminate one of your allies ==> when you counterattack, eliminate up to two green energy.;;
 Effet 152;Eliminate one of your allies ==> when you counterattack, your opponent eliminates one of his or her allies. Use only once.;;
 Effet 153;-4 Intercept ==> When you counterattack, your opponent eliminates one of his or her allies. Use only once.;;
-Effet 154;-1 Intercept ==> When you counterattack, move one of your green energy to your yellow zone.;;
 Effet 155;When you counterattack, look at the top two cards of your deck. Put one on the top of your deck and the other into your discard pile.;;
-Effet 160;When you counterattack, you may move an ally to the top of its owner's deck.;;
-Effet 164;-4 Intercept ==> When you counterattack, move an ally to the top of its owner's deck.;;
-Effet 165;-3 Intercept ==> When you counterattack, move one of your yellow energy to your red zone.;;
-Effet 166;Red ==> +2 Intercept. Use only once.;;
-Effet 167;-2 Intercept ==> While your opponent is defending, his or her zones cannot be charged.;;
 Effet 172;-4 Intercept ==> When you counterattack, your opponent moves one of his or her allies to one of your empty ally spaces.;;
-Effet 176;-2 Intercept ==> When you counterattack, charge this zone. Use only once.;;
-Effet 181;-1 Intercept ==> When you counterattack, add a green energy.;;
-Effet 183;-2 Intercept ==> When you counterattack from a charged zone, add a yellow energy.;;
-Effet 184;Two red ==> +3 Intercept and +3 Force. Use only once.;;
-Effet 186;Red ==> +5 Force. Use only once.;;
 Effet 187;when you counterattack, your opponent uncharges one of his or her zones.;;
-Effet 188;When you counterattack, you may move one of your opponent's allies to one of that player's empty ally spaces.;;
-Effet 189;Red, Green ==> +2 Intercept and +2 Force. Use only once.;;
 Effet 190;When you counterattack, your opponent eliminates one of his or her energy.;;
 Effet 199; Your opponent moves one of his or her allies to one of your empty ally spaces.;;
 Effet 200; Look at the top two cards of your deck. Put them back in any order.;;
-Effet 201; Your opponent turns the top card of his or her deck face up. You may have your opponent put that card into his or her discard pile.;;
 Effet 202; Look at the top three cards of your deck. Put them back in any order.;;
-Effet 204; You may move any player's ally to one of that player's empty ally spaces.;;
-Effet 205;As you play sculpted flame, choose one: Your strikes have +1 Intercept and -1 Force; or your strikes have -1 Intercept and +1 Force.;;
-Effet 207;When you counterattack, you may uncharge one of your zones. If you do, charge one of your zones.;;
-Effet 209; If this zone is already charged, you may uncharge any zone.;;
-Effet 210; You may charge any zone.;;
-Effet 212; You may eliminate one of your allies. If you do, eliminate one of your opponent's allies.;;
-Effet 213;.  You may eliminate an ally.;;
-Effet 214; If this zone is already charged, you may charge any zone.;;
-Effet 216;.  You may uncharge any zone.;;
+-----------a trier
 Effet 218; You may eliminate an energy in this zone. If you do, eliminate one of your opponent's energy of the same color.;;
 Effet 219; Your opponent uncharges one of his or her zones.;;
 Effet 222; Look at the top card of your deck. You may put it into your discard pile.;;

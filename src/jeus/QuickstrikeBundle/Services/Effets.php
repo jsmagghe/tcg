@@ -939,12 +939,12 @@ class Effets
                 case 487 : 
                 case 491 : 
                 case 671 : 
-                    if ($energieVerteDisponibleDefenseur>1) {
+                    if ($energieVerteDisponible>1) {
                         $reflip['reflip_green'] = 'Reflip: green';                        
                     }
                     break;
                 case 416 : 
-                    if ($energieJauneDisponibleDefenseur>1) {
+                    if ($energieJauneDisponibler>1) {
                         $reflip['reflip_yellow'] = 'Reflip: yellow';
                     }
                     break;
@@ -975,7 +975,7 @@ class Effets
                 case 418 :
                     if (
                         (isset($this->CarteEnJeus[$joueurConcerne][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) 
-                        && ($energieVerteDisponibleDefenseur>1)
+                        && ($energieVerteDisponible>1)
                         )
                         {
                         $reflip['reflip_green'] = 'Reflip: green';
@@ -1010,7 +1010,7 @@ class Effets
             $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
             switch ($numeroEffet) {
                 case 339 : 
-                    if ($energieVerteDisponibleDefenseur>1) {
+                    if ($energieVerteDisponible>1) {
                         $reflip['reflip_green'] = 'Reflip: green';
                     }
                     break;

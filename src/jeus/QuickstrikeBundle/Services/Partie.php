@@ -236,7 +236,7 @@ class Partie
             }
         }
 
-        return $payable;
+        return $paye;
     }
 
     public function verificationRecrutement($joueurConcerne,$CarteActive,$zoneEnCours,$zoneAControler) {
@@ -324,14 +324,14 @@ class Partie
             $this->descendreDeZone($joueurConcerne);
         } else {
             $tab = explode('_', $action);
-            $this->payerCout($tab[1]);
+            $this->payerCout($joueurConcerne,$tab[1]);
         }
     }
 
     public function deployer($joueurConcerne,$action) {
         $zoneEnCours = $this->Partie->getJoueurZoneEnCours($joueurConcerne);
         $tab = explode('_', $action);
-        $this->payerCout($tab[2]);
+        $this->payerCout($joueurConcerne,$tab[2]);
 
         if ($tab[1]=='red') {
             $this->effets->deplacerCarte($joueurConcerne,1,$zoneEnCours,'TEAMWORK_ROUGE');            

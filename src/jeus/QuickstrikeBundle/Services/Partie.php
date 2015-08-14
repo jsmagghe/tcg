@@ -325,6 +325,7 @@ class Partie
         } else {
             $tab = explode('_', $action);
             $this->payerCout($joueurConcerne,$tab[1]);
+            $this->effets->deplacerCarte($joueurConcerne,1,'DECK',$zoneCorrespondante);
         }
     }
 

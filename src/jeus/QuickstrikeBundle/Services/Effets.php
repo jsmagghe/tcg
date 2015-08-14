@@ -505,9 +505,9 @@ class Effets
         $chargementPossible = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
-        $Carte = $CarteActive->getCarte();
-        if ($Carte == null) {
-            continue;
+        $Carte = null;
+        if ($CarteActive!=null) {
+            $Carte = $CarteActive->getCarte();            
         }
         $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
         switch ($numeroEffet) {

@@ -81,6 +81,7 @@ Effet 176;-2 Intercept ==> When you counterattack, charge this zone. Use only on
 Effet 207;When you counterattack, you may uncharge one of your zones. If you do, charge one of your zones.;;
 Effet 210; You may charge any zone.;;
 Effet 214; If this zone is already charged, you may charge any zone.;;
+Effet 226;Yellow ==> When you counterattack from Katara's zone, charge this zone. Use only once per turn.;;
 => decharger zone
 Effet 114;-3 Intercept ==> If you counterattack with Rouge Shot, uncharge any zone.;;
 Effet 209; If this zone is already charged, you may uncharge any zone.;;
@@ -100,6 +101,7 @@ Effet 50;Elilminate a furyoku you control ==> You may eliminate a furyoku of the
 Effet 82;-3 Intercept ==> If you counterattack from Jeanne's zone, add a yellow furyoku.;;
 Effet 149;-4 Intercept ==> When you counterattack, eliminate all of your opponent's green energy.;;
 Effet 151;eliminate one of your allies ==> when you counterattack, eliminate up to two green energy.;;
+Effet 218; You may eliminate an energy in this zone. If you do, eliminate one of your opponent's energy of the same color.;;
 => zone de départ
 Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts in your opponent's yellow zone.;;
 => élimination teamwork
@@ -119,6 +121,7 @@ Effet 204; You may move any player's ally to one of that player's empty ally spa
 Effet 167;-2 Intercept ==> While your opponent is defending, his or her zones cannot be charged.;;
 => discarder carte
 Effet 201; Your opponent turns the top card of his or her deck face up. You may have your opponent put that card into his or her discard pile.;;
+Effet 222; Look at the top card of your deck. You may put it into your discard pile.;;
 
 Effets
 Effet 584;Your opponent may uncharge all of his zone. 
@@ -155,13 +158,10 @@ Effet 190;When you counterattack, your opponent eliminates one of his or her ene
 Effet 199; Your opponent moves one of his or her allies to one of your empty ally spaces.;;
 Effet 200; Look at the top two cards of your deck. Put them back in any order.;;
 Effet 202; Look at the top three cards of your deck. Put them back in any order.;;
------------a trier
-Effet 218; You may eliminate an energy in this zone. If you do, eliminate one of your opponent's energy of the same color.;;
 Effet 219; Your opponent uncharges one of his or her zones.;;
-Effet 222; Look at the top card of your deck. You may put it into your discard pile.;;
 Effet 223; Your opponent eliminates one of his or her allies.;;
 Effet 225;Whenever you flip a card in Appa's zone, you may swap Appa with an ally in one of your other zones.;;
-Effet 226;Yellow ==> When you counterattack from Katara's zone, charge this zone. Use only once per turn.;;
+-----------a trier
 Effet 230;When you counterattack from Jet's zone, each player eliminates one of his or her allies.;;
 Effet 232;Two Green ==> In Malu's zone, your strikes have "Your opponent skips defending in his or her green zones.";;
 Effet 233;When you counterattack from Pirate Captain's zone, look at the top card of your deck. You may put into your discard pile.;;

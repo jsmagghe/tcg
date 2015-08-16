@@ -1360,6 +1360,11 @@ class Effets
             if ($Carte == null) {
                 continue;
             }
+            // si la carte jouée est un teamwork on n'applique pas son effet
+            if (($Cartejeu->getId()==$CarteJouee->getId()) && ($this->infos['typeCarteActive'] == 'TEAMWORK'))  {
+                continue;
+            }
+
             $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 // charge zone en cours

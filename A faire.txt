@@ -3,6 +3,7 @@ pictos pour choix
 faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
 pour accélerer le temps faire décompte des effets en jeu pour ne parcourir que les fonctions utiles
 mettre en place loggable pour pouvoir revenir en arrière et tester les effets 
+mettre en place les filtres avec pagination (pour les chambers faire dexu requêtes dans le repository et les assembler)
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;

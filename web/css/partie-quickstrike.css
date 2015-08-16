@@ -192,11 +192,11 @@ body { font-family: Arial, sans-serif; }
 }
 
 .informations {
-	position : absolute;
 	opacity : 0.75;
 	z-index : 999;
-	font-size : 125%;
+	position : absolute;
 	font-weight: bold;
+	font-size : 125%;
 }
 
 #energie_verte_disponible {
@@ -229,3 +229,10 @@ body { font-family: Arial, sans-serif; }
 	left : 544px;
 }
 
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_2"] {
+	background: url("../images/Quickstrike/picto/body.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:40px;
+}

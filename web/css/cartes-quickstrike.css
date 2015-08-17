@@ -3,5 +3,102 @@ label[for="jeus_quickstrikebundle_selecteur_traitCarte_2"] {
 	display:inline-block;
 	height:0;
 	overflow:hidden;
-	padding-top:40px;
+	padding-top:55px;
 }
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_3"] {
+	background: url("../images/Quickstrike/picto/mind.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_4"] {
+	background: url("../images/Quickstrike/picto/soul.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_5"] {
+	background: url("../images/Quickstrike/picto/air.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_7"] {
+	background: url("../images/Quickstrike/picto/bull.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_10"] {
+	background: url("../images/Quickstrike/picto/earth.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_11"] {
+	background: url("../images/Quickstrike/picto/fire.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_12"] {
+	background: url("../images/Quickstrike/picto/fox.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_13"] {
+	background: url("../images/Quickstrike/picto/lion.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_16"] {
+	background: url("../images/Quickstrike/picto/water.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_17"] {
+	background: url("../images/Quickstrike/picto/dark.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_18"] {
+	background: url("../images/Quickstrike/picto/light.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+
+label[for="jeus_quickstrikebundle_selecteur_traitCarte_19"] {
+	background: url("../images/Quickstrike/picto/shadow.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	height:0;
+	overflow:hidden;
+	padding-top:55px;
+}
+

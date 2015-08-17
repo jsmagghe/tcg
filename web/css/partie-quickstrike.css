@@ -228,11 +228,3 @@ body { font-family: Arial, sans-serif; }
 	top : 133px;
 	left : 544px;
 }
-
-label[for="jeus_quickstrikebundle_selecteur_traitCarte_2"] {
-	background: url("../images/Quickstrike/picto/body.png") no-repeat scroll 0 0 transparent;
-	display:inline-block;
-	height:0;
-	overflow:hidden;
-	padding-top:40px;
-}

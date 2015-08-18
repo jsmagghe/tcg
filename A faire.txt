@@ -37,6 +37,7 @@ Effet 357;When you clean up Storms Without End. Leave your Chamber Card turned t
 Effet 492;When you counterattack, move hull breach to your red zone;;
 Effet 556; send all the advantages in your discard pile in your deck and shuffle it;;
 Effet 747; Turn your chamber in its other side;;
+Effet 243;Whenever you flip a card in canyon guide's zone, your opponent turns the top card of his or her deck face up.;;
 ----------------------------------------------------------------------------------------
 
 effets par choix simple du joueur
@@ -49,12 +50,17 @@ Effet 18;Red ==> +4 Intercept. Use only once.;;
 Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
 Effet 103;Green, -5 Force ==> +5 Intercept. Use only once.;;
 Effet 166;Red ==> +2 Intercept. Use only once.;;
+Effet 244;Green ==> In Gan Jin Treibe's zone, you strikes have +1 intercept. Use only once per turn.;;
 ---force
 Effet 66;-1 Intercept ==> +1 Force.;;
 Effet 40;-2 Intercept ==> +2 Force. Use only once.;;
 Effet 118;Green ==> +1 Force. use only once.;;
 Effet 141;Yellow ==> +4 Force. Use only once.;;
 Effet 186;Red ==> +5 Force. Use only once.;;
+Effet 246;Green ==> In zhang tribe's zone, your strikes have +1 Force. Use only once per turn.;;
+Effet 286;-1 Intercept ==>  or +1 Force.;;
+Effet 289;Your opponent gains one point ==> +3 Force.;;
+Effet 291;Yellow ==> +1 Force.;;
 ---les deux ou l'un ou l'autre
 Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
 Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
@@ -70,6 +76,8 @@ Effet 146;Red ==> Choose one: Jagged Ground gets +2 Intercept; or Jagged Ground 
 Effet 184;Two red ==> +3 Intercept and +3 Force. Use only once.;;
 Effet 189;Red, Green ==> +2 Intercept and +2 Force. Use only once.;;
 Effet 205;As you play sculpted flame, choose one: Your strikes have +1 Intercept and -1 Force; or your strikes have -1 Intercept and +1 Force.;;
+Effet 269;Exclusive - Katara. Uncharge Sokka's zone ==> If you have a strike in sokka's zone, choose one: That strike gets +1 Intercept; or that strikes gets +1 Force. Use only once per turn.;;
+Effet 275;Exclusive - Afiko. Turn your Chamber Card from the back to the front ==> +3 Intercept and +3 Force.;;
 => chargement de zone
 Effet 14;-3 Force ==> If you counterattack from Lyserg's zone with this strike, charge it.;;
 Effet 35;Move a yellow furyoku to your green zone ==> If you counterattack with Rain of Bones, charge this zone.;;
@@ -82,6 +90,10 @@ Effet 207;When you counterattack, you may uncharge one of your zones. If you do,
 Effet 210; You may charge any zone.;;
 Effet 214; If this zone is already charged, you may charge any zone.;;
 Effet 226;Yellow ==> When you counterattack from Katara's zone, charge this zone. Use only once per turn.;;
+Effet 265;When you counterattack from a charged zone, you may charge any zone.;;
+Effet 266;Red ==> when you counterattack, charge any zone. Use only once.;;
+Effet 267;Uncharge this zone ==> when you counterattack, charge any zone.;;
+Effet 290;charge a zone of your choice.;;
 => decharger zone
 Effet 114;-3 Intercept ==> If you counterattack with Rouge Shot, uncharge any zone.;;
 Effet 209; If this zone is already charged, you may uncharge any zone.;;
@@ -95,6 +107,10 @@ Effet 154;-1 Intercept ==> When you counterattack, move one of your green energy
 Effet 165;-3 Intercept ==> When you counterattack, move one of your yellow energy to your red zone.;;
 Effet 181;-1 Intercept ==> When you counterattack, add a green energy.;;
 Effet 183;-2 Intercept ==> When you counterattack from a charged zone, add a yellow energy.;;
+Effet 242;When you counterattack from cabbage merchant's zone, you may eliminate cabbage merchant. If you do, add a green energy.;;
+Effet 248;Move chi absorption down one zone ==> add a yellow energy. (use only while defending in your green or yellow zone);;
+Effet 249;Move dust funnels down one zone ==> add two green energy. (use only while defending in your green or yellow zone.);;
+Effet 286;-1 Intercept ==> Add a red furyoku, 
 => suppression d'énérgie
 Effet 39;. When you counterattack with Tandem Tomfoolery, eliminate one of your opponent's furyoku.;;
 Effet 50;Elilminate a furyoku you control ==> You may eliminate a furyoku of the same color if you counterattack from Mari's zone. Use only once.;;
@@ -102,8 +118,19 @@ Effet 82;-3 Intercept ==> If you counterattack from Jeanne's zone, add a yellow 
 Effet 149;-4 Intercept ==> When you counterattack, eliminate all of your opponent's green energy.;;
 Effet 151;eliminate one of your allies ==> when you counterattack, eliminate up to two green energy.;;
 Effet 218; You may eliminate an energy in this zone. If you do, eliminate one of your opponent's energy of the same color.;;
+Effet 234;Eliminate an energy in prince zuko's zone ==> when you counterattack from prince zuko's zone, eliminate an energy of the same color. Use only once per turn.;;
+Effet 241;Green ==> When you counterattack from Zhao's guard's zone, eliminate Zhao's Guard and up to two green energy. Use only once per turn.;;
+Effet 273;Exclusive - Prince Zuko. When you counterattack ==> you may eliminate an energy.;;
+Effet 285;-1 Intercept, eliminate one of your opponent's yellow furyoku ==> Add a yellow furyoku.;;
+Effet 287;-2 Intercept, eliminate one of an opponent's red furyoku ==> Add a red furyoku.;;
+Effet 288;-1 Intercept ==> Add a red furyoku.;;
 => zone de départ
 Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts in your opponent's yellow zone.;;
+Effet 232;Two Green ==> In Malu's zone, your strikes have "Your opponent skips defending in his or her green zones.";;
+Effet 251;Move open-palm pushback to your red zone ==> your opponent skips defending in his or her green zone. (Use only while defending in your green or yellow zone.);;
+=> changement de zone
+Effet 250;Two green ==> Move graceful leap up one zone (use only while defending in your yellow or red zone).;;
+Effet 252;Two Green ==> Move Zoom! up one zone (use only while defending in your yellow or red zone).;;
 => élimination teamwork
 Effet 41;If you counterattack with Strafe, you may eliminate a teamwork.;;
 Effet 26;Two yellow ==> If you counterattack from Zeke's zone, eliminate a teamwork.;;
@@ -112,16 +139,22 @@ Effet 77;Red, Green ==> If you counterattack with Snowdrift, eliminate all teamw
 Effet 81; You may eliminate a teamwork.;;
 Effet 212; You may eliminate one of your allies. If you do, eliminate one of your opponent's allies.;;
 Effet 213;.  You may eliminate an ally.;;
+Effet 276;Exclusive - Commander Zhao. When you counterattack, you may eliminate an ally.;;
 => deplacement teamwork
 Effet 160;When you counterattack, you may move an ally to the top of its owner's deck.;;
 Effet 164;-4 Intercept ==> When you counterattack, move an ally to the top of its owner's deck.;;
 Effet 188;When you counterattack, you may move one of your opponent's allies to one of that player's empty ally spaces.;;
 Effet 204; You may move any player's ally to one of that player's empty ally spaces.;;
+Effet 247;When you flip air scooter in a zone without an ally, you may move one of your allies to this zone.;;
+Effet 278; You may rearrange your allies.(you can only have one ally in each of your zones.);;
 => blocage chargement
 Effet 167;-2 Intercept ==> While your opponent is defending, his or her zones cannot be charged.;;
 => discarder carte
 Effet 201; Your opponent turns the top card of his or her deck face up. You may have your opponent put that card into his or her discard pile.;;
 Effet 222; Look at the top card of your deck. You may put it into your discard pile.;;
+Effet 238;When you counterattack from fire nation elite's zone, your opponent turns the top card of his or her deck face up. you may have your opponent put that card into his or her discard pile.;;
+=> blocage effet
+Effet 282;-2 Intercept ==> Your opponent may not focus or pitch.;;
 
 Effets
 Effet 584;Your opponent may uncharge all of his zone. 
@@ -161,48 +194,18 @@ Effet 202; Look at the top three cards of your deck. Put them back in any order.
 Effet 219; Your opponent uncharges one of his or her zones.;;
 Effet 223; Your opponent eliminates one of his or her allies.;;
 Effet 225;Whenever you flip a card in Appa's zone, you may swap Appa with an ally in one of your other zones.;;
------------a trier
 Effet 230;When you counterattack from Jet's zone, each player eliminates one of his or her allies.;;
-Effet 232;Two Green ==> In Malu's zone, your strikes have "Your opponent skips defending in his or her green zones.";;
 Effet 233;When you counterattack from Pirate Captain's zone, look at the top card of your deck. You may put into your discard pile.;;
-Effet 234;Eliminate an energy in prince zuko's zone ==> when you counterattack from prince zuko's zone, eliminate an energy of the same color. Use only once per turn.;;
 Effet 235;Whenever you would flip a card in Uncle Iroh's zone, you may first look at the top two cards of your deck. If you do, put them back in any order.;;
 Effet 236;When you counterattack from afiko's zone, you may eliminate one of your allies. If you do, your opponent charges one of your zones.;;
-Effet 238;When you counterattack from fire nation elite's zone, your opponent turns the top card of his or her deck face up. you may have your opponent put that card into his or her discard pile.;;
 Effet 239;When you counterattack from kinto's zone, you may eliminate one of your allies. If you do, your opponent uncharges one of his or her zones.;;
 Effet 240;Red ==> when you counterattack from prison warden's zone, your opponent eliminates one of his or her allies. Use only once per turn.;;
-Effet 241;Green ==> When you counterattack from Zhao's guard's zone, eliminate Zhao's Guard and up to two green energy. Use only once per turn.;;
-Effet 242;When you counterattack from cabbage merchant's zone, you may eliminate cabbage merchant. If you do, add a green energy.;;
-Effet 243;Whenever you flip a card in canyon guide's zone, your opponent turns the top card of his or her deck face up.;;
-Effet 244;Green ==> In Gan Jin Treibe's zone, you strikes have +1 intercept. Use only once per turn.;;
-Effet 246;Green ==> In zhang tribe's zone, your strikes have +1 Force. Use only once per turn.;;
-Effet 247;When you flip air scooter in a zone without an ally, you may move one of your allies to this zone.;;
-Effet 248;Move chi absorption down one zone ==> add a yellow energy. (use only while defending in your green or yellow zone);;
-Effet 249;Move dust funnels down one zone ==> add two green energy. (use only while defending in your green or yellow zone.);;
-Effet 250;Two green ==> Move graceful leap up one zone (use only while defending in your yellow or red zone).;;
-Effet 251;Move open-palm pushback to your red zone ==> your opponent skips defending in his or her green zone. (Use only while defending in your green or yellow zone.);;
-Effet 252;Two Green ==> Move Zoom! up one zone (use only while defending in your yellow or red zone).;;
 Effet 263;Green, Pitch ==> Your opponent eliminates one of his or her allies.;;
 Effet 264;When you counterattack, your opponent eliminates one or his or her allies. Green, Pitch ==> Your opponent eliminates one of his or her allies.;;
-Effet 265;When you counterattack from a charged zone, you may charge any zone.;;
-Effet 266;Red ==> when you counterattack, charge any zone. Use only once.;;
-Effet 267;Uncharge this zone ==> when you counterattack, charge any zone.;;
-Effet 269;Exclusive - Katara. Uncharge Sokka's zone ==> If you have a strike in sokka's zone, choose one: That strike gets +1 Intercept; or that strikes gets +1 Force. Use only once per turn.;;
-Effet 273;Exclusive - Prince Zuko. When you counterattack ==> you may eliminate an energy.;;
 Effet 274;Exclusive - Uncle Iroh. Pitch ==> Look at the top three cards of your deck. Put one on the top of your deck and the rest into your discard pile.;;
-Effet 275;Exclusive - Afiko. Turn your Chamber Card from the back to the front ==> +3 Intercept and +3 Force.;;
-Effet 276;Exclusive - Commander Zhao. When you counterattack, you may eliminate an ally.;;
-Effet 278; You may rearrange your allies.(you can only have one ally in each of your zones.);;
-Effet 282;-2 Intercept ==> Your opponent may not focus or pitch.;;
-Effet 285;-1 Intercept, eliminate one of your opponent's yellow furyoku ==> Add a yellow furyoku.;;
-Effet 286;-1 Intercept ==> Add a red furyoku, or +1 Force.;;
-Effet 287;-2 Intercept, eliminate one of an opponent's red furyoku ==> Add a red furyoku.;;
-Effet 288;-1 Intercept ==> Add a red furyoku.;;
-Effet 289;Your opponent gains one point ==> +3 Force.;;
-Effet 290;charge a zone of your choice.;;
-Effet 291;Yellow ==> +1 Force.;;
-Effet 292;Green ==> +1 Force. Super Bujin starts in your opponent's yellow zone.;;
 Effet 296;Put any number of teamworks on top of their owners' decks.;;
+-----------a trier
+Effet 292;Green ==> +1 Force. Super Bujin starts in your opponent's yellow zone.;;
 Effet 298;You may eliminate a teamwork.;;
 Effet 300;-8 Intercept ==> +8 Force.;;
 Effet 301;-1 Intercept ==> Put the top card of your deck in your discard pile. If it is a teamwork, +1 Force;;

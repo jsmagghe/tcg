@@ -140,6 +140,7 @@ class Partie
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_JAUNE');
             $this->Partie->dechargerZone($joueurConcerne,'STRIKE_ROUGE');
             $this->Partie->setJoueurZoneEnCours($joueurConcerne,'CHAMBER');
+            $this->Partie->setJoueurZoneEnCours($joueurAdverse,$this->effets->zoneDepart($joueurAdverse));
         } else {
             if ($this->Partie->getJoueurZoneEnCours($joueurConcerne)=='STRIKE_ROUGE') {
                 $this->effets->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_ROUGE');
@@ -157,11 +158,13 @@ class Partie
                 ) {
                 $this->effets->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
             }
+            $this->Partie->setJoueurZoneEnCours($joueurAdverse,$this->effets->zoneDepart($joueurAdverse));
         }
 
         $this->Partie->setEtapeByNumero($joueurConcerne,'attente');
         $this->viderCarte($joueurAdverse);
         $this->Partie->setEtapeByNumero($joueurAdverse,'utilisationChamber');
+        $this->isChamberUtilisable($joueurAdverse);
     }
 
     public function choixDeck($Deck)
@@ -601,9 +604,9 @@ class Partie
 
         if (($payer) && ($payable)) {
             $this->payerParEnergie($joueurConcerne, array(
-                'coutVert' => $Carte->getCoutVert(),
-                'coutJaune' => $Carte->getCoutJaune(),
-                'coutRouge' => $Carte->getCoutRouge(),
+                'coutVert' => $tab['coutVert'],
+                'coutJaune' => $tab['coutJaune'],
+                'coutRouge' => $tab['coutRouge'],
                 ));
         }
 
@@ -627,23 +630,26 @@ class Partie
         }
     }
 
-    public function isChamberUtilisable() {
+    public function isChamberUtilisable($joueurConcerne = null) {
+        if ($joueurConcerne==null) {
+            $joueurConcerne = $this->numeroJoueur;
+        }
         $isUtilisable = (
-            ($this->Partie->getEtape($this->Joueur) == 'utilisationChamber') 
-            && ($this->Partie->isZoneChargee($this->numeroJoueur,'CHAMBER'))
-            && ($this->Partie->isZoneChargee($this->numeroJoueur,'DECK'))
-            && ($this->Partie->isZoneChargee($this->numeroJoueur,'DISCARD'))
+            ($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber') 
+            && ($this->Partie->isZoneChargee($joueurConcerne,'CHAMBER'))
+            && ($this->Partie->isZoneChargee($joueurConcerne,'DECK'))
+            && ($this->Partie->isZoneChargee($joueurConcerne,'DISCARD'))
             && ($this->attaqueEnCours()<=$this->defenseChamber())
-            && ($this->effets->signaturePossible($this->numeroJoueur))
+            && ($this->effets->signaturePossible($joueurConcerne))
         );
 
         if (
-            ($this->Partie->getEtape($this->Joueur) == 'utilisationChamber')
+            ($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber')
             && ($isUtilisable==false)
             ) {
-            $this->Partie->setEtapeByNumero($this->numeroJoueur,'defense');
-            $this->Partie->setJoueurZoneEnCours($this->numeroJoueur,$this->effets->zoneDepart($this->numeroJoueur));
-            $this->effets->deplacerCarte($this->numeroJoueur,1,'DECK',$this->Partie->getJoueurZoneEnCours($this->numeroJoueur));
+            $this->Partie->setEtapeByNumero($joueurConcerne,'defense');
+            $this->Partie->setJoueurZoneEnCours($joueurConcerne,$this->effets->zoneDepart($joueurConcerne));
+            $this->effets->deplacerCarte($joueurConcerne,1,'DECK',$this->Partie->getJoueurZoneEnCours($joueurConcerne));
         }
 
         return $isUtilisable;

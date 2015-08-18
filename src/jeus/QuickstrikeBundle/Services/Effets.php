@@ -1058,6 +1058,9 @@ class Effets
 
             $joueurAdverse = ($joueurConcerne==1)?2:1;
 
+            $proprieteEffetJoueurConcerne = "getJoueur".$joueurConcerne."Effets";
+
+
             // effet des cartes du joueur concerné
             $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
             foreach ((array)$CarteEnJeus as $Cartejeu) {
@@ -1091,7 +1094,7 @@ class Effets
                         break;
                     // -1 vert par avantage joué ce tour
                     case 604 :
-                        $effets = $this->Partie->$proprieteEffetDefenseur();
+                        $effets = $this->Partie->$proprieteEffetJoueurConcerne();
                         foreach ($effets as $tab) {
                             if (isset($tab['avantage'])) {
                                 $coutVert--;
@@ -1149,7 +1152,7 @@ class Effets
                         break;
                     // +1 vert si pas de non strike
                     case 97 :
-                        $effets = $this->Partie->$proprieteEffetDefenseur();
+                        $effets = $this->Partie->$proprieteEffetJoueurConcerne();
                         $trouve = false;
                         foreach ($effets as $tab) {
                             if (isset($tab['non-strike'])) {

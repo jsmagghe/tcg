@@ -497,6 +497,22 @@ class Effets
                     break;
             }
         }
+        $CarteEnJeus = $this->CarteEnJeus[$numeroDefenseur]['ACTIVE'];
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($numeroDefenseur,$Carte);
+            switch ($numeroEffet) {
+                case 391 : 
+                    if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) {
+                        $bonus += 2;
+                    }
+                    break;
+                
+            }
+        }
 
         return $bonus;
     }
@@ -2270,6 +2286,7 @@ class Effets
                 case 122 : 
                 case 171 : 
                 case 283 : 
+                case 292 : 
                 case 307 : 
                 case 314 : 
                 case 316 : 

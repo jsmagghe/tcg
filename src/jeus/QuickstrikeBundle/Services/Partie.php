@@ -328,7 +328,8 @@ class Partie
         } else {
             $tab = explode('_', $action);
             $this->payerCout($joueurConcerne,$tab[1]);
-            $this->effets->deplacerCarte($joueurConcerne,1,'DECK',$zoneCorrespondante);
+            $this->effets->deplacerCarte($joueurConcerne,1,'DECK',$this->Partie->getJoueurZoneEnCours($joueurConcerne));
+
         }
     }
 

@@ -934,6 +934,7 @@ class Effets
             }
             $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
+                // actif que pour la carte elle même
                 case 9 : 
                 case 17 : 
                 case 39 : 
@@ -955,14 +956,20 @@ class Effets
                 case 487 : 
                 case 491 : 
                 case 671 : 
-                    if ($energieVerteDisponible>1) {
-                        $reflip['reflip_green'] = 'Reflip: green';                        
+                    if (
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        && ($energieVerteDisponible>1)
+                        ) {
+                            $reflip['reflip_green'] = 'Reflip: green';                        
                     }
-                    break;
+                    break;                        
                 case 416 : 
-                    if ($energieJauneDisponibler>1) {
-                        $reflip['reflip_yellow'] = 'Reflip: yellow';
-                    }
+                    if (
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur']) 
+                        && ($energieJauneDisponibler>1)
+                        ) {
+                            $reflip['reflip_yellow'] = 'Reflip: yellow';
+                        }
                     break;
                 case 479 : 
                     if ($Cartejeu->getEmplacement() == 'STRIKE_JAUNE') {
@@ -990,7 +997,8 @@ class Effets
                 case 20 :
                 case 418 :
                     if (
-                        (isset($this->CarteEnJeus[$joueurConcerne][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) 
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur']) 
+                        && (isset($this->CarteEnJeus[$joueurConcerne][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) 
                         && ($energieVerteDisponible>1)
                         )
                         {

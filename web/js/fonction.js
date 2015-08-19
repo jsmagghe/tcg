@@ -16,6 +16,11 @@ $(document).ready(function() {
 
     if (urlEnCours.indexOf('/partie/')>0) {
         setTimeout(rafraichir_la_partie(), 750);
+        $(document).on('click','a',function(){
+            if (xhr != null) {
+                xhr.abort();
+            }
+        });
     }
 
     function rafraichir_la_partie() {

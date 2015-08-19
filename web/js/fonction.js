@@ -15,28 +15,33 @@ $(document).ready(function() {
     }
 
     if (urlEnCours.indexOf('/partie/')>0) {
+        setTimeout(rafraichir_la_partie(), 750);
+    }
+
+    function rafraichir_la_partie() {
         var tableau = document.location.href;
         tableau = tableau.split('/');
         idPartie = tableau[tableau.length - 1];
 
-        setInterval(function (){
-            if (xhr != null) {
-                xhr.abort();
-            }
-            xhr = $.ajax({
-                url: Routing.generate('jeus_' + jeu + '_partie_timestamp', {
-                    id: idPartie
-                }),
-                type: 'POST',
-                success: function(retour) {
-                    if (retour.timestamp>$('#timestamp').val()) {
-                        document.location.reload();                    
-                    }
-                },
-                error: function(d, e, f) {
+        if (xhr != null) {
+            xhr.abort();
+        }
+        xhr = $.ajax({
+            url: Routing.generate('jeus_' + jeu + '_partie_timestamp', {
+                id: idPartie
+            }),
+            type: 'POST',
+            success: function(retour) {
+                if (retour.timestamp>$('#timestamp').val()) {
+                    document.location.reload();                    
+                } else {
+                    setTimeout(rafraichir_la_partie(), 750);
                 }
-            });
-        }, 750);
+            },
+            error: function(d, e, f) {
+            }
+        });
+
     }
     
     /*

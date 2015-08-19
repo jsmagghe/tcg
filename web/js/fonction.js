@@ -1,7 +1,8 @@
 $(document).ready(function() {
     var urlEnCours = document.location.href,
         jeu = '',
-        idPartie = '';
+        idPartie = '',
+        xhr = null;
         
     if (urlEnCours.indexOf('/bleach/')>0) {
         jeu = 'bleach';
@@ -19,7 +20,10 @@ $(document).ready(function() {
         idPartie = tableau[tableau.length - 1];
 
         setInterval(function (){
-            $.ajax({
+            if (xhr != null) {
+                xhr.abort();
+            }
+            xhr = $.ajax({
                 url: Routing.generate('jeus_' + jeu + '_partie_timestamp', {
                     id: idPartie
                 }),

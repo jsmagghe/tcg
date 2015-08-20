@@ -5,6 +5,10 @@ namespace jeus\QuickstrikeBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
+use Doctrine\ORM\EntityRepository;
+
 use jeus\QuickstrikeBundle\Entity\Extension;
 use jeus\QuickstrikeBundle\Entity\TraitCarte;
 use jeus\QuickstrikeBundle\Entity\TypeCarte;
@@ -40,6 +44,9 @@ class SelecteurType extends AbstractType {
                     'multiple' => true,
                     'expanded' => true,
                     'required' => false,
+                    'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('t');
+                    }
                 ))
                 ->add('attaque', 'text', array(
                     'required' => false,
@@ -70,6 +77,32 @@ class SelecteurType extends AbstractType {
                     ),
                 ))*/
         ;
+
+        $formUpdate = function (FormInterface $form, TypeCarte $TypeCarte = null) {
+            $TraitCartes = is_null($TypeCarte) ? array() : $TypeCarte->getTraitCartes();
+
+            $form->add('traitCarte', 'entity', array(
+                'class' => 'jeusQuickstrikeBundle:TraitCarte',
+                'choices' => $TraitCartes,
+                'property' => 'libelle',
+                'label' => 'Trait',
+                'multiple' => true,
+                'expanded' => true,
+                'required' => false
+            ));
+
+        };
+
+        $builder->addEventListener(
+                FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($formUpdate) {
+            $data = $event->getData();
+            $formUpdate($event->getForm(), $data->getTypeCarte());
+        });
+
+        $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) use ($formUpdate) {
+            $TypeCarte = $event->getForm()->get('TypeCarte')->getData();
+            $formUpdate($event->getForm(), $TypeCarte);
+        });
     }
 
     /**

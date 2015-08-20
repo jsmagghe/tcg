@@ -3,6 +3,7 @@
 namespace jeus\QuickstrikeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 
 /**
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="quickstrike_cartepartie")
  * @ORM\Entity(repositoryClass="jeus\QuickstrikeBundle\Repository\CartePartieRepository")
+ * @Gedmo\Loggable
  */
 class CartePartie
 {

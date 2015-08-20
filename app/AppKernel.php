@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new jeus\bleachBundle\jeusbleachBundle(),
             new jeus\JoueurBundle\jeusJoueurBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

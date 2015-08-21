@@ -162,23 +162,25 @@ $(document).ready(function() {
 
     $(document).on('click', '#jeus_quickstrikebundle_selecteur_typeCarte input', function(e) {
         var id='';
-        $.each('#jeus_quickstrikebundle_selecteur_typeCarte input', function(){
-            id = id + '_' + $(this).val();
+        console.log($('#jeus_quickstrikebundle_selecteur_typeCarte input'));
+        console.log($('#jeus_quickstrikebundle_selecteur_typeCarte'));
+        $('#jeus_quickstrikebundle_selecteur_typeCarte input:checked').each(function(){
+            id = id + $(this).val() + '_';
         });
-        alert(id);
 
-        // $.ajax({
-        //     url: Routing.generate('jeus_' + jeu + '_deck_valider', {
-        //         id: idDeck
-        //     }),
-        //     type: 'POST',
-        //     success: function(html) {
-        //         $('#deck').html('');
-        //         $('#deck').html(html);
-        //     },
-        //     error: function(d, e, f) {
-        //     }
-        // });
+        $.ajax({
+            url: Routing.generate('jeus_' + jeu + '_carte_traits_by_type'),
+            type: 'POST',
+            dataType: "json",
+            data:{ids : id},
+            success: function(retour) {
+                $.each(retour, function(key,trait){
+                    $('#jeus_quickstrikebundle_selecteur_traitCarte_'+trait).hide();
+                });
+            },
+            error: function(d, e, f) {
+            }
+        });
 
     });
 

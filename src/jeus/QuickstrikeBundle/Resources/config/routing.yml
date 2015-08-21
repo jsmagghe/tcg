@@ -7,6 +7,12 @@ jeus_quickstrike_carte:
     path:     /carte
     defaults: { _controller: jeusQuickstrikeBundle:Carte:carte }
     
+jeus_quickstrike_carte_traits_by_type:
+    path:     /carte-traits-by-type
+    defaults: { _controller: jeusQuickstrikeBundle:Carte:TraitsByType }
+    options:
+        expose: true
+    
 jeus_quickstrike_deck:
     path:     /deck
     defaults: { _controller: jeusQuickstrikeBundle:Deck:deckListe }

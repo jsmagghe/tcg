@@ -5,6 +5,8 @@ namespace jeus\QuickstrikeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /* Entity */
 use jeus\QuickstrikeBundle\Entity\Deck;
@@ -65,6 +67,41 @@ class CarteController extends Controller {
 
 
         return $tableau;
+    }
+
+    public function TraitsByTypeAction(Request $Request) {
+        $em = $this->getDoctrine()->getManager();
+        $Traits = $em->getRepository('jeusQuickstrikeBundle:TraitCarte')->findAll();
+        $ids = $Request->get('ids');
+        $ids = explode('_', $ids);
+        $typeSelectionnes = array();
+        foreach ($ids as $id) {
+            if (trim($id)) {
+                $TypeCarte = $em->getRepository('jeusQuickstrikeBundle:TypeCarte')->find($id);
+                if ($TypeCarte != null) {
+                    $typeSelectionnes[] = $TypeCarte->getTag();                    
+                }
+            }
+        }
+
+        $traitsDisponibles = array();
+        foreach($Traits as $Trait) {
+            if (($Trait->getTag()=='NEUTRE') || (in_array('CHAMBER', $typeSelectionnes))) {
+                $traitsDisponibles[] = $Trait->getId();
+            } else if (in_array($Trait->getTag(), array('BODY','MIND','SPIRIT'))) {
+                if (in_array('ADVANTAGE', $typeSelectionnes)) {
+                    $traitsDisponibles[] = $Trait->getId();
+                }
+            } else if (in_array($Trait->getTag(), array('DARK','LIGHT','SHADOW'))) {
+                if (in_array('TEAMWORK', $typeSelectionnes)) {
+                    $traitsDisponibles[] = $Trait->getId();
+                }
+            } else if (in_array('STRIKE', $typeSelectionnes)) {
+                $traitsDisponibles[] = $Trait->getId();
+            }
+
+        }
+        return new JsonResponse($traitsDisponibles);
     }
 
 }

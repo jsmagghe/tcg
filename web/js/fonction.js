@@ -174,8 +174,19 @@ $(document).ready(function() {
             dataType: "json",
             data:{ids : id},
             success: function(retour) {
+                for (i=0; i<20; i++) {
+                    if (
+                        (retour.indexOf(i) === false) 
+                        && ($('#jeus_quickstrikebundle_selecteur_traitCarte_'+i) !== 'undefined')
+                        ) {
+                            $('#jeus_quickstrikebundle_selecteur_traitCarte_'+i).show();
+                            $('label [for=jeus_quickstrikebundle_selecteur_traitCarte_'+i+']').show();                        
+                    }
+                }
+
                 $.each(retour, function(key,trait){
                     $('#jeus_quickstrikebundle_selecteur_traitCarte_'+trait).hide();
+                    $('label [for=jeus_quickstrikebundle_selecteur_traitCarte_'+trait+']').hide();
                 });
             },
             error: function(d, e, f) {

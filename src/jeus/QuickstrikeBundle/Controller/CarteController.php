@@ -44,7 +44,7 @@ class CarteController extends Controller {
         $filtre = array();
         $Request = $this->getRequest();
         if ($Request->getMethod() == 'POST') {
-            $formSelecteur->bind($Request);
+            $formSelecteur->handleRequest($Request);
 
             if ($formSelecteur->isValid()) {
                 $filtre['extension'] = $formSelecteur->get('extension')->getData();

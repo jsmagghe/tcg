@@ -160,4 +160,26 @@ $(document).ready(function() {
         $('#aggrandi-'.$(this).val()).style('display:block');        
     });
 
+    $(document).on('click', '#jeus_quickstrikebundle_selecteur_typeCarte input', function(e) {
+        var id='';
+        $.each('#jeus_quickstrikebundle_selecteur_typeCarte input', function(){
+            id = id + '_' + $(this).val();
+        });
+        alert(id);
+
+        // $.ajax({
+        //     url: Routing.generate('jeus_' + jeu + '_deck_valider', {
+        //         id: idDeck
+        //     }),
+        //     type: 'POST',
+        //     success: function(html) {
+        //         $('#deck').html('');
+        //         $('#deck').html(html);
+        //     },
+        //     error: function(d, e, f) {
+        //     }
+        // });
+
+    });
+
 });

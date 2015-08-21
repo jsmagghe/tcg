@@ -130,6 +130,8 @@ Effet 267;Uncharge this zone ==> when you counterattack, charge any zone.;;
 Effet 290;charge a zone of your choice.;;
 Effet 326;When you counterattack, each player charges his or her red zone.;;
 Effet 336;Green ==> When you counterattack, each player charges one of his or her zones.;;
+Effet 406;. When you counterattack, you may charge any zone.;;
+Effet 407;-3 Intercept ==> When you counterattack, charge this zone.;;
 => decharger zone
 Effet 114;-3 Intercept ==> If you counterattack with Rouge Shot, uncharge any zone.;;
 Effet 209; If this zone is already charged, you may uncharge any zone.;;
@@ -166,6 +168,8 @@ Effet 287;-2 Intercept, eliminate one of an opponent's red furyoku ==> Add a red
 Effet 288;-1 Intercept ==> Add a red furyoku.;;
 Effet 365;Two green ==> when you counterattack, eliminate up to two green energy. use only once;;
 Effet 375;-4 Intercept ==> When you counterattack, eliminate a yellow energy.;;
+Effet 376;green ==> when you counterattack , eliminate a green energy. use only once.;;
+Effet 377;When you counterattack against a strike that has 3 Force or less, you may eliminate an energy.;;
 => ajout ou suppression d'énergie
 Effet 321;You may either add a red furyoku or eliminate one of your opponent's red furyoku.;;
 => zone de départ
@@ -299,31 +303,27 @@ Effet 354;When you counterattack, look at the top two cards of your deck. Put th
 Effet 355;Whenever your opponent flips a card, you may pay a green energy. If your do, your opponent discards that card and flips a new on in the same zone.;;
 Effet 359;Eliminate one of your allies ==> When you counterattack, your opponent charges one of your zones.;;
 Effet 372;-2 Intercept ==> When you counterattack, your opponent uncharges one of his or her zones. use only once.;;
------------a trier
 Effet 368;when you celebrate, you may uncharge any zone;;
-Effet 376;green ==> when you counterattack , eliminate a green energy. use only once.;;
-Effet 377;When you counterattack against a strike that has 3 Force or less, you may eliminate an energy.;;
 Effet 383;When you counterattack, look at the top card of your opponent's deck. You may put it into his or her discard pile.;;
 Effet 384;-1 Intercept ==> When you counterattack, reveal then top card of your opponent's deck. You may put it into his or her discard pile. Use only once.;;
 Effet 385;-2 Intercept ==> When you counterattack, look at the top card of your opponent's deck. You may put it into his or her discard pile. Use only once.;;
-Effet 386;Green ==> A player of your choice turns the top card of his or her deck face up.;;
 Effet 393;When you celebrate, you may turn a player's chamber card to its other side.;;
-Effet 397;-4 Intercept ==> When you counterattack, add a yellow energy.;;
-Effet 406;. When you counterattack, you may charge any zone.;;
-Effet 407;-3 Intercept ==> When you counterattack, charge this zone.;;
-Effet 410;green ==> reveal the top card of your deck.;;
 Effet 429; Look at the top three cards of your deck. Put two on the top of your deck in any order and the other one into your discard pile.;;
-Effet 430;Your strikes have "Reflip: Eliminate one of your advantages.";;
 Effet 476;When you counterattack from j. bennie's zone, each player eliminates another player's ally.;;
 Effet 433; Reveal the top four cards of your deck. You may put an ally card from among them on the top of your deck and the rest into your discard pile.;;
 Effet 434; If you are defending against a strike that has 7 Force or more, look at the top four cards of your deck. You may put one on the top of your deck and the rest into your discard pile.;;
 Effet 435; You may choose one of your allies. If you do, your opponent chooses one of his or her allies, and you swap the chosen allies.;;
-Effet 436; Reveal the top card of your deck. You may put it into your discard pile. Reveal the top card of your opponent's deck. You may put it into his or her discard pile.;;
-Effet 437;When you counterattack, you may charge any zone with an ally.;;
 Effet 438; You may have your opponent eliminate one of his or her allies.;;
 Effet 441;When your opponent counterattacks, he or she charges one of your zones.;;
 Effet 446;When your opponent counterattacks from his or her green zone, that player uncharges one of his or her zones.;;
 Effet 447;When you counterattack, you may eliminate one of your allies. If you do, your opponent eliminates one of his or her allies.;;
+-----------a trier
+Effet 386;Green ==> A player of your choice turns the top card of his or her deck face up.;;
+Effet 397;-4 Intercept ==> When you counterattack, add a yellow energy.;;
+Effet 410;green ==> reveal the top card of your deck.;;
+Effet 430;Your strikes have "Reflip: Eliminate one of your advantages.";;
+Effet 436; Reveal the top card of your deck. You may put it into your discard pile. Reveal the top card of your opponent's deck. You may put it into his or her discard pile.;;
+Effet 437;When you counterattack, you may charge any zone with an ally.;;
 Effet 449; You may have your opponent uncharge one of his or her zones.;;
 Effet 450; A player of your choice reveals the top card of his or her deck.;;
 Effet 455;You cannot celebrate in jackson hill's zone. Green ==> when you counterattack from jackson hill's zone, charge his zone. Use only once per turn.;;

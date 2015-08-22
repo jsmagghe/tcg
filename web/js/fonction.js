@@ -162,8 +162,6 @@ $(document).ready(function() {
 
     $(document).on('click', '#jeus_quickstrikebundle_selecteur_typeCarte input', function(e) {
         var id='';
-        console.log($('#jeus_quickstrikebundle_selecteur_typeCarte input'));
-        console.log($('#jeus_quickstrikebundle_selecteur_typeCarte'));
         $('#jeus_quickstrikebundle_selecteur_typeCarte input:checked').each(function(){
             id = id + $(this).val() + '_';
         });
@@ -176,17 +174,17 @@ $(document).ready(function() {
             success: function(retour) {
                 for (i=0; i<20; i++) {
                     if (
-                        (retour.indexOf(i) === false) 
+                        (retour.indexOf(i) === -1) 
                         && ($('#jeus_quickstrikebundle_selecteur_traitCarte_'+i) !== 'undefined')
                         ) {
-                            $('#jeus_quickstrikebundle_selecteur_traitCarte_'+i).show();
-                            $('label [for=jeus_quickstrikebundle_selecteur_traitCarte_'+i+']').show();                        
+                            $('#jeus_quickstrikebundle_selecteur_traitCarte_'+i).hide();
+                            $('label[for=jeus_quickstrikebundle_selecteur_traitCarte_'+i+']').hide(); 
                     }
                 }
 
                 $.each(retour, function(key,trait){
-                    $('#jeus_quickstrikebundle_selecteur_traitCarte_'+trait).hide();
-                    $('label [for=jeus_quickstrikebundle_selecteur_traitCarte_'+trait+']').hide();
+                    $('#jeus_quickstrikebundle_selecteur_traitCarte_'+trait).show();
+                    $('label[for=jeus_quickstrikebundle_selecteur_traitCarte_'+trait+']').show();
                 });
             },
             error: function(d, e, f) {

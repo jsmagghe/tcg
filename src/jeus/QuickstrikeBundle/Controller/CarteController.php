@@ -72,9 +72,16 @@ class CarteController extends Controller {
     public function TraitsByTypeAction(Request $Request) {
         $em = $this->getDoctrine()->getManager();
         $Traits = $em->getRepository('jeusQuickstrikeBundle:TraitCarte')->findAll();
-        $ids = $Request->get('ids');
-        $ids = explode('_', $ids);
         $typeSelectionnes = array();
+        $ids = $Request->get('ids');
+        if (trim($ids)=='') {
+            $TypeCartes = $em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findAll();
+            foreach ($TypeCartes as $TypeCarte) {
+                $typeSelectionnes[] = $TypeCarte->getTag();                    
+            }
+
+        }
+        $ids = explode('_', $ids);
         foreach ($ids as $id) {
             if (trim($id)) {
                 $TypeCarte = $em->getRepository('jeusQuickstrikeBundle:TypeCarte')->find($id);

@@ -1,0 +1,18 @@
+{% if page is defined and nbPage is defined%}
+    <div class="pagination">
+        <div class="pagination-buttons">
+            {% if page>1 %}
+                <a href="page_1" class="page-ajax" data-page="1"><<</a>
+                <a href="page_{{page-1}}" class="page-ajax" data-page="{{page-1}}"><</a>
+            {% endif %}
+            {#display p numbers only from p-4 to p+4 but don't go <1 or >nbPage#}
+            {% for p in range(max(page-4, 1), min(page+4, nbPage)) %}
+                <a href="page_{{p}}" class="page-ajax{% if p == page %} current-page{% endif %}" data-page="{{ p }}"/>{{ p }}</a>
+            {% endfor %}
+            {% if page<nbPage %}
+                <a href="page_{{ page+1 }}"class="page-ajax" data-page="{{page+1}}">></a>
+                <a href="page_{{nbPage}}" class="page-ajax" data-page="{{nbPage}}">>></a>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

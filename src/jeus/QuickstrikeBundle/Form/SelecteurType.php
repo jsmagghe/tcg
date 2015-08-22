@@ -58,6 +58,10 @@ class SelecteurType extends AbstractType {
                     'required' => false,
                     'mapped' => false
                 ))
+                ->add('page', 'hidden', array(
+                    'required' => false,
+                    'mapped' => false
+                ))
                 /*->add('nombreCarte', 'choice', array(
                     'label' => 'Nombre de carte',
                     'multiple' => false,

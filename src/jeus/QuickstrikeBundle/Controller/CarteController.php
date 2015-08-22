@@ -25,6 +25,8 @@ class CarteController extends Controller {
         $filtre = $tableau['filtre'];
         $formSelecteur = $tableau['form'];
         $Cartes = $tableau['Cartes'];
+        $nbPage = $tableau['nbPage'];
+        $page = $tableau['page'];
 
         if ($Request->isXmlHttpRequest()) {
             return $this->render('::cartes.html.twig', array(
@@ -36,6 +38,8 @@ class CarteController extends Controller {
                     'cartes' => $Cartes,
                     'form' => $formSelecteur->createView(),
                     'jeu' => 'quickstrike',
+                    'nbPage' => $nbPage,
+                    'page' => $page,
         ));
     }
 
@@ -55,6 +59,7 @@ class CarteController extends Controller {
                 $filtre['attaque'] = $formSelecteur->get('attaque')->getData();
                 $filtre['intercept'] = $formSelecteur->get('intercept')->getData();
                 $filtre['effet'] = $formSelecteur->get('effet')->getData();
+                $filtre['page'] = $formSelecteur->get('page')->getData();
                 //$filtre['nombreCarte'] = $formSelecteur->get('nombreCarte')->getData();
                 $filtre['idChamber'] = $em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findOneByTag('CHAMBER')->getId();
             }
@@ -64,7 +69,26 @@ class CarteController extends Controller {
         $tableau['filtre'] = $filtre;
         $tableau['form'] = $formSelecteur;
         $tableau['Cartes'] = $em->getRepository('jeusQuickstrikeBundle:Carte')->findByCritere($filtre);
+        $tableau['page'] = isset($filtre['page']) ? $filtre['page'] : 1;
 
+        $tableau['nbPage'] = ceil(count($tableau['Cartes']) / $this->container->getParameter('carte_par_page'));
+        if (($tableau['page']<1) || ($tableau['page']>$tableau['nbPage'])) {
+            $tableau['page'] = 1;
+        }
+
+        $pageEnCours = 1;
+        $nbCarteEnCours = 0;
+        foreach ($tableau['Cartes'] as $key => $value) {
+            if ($nbCarteEnCours>=$this->container->getParameter('carte_par_page')) {
+                $pageEnCours++;
+                $nbCarteEnCours = 0;
+            }
+            if ($pageEnCours != $tableau['page']) {
+                unset($tableau['Cartes'][$key]);
+            }
+            $nbCarteEnCours++;
+
+        }
 
         return $tableau;
     }

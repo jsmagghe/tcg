@@ -193,4 +193,11 @@ $(document).ready(function() {
 
     });
 
+    $(document).on('click', '.page-ajax', function(e) {
+        $('#jeus_quickstrikebundle_selecteur_page').val($(this).data('page'));
+        $('#selecteur').submit();
+        e.preventDefault();
+    });
+
+
 });

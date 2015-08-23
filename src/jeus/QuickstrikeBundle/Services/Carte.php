@@ -31,11 +31,13 @@ class Carte
             $nombreTraits = 0;
             $tableauTraitId = '';
             foreach ($tableau['filtre']['traitCarte'] as $Trait) {
-                $nombreTraits++;
-                if ($tableauTraitId != '') {
-                    $tableauTraitId .= ',';
+                if ( $Trait->getTag() != 'NEUTRE') {
+                    $nombreTraits++;
+                    if ($tableauTraitId != '') {
+                        $tableauTraitId .= ',';
+                    }
+                    $tableauTraitId .= $Trait->getId();                    
                 }
-                $tableauTraitId .= $Trait->getId();
             }
             $tableauTraitId = '(' . $tableauTraitId  .')';
     

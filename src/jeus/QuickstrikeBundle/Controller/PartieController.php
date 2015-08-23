@@ -128,6 +128,8 @@ class PartieController extends Controller {
     public function partieAction(Partie $Partie) {
         $Joueur = $this->get('security.context')->getToken()->getUser();
         $this->em = $this->getDoctrine()->getManager();
+        $serviceSaveBdd = $this->get('jeus_quickstrike_saveBdd');
+        $serviceSaveBdd->sauvegardeBdd();
         if (($Joueur == $Partie->getJoueur1()) || ($Joueur == $Partie->getJoueur2())) {
             $servicePartie = $this->get('jeus_quickstrike_partie');
             $servicePartie->chargement($Partie,$Joueur);

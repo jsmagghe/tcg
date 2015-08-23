@@ -23,3 +23,8 @@ services:
         class: jeus\QuickstrikeBundle\Services\Partie
         arguments: [@doctrine.orm.entity_manager,@service_container,@jeus_quickstrike_tools,@jeus_quickstrike_effets,@jeus_quickstrike_interactions,@router]
         scope: request
+
+    jeus_quickstrike_saveBdd:
+        class: jeus\QuickstrikeBundle\Services\SaveBdd
+        arguments: [@service_container]
+

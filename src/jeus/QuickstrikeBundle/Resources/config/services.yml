@@ -14,6 +14,11 @@ services:
         class: jeus\QuickstrikeBundle\Services\Interactions
         arguments: [@doctrine.orm.entity_manager,@jeus_quickstrike_tools]
 
+    jeus_quickstrike_carte:
+        class: jeus\QuickstrikeBundle\Services\Carte
+        arguments: [@doctrine.orm.entity_manager,@service_container]
+        scope: request
+
     jeus_quickstrike_partie:
         class: jeus\QuickstrikeBundle\Services\Partie
         arguments: [@doctrine.orm.entity_manager,@service_container,@jeus_quickstrike_tools,@jeus_quickstrike_effets,@jeus_quickstrike_interactions,@router]

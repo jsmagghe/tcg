@@ -16,12 +16,38 @@ use jeus\QuickstrikeBundle\Entity\CarteDeck;
 use jeus\QuickstrikeBundle\Form\SelecteurType;
 
 
+
 class CarteController extends Controller {
 
     public function carteAction() {
 
         $Request = $this->getRequest();
-        $tableau = $this->rechercheCarte($Request);
+        $em = $this->getDoctrine()->getManager();
+        $serviceCarte = $this->get('jeus_quickstrike_carte');
+        $tableau = array();
+        $formSelecteur = $this->createForm(new SelecteurType());
+        $filtre = array();
+        $Request = $this->getRequest();
+        if ($Request->getMethod() == 'POST') {
+            $formSelecteur->handleRequest($Request);
+
+            if ($formSelecteur->isValid()) {
+                $filtre['extension'] = $formSelecteur->get('extension')->getData();
+                $filtre['typeCarte'] = $formSelecteur->get('typeCarte')->getData();
+                $filtre['traitCarte'] = $formSelecteur->get('traitCarte')->getData();
+                $filtre['attaque'] = $formSelecteur->get('attaque')->getData();
+                $filtre['intercept'] = $formSelecteur->get('intercept')->getData();
+                $filtre['effet'] = $formSelecteur->get('effet')->getData();
+                $filtre['page'] = $formSelecteur->get('page')->getData();
+                $filtre['idChamber'] = $em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findOneByTag('CHAMBER')->getId();
+            }
+        } else {
+                $filtre['extension'] = $em->getRepository('jeusQuickstrikeBundle:Extension')->findByLibelle('Shaman King');
+        }
+        $tableau['filtre'] = $filtre;
+        $tableau['form'] = $formSelecteur;
+
+        $tableau = $serviceCarte->rechercheCarte($tableau);
         $filtre = $tableau['filtre'];
         $formSelecteur = $tableau['form'];
         $Cartes = $tableau['Cartes'];
@@ -41,56 +67,6 @@ class CarteController extends Controller {
                     'nbPage' => $nbPage,
                     'page' => $page,
         ));
-    }
-
-    public function rechercheCarte($Request) {
-        $tableau = array();
-        $em = $this->getDoctrine()->getManager();
-        $formSelecteur = $this->createForm(new SelecteurType());
-        $filtre = array();
-        $Request = $this->getRequest();
-        if ($Request->getMethod() == 'POST') {
-            $formSelecteur->handleRequest($Request);
-
-            if ($formSelecteur->isValid()) {
-                $filtre['extension'] = $formSelecteur->get('extension')->getData();
-                $filtre['typeCarte'] = $formSelecteur->get('typeCarte')->getData();
-                $filtre['traitCarte'] = $formSelecteur->get('traitCarte')->getData();
-                $filtre['attaque'] = $formSelecteur->get('attaque')->getData();
-                $filtre['intercept'] = $formSelecteur->get('intercept')->getData();
-                $filtre['effet'] = $formSelecteur->get('effet')->getData();
-                $filtre['page'] = $formSelecteur->get('page')->getData();
-                //$filtre['nombreCarte'] = $formSelecteur->get('nombreCarte')->getData();
-                $filtre['idChamber'] = $em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findOneByTag('CHAMBER')->getId();
-            }
-        } else {
-                $filtre['extension'] = $em->getRepository('jeusQuickstrikeBundle:Extension')->findByLibelle('Shaman King');
-        }
-        $tableau['filtre'] = $filtre;
-        $tableau['form'] = $formSelecteur;
-        $tableau['Cartes'] = $em->getRepository('jeusQuickstrikeBundle:Carte')->findByCritere($filtre);
-        $tableau['page'] = isset($filtre['page']) ? $filtre['page'] : 1;
-
-        $tableau['nbPage'] = ceil(count($tableau['Cartes']) / $this->container->getParameter('carte_par_page'));
-        if (($tableau['page']<1) || ($tableau['page']>$tableau['nbPage'])) {
-            $tableau['page'] = 1;
-        }
-
-        $pageEnCours = 1;
-        $nbCarteEnCours = 0;
-        foreach ($tableau['Cartes'] as $key => $value) {
-            if ($nbCarteEnCours>=$this->container->getParameter('carte_par_page')) {
-                $pageEnCours++;
-                $nbCarteEnCours = 0;
-            }
-            if ($pageEnCours != $tableau['page']) {
-                unset($tableau['Cartes'][$key]);
-            }
-            $nbCarteEnCours++;
-
-        }
-
-        return $tableau;
     }
 
     public function TraitsByTypeAction(Request $Request) {

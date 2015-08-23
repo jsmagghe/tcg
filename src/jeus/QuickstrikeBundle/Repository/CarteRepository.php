@@ -43,6 +43,13 @@ class CarteRepository extends EntityRepository {
             }
         }
 
+        if (
+            (isset($criteres['idChamber'])) 
+            && (isset($criteres['traitCarte'])) 
+            ) {
+            $QueryBuilder->andWhere('t.id <> ' . $criteres['idChamber']);
+        }
+
         if (isset($criteres['traitCarte'])) {
             if (!isset($criteres['typeCarte'][0]))
                 $QueryBuilder->innerJoin('c.typeCarte', 't');
@@ -85,5 +92,15 @@ class CarteRepository extends EntityRepository {
         return $QueryBuilder->getQuery()
                         ->getResult();
     }
+
+    public function findByIds(array $ids) {
+        $QueryBuilder = $this->createQueryBuilder('c')
+                             ->andWhere('c.id IN (:ids)')
+                             ->setParameter('ids', $ids);
+
+        return $QueryBuilder->getQuery()
+                        ->getResult();
+    }
+
 
 }

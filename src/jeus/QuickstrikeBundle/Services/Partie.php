@@ -792,9 +792,7 @@ class Partie
                 }
                 break;
         }                
-        if ((!$pitchPossible) && (!$focusPossible)) {
-            $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'remonter_bug')).'">Signaler un bug</a>';                    
-        }
+        $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'remonter_bug')).'">Signaler un bug</a>';                    
             
         return $action;
     }

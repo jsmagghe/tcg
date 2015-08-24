@@ -88,7 +88,11 @@ class SaveBdd
 
     public function renommerSauvegardeBdd($idPartie) {
         $base = $this->container->getParameter('database_name');
-        copy($base,str_replace('.sql', '_'.$idPartie . date("_dMY_His") . '.sql', $base));
+        $nomSauvegarde = $base . '.sql';
+        $nomSauvegardeBug = str_replace('.sql', '_'.$idPartie . date("_dmY_His") . '.sql', $nomSauvegarde);
+        if (file_exists($nomSauvegarde)) {
+            copy($nomSauvegarde,$nomSauvegardeBug);
+        }
     }
 
 }

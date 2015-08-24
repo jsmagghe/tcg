@@ -227,15 +227,15 @@ class PartieController extends Controller {
     }
 
     public function choixEffetAction(Partie $Partie, $effet) {
-        $serviceSaveBdd = $this->get('jeus_quickstrike_saveBdd');
-        $serviceSaveBdd->sauvegardeBdd();
         $this->em = $this->getDoctrine()->getManager();
         $Joueur = $this->get('security.context')->getToken()->getUser();
         $servicePartie = $this->get('jeus_quickstrike_partie');
+        $servicePartie->chargement($Partie,$Joueur);            
+        $serviceSaveBdd = $this->get('jeus_quickstrike_saveBdd');
         if ($effet!='remonter_bug') {
-            $servicePartie->chargement($Partie,$Joueur);            
+            $serviceSaveBdd->sauvegardeBdd();
         } else {
-            $servicePartie->renommerSauvegardeBdd($Partie->getId());            
+            $serviceSaveBdd->renommerSauvegardeBdd($Partie->getId());            
         }
         $this->em->persist($Partie);
         $joueurConcerne = $servicePartie->numeroJoueur;

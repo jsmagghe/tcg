@@ -41,6 +41,7 @@ Effet 492;When you counterattack, move hull breach to your red zone;;
 Effet 556; send all the advantages in your discard pile in your deck and shuffle it;;
 Effet 747; Turn your chamber in its other side;;
 Effet 243;Whenever you flip a card in canyon guide's zone, your opponent turns the top card of his or her deck face up.;;
+Effet 578;Your opponent uncharges every of his zone with a teamwork.;;
 
 ----------------------------------------------------------------------------------------
 
@@ -132,11 +133,26 @@ Effet 326;When you counterattack, each player charges his or her red zone.;;
 Effet 336;Green ==> When you counterattack, each player charges one of his or her zones.;;
 Effet 406;. When you counterattack, you may charge any zone.;;
 Effet 407;-3 Intercept ==> When you counterattack, charge this zone.;;
+Effet 437;When you counterattack, you may charge any zone with an ally.;;
+Effet 455;You cannot celebrate in jackson hill's zone. Green ==> when you counterattack from jackson hill's zone, charge his zone. Use only once per turn.;;
+Effet 457;-2 Intercept ==> when you counterattack from jeremiah hampton's zone, charge his zone. Use only once per turn.;;
+Effet 469;When you counterattack from davy jones's zone, you may uncharge his zone. If you do, charge one of your zones;;
+Effet 493;Yellow ==> When you counterattack, charge your red zone. Use only once;;
+Effet 546;  you may uncharge one of your zone and then charge another zone;;
+Effet 592;Red ==> when you counterattack with let me think of it charge one of your zone;;
+Effet 648;When you counterattack with Restless protector, charge any zone;;
+Effet 744; Charge any zone instead of this one;;
 => decharger zone
 Effet 114;-3 Intercept ==> If you counterattack with Rouge Shot, uncharge any zone.;;
 Effet 209; If this zone is already charged, you may uncharge any zone.;;
 Effet 216;.  You may uncharge any zone.;;
 Effet 350;When you counterattack, you may uncharge any zone.;;
+Effet 527;Green ==> When you counterattack, uncharge any zone.;;
+Effet 582;Uncharge one of your opponent's zone;;
+Effet 637;-3 Intercept ==> When you counterattack with ice blast, uncharge an opponent's zone;;
+Effet 649;When you counterattack with Cupid dilemma you may eliminate the teamwork in this zone to uncharge one of your opponent's zone;;
+Effet 688;Red ==> When you counterattack from Riddler's zone, uncharge an opponent's zone.;;
+Effet 740; Uncharge an opponent's zone;;
 => charger / decharger
 Effet 356;-2 Intercept ==> When you counterattack, charge or uncharge any zone.;;
 Effet 358;-2 Intercept ==> When you counterattack, charge or uncharge any zone. Use only once.;;
@@ -153,6 +169,11 @@ Effet 242;When you counterattack from cabbage merchant's zone, you may eliminate
 Effet 248;Move chi absorption down one zone ==> add a yellow energy. (use only while defending in your green or yellow zone);;
 Effet 249;Move dust funnels down one zone ==> add two green energy. (use only while defending in your green or yellow zone.);;
 Effet 286;-1 Intercept ==> Add a red furyoku, 
+Effet 397;-4 Intercept ==> When you counterattack, add a yellow energy.;;
+Effet 460;In weatherby swann's zone, your strikes have -1 Intercept. Green ==> when your counterattack from weartherby swann's zone, add a yellow energy.;;
+Effet 499;exclusive - davy jones.  - choose one : charge your red zone, or add a red energy;;
+Effet 560;-1 Intercept ==> add a green energy.;;
+Effet 687;When you flip a card in this zone you may discard Bio policemen to add 3 green energy.;;
 => suppression d'énérgie
 Effet 39;. When you counterattack with Tandem Tomfoolery, eliminate one of your opponent's furyoku.;;
 Effet 50;Elilminate a furyoku you control ==> You may eliminate a furyoku of the same color if you counterattack from Mari's zone. Use only once.;;
@@ -170,6 +191,12 @@ Effet 365;Two green ==> when you counterattack, eliminate up to two green energy
 Effet 375;-4 Intercept ==> When you counterattack, eliminate a yellow energy.;;
 Effet 376;green ==> when you counterattack , eliminate a green energy. use only once.;;
 Effet 377;When you counterattack against a strike that has 3 Force or less, you may eliminate an energy.;;
+Effet 462;when you counterattack from elizabeth swann's zone, you may eliminate a green energy.;;
+Effet 520;-2 Intercept ==> when you counterattack, eliminate an energy.;;
+Effet 525;Three Red ==> When you counterattack, eliminate up to three red energy.;;
+Effet 577;Your opponent uncharges one of his zone, eliminates one of his ally and one of his energy.;;
+Effet 579;For each of his zone with a teamwork your opponent uncharges this zone and eliminates 1 energy in it;;
+Effet 624;-3 Intercept ==> your opponent eliminates a red energy.;;
 => ajout ou suppression d'énergie
 Effet 321;You may either add a red furyoku or eliminate one of your opponent's red furyoku.;;
 => zone de départ
@@ -245,6 +272,9 @@ Effet 238;When you counterattack from fire nation elite's zone, your opponent tu
 Effet 282;-2 Intercept ==> Your opponent may not focus or pitch.;;
 => cout supplémentaire
 Effet 364;-2 Intercept ==> Your opponent's strikes cost an additional yellow energy to play.;;
+=> affichage carte
+Effet 386;Green ==> A player of your choice turns the top card of his or her deck face up.;;
+Effet 410;green ==> reveal the top card of your deck.;;
 
 Effets
 Effet 584;Your opponent may uncharge all of his zone. 
@@ -317,77 +347,50 @@ Effet 438; You may have your opponent eliminate one of his or her allies.;;
 Effet 441;When your opponent counterattacks, he or she charges one of your zones.;;
 Effet 446;When your opponent counterattacks from his or her green zone, that player uncharges one of his or her zones.;;
 Effet 447;When you counterattack, you may eliminate one of your allies. If you do, your opponent eliminates one of his or her allies.;;
------------a trier
-Effet 386;Green ==> A player of your choice turns the top card of his or her deck face up.;;
-Effet 397;-4 Intercept ==> When you counterattack, add a yellow energy.;;
-Effet 410;green ==> reveal the top card of your deck.;;
 Effet 430;Your strikes have "Reflip: Eliminate one of your advantages.";;
 Effet 436; Reveal the top card of your deck. You may put it into your discard pile. Reveal the top card of your opponent's deck. You may put it into his or her discard pile.;;
-Effet 437;When you counterattack, you may charge any zone with an ally.;;
 Effet 449; You may have your opponent uncharge one of his or her zones.;;
+-----------a trier
 Effet 450; A player of your choice reveals the top card of his or her deck.;;
-Effet 455;You cannot celebrate in jackson hill's zone. Green ==> when you counterattack from jackson hill's zone, charge his zone. Use only once per turn.;;
-Effet 457;-2 Intercept ==> when you counterattack from jeremiah hampton's zone, charge his zone. Use only once per turn.;;
 Effet 459;Green ==> In rachel darling's zone, your strike have +1 Intercept abd -1 Force. Use only oncer per turn.;;
-Effet 460;In weatherby swann's zone, your strikes have -1 Intercept. Green ==> when your counterattack from weartherby swann's zone, add a yellow energy.;;
 Effet 461;Eliminate one of your other allies ==> when you counterattack from cannibal warrior's zone, your opponent eliminates one of his or her allies;;
-Effet 462;when you counterattack from elizabeth swann's zone, you may eliminate a green energy.;;
 Effet 468;Yellow ==> when you counterattack from captain barbossa's zone, your opponent charges one of your zones. use only once per turn.;;
-Effet 469;When you counterattack from davy jones's zone, you may uncharge his zone. If you do, charge one of your zones;;
 Effet 475;Yellow ==> In cotton's parrot's zone, your strikes have +1 Force. Use only once per turn.;;
 Effet 477;Two Green ==> In jack the monkey's zone, your strikes have +1 Intercept. Use only once per turn.;;
 Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
 Effet 484;Two Green ==> Move nasty dagger up one zone;;
 Effet 487;. When you counterattack, you may rearrange the allies in your opponent's ally spaces;;
 Effet 488;Two Green ==> Move sneak aboard up one zone.;;
-Effet 493;Yellow ==> When you counterattack, charge your red zone. Use only once;;
 Effet 494;When you flip ready the long nines, you may move it to your red zone. Ready the long nines has +3 Force while in your red zone.;;
 Effet 495;When you flip through the smoke, you may move it to your red zone. When you counterattack from your red zone, your opponent uncharges one of his or her zones.;;
-Effet 499;exclusive - davy jones.  - choose one : charge your red zone, or add a red energy;;
 Effet 504;exclusive - captain barbossa.  reveal the top four cards of your deck. You may put a strike card from among them on the top of your deck and the rest into your discard pile;;
 Effet 506;When you counterattack, you may swap one of your allies with another player's ally;;
 Effet 512;Your opponent cannot play strikes in his or her zone of your choice;;
 Effet 516;When you counterattack, you may eliminate up to as many allies as the number of allies you have;;
-Effet 520;-2 Intercept ==> when you counterattack, eliminate an energy.;;
 Effet 522;Choose an ally name. Your opponent may not play strikes in any zone with an ally that has the chosen name.;;
 Effet 524;When you counterattack, you opponent uncharges one of his or her zones. 
-Effet 525;Three Red ==> When you counterattack, eliminate up to three red energy.;;
-Effet 527;Green ==> When you counterattack, uncharge any zone.;;
 Effet 531;When you counterattack, you may rearrange the allies in your ally spaces and then rearrange the allies in your opponent's ally spaces.;;
 Effet 532;When your opponent counterattacks, reveal the top four cards of your deck. Put one on the top of your deck and the rest into your discard pile.;;
-Effet 546;  you may uncharge one of your zone and then charge another zone;;
 Effet 549; You may search your deck or your discard pile for a teamwork and put it in the teamwork place on the current zone. If there's already a teamwork in this zone discard it first.;;
 Effet 551;for each ally you have in play your opponent uncharges one of his zone;;
 Effet 555;You may send up to 2 advantages in any order from your discard pile on the top of your deck;;
-Effet 560;-1 Intercept ==> add a green energy.;;
 Effet 575;Your opponent uncharges one of his zone.;;
-Effet 577;Your opponent uncharges one of his zone, eliminates one of his ally and one of his energy.;;
-Effet 578;Your opponent uncharges every of his zone with a teamwork.;;
-Effet 579;For each of his zone with a teamwork your opponent uncharges this zone and eliminates 1 energy in it;;
 Effet 581;-1 Intercept ==> your opponent eliminates one of his energy. -1 Force ==> Add an energy to any of your zone.;;
-Effet 582;Uncharge one of your opponent's zone;;
 Effet 588;You may look at the top 3 cards of your deck and put them back in any order;;
-Effet 592;Red ==> when you counterattack with let me think of it charge one of your zone;;
 Effet 593;When you counterattack with I don't need you, you opponent eliminates one of his teamwork.;;
 Effet 594;Reflip: eliminate one of your teamworks;;
 Effet 605;When you counterattack with Two time move, look at the top 3 cards of your deck and put one of them on top of your deck and the rest in the discard pile.;;
 Effet 610;Uncharge this zone ==> Transformation starts in your opponent's red zone.;;
 Effet 613;When you counterattack with secret hideout, you may send an advantage from your discard pile on the top of your deck;;
 Effet 615;-3 Intercept ==> when you counterattack with interview, you may move one of your yellow energy to your red zone;;
-Effet 624;-3 Intercept ==> your opponent eliminates a red energy.;;
 Effet 628;-1 Intercept ==> When you counterattack with database you may look at the top 2 cards of your deck and place them in any order;;
 Effet 634;When you counterattack with I m not afraid of frost, look at the top 2 cards of your deck and put them back in any order;;
-Effet 637;-3 Intercept ==> When you counterattack with ice blast, uncharge an opponent's zone;;
-Effet 648;When you counterattack with Restless protector, charge any zone;;
-Effet 649;When you counterattack with Cupid dilemma you may eliminate the teamwork in this zone to uncharge one of your opponent's zone;;
 Effet 660;Bane only. You may turn your chamber card on its other side;;
 Effet 662;When you counterattack with Team penguin, your opponent uncharges one of his zone and you charge one of your zone;;
 Effet 667;When you counterattack with Fearless charge your opponent uncharges one fo his zone.;;
 Effet 668;When you celebrate, uncharge one of your opponent's zone;;
 Effet 672;Uncharge this zone ==> your strike in this zone starts in your opponent's yellow zone;;
 Effet 683;Yellow ==> Your strike in firefly's zone starts in your opponent yellow zone.;;
-Effet 687;When you flip a card in this zone you may discard Bio policemen to add 3 green energy.;;
-Effet 688;Red ==> When you counterattack from Riddler's zone, uncharge an opponent's zone.;;
 Effet 689;Uncharge this zone ==> If you counterattack from Chief roja's zone, your strike hase +2 Force.;;
 Effet 690;When you flip a card in Hugo Strange's zone, show the top card of your opponent's deck. You may pay one green to discard this card.;;
 Effet 692;Red ==> Your strikes in Robin's zone start in your opponent's red area.;;
@@ -397,5 +400,3 @@ Effet 725; Put a strike from your discard pile on top of your deck;;
 Effet 732; You may rearrange your teamworks;;
 Effet 735; Shuffle up to 3 advantages from your discard pile into your deck. 
 Effet 739; Your opponent uncharges one of his zone or eliminates one of his teamwork.;;
-Effet 740; Uncharge an opponent's zone;;
-Effet 744; Charge any zone instead of this one;;

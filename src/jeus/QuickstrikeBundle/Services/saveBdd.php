@@ -86,4 +86,9 @@ class SaveBdd
     }
 
 
+    public function renommerSauvegardeBdd($idPartie) {
+        $base = $this->container->getParameter('database_name');
+        copy($base,str_replace('.sql', '_'.$idPartie . date("_dMY_His") . '.sql', $base));
+    }
+
 }

@@ -678,13 +678,13 @@ class Partie
             $JoueurBas = ($this->Joueur == $this->Partie->getJoueur1())?1:2;
         }
 
-        if ($this->Partie->getJoueurZoneEnCours($JoueurBas)!='0') {
+        /*if ($this->Partie->getJoueurZoneEnCours($JoueurBas)!='0') {
             if (isset($this->CarteEnJeus[$JoueurBas][$this->Partie->getJoueurZoneEnCours($JoueurBas)])) {
                 $CarteActive = $this->CarteEnJeus[$JoueurBas][$this->Partie->getJoueurZoneEnCours($JoueurBas)];
                 $Carte = $CarteActive->getCarte();
                 $action[] = '<span class="infos">Carte en cours: '.$Carte->getNom().'</span><br/>';
             }                    
-        }
+        }*/
 
         $choixPossible = array();
         $this->isChamberUtilisable();
@@ -792,6 +792,9 @@ class Partie
                 }
                 break;
         }                
+        if ((!$pitchPossible) && (!$focusPossible)) {
+            $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'remonter_bug')).'">Signaler un bug</a>';                    
+        }
             
         return $action;
     }

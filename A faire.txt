@@ -42,6 +42,7 @@ Effet 556; send all the advantages in your discard pile in your deck and shuffle
 Effet 747; Turn your chamber in its other side;;
 Effet 243;Whenever you flip a card in canyon guide's zone, your opponent turns the top card of his or her deck face up.;;
 Effet 578;Your opponent uncharges every of his zone with a teamwork.;;
+Effet 594;Reflip: eliminate one of your teamworks;;
 
 ----------------------------------------------------------------------------------------
 
@@ -64,6 +65,8 @@ Effet 553;green ==> +2 intercept;;
 Effet 564;-1 Force ==> +1 Intercept;;
 Effet 666;Yellow ==> +3 Intercept. When you counterattack with extensible criminal, uncharge an opponent's zone;;
 Effet 340;Your opponent's strikes have "Green==>+1 Intercept.";;
+Effet 477;Two Green ==> In jack the monkey's zone, your strikes have +1 Intercept. Use only once per turn.;;
+Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
 ---force
 Effet 66;-1 Intercept ==> +1 Force.;;
 Effet 40;-2 Intercept ==> +2 Force. Use only once.;;
@@ -89,6 +92,9 @@ Effet 621;Red ==> +1 Force.;;
 Effet 674;-1 Intercept ==> +1 Force, use only once per turn;;
 Effet 676;Yellow ==> +1 Force. use max twice per turn.;;
 Effet 301;-1 Intercept ==> Put the top card of your deck in your discard pile. If it is a teamwork, +1 Force;;
+Effet 475;Yellow ==> In cotton's parrot's zone, your strikes have +1 Force. Use only once per turn.;;
+Effet 494;When you flip ready the long nines, you may move it to your red zone. Ready the long nines has +3 Force while in your red zone.;;
+Effet 689;Uncharge this zone ==> If you counterattack from Chief roja's zone, your strike hase +2 Force.;;
 ---les deux ou l'un ou l'autre
 Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
 Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
@@ -113,6 +119,7 @@ Effet 411;green ==> -3 Intercept and +3 Force. Use only once.;;
 Effet 508;Eliminate one of your allies ==> +1 Intercept and +1 Force.;;
 Effet 686;Green ==> -1 Force and +1 Intercept.;;
 Effet 680;Yellow ==> your strike in this zone have +1 Intercept and +1 Force. Use only once per turn.;;
+Effet 459;Green ==> In rachel darling's zone, your strike have +1 Intercept abd -1 Force. Use only oncer per turn.;;
 => chargement de zone
 Effet 14;-3 Force ==> If you counterattack from Lyserg's zone with this strike, charge it.;;
 Effet 35;Move a yellow furyoku to your green zone ==> If you counterattack with Rain of Bones, charge this zone.;;
@@ -199,13 +206,21 @@ Effet 579;For each of his zone with a teamwork your opponent uncharges this zone
 Effet 624;-3 Intercept ==> your opponent eliminates a red energy.;;
 => ajout ou suppression d'énergie
 Effet 321;You may either add a red furyoku or eliminate one of your opponent's red furyoku.;;
+=> deplacement energie
+Effet 615;-3 Intercept ==> when you counterattack with interview, you may move one of your yellow energy to your red zone;;
 => zone de départ
 Effet 21;Two Green ==> If you counterattack from Rio's zone, your attack starts in your opponent's yellow zone.;;
 Effet 232;Two Green ==> In Malu's zone, your strikes have "Your opponent skips defending in his or her green zones.";;
 Effet 251;Move open-palm pushback to your red zone ==> your opponent skips defending in his or her green zone. (Use only while defending in your green or yellow zone.);;
+Effet 610;Uncharge this zone ==> Transformation starts in your opponent's red zone.;;
+Effet 672;Uncharge this zone ==> your strike in this zone starts in your opponent's yellow zone;;
+Effet 683;Yellow ==> Your strike in firefly's zone starts in your opponent yellow zone.;;
+Effet 692;Red ==> Your strikes in Robin's zone start in your opponent's red area.;;
 => changement de zone
 Effet 250;Two green ==> Move graceful leap up one zone (use only while defending in your yellow or red zone).;;
 Effet 252;Two Green ==> Move Zoom! up one zone (use only while defending in your yellow or red zone).;;
+Effet 484;Two Green ==> Move nasty dagger up one zone;;
+Effet 488;Two Green ==> Move sneak aboard up one zone.;;
 => élimination teamwork
 Effet 41;If you counterattack with Strafe, you may eliminate a teamwork.;;
 Effet 26;Two yellow ==> If you counterattack from Zeke's zone, eliminate a teamwork.;;
@@ -275,6 +290,12 @@ Effet 364;-2 Intercept ==> Your opponent's strikes cost an additional yellow ene
 => affichage carte
 Effet 386;Green ==> A player of your choice turns the top card of his or her deck face up.;;
 Effet 410;green ==> reveal the top card of your deck.;;
+Effet 450; A player of your choice reveals the top card of his or her deck.;;
+=> divers
+Effet 512;Your opponent cannot play strikes in his or her zone of your choice;;
+Effet 522;Choose an ally name. Your opponent may not play strikes in any zone with an ally that has the chosen name.;;
+Effet 660;Bane only. You may turn your chamber card on its other side;;
+Effet 690;When you flip a card in Hugo Strange's zone, show the top card of your opponent's deck. You may pay one green to discard this card.;;
 
 Effets
 Effet 584;Your opponent may uncharge all of his zone. 
@@ -350,24 +371,13 @@ Effet 447;When you counterattack, you may eliminate one of your allies. If you d
 Effet 430;Your strikes have "Reflip: Eliminate one of your advantages.";;
 Effet 436; Reveal the top card of your deck. You may put it into your discard pile. Reveal the top card of your opponent's deck. You may put it into his or her discard pile.;;
 Effet 449; You may have your opponent uncharge one of his or her zones.;;
------------a trier
-Effet 450; A player of your choice reveals the top card of his or her deck.;;
-Effet 459;Green ==> In rachel darling's zone, your strike have +1 Intercept abd -1 Force. Use only oncer per turn.;;
 Effet 461;Eliminate one of your other allies ==> when you counterattack from cannibal warrior's zone, your opponent eliminates one of his or her allies;;
 Effet 468;Yellow ==> when you counterattack from captain barbossa's zone, your opponent charges one of your zones. use only once per turn.;;
-Effet 475;Yellow ==> In cotton's parrot's zone, your strikes have +1 Force. Use only once per turn.;;
-Effet 477;Two Green ==> In jack the monkey's zone, your strikes have +1 Intercept. Use only once per turn.;;
-Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
-Effet 484;Two Green ==> Move nasty dagger up one zone;;
 Effet 487;. When you counterattack, you may rearrange the allies in your opponent's ally spaces;;
-Effet 488;Two Green ==> Move sneak aboard up one zone.;;
-Effet 494;When you flip ready the long nines, you may move it to your red zone. Ready the long nines has +3 Force while in your red zone.;;
 Effet 495;When you flip through the smoke, you may move it to your red zone. When you counterattack from your red zone, your opponent uncharges one of his or her zones.;;
 Effet 504;exclusive - captain barbossa.  reveal the top four cards of your deck. You may put a strike card from among them on the top of your deck and the rest into your discard pile;;
 Effet 506;When you counterattack, you may swap one of your allies with another player's ally;;
-Effet 512;Your opponent cannot play strikes in his or her zone of your choice;;
 Effet 516;When you counterattack, you may eliminate up to as many allies as the number of allies you have;;
-Effet 522;Choose an ally name. Your opponent may not play strikes in any zone with an ally that has the chosen name.;;
 Effet 524;When you counterattack, you opponent uncharges one of his or her zones. 
 Effet 531;When you counterattack, you may rearrange the allies in your ally spaces and then rearrange the allies in your opponent's ally spaces.;;
 Effet 532;When your opponent counterattacks, reveal the top four cards of your deck. Put one on the top of your deck and the rest into your discard pile.;;
@@ -378,22 +388,13 @@ Effet 575;Your opponent uncharges one of his zone.;;
 Effet 581;-1 Intercept ==> your opponent eliminates one of his energy. -1 Force ==> Add an energy to any of your zone.;;
 Effet 588;You may look at the top 3 cards of your deck and put them back in any order;;
 Effet 593;When you counterattack with I don't need you, you opponent eliminates one of his teamwork.;;
-Effet 594;Reflip: eliminate one of your teamworks;;
 Effet 605;When you counterattack with Two time move, look at the top 3 cards of your deck and put one of them on top of your deck and the rest in the discard pile.;;
-Effet 610;Uncharge this zone ==> Transformation starts in your opponent's red zone.;;
 Effet 613;When you counterattack with secret hideout, you may send an advantage from your discard pile on the top of your deck;;
-Effet 615;-3 Intercept ==> when you counterattack with interview, you may move one of your yellow energy to your red zone;;
 Effet 628;-1 Intercept ==> When you counterattack with database you may look at the top 2 cards of your deck and place them in any order;;
 Effet 634;When you counterattack with I m not afraid of frost, look at the top 2 cards of your deck and put them back in any order;;
-Effet 660;Bane only. You may turn your chamber card on its other side;;
 Effet 662;When you counterattack with Team penguin, your opponent uncharges one of his zone and you charge one of your zone;;
 Effet 667;When you counterattack with Fearless charge your opponent uncharges one fo his zone.;;
 Effet 668;When you celebrate, uncharge one of your opponent's zone;;
-Effet 672;Uncharge this zone ==> your strike in this zone starts in your opponent's yellow zone;;
-Effet 683;Yellow ==> Your strike in firefly's zone starts in your opponent yellow zone.;;
-Effet 689;Uncharge this zone ==> If you counterattack from Chief roja's zone, your strike hase +2 Force.;;
-Effet 690;When you flip a card in Hugo Strange's zone, show the top card of your opponent's deck. You may pay one green to discard this card.;;
-Effet 692;Red ==> Your strikes in Robin's zone start in your opponent's red area.;;
 Effet 712; Search your discard pile for a teamwork and put it on the top of your deck. 
 Effet 718; Put an advantage from your discard on the top of your deck. 
 Effet 725; Put a strike from your discard pile on top of your deck;;

@@ -28,6 +28,19 @@ class Carte
             (isset($tableau['filtre']['traitCarte']))
             && (isset($tableau['filtre']['idChamber']))
         ) {
+            $tableauExtensionId = '';
+            foreach ($tableau['filtre']['extension'] as $Extension) {
+                if ($tableauExtensionId != '') {
+                    $tableauExtensionId .= ',';
+                }
+                $tableauExtensionId .= $Extension->getId();                    
+            }
+            $selectionExtension = '';
+            if (trim($tableauExtensionId) != '') {
+                $tableauExtensionId = '(' . $tableauExtensionId  .')';
+                $selectionExtension = ' and a.extension_id in '.$tableauExtensionId;
+            }
+
             $nombreTraits = 0;
             $tableauTraitId = '';
             foreach ($tableau['filtre']['traitCarte'] as $Trait) {
@@ -39,20 +52,21 @@ class Carte
                     $tableauTraitId .= $Trait->getId();                    
                 }
             }
-            $tableauTraitId = '(' . $tableauTraitId  .')';
-    
-            $bdd = $this->em->getConnection()
-                        ->prepare('select distinct(a.id) 
-                                   from quickstrike_carte a 
-                                   join (
+            $selectionTrait = '';
+            if (trim($tableauTraitId)!='') {
+                $tableauTraitId = '(' . $tableauTraitId  .')';
+                $selectionTrait = ' join (
                                             select distinct carte_id 
                                             from quickstrike_carte_traitcarte 
                                             where traitcarte_id in '. $tableauTraitId .' 
                                             group by carte_id 
                                             having COUNT(*) >= '. $nombreTraits .'
-                                        ) c on a.id = c.carte_id 
-                                   where a.typeCarte_id = '. $tableau['filtre']['idChamber'] .' and a.numero not like \'%v\'
-                                   ');
+                                        ) c on a.id = c.carte_id ';
+                
+            }
+
+            $bdd = $this->em->getConnection()
+                        ->prepare('select distinct(a.id) from quickstrike_carte a '.$selectionTrait.' where a.typeCarte_id = '. $tableau['filtre']['idChamber'] .' and a.numero not like \'%v\' '.$selectionExtension);
             $bdd->execute();
             $tableauId = $bdd->fetchAll();
             $tableauRepository = array();

@@ -163,6 +163,13 @@ class Partie
      */
     protected $CarteParties;
 
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="JoueurEffetNonExecutes", type="array")
+     */
+    private $JoueurEffetNonExecutes;
+
     function __construct($joueur1, $joueur2)
     {
         $this->pointVictoire = 3;
@@ -186,6 +193,7 @@ class Partie
         $this->Joueur2ZoneEnCours = '';
         $this->Joueur2Effets = array();
         
+        $this->JoueurEffetNonExecutes = array();
         $this->dateDerniereAction = new \Datetime();
     }
 
@@ -696,6 +704,17 @@ class Partie
                     break;
             }
         }
+    }
+
+    public function getJoueurEffetNonExecutes()
+    {
+        return $this->JoueurEffetNonExecutes;
+    }
+
+    public function setJoueurEffetNonExecutes($JoueurEffetNonExecutes)
+    {
+        $this->JoueurEffetNonExecutes = $JoueurEffetNonExecutes;
+        return $this;
     }
 
 

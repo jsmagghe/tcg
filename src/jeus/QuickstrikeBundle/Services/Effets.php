@@ -2726,6 +2726,53 @@ class Effets
         return $deckVisible;
     }
 
+    public function choixPossible($joueurConcerne) {
+        $choix = array();
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        $energieVerteDisponible = $this->infos['energieVerteDisponibleDefenseur'] + $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
+        $energieJauneDisponible = $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
+        $energieRougeDisponible = $this->infos['energieRougeDisponibleDefenseur'];
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
+            switch ($numeroEffet) {
+                case 2 : 
+                    if (
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        && ($energieVerteDisponible>1)
+                        ) {
+                            $choix['choix_green=>intercept + 1'] = 'green => +1 intercept';
+                    }
+                    break;                        
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
+            switch ($numeroEffet) {
+                case 339 : 
+                    if ($energieVerteDisponible>1) {
+                        $choix['choix_green'] = 'Reflip: green';
+                    }
+                    break;
+            }
+        }*/
+        return $choix;
+    }
+
     /*public function effetVoulu($joueurConcerne) {
         $effetVoulu = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;

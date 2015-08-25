@@ -18,7 +18,9 @@
         {% if (choixPossibles is defined) %}
             {% if (choixPossibles|length>0) %}
                 {% for choix in choixPossibles %}
-                    {{choix|raw }}
+                    {% if choix is not iterable %}
+                        {{choix|raw }}
+                    {% endif %}
                 {% endfor %}
             {% else %}
                 <a href="{{ path('jeus_'~jeu~'_partie', {'id':Partie.id})}}">attente du joueur adverse</a>

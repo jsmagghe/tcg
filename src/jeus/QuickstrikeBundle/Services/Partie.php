@@ -260,7 +260,7 @@ class Partie
         if (isset($this->CarteEnJeus[$joueurConcerne][$zoneEnCours]))
             $CarteActive = $this->CarteEnJeus[$joueurConcerne][$zoneEnCours];
         $this->effets->effetJouer($joueurConcerne,$action);
-        if ($action=='avantager') {
+        if ($action=='jouer') {
             $zoneCorrespondante = 'AVANTAGE';
             $this->effets->chargerUneZone($joueurConcerne,$zoneEnCours,$CarteActive);                
         }
@@ -770,7 +770,7 @@ class Partie
                             && ($this->effets->avantagePossible($this->numeroDefenseur))
                             )
                         {
-                            $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'avantager')).'">Jouer</a>';
+                            $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'jouer')).'">Jouer</a>';
                         }
                     }
                 }
@@ -790,6 +790,7 @@ class Partie
                 if ((!$pitchPossible) && (!$focusPossible)) {
                     $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'discarder')).'">Discard</a>';                    
                 }
+                $action[] = $this->effets->choixPossible($this->numeroDefenseur);
                 break;
         }                
         $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'remonter_bug')).'">Signaler un bug</a>';                    

@@ -86,7 +86,7 @@ class Tools
                 ) {
                 $TraitCartes = $Carte->getTraitCartes();
                 $trouve = false;
-                foreach ($$TraitCartes as $TraitCarte) {
+                foreach ($TraitCartes as $TraitCarte) {
                     if (strtolower($TraitCarte->getLibelle()) == $filtres['trait']) {
                         $trouve = true;
                         break;

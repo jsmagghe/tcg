@@ -61,6 +61,23 @@ class LoadJoueurData extends AbstractFixture implements OrderedFixtureInterface,
         $Joueur->setPassword($passwordEncode);
 
         $manager->persist($Joueur);
+
+        $Joueur = new Joueur();
+
+        $Joueur->setNom("KOCISZEWSKI");
+        $Joueur->setPrenom("guillaume");
+        $Joueur->setEmail("gkociszewski@gmail.com");
+        $Joueur->setRoles(array('ROLE_ADMIN'));
+        $Joueur->setUsername("g3");
+        $Joueur->setActif(true);
+
+        $encoder = $this->container->get('security.encoder_factory')->getEncoder($Joueur);
+        $passwordEncode = $encoder->encodePassword('jack209', $Joueur->getSalt());
+
+        $Joueur->setPassword($passwordEncode);
+
+        $manager->persist($Joueur);
+
         $manager->flush();
     }
 

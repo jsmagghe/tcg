@@ -551,6 +551,7 @@ class Effets
                 $chargementPossible = false;
                 break;
         }
+        var_dump($chargementPossible);
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
         foreach ((array)$CarteEnJeus as $Cartejeu) {
@@ -565,6 +566,7 @@ class Effets
                     break;
             }
         }
+        var_dump($chargementPossible);
 
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
@@ -583,14 +585,11 @@ class Effets
                 case 427 : 
                 case 524 : 
                 case 535 : 
-                case 617 : 
                 case 736 : 
                     $chargementPossible = false;
                     break;
             }
         }
-
-
 
         return $chargementPossible;
     }

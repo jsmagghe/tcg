@@ -2,9 +2,8 @@ A faire
 pictos pour choix
 faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
 pour accélerer le temps faire décompte des effets en jeu pour ne parcourir que les fonctions utiles
-mettre en place loggable pour pouvoir revenir en arrière et tester les effets 
 http://symfony.com/fr/doc/current/cookbook/security/remember_me.html
-mettre en place la sauvegarde de la bdd et mettre en place le renommage en cas de signalement de bug
+dans le controleur d'édition de deck faire en sorte que les cartes proposé ne correspondent pas à d'autre chamber et supprimer quickstrike des résultats et sélecteurs
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;

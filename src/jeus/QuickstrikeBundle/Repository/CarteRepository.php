@@ -89,6 +89,8 @@ class CarteRepository extends EntityRepository {
         /*if (isset($criteres['page']))
             $QueryBuilder->setFirstResults((int) $criteres['page'] * 9 + 1);*/
 
+        $QueryBuilder->orderBy('c.typeCarte, c.extension', 'ASC');
+
         return $QueryBuilder->getQuery()
                         ->getResult();
     }

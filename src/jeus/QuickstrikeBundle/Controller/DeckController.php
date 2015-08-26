@@ -55,11 +55,37 @@ class DeckController extends Controller {
         if ($Joueur != $Deck->getJoueur()) {
             return $this->redirect($this->generateUrl('jeus_quickstrike_carte'));
         } else {
+            $tableau = array();
+            $em = $this->getDoctrine()->getManager();
             $Request = $this->getRequest();
-            $tableau = $this->rechercheCarte($Request);
-            $filtre = $tableau['filtre'];
-            $formSelecteur = $tableau['form'];
+
+            $formSelecteur = $this->createForm(new SelecteurType());
+            $filtre = array();
+            if ($Request->getMethod() == 'POST') {
+                $formSelecteur->handleRequest($Request);
+
+                if ($formSelecteur->isValid()) {
+                    $filtre['extension'] = $formSelecteur->get('extension')->getData();
+                    $filtre['typeCarte'] = $formSelecteur->get('typeCarte')->getData();
+                    $filtre['traitCarte'] = $formSelecteur->get('traitCarte')->getData();
+                    $filtre['attaque'] = $formSelecteur->get('attaque')->getData();
+                    $filtre['intercept'] = $formSelecteur->get('intercept')->getData();
+                    $filtre['effet'] = $formSelecteur->get('effet')->getData();
+                    $filtre['page'] = $formSelecteur->get('page')->getData();
+                    $filtre['idChamber'] = $em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findOneByTag('CHAMBER')->getId();
+                }
+            } else {
+                    $filtre['extension'] = $em->getRepository('jeusQuickstrikeBundle:Extension')->findByLibelle('Shaman King');
+            }
+            $tableau['filtre'] = $filtre;
+            $tableau['form'] = $formSelecteur;
+
+            $serviceCarte = $this->get('jeus_quickstrike_carte');
+            $tableau = $serviceCarte->rechercheCarte($tableau);
+
             $Cartes = $tableau['Cartes'];
+            $nbPage = $tableau['nbPage'];
+            $page = $tableau['page'];
 
             return $this->render('::cartes.html.twig', array(
                         'Deck' => $Deck,
@@ -67,6 +93,8 @@ class DeckController extends Controller {
                         'form' => $formSelecteur->createView(),
                         'nom' => 'deck',
                         'jeu' => 'quickstrike',
+                        'nbPage' => $nbPage,
+                        'page' => $page,
             ));
         }
     }

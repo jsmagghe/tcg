@@ -23,7 +23,6 @@ class CarteController extends Controller {
 
         $Request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
-        $serviceCarte = $this->get('jeus_quickstrike_carte');
         $tableau = array();
         $formSelecteur = $this->createForm(new SelecteurType());
         $filtre = array();
@@ -47,6 +46,7 @@ class CarteController extends Controller {
         $tableau['filtre'] = $filtre;
         $tableau['form'] = $formSelecteur;
 
+        $serviceCarte = $this->get('jeus_quickstrike_carte');
         $tableau = $serviceCarte->rechercheCarte($tableau);
         $filtre = $tableau['filtre'];
         $formSelecteur = $tableau['form'];

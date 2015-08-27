@@ -440,7 +440,7 @@ class Effets
                     } 
                     break;
                 case 633 :
-                    if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')]) == false) {
+                    if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')])) {
                         $bonus += 4;
                     } 
                     break;
@@ -588,6 +588,12 @@ class Effets
                 case 736 : 
                     $chargementPossible = false;
                     break;
+                case 617 :
+                    if ($joueurAdverse == $this->infos['numeroAttaquant']) {
+                        $chargementPossible = false;
+                        break;                        
+                    }
+
             }
         }
 
@@ -2643,6 +2649,9 @@ class Effets
         } else {
             if ($this->deplacementPossible($joueurConcerne,$typeCarte)) {
                 $nombreDejaDeplace += $this->interactions->deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal,$melanderDestination,$nombreDejaDeplace);
+                if (strpos($emplacementFinal, 'STRIKE')===0) {
+                    $this->effetsFlip($joueurConcerne);                    
+                }
             }
         }
 
@@ -2747,7 +2756,7 @@ class Effets
                         ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
                         && ($energieVerteDisponible>1)
                         ) {
-                            $choix['choix_green=>intercept + 1'] = 'green => +1 intercept';
+                            $choix['choix_green_'.$Cartejeu->getId().'_intercept_+1'] = 'green => +1 intercept';
                     }
                     break;                        
             }
@@ -2770,6 +2779,43 @@ class Effets
             }
         }*/
         return $choix;
+    }
+
+    public function effetsFlip($joueurConcerne) {
+        $effetVoulu = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
+            switch ($numeroEffet) {
+                case 679 : 
+                    $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
+                    break;
+            }
+        }
+
+        // effet des cartes de l'adversaire
+        /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
+            switch ($numeroEffet) {
+                case 0 : 
+                    $effetVoulu = false;
+                    break;
+            }
+        }*/
+
+        return $effetVoulu;
     }
 
     /*public function effetVoulu($joueurConcerne) {

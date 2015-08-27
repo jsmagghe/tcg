@@ -13,3 +13,4 @@ parameters:
     locale: fr
     secret: ThisTokenIsNotSoSecretChangeIt
     carte_par_page: 60
+    mode_debug: false

@@ -214,7 +214,7 @@ class PartieController extends Controller {
                         'carteJoueurs' => $carteJoueurs,
                         'carteAdversaires' => $carteAdversaires,
                         'jeu' => 'quickstrike',
-                        'inversable' => $Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId(),
+                        'inversable' => $Partie->getJoueur1()->getId()==$Partie->getJoueur2()->getId() || $this->container->getParameter('mode_debug'),
                         'choixPossibles' => $choixPossibles,
                         'Partie' => $Partie,
                         'emplacementInclineJoueurs' => $emplacementCharges,
@@ -273,12 +273,16 @@ class PartieController extends Controller {
             $servicePartie->focuserPitcher($joueurConcerne,'discard');
         }
 
-        if (strpos($effet,'reflip_')!==false) {
+        if (strpos($effet,'reflip_')===0) {
             $servicePartie->focuserPitcher($joueurConcerne,$effet);
         }
 
-        if (strpos($effet,'deploy_')!==false) {
+        if (strpos($effet,'deploy_')===0) {
             $servicePartie->deployer($joueurConcerne,$effet);
+        }
+
+        if (strpos($effet,'choix_')===0) {
+            $servicePartie->stockerChoix($joueurConcerne,$effet);
         }
         $Partie->setDateDerniereAction(new \Datetime());
         $this->em->flush();

@@ -121,6 +121,13 @@ class Interactions
         $this->em->persist($this->Partie);
         $this->em->flush();
     }
+
+    public function initialiserEffetNonExecutes($joueurConcerne) {
+        $this->Partie->$setJoueurEffetNonExecutes(array());
+        $this->em->persist($this->Partie);
+        $this->em->flush();
+    }
+
     public function ajoutEffet($joueurConcerne,$idCarte,$typeEffet,$effet) {
         $getProprieteEffet = "getJoueur".$joueurConcerne."Effets";
         $setProprieteEffet = "setJoueur".$joueurConcerne."Effets";
@@ -132,6 +139,26 @@ class Interactions
             );
 
         $this->Partie->$setProprieteEffet($effets);
+        $this->em->persist($this->Partie);
+        $this->em->flush();
+    }
+
+    public function ajoutEffetNonExecute($joueurConcerne,$action) {
+        $effets = $this->Partie->getJoueurEffetNonExecutes();
+        $tab = explode('_', $action);
+        $cout = $tab[1];
+        $idCarte = $tab[2];
+        $typeEffet = $tab[3];
+        $effet = $tab[4];
+
+
+        $effets[$joueurConcerne][$idCarte][] = array(
+            'idCarte' => $idCarte,
+            'typeEffet' => $typeEffet,
+            'effet' => $effet,
+            );
+
+        $this->Partie->$setJoueurEffetNonExecutes($effets);
         $this->em->persist($this->Partie);
         $this->em->flush();
     }

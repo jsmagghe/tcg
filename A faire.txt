@@ -5,6 +5,7 @@ pour accélerer le temps faire décompte des effets en jeu pour ne parcourir que
 http://symfony.com/fr/doc/current/cookbook/security/remember_me.html
 dans le controleur d'édition de deck faire en sorte que les cartes proposé ne correspondent pas à d'autre chamber et supprimer quickstrike des résultats et sélecteurs
 faire un refresh sur les dernière partie pour lancer une partie directement quand on vient d'être choisi
+finaliser le mode debug
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
@@ -43,7 +44,6 @@ Effet 747; Turn your chamber in its other side;;
 Effet 243;Whenever you flip a card in canyon guide's zone, your opponent turns the top card of his or her deck face up.;;
 Effet 578;Your opponent uncharges every of his zone with a teamwork.;;
 Effet 594;Reflip: eliminate one of your teamworks;;
-Effet 617;Your opponent cannot charge his zones;; // attention pas quand il défend
 
 ----------------------------------------------------------------------------------------
 

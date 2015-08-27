@@ -46,7 +46,7 @@
             {% else %}
                 {% for Partie in listePartie %}
                     <p>
-                        <a href="{{ path('jeus_'~jeu~'_partie', {'id':Partie.id})}}">{{ Partie.id }} : {{ Partie.Joueur1.username }} - {{ Partie.Joueur1.username }}</a>
+                        <a href="{{ path('jeus_'~jeu~'_partie', {'id':Partie.id})}}">{{ Partie.id }} : {{ Partie.Joueur1.username }} - {{ Partie.Joueur2.username }}</a>
                     </p>
                 {% endfor %}
             {% endif %}        

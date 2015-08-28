@@ -1385,6 +1385,9 @@ class Effets
             $this->interactions->ajoutEffet($joueurConcerne,null,'avantage','1');
         }
 
+        $numeroDefenseur = $this->infos['numeroDefenseur'];
+        $numeroAttaquant = $this->infos['numeroAttaquant'];
+
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
         foreach ((array)$CarteEnJeus as $Cartejeu) {

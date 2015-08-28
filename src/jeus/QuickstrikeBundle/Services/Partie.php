@@ -626,8 +626,6 @@ class Partie
         if (($this->Partie->getJoueur1Etape()=='attenteDebut')
             && ($this->Partie->getJoueur2Etape()=='attenteDebut')
            ) {
-            $this->demarragePartie(1);
-            $this->demarragePartie(2);
             if ($this->tools->joueurChoisi()==1) {
                 $this->Partie->setJoueur1Etape('choixAttaquant');
                 $this->Partie->setJoueur2Etape('attente');
@@ -635,6 +633,8 @@ class Partie
                 $this->Partie->setJoueur2Etape('choixAttaquant');
                 $this->Partie->setJoueur1Etape('attente');
             }
+            $this->demarragePartie(1);
+            $this->demarragePartie(2);
         }
     }
 

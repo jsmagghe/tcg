@@ -143,6 +143,7 @@ class Interactions
         $this->em->flush();
     }
 
+
     public function ajoutEffetNonExecute($joueurConcerne,$action) {
         $effets = $this->Partie->getJoueurEffetNonExecutes();
         $tab = explode('_', $action);

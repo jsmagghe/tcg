@@ -124,11 +124,12 @@ class Partie
     public function attaquer($joueurConcerne,$depart = true, $chamber = false) {
         $joueurAdverse = ($joueurConcerne==1)?2:1;
         $this->interactions->initialiserEffets($joueurAdverse);
-        $this->interactions->initialiserEffets($joueurConcerne);
         if ($depart) 
             $this->viderCarte($joueurConcerne);
             
         if ($depart) {
+            $this->interactions->initialiserEffets($joueurAdverse);
+            $this->interactions->initialiserEffets($joueurConcerne);
             $this->retournerChamber($joueurAdverse);
 
             $this->Partie->setJoueurZoneEnCours($joueurConcerne,'STRIKE_VERT');

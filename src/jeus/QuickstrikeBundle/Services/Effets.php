@@ -1075,10 +1075,16 @@ class Effets
         $pasRouge = false;
 
         if ($CartePartie!=null) {
-            if ($CartePartie instanceof \jeus\JoueurBundle\Entity\CartePartie) {
+            if ($CartePartie instanceof \jeus\QuickstrikeBundle\Entity\CartePartie) {
                 $Carte = $CartePartie->getCarte();
             } else {
                 $Carte = $CartePartie;
+            }
+
+            if (!$Carte instanceof \jeus\QuickstrikeBundle\Entity\Carte) {
+                var_dump($Carte);
+                var_dump($CartePartie);
+                exit;
             }
 
             $coutVert = $Carte->getCoutVert();
@@ -1262,7 +1268,7 @@ class Effets
         $energieVerteDisponible = $this->infos['energieVerteDisponibleDefenseur'] + $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
         $energieJauneDisponible = $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
         $energieRougeDisponible = $this->infos['energieRougeDisponibleDefenseur'];
-        $coutsCarte = $this->coutsCarte($joueurConcerne,$this->CarteEnJeus[$joueurConcerne]['ACTIVE']);
+        $coutsCarte = $this->coutsCarte($joueurConcerne,$this->infos['carteActive']);
         $energieRougeDisponible -= $coutsCarte['coutRouge'];
         $energieJauneDisponible -= $coutsCarte['coutRouge'] - $coutsCarte['coutJaune'];
         $energieVerteDisponible -= $coutsCarte['coutRouge'] - $coutsCarte['coutJaune'] - $coutsCarte['coutVert'];
@@ -1305,7 +1311,7 @@ class Effets
                 case 456 : 
                 case 458 : 
                 case 476 : 
-                    if ($energieVerteDisponibleDefenseur>1) {
+                    if ($energieVerteDisponible>1) {
                         if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                             $deploy['deploy_green_green'] = 'Deploy green: green';
                         }
@@ -1321,7 +1327,7 @@ class Effets
                 case 465 : 
                 case 467 : 
                 case 696 : 
-                    if ($energieJauneDisponibleDefenseur>1) {
+                    if ($energieJauneDisponible>1) {
                         if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                             $deploy['deploy_green_yellow'] = 'Deploy green: yellow';
                         }
@@ -1334,7 +1340,7 @@ class Effets
                     }
                     break;
                 case 470 : 
-                    if ($energieRougeDisponibleDefenseur>1) {
+                    if ($energieRougeDisponible>1) {
                         if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                             $deploy['deploy_green_red'] = 'Deploy green: red';
                         }
@@ -1630,7 +1636,7 @@ class Effets
                 case 211 :
                 case 547 :
                 case 600 :
-                    if (($action == 'jouer') && ($action == 'counter attack')) {
+                    if (($action == 'jouer') || ($action == 'counter attack')) {
                         $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
                     }
                     break;

@@ -336,20 +336,25 @@ class Partie
 
     public function deployer($joueurConcerne,$action) {
         $zoneEnCours = $this->Partie->getJoueurZoneEnCours($joueurConcerne);
-        $tab = explode('_', $action);
-        $this->payerCout($joueurConcerne,$tab[2]);
+        if (isset($this->CarteEnJeus[$joueurConcerne][$zoneEnCours]))
+            $CarteActive = $this->CarteEnJeus[$joueurConcerne][$zoneEnCours];
+        if ($CarteActive != null) {
+            $tab = explode('_', $action);
+            $this->payerCout($joueurConcerne,$tab[2]);
 
-        if ($tab[1]=='red') {
-            $this->effets->deplacerCarte($joueurConcerne,1,$zoneEnCours,'TEAMWORK_ROUGE');            
-        } else if ($tab[1]=='yellow') {
-            $this->effets->deplacerCarte($joueurConcerne,1,$zoneEnCours,'TEAMWORK_JAUNE');            
-        } else {
-            $this->effets->deplacerCarte($joueurConcerne,1,$zoneEnCours,'TEAMWORK_VERTE');                        
+            if ($tab[1]=='red') {
+                $this->effets->deplacerCarte($joueurConcerne,1,$zoneEnCours,'TEAMWORK_ROUGE');            
+            } else if ($tab[1]=='yellow') {
+                $this->effets->deplacerCarte($joueurConcerne,1,$zoneEnCours,'TEAMWORK_JAUNE');            
+            } else {
+                $this->effets->deplacerCarte($joueurConcerne,1,$zoneEnCours,'TEAMWORK_VERTE');                        
+            }
+            $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'TEAMWORK');
+            $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_VERTE');
+            $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_JAUNE');
+            $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_ROUGE');
+            $this->effets->deplacerCarte($joueurConcerne,1,'DECK',$zoneEnCours);                                    
         }
-        $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_VERTE');
-        $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_JAUNE');
-        $this->verificationRecrutement($joueurConcerne,$CarteActive,$zoneCorrespondante,'TEAMWORK_ROUGE');
-        $this->effets->deplacerCarte($joueurConcerne,1,'DECK',$zoneEnCours);                        
     }
 
     public function stockerChoix($joueurConcerne,$action) {
@@ -515,12 +520,16 @@ class Partie
         return $intercept+$this->effets->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant,$this->infos());
     }
 
-    public function defenseChamber() {
+    public function defenseChamber($joueurConcerne = null) {
         $defense = 0;
-        if (($this->Partie->getJoueur1Etape()=='utilisationChamber') || ($this->Partie->getJoueur2Etape()=='utilisationChamber')) {
+        if ($joueurConcerne == null) {
+            $joueurConcerne = $this->numeroDefenseur;
+        }
 
-                if (isset($this->CarteEnJeus[$this->numeroDefenseur]['CHAMBER'])) {
-                    $CarteActive = $this->CarteEnJeus[$this->numeroDefenseur]['CHAMBER'];
+        if ($this->Partie->getEtape($joueurConcerne)=='utilisationChamber') {
+
+                if (isset($this->CarteEnJeus[$joueurConcerne]['CHAMBER'])) {
+                    $CarteActive = $this->CarteEnJeus[$joueurConcerne]['CHAMBER'];
                     $Carte = $CarteActive->getCarte();
                 } else 
                     $Carte = null;
@@ -531,7 +540,7 @@ class Partie
                 $defense += $Carte->getAttaque();  
         }
 
-        return $defense+$this->effets->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant,$this->infos());
+        return $defense+$this->effets->bonusDefense($joueurConcerne,($joueurConcerne == 1) ? 2 : 1,$this->infos());
     }
 
     public function energiedisponible($joueurConcerne,$zone) {
@@ -643,14 +652,26 @@ class Partie
         if ($joueurConcerne==null) {
             $joueurConcerne = $this->numeroJoueur;
         }
+        $joueurAdverse = ($joueurConcerne == 1) ? 2 : 1;
+
         $isUtilisable = (
             ($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber') 
             && ($this->Partie->isZoneChargee($joueurConcerne,'CHAMBER'))
             && ($this->Partie->isZoneChargee($joueurConcerne,'DECK'))
             && ($this->Partie->isZoneChargee($joueurConcerne,'DISCARD'))
-            && ($this->attaqueEnCours()<=$this->defenseChamber())
+            && ($this->attaqueEnCours($joueurAdverse)<=$this->defenseChamber($joueurConcerne))
             && ($this->effets->signaturePossible($joueurConcerne))
         );
+
+        if ($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber') {
+            var_dump(($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber') 
+            , ($this->Partie->isZoneChargee($joueurConcerne,'CHAMBER'))
+            , ($this->Partie->isZoneChargee($joueurConcerne,'DECK'))
+            , ($this->Partie->isZoneChargee($joueurConcerne,'DISCARD'))
+            , ($this->attaqueEnCours()<=$this->defenseChamber($joueurConcerne))
+            , ($this->effets->signaturePossible($joueurConcerne)),$this->attaqueEnCours(),$this->defenseChamber($joueurConcerne),$this->numeroAttaquant,$this->numeroDefenseur,$this->CarteEnJeus[$this->numeroDefenseur]['CHAMBER']);
+            exit;
+        }
 
         if (
             ($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber')
@@ -783,6 +804,16 @@ class Partie
                         }
                     }
                 }
+                $choixpossibles = array();
+                $choixpossibles = array_merge(
+                    $this->effets->reflipsPossible($JoueurBas),
+                    $this->effets->deployPossible($this->numeroDefenseur),
+                    $this->effets->choixPossible($this->numeroDefenseur)
+                    );
+
+                foreach ($choixpossibles as $effet => $libelle) {
+                    $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => $effet)).'">'. $libelle .'</a>';                    
+                }
 
                 $pitchPossible = $this->effets->pitchPossible($JoueurBas);
                 $focusPossible = $this->effets->focusPossible($JoueurBas);
@@ -795,11 +826,6 @@ class Partie
                 if ((!$pitchPossible) && (!$focusPossible)) {
                     $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'discarder')).'">Discard</a>';                    
                 }
-                $reflips = $this->effets->reflipsPossible($JoueurBas);
-                foreach ($reflips as $reflip => $libelle) {
-                    $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => $reflip)).'">'. $libelle .'</a>';                    
-                }
-                $action[] = $this->effets->choixPossible($this->numeroDefenseur);
                 break;
         }                
             

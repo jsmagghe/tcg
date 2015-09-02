@@ -38,6 +38,14 @@ class Effets
     public function bonusAttaque($numeroAttaquant,$numeroDefenseur) {
         $bonus = 0;
 
+        if (isset($this->CarteEnJeus[$numeroAttaquant][$this->infos['ZoneAttaquant']])) {
+            $CartePartie = $this->CarteEnJeus[$numeroAttaquant][$this->infos['ZoneAttaquant']];
+            $Carte = $CartePartie->getCarte();
+            if (strtolower($Carte->getnom()) == 'opening attack') {
+                return 0;
+            }
+        }
+
         $proprieteEffetAttaquant = "getJoueur".$numeroAttaquant."Effets";
         $proprieteEffetDefenseur = "getJoueur".$numeroDefenseur."Effets";
 

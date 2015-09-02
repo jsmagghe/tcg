@@ -468,7 +468,12 @@ class Partie
         return $tabInfos;
     }
 
-    public function attaqueEnCours() {
+    public function attaqueEnCours($joueurConcerne = null) {
+        if ($joueurConcerne == null) {
+            $joueurConcerne = $this->numeroAttaquant;
+        }
+        $joueurAdverse = ($joueurConcerne == 1) ? 2 : 1;
+
         $attaque = 0;
         if (
             ($this->Partie->getJoueur1Etape()=='defense') 
@@ -476,14 +481,13 @@ class Partie
             || ($this->Partie->getJoueur1Etape()=='utilisationChamber')
             || ($this->Partie->getJoueur2Etape()=='utilisationChamber')
             ) {
-            if ($this->Partie->getJoueurZoneEnCours($this->numeroAttaquant)!='0') {
-                if (isset($this->CarteEnJeus[$this->numeroAttaquant][$this->Partie->getJoueurZoneEnCours($this->numeroAttaquant)])) {
-                    $CarteActive = $this->CarteEnJeus[$this->numeroAttaquant][$this->Partie->getJoueurZoneEnCours($this->numeroAttaquant)];
+            if ($this->Partie->getJoueurZoneEnCours($joueurConcerne)!='0') {
+                if (isset($this->CarteEnJeus[$joueurConcerne][$this->Partie->getJoueurZoneEnCours($joueurConcerne)])) {
+                    $CarteActive = $this->CarteEnJeus[$joueurConcerne][$this->Partie->getJoueurZoneEnCours($joueurConcerne)];
                     $Carte = $CarteActive->getCarte();
                 }
                 else 
                     $Carte = null;
-
 
                 if ($Carte == null) {
                     return 4;
@@ -494,7 +498,7 @@ class Partie
             }
         }
 
-        return $attaque+$this->effets->bonusAttaque($this->numeroAttaquant,$this->numeroDefenseur,$this->infos('attaqueEnCours'));
+        return $attaque+$this->effets->bonusAttaque($joueurConcerne,$joueurAdverse);
     }
 
     public function interceptEnCours() {

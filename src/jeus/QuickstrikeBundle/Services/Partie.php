@@ -663,16 +663,6 @@ class Partie
             && ($this->effets->signaturePossible($joueurConcerne))
         );
 
-        if ($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber') {
-            var_dump(($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber') 
-            , ($this->Partie->isZoneChargee($joueurConcerne,'CHAMBER'))
-            , ($this->Partie->isZoneChargee($joueurConcerne,'DECK'))
-            , ($this->Partie->isZoneChargee($joueurConcerne,'DISCARD'))
-            , ($this->attaqueEnCours()<=$this->defenseChamber($joueurConcerne))
-            , ($this->effets->signaturePossible($joueurConcerne)),$this->attaqueEnCours(),$this->defenseChamber($joueurConcerne),$this->numeroAttaquant,$this->numeroDefenseur,$this->CarteEnJeus[$this->numeroDefenseur]['CHAMBER']);
-            exit;
-        }
-
         if (
             ($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber')
             && ($isUtilisable==false)

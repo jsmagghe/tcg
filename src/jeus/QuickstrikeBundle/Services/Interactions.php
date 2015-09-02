@@ -141,8 +141,6 @@ class Interactions
         $this->Partie->$setProprieteEffet($effets);
         $this->em->persist($this->Partie);
         $this->em->flush();
-        var_dump($joueurConcerne,$idCarte,$typeEffet,$effet,$effets,$getProprieteEffet,$setProprieteEffet,$this->Partie->$getProprieteEffet());
-        exit;
     }
 
 

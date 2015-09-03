@@ -105,19 +105,19 @@ class Effets
                 case 664 :
                         if (
                             (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERTE']) 
-                            && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'extension' => 'batman', 'trait' => 'shadow'))))
+                            && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'extension' => 'batman', 'trait' => 'teamwork-shadow'))))
                             ) {
                             $bonus++;
                         }
                         if (
                             (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE']) 
-                            && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'extension' => 'batman', 'trait' => 'shadow'))))
+                            && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'extension' => 'batman', 'trait' => 'teamwork-shadow'))))
                             ) {
                             $bonus++;
                         }
                         if (
                             (isset($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_ROUGE']) 
-                            && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'extension' => 'batman', 'trait' => 'shadow'))))
+                            && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroAttaquant]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'extension' => 'batman', 'trait' => 'teamwork-shadow'))))
                             ) {
                             $bonus++;
                         }
@@ -1303,7 +1303,7 @@ class Effets
                     }
                     break;
                 case 704 : 
-                    if ($this->tools->isCarteCorrespondante($this->infos['CarteActive'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'light'))) {
+                    if ($this->tools->isCarteCorrespondante($this->infos['carteActive'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'teamwork-light'))) {
                         if (!isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
                             $deploy['deploy_green_free'] = 'Deploy green: free';
                         }
@@ -1463,19 +1463,19 @@ class Effets
                 case 561 : 
                     if (
                         (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE']))
-                        && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'light')))
+                        && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'teamwork-light')))
                             ) {
                         $this->chargerUneZone($joueurConcerne,'STRIKE_VERT');                            
                     }
                     if (
                         (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']))
-                        && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'light')))
+                        && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'teamwork-light')))
                             ) {
                         $this->chargerUneZone($joueurConcerne,'STRIKE_JAUNE');
                     }
                     if (
                         (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']))
-                        && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'light')))
+                        && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'teamwork-light')))
                             ) {
                         $this->chargerUneZone($joueurConcerne,'STRIKE_ROUGE');
                     }

@@ -55,12 +55,12 @@ class Partie
     }
 
     public function numeroAttaquant() {
-        $numeroAttaquant = ($this->Partie->getJoueur1Etape()=='defense') ? 2 : 1;
+        $numeroAttaquant = ($this->Partie->getJoueur1Etape()=='defense' || $this->Partie->getJoueur1Etape()=='utilisationChamber') ? 2 : 1;
         return $numeroAttaquant;
     }
 
     public function numeroDefenseur() {
-        $numeroDefenseur = ($this->Partie->getJoueur1Etape()=='defense') ? 1 : 2;
+        $numeroDefenseur = ($this->numeroAttaquant() == 2) ? 1 : 2;
         return $numeroDefenseur;
     }
 
@@ -541,10 +541,10 @@ class Partie
                 if ($Carte == null) {
                     return 4;
                 }
-                $defense += $Carte->getAttaque();  
+                $defense += $Carte->getIntercept();  
         }
 
-        return $defense+$this->effets->bonusDefense($joueurConcerne,($joueurConcerne == 1) ? 2 : 1,$this->infos());
+        return $defense+$this->effets->bonusDefense($joueurConcerne,($joueurConcerne == 1) ? 2 : 1);
     }
 
     public function energiedisponible($joueurConcerne,$zone) {
@@ -654,7 +654,7 @@ class Partie
 
     public function isChamberUtilisable($joueurConcerne = null) {
         if ($joueurConcerne==null) {
-            $joueurConcerne = $this->numeroJoueur;
+            $joueurConcerne = $this->numeroDefenseur;
         }
         $joueurAdverse = ($joueurConcerne == 1) ? 2 : 1;
 

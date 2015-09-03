@@ -55,7 +55,7 @@ class Tools
         $result = true;
         if (
             ($CartePartie!=null) 
-            && ($CartePartie->getCarte())
+            && ($CartePartie->getCarte() != null)
             )
         {
             $Carte = $CartePartie->getCarte();

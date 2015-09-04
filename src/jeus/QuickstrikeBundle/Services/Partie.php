@@ -109,9 +109,9 @@ class Partie
     public function demarragePartie($joueurConcerne) {
         $this->interactions->melangerEmplacement($joueurConcerne);
         $this->effets->deplacerCarte($joueurConcerne,5,'DECK','DISCARD');
-        $this->effets->deplacerCarte($joueurConcerne,2,'DECK','ENERGIE_VERTE');
-        $this->effets->deplacerCarte($joueurConcerne,2,'DECK','ENERGIE_JAUNE');
-        $this->effets->deplacerCarte($joueurConcerne,2,'DECK','ENERGIE_ROUGE');
+        $this->effets->deplacerCarte($joueurConcerne,1,'DECK','ENERGIE_VERTE');
+        $this->effets->deplacerCarte($joueurConcerne,1,'DECK','ENERGIE_JAUNE');
+        $this->effets->deplacerCarte($joueurConcerne,1,'DECK','ENERGIE_ROUGE');
     }
 
     public function viderCarte($joueurConcerne) {
@@ -119,14 +119,16 @@ class Partie
         $this->effets->deplacerCarte($joueurConcerne,99,'STRIKE_VERT','DISCARD');
         $this->effets->deplacerCarte($joueurConcerne,99,'STRIKE_JAUNE','DISCARD');
         $this->effets->deplacerCarte($joueurConcerne,99,'STRIKE_ROUGE','DISCARD');
+        $this->chargerCarteEnJeu();
     }
 
     public function attaquer($joueurConcerne,$depart = true, $chamber = false) {
         $joueurAdverse = ($joueurConcerne==1)?2:1;
         $this->interactions->initialiserEffets($joueurAdverse);
+        $this->viderCarte($joueurAdverse);
         if ($depart) 
             $this->viderCarte($joueurConcerne);
-            
+
         if ($depart) {
             $this->interactions->initialiserEffets($joueurAdverse);
             $this->interactions->initialiserEffets($joueurConcerne);
@@ -163,7 +165,6 @@ class Partie
         }
 
         $this->Partie->setEtapeByNumero($joueurConcerne,'attente');
-        $this->viderCarte($joueurAdverse);
         $this->Partie->setEtapeByNumero($joueurAdverse,'utilisationChamber');
         $this->isChamberUtilisable($joueurAdverse);
     }
@@ -465,6 +466,8 @@ class Partie
             $tabInfos['attaqueAttaquant'] = $this->attaqueEnCours();
         }
 
+        $this->effets->chargerInfos($tabInfos);
+
         return $tabInfos;
     }
 
@@ -521,7 +524,7 @@ class Partie
             }
         }
 
-        return $intercept+$this->effets->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant,$this->infos());
+        return $intercept+$this->effets->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant);
     }
 
     public function defenseChamber($joueurConcerne = null) {
@@ -653,6 +656,7 @@ class Partie
     }
 
     public function isChamberUtilisable($joueurConcerne = null) {
+        $this->infos();
         if ($joueurConcerne==null) {
             $joueurConcerne = $this->numeroDefenseur;
         }
@@ -710,6 +714,7 @@ class Partie
         }*/
 
         $choixPossible = array();
+        $this->infos();
         $this->isChamberUtilisable();
         $etape = $this->Partie->getEtape($this->Joueur);
 
@@ -779,7 +784,7 @@ class Partie
                     {
                         if ($Carte->getTypeCarte()->getTag()=='STRIKE') 
                         {
-                            $defense = $Carte->getIntercept()+$this->effets->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant,$this->infos());  
+                            $defense = $Carte->getIntercept()+$this->effets->bonusDefense($this->numeroDefenseur,$this->numeroAttaquant);  
                             if ($defense>=$attaque) 
                                 $action[] = '<a href="'.$this->router->generate('jeus_quickstrike_partie_choix_effet',array('id' => $this->Partie->getId(),'effet' => 'contre_attaquer')).'">Contre attaquer</a>';
                         }

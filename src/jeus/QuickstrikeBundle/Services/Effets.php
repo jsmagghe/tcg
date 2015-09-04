@@ -224,6 +224,11 @@ class Effets
                     } 
                     break;
                 case 636 :
+                    var_dump($this->infos['ZoneAttaquant']);
+                    var_dump($this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK'));
+                    var_dump(isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')]));
+                    var_dump($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')]);
+                    exit;
                     if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')])) {
                         $bonus += 4;
                     } 
@@ -308,7 +313,7 @@ class Effets
                             break;
                         }
                     }
-                    if ($trouve) {
+                    if (!$trouve) {
                         $bonus += 5;
                     }
                     break;
@@ -559,8 +564,6 @@ class Effets
                 $chargementPossible = false;
                 break;
         }
-        var_dump($chargementPossible);
-
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
         foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
@@ -574,8 +577,6 @@ class Effets
                     break;
             }
         }
-        var_dump($chargementPossible);
-
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
         foreach ((array)$CarteEnJeus as $Cartejeu) {
@@ -1087,12 +1088,6 @@ class Effets
                 $Carte = $CartePartie->getCarte();
             } else {
                 $Carte = $CartePartie;
-            }
-
-            if (!$Carte instanceof \jeus\QuickstrikeBundle\Entity\Carte) {
-                var_dump($Carte);
-                var_dump($CartePartie);
-                exit;
             }
 
             $coutVert = $Carte->getCoutVert();

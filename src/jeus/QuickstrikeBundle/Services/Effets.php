@@ -1399,6 +1399,9 @@ class Effets
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        var_dump($this->Partie->getEtape($joueurConcerne));
+        var_dump($CarteEnJeus);
+        exit;
         foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
             if ($Carte == null) {
@@ -1456,24 +1459,29 @@ class Effets
                     break;
                 // charge toutes les zones avec teamwork batman
                 case 561 : 
+                    var_dump('ici');
                     if (
                         (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE']))
                         && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'teamwork-light')))
                             ) {
+                    var_dump('vert');
                         $this->chargerUneZone($joueurConcerne,'STRIKE_VERT');                            
                     }
                     if (
                         (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE']))
                         && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'teamwork-light')))
                             ) {
+                    var_dump('jaune');
                         $this->chargerUneZone($joueurConcerne,'STRIKE_JAUNE');
                     }
                     if (
                         (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE']))
                         && ($this->tools->isCarteCorrespondante($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'],array('type'=> 'TEAMWORK', 'extension' => 'Batman', 'trait' => 'teamwork-light')))
                             ) {
+                    var_dump('rouge');
                         $this->chargerUneZone($joueurConcerne,'STRIKE_ROUGE');
                     }
+                    exit;
                     break;
                 // decharger toutes les zones
                 case 351 : 

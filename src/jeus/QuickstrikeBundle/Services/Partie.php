@@ -139,9 +139,6 @@ class Partie
             $this->effets->deplacerCarte($joueurConcerne,1,'OPENING','STRIKE_VERT');
             $this->effets->deplacerCarte($joueurAdverse,1,'DISCARD','ENERGIE_VERTE');
         } elseif ($chamber) {
-            $this->Partie->dechargerZone($joueurConcerne,'STRIKE_VERT');
-            $this->Partie->dechargerZone($joueurConcerne,'STRIKE_JAUNE');
-            $this->Partie->dechargerZone($joueurConcerne,'STRIKE_ROUGE');
             $this->Partie->setJoueurZoneEnCours($joueurConcerne,'CHAMBER');
             $this->Partie->setJoueurZoneEnCours($joueurAdverse,$this->effets->zoneDepart($joueurAdverse));
         } else {
@@ -284,6 +281,11 @@ class Partie
     public function contreAttaquer($joueurConcerne,$chamber) {
         $joueurAdverse = ($joueurConcerne==1)?2:1;
         $this->interactions->initialiserEffets($joueurAdverse);
+        if ($chamber===true) {
+            $this->Partie->dechargerZone($joueurConcerne,'STRIKE_VERT');
+            $this->Partie->dechargerZone($joueurConcerne,'STRIKE_JAUNE');
+            $this->Partie->dechargerZone($joueurConcerne,'STRIKE_ROUGE');
+        }
         $this->effets->effetJouer($joueurConcerne,'counter attack');
         $this->retournerChamber($joueurAdverse);
         $this->attaquer($joueurConcerne,false,$chamber);

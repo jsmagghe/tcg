@@ -224,14 +224,17 @@ class Effets
                     } 
                     break;
                 case 636 :
+                    if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')])) {
+                        $bonus += 4;
+                    } 
+                    if ($bonus<4) {
                     var_dump($this->infos['ZoneAttaquant']);
                     var_dump($this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK'));
                     var_dump(isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')]));
                     var_dump($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')]);
                     exit;
-                    if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')])) {
-                        $bonus += 4;
-                    } 
+                        
+                    }
                     break;
                 case 602 :
                     if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')]) == false) {

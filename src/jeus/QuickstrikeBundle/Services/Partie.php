@@ -50,8 +50,8 @@ class Partie
         $this->numeroJoueur = $this->numeroJoueur();
         $this->numeroAdversaire = $this->numeroJoueur(true);
         $this->effets->chargerPartie($Partie);
-        $this->effets->chargerInfos($this->infos());
         $this->interactions->chargerPartie($Partie);
+        $this->effets->chargerInfos($this->infos('chargement'));
     }
 
     public function numeroAttaquant() {
@@ -464,7 +464,7 @@ class Partie
             'carteActive' => $CartePartie,
             );
 
-        if ($provenance !='attaqueEnCours') {
+        if ($provenance =='') {
             $tabInfos['attaqueAttaquant'] = $this->attaqueEnCours();
         }
 

@@ -35,7 +35,7 @@ class Effets
         $this->infos = $infos;
     }
 
-    public function bonusAttaque($numeroAttaquant,$numeroDefenseur) {
+    public function bonusAttaque($numeroAttaquant,$numeroDefenseur,$test = '') {
         $bonus = 0;
 
         if (isset($this->CarteEnJeus[$numeroAttaquant][$this->infos['ZoneAttaquant']])) {
@@ -227,14 +227,6 @@ class Effets
                     if (isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')])) {
                         $bonus += 4;
                     } 
-                    if ($bonus<4) {
-                    var_dump($this->infos['ZoneAttaquant']);
-                    var_dump($this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK'));
-                    var_dump(isset($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')]));
-                    var_dump($this->CarteEnJeus[$numeroAttaquant][$this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')]);
-                    exit;
-                        
-                    }
                     break;
                 case 602 :
                     if (isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')]) == false) {

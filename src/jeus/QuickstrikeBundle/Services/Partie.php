@@ -502,8 +502,9 @@ class Partie
                 }                
             }
         }
+        $this->infos('attaqueEnCours');
 
-        return $attaque+$this->effets->bonusAttaque($joueurConcerne,$joueurAdverse);
+        return $attaque+$this->effets->bonusAttaque($joueurConcerne,$joueurAdverse,'test');
     }
 
     public function interceptEnCours() {

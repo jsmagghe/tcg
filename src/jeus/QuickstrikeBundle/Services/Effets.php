@@ -2053,12 +2053,12 @@ class Effets
                 // - x force 
                 case 55 : 
                     if ($this->infos['typeCarteActive'] != 'STRIKE') {
-                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','-2');
+                        $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','-2');
                     }
                     break;
                 case 583 : 
                     if ($this->infos['typeCarteActive'] != 'STRIKE') {
-                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','-1');
+                        $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','-1');
                     }
                     break;
                 // + x force 
@@ -2066,7 +2066,7 @@ class Effets
                 case 76 : 
                 case 741 : 
                     if ($this->infos['typeCarteActive'] != 'STRIKE') {
-                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','1');
+                        $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','1');
                     }
                     break;
             }

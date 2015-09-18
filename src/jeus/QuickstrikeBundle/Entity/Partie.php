@@ -522,7 +522,7 @@ class Partie
 
     public function getJoueur2Effets()
     {
-        return $this->Joueur1Effets;
+        return $this->Joueur2Effets;
     }
 
     public function setJoueur2Effets($Joueur2Effets)

@@ -134,7 +134,7 @@ class PartieController extends Controller {
             $servicePartie->gestionPile();
             $this->em->persist($Partie);
             $this->em->flush();
-            
+
             $choixPossibles = $servicePartie->actionPossibles();
             $carteJoueurs = array();
             $carteAdversaires = array();

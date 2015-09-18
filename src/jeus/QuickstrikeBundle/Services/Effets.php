@@ -35,7 +35,7 @@ class Effets
         $this->infos = $infos;
     }
 
-    public function bonusAttaque($numeroAttaquant,$numeroDefenseur) {
+    public function bonusAttaque($numeroAttaquant,$numeroDefenseur,$test = '') {
         $bonus = 0;
 
         if (isset($this->CarteEnJeus[$numeroAttaquant][$this->infos['ZoneAttaquant']])) {
@@ -308,7 +308,7 @@ class Effets
                             break;
                         }
                     }
-                    if ($trouve) {
+                    if (!$trouve) {
                         $bonus += 5;
                     }
                     break;
@@ -559,8 +559,6 @@ class Effets
                 $chargementPossible = false;
                 break;
         }
-        var_dump($chargementPossible);
-
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
         foreach ((array)$CarteEnJeus as $Cartejeu) {
             $Carte = $Cartejeu->getCarte();
@@ -574,8 +572,6 @@ class Effets
                     break;
             }
         }
-        var_dump($chargementPossible);
-
 
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
         foreach ((array)$CarteEnJeus as $Cartejeu) {
@@ -1089,12 +1085,6 @@ class Effets
                 $Carte = $CartePartie;
             }
 
-            if (!$Carte instanceof \jeus\QuickstrikeBundle\Entity\Carte) {
-                var_dump($Carte);
-                var_dump($CartePartie);
-                exit;
-            }
-
             $coutVert = $Carte->getCoutVert();
             $coutJaune = $Carte->getCoutJaune();
             $coutRouge = $Carte->getCoutRouge();
@@ -1410,7 +1400,7 @@ class Effets
                 continue;
             }
             // si la carte jouée est un teamwork on n'applique pas son effet
-            if (($Cartejeu->getId()==$CarteJouee->getId()) && ($this->infos['typeCarteActive'] == 'TEAMWORK'))  {
+            if (($Cartejeu->getId()==$CarteJouee->getId()) && ($this->infos['typeCarteActive'] === 'TEAMWORK'))  {
                 continue;
             }
 
@@ -2063,12 +2053,12 @@ class Effets
                 // - x force 
                 case 55 : 
                     if ($this->infos['typeCarteActive'] != 'STRIKE') {
-                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','-2');
+                        $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','-2');
                     }
                     break;
                 case 583 : 
                     if ($this->infos['typeCarteActive'] != 'STRIKE') {
-                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','-1');
+                        $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','-1');
                     }
                     break;
                 // + x force 
@@ -2076,7 +2066,7 @@ class Effets
                 case 76 : 
                 case 741 : 
                     if ($this->infos['typeCarteActive'] != 'STRIKE') {
-                        $this->interactions->ajoutEffet($joueurConcerne,$Cartejeu->getId(),'force','1');
+                        $this->interactions->ajoutEffet($joueurAdverse,$Cartejeu->getId(),'force','1');
                     }
                     break;
             }

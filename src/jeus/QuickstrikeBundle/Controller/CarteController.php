@@ -25,12 +25,15 @@ class CarteController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $tableau = array();
         $formSelecteur = $this->createForm(new SelecteurType());
-        $formSelecteur->add('deck-aleatoire', 'submit', array(
-            'attr' => array(
-                'class' => 'btn btn-success aleatoire',
-            ),
-            'label' => 'Deck aléatoire',
-        ));
+        $Joueur = $this->get('security.context')->getToken()->getUser();
+        if (($Joueur !== null) && ($Joueur !=='anon.')) {
+            $formSelecteur->add('deckAleatoire', 'submit', array(
+                'attr' => array(
+                    'class' => 'btn btn-success aleatoire',
+                ),
+                'label' => 'Deck aléatoire',
+            ));
+        }
 
         $filtre = array();
         $Request = $this->getRequest();
@@ -53,18 +56,11 @@ class CarteController extends Controller {
         $tableau['filtre'] = $filtre;
         $tableau['form'] = $formSelecteur;
 
-        var_dump($Request->get('jeus_quickstrikebundle_selecteur_deck-aleatoire'));
-        var_dump($Request->get('jeus_quickstrikebundle_selecteur[deck-aleatoire]'));
-        var_dump($Request);
-        /*exit;
-        if ($Request->get('deck-aleatoire') == "Deck Aléatoire") {
-            var_dump('ouais');
-        } else {
-            var_dump($Request->get('deck-aleatoire'));
-        }
-            exit;*/
-
         $serviceCarte = $this->get('jeus_quickstrike_carte');
+        if ((($Joueur !== null) && ($Joueur !=='anon.')) && ($formSelecteur->get('deckAleatoire')->isClicked())) {
+            $serviceCarte->deckAleatoire($tableau, $Joueur);
+        }
+
         $tableau = $serviceCarte->rechercheCarte($tableau);
         $filtre = $tableau['filtre'];
         $formSelecteur = $tableau['form'];

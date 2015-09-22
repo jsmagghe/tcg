@@ -21,7 +21,7 @@ class Carte
         $this->container = $container;
     }
 
-    public function rechercheCarte($tableau) {
+    public function rechercheCarte($tableau, $sansRestriction = false) {
         $tableau['Cartes'] = $this->em->getRepository('jeusQuickstrikeBundle:Carte')->findByCritere($tableau['filtre']);
 
         if (
@@ -99,7 +99,7 @@ class Carte
         $pageEnCours = 1;
         $nbCarteEnCours = 0;
         foreach ($tableau['Cartes'] as $key => $value) {
-            if ($nbCarteEnCours>=$this->container->getParameter('carte_par_page')) {
+            if (($nbCarteEnCours>=$this->container->getParameter('carte_par_page')) || ($sansRestriction)) {
                 $pageEnCours++;
                 $nbCarteEnCours = 0;
             }
@@ -111,6 +111,16 @@ class Carte
         }
 
         return $tableau;
+    }
+
+    public function deckAleatoire($tableau, $Joueur) 
+    {
+        unset($tableau['filtre']['page']);
+        $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('CHAMBER');
+
+        $cartePossibles = $this->rechercheCarte($tableau, true);
+
+
     }
 
 

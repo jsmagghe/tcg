@@ -5,6 +5,9 @@ namespace jeus\QuickstrikeBundle\Services;
 use Symfony\Component\DependencyInjection\Container;
 use Doctrine\Common\Persistence\ObjectManager;
 
+use jeus\QuickstrikeBundle\Entity\Deck;
+use jeus\QuickstrikeBundle\Entity\CarteDeck;
+
 /**
  *
  * @author Julien S
@@ -113,12 +116,66 @@ class Carte
         return $tableau;
     }
 
+    private function ajouterCarteDeck(&$Deck,$Carte) {
+        $CarteDeck = new CarteDeck();
+        $CarteDeck->setCarte($Carte);
+        $CarteDeck->setDeck($Deck);
+
+        $erreur = $Deck->carteAjoutable($CarteDeck);
+        if ($erreur=='') {
+            $this->em->persist($CarteDeck);
+            $this->em->flush();
+            $Deck->addCarte($CarteDeck);
+        }
+        $this->em->persist($Deck);
+        $this->em->flush();
+        $this->em->refresh($Deck);
+
+        return $erreur;
+    }
+
     public function deckAleatoire($tableau, $Joueur) 
     {
         unset($tableau['filtre']['page']);
-        $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('CHAMBER');
 
+        $DeckAleatoires = $this->em->getRepository('jeusQuickstrikeBundle:Deck')->findDeckByJoueurAndName($Joueur,'Aléatoire');
+        $Deck = null;
+        foreach ($DeckAleatoires as $DeckAleatoire) {
+            $Deck = $DeckAleatoire;
+            break;
+        }
+        if ($Deck === null) {
+            $Deck = new Deck();
+            $Deck->setNom('Aléatoire');
+            $Deck->setJoueur($Joueur);
+            $Deck->setValide(false);
+            $em->persist($Deck);
+            $em->flush();        
+        }
+
+        // on supprime toutes les cartes présentes dans le deck
+        foreach($Deck->getCartes() as $CarteDeck) {
+            $em->remove($CarteDeck);
+        }
+
+        // choix de la chamber
+        $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('CHAMBER');
         $cartePossibles = $this->rechercheCarte($tableau, true);
+
+        $CarteChoisie = rand(0,count($cartePossibles['Cartes2']));
+        $this->ajouterCarteDeck($Deck, $CarteChoisie);
+
+        $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('TEAMWORK');
+
+        $nombreTeamwork = rand(8,12);
+        $tableau['filtre']['traitCarte'] = $CarteChoisie->getTraits();
+
+
+
+
+
+        var_dump($cartePossibles);
+        exit;
 
 
     }

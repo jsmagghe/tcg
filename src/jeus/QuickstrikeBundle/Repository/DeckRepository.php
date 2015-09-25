@@ -17,7 +17,7 @@ class DeckRepository extends EntityRepository
         return $this->createQueryBuilder('d')
                 ->where('d.joueur = :Joueur')
                 ->andWhere('d.nom = :nom')
-                ->setParameters('Joueur' => $Joueur, 'nom' => $nom)
+                ->setParameters(array('Joueur' => $Joueur, 'nom' => $nom))
                 ->getQuery()
                 ->getResult();        
     }

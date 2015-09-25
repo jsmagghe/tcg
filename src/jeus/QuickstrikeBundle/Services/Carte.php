@@ -124,7 +124,6 @@ class Carte
         $erreur = $Deck->carteAjoutable($CarteDeck);
         if ($erreur=='') {
             $this->em->persist($CarteDeck);
-            $this->em->flush();
             $Deck->addCarte($CarteDeck);
         }
         $this->em->persist($Deck);
@@ -149,35 +148,95 @@ class Carte
             $Deck->setNom('Aléatoire');
             $Deck->setJoueur($Joueur);
             $Deck->setValide(false);
-            $em->persist($Deck);
-            $em->flush();        
+            $this->em->persist($Deck);
+            $this->em->flush();        
         }
 
         // on supprime toutes les cartes présentes dans le deck
         foreach($Deck->getCartes() as $CarteDeck) {
-            $em->remove($CarteDeck);
+            $this->em->remove($CarteDeck);
         }
+        $this->em->flush();        
 
         // choix de la chamber
         $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('CHAMBER');
         $cartePossibles = $this->rechercheCarte($tableau, true);
 
         $CarteChoisie = rand(0,count($cartePossibles['Cartes2']));
-        $this->ajouterCarteDeck($Deck, $CarteChoisie);
+        $Chamber = $cartePossibles['Cartes2'][$CarteChoisie];
+        $this->ajouterCarteDeck($Deck, $Chamber);
+        // on filtre par les traits de la chamber choisie
+        $tableau['filtre']['traitCarte'] = array();
+        foreach ($Chamber->getTraitCartes() as $Trait) {
+            $tableau['filtre']['traitCarte'][] = $Trait;
+        }
+        $tableau['filtre']['traitCarte'][] = $this->em->getRepository('jeusQuickstrikeBundle:TraitCarte')->findOneByTag('NEUTRE');
 
+
+        // ajout des teamworks
         $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('TEAMWORK');
-
         $nombreTeamwork = rand(8,12);
-        $tableau['filtre']['traitCarte'] = $CarteChoisie->getTraits();
+        $nombreTentative = 100;
+        $cartePossibles = $this->rechercheCarte($tableau, true);
+        var_dump($tableau['filtre']['traitCarte']);
+        var_dump($cartePossibles['Cartes']);
 
-
-
-
-
-        var_dump($cartePossibles);
+        while (($nombreTeamwork>0) && ($nombreTentative>0)) {
+            $CarteChoisie = rand(0,count($cartePossibles['Cartes']));
+            $Carte = isset($cartePossibles['Cartes'][$CarteChoisie]) ? $cartePossibles['Cartes'][$CarteChoisie] : null;
+            var_dump($Carte);
+            exit;
+            if ($Carte !== null) {
+                $nombreExemplaire = rand(1,4);
+                while (($nombreExemplaire>0) && ($nombreTeamwork>0)) {
+                    $this->ajouterCarteDeck($Deck, $Carte);
+                    $nombreTeamwork--;
+                }                
+                unset($cartePossibles['Cartes'][$CarteChoisie]);
+            }
+            $nombreTentative--;
+        }
         exit;
 
+        // ajout des avantages
+        $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('ADVANTAGE');
+        $nombreAvantage = rand(24,30) - $nombreTeamwork;
+        $nombreTentative = 100;
+        $cartePossibles = $this->rechercheCarte($tableau, true);
 
+        while (($nombreAvantage>0) && ($nombreTentative>0)) {
+            $CarteChoisie = rand(0,count($cartePossibles['Cartes']));
+            $Carte = isset($cartePossibles['Cartes'][$CarteChoisie]) ? $cartePossibles['Cartes'][$CarteChoisie] : null;
+            if ($Carte !== null) {
+                $nombreExemplaire = rand(1,4);
+                while (($nombreExemplaire>0) && ($nombreAvantage>0)) {
+                    $this->ajouterCarteDeck($Deck, $Carte);
+                    $nombreAvantage--;
+                }                
+                unset($cartePossibles['Cartes'][$CarteChoisie]);
+            }
+            $nombreTentative--;
+        }
+
+        // ajout des strikes
+        $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('STRIKE');
+        $nombreStrike = 60 - $nombreTeamwork - $nombreAvantage;
+        $nombreTentative = 300;
+        $cartePossibles = $this->rechercheCarte($tableau, true);
+
+        while (($nombreStrike>0) && ($nombreTentative>0)) {
+            $CarteChoisie = rand(0,count($cartePossibles['Cartes']));
+            $Carte = isset($cartePossibles['Cartes'][$CarteChoisie]) ? $cartePossibles['Cartes'][$CarteChoisie] : null;
+            if ($Carte !== null) {
+                $nombreExemplaire = rand(1,4);
+                while (($nombreExemplaire>0) && ($nombreStrike>0)) {
+                    $this->ajouterCarteDeck($Deck, $Carte);
+                    $nombreStrike--;
+                }                
+                unset($cartePossibles['Cartes'][$CarteChoisie]);
+            }
+            $nombreTentative--;
+        }
     }
 
 

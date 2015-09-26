@@ -26,6 +26,10 @@ class Carte
 
     public function rechercheCarte($tableau, $sansRestriction = false) {
         $tableau['Cartes'] = $this->em->getRepository('jeusQuickstrikeBundle:Carte')->findByCritere($tableau['filtre']);
+        /*if (isset($tableau['filtre']['test'])) {
+            var_dump(count($tableau['Cartes']));
+        }*/
+
 
         if (
             (isset($tableau['filtre']['traitCarte']))
@@ -91,6 +95,10 @@ class Carte
                 $tableau['Cartes'] = array_merge($tableau['Cartes2'],$tableau['Cartes']);
             }
         }
+        /*if (isset($tableau['filtre']['test'])) {
+            var_dump(count($tableau['Cartes']));
+            exit;
+        }*/
 
         $tableau['page'] = isset($tableau['filtre']['page']) ? $tableau['filtre']['page'] : 1;
 
@@ -102,15 +110,14 @@ class Carte
         $pageEnCours = 1;
         $nbCarteEnCours = 0;
         foreach ($tableau['Cartes'] as $key => $value) {
-            if (($nbCarteEnCours>=$this->container->getParameter('carte_par_page')) || ($sansRestriction)) {
+            if ($nbCarteEnCours>=$this->container->getParameter('carte_par_page')) {
                 $pageEnCours++;
                 $nbCarteEnCours = 0;
             }
-            if ($pageEnCours != $tableau['page']) {
+            if (($pageEnCours != $tableau['page']) && (!$sansRestriction)) {
                 unset($tableau['Cartes'][$key]);
             }
             $nbCarteEnCours++;
-
         }
 
         return $tableau;
@@ -172,36 +179,39 @@ class Carte
         }
         $tableau['filtre']['traitCarte'][] = $this->em->getRepository('jeusQuickstrikeBundle:TraitCarte')->findOneByTag('NEUTRE');
 
+        // définition du nombre de carte des différents types
+        $nombreTeamwork = rand(8,12);
+        $nombreAvantage = rand(24,30) - $nombreTeamwork;
+        $nombreStrike = 60 - $nombreTeamwork - $nombreAvantage;
 
+        //$tableau['filtre']['test'] = true;
         // ajout des teamworks
         $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('TEAMWORK');
-        $nombreTeamwork = rand(8,12);
-        $nombreTentative = 100;
+        $nombreTentative = 500;
         $cartePossibles = $this->rechercheCarte($tableau, true);
-        var_dump($tableau['filtre']['traitCarte']);
-        var_dump($cartePossibles['Cartes']);
 
         while (($nombreTeamwork>0) && ($nombreTentative>0)) {
             $CarteChoisie = rand(0,count($cartePossibles['Cartes']));
             $Carte = isset($cartePossibles['Cartes'][$CarteChoisie]) ? $cartePossibles['Cartes'][$CarteChoisie] : null;
-            var_dump($Carte);
-            exit;
             if ($Carte !== null) {
                 $nombreExemplaire = rand(1,4);
-                while (($nombreExemplaire>0) && ($nombreTeamwork>0)) {
-                    $this->ajouterCarteDeck($Deck, $Carte);
-                    $nombreTeamwork--;
+                $erreur = '';
+                while (($nombreExemplaire>0) && ($nombreTeamwork>0) && ($erreur=='')) {
+                    $erreur = $this->ajouterCarteDeck($Deck, $Carte);
+                    if ($erreur=='') {
+                        $nombreTeamwork--;
+                        $nombreExemplaire--;                        
+                    }
                 }                
                 unset($cartePossibles['Cartes'][$CarteChoisie]);
+                sort($cartePossibles['Cartes']);
             }
             $nombreTentative--;
         }
-        exit;
 
         // ajout des avantages
         $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('ADVANTAGE');
-        $nombreAvantage = rand(24,30) - $nombreTeamwork;
-        $nombreTentative = 100;
+        $nombreTentative = 500;
         $cartePossibles = $this->rechercheCarte($tableau, true);
 
         while (($nombreAvantage>0) && ($nombreTentative>0)) {
@@ -209,19 +219,23 @@ class Carte
             $Carte = isset($cartePossibles['Cartes'][$CarteChoisie]) ? $cartePossibles['Cartes'][$CarteChoisie] : null;
             if ($Carte !== null) {
                 $nombreExemplaire = rand(1,4);
-                while (($nombreExemplaire>0) && ($nombreAvantage>0)) {
-                    $this->ajouterCarteDeck($Deck, $Carte);
-                    $nombreAvantage--;
+                $erreur = '';
+                while (($nombreExemplaire>0) && ($nombreAvantage>0) && ($erreur=='')) {
+                    $erreur = $this->ajouterCarteDeck($Deck, $Carte);
+                    if ($erreur=='') {
+                        $nombreAvantage--;
+                        $nombreExemplaire--;                        
+                    }
                 }                
                 unset($cartePossibles['Cartes'][$CarteChoisie]);
+                sort($cartePossibles['Cartes']);
             }
             $nombreTentative--;
         }
 
         // ajout des strikes
         $tableau['filtre']['typeCarte'] = $this->em->getRepository('jeusQuickstrikeBundle:TypeCarte')->findByTag('STRIKE');
-        $nombreStrike = 60 - $nombreTeamwork - $nombreAvantage;
-        $nombreTentative = 300;
+        $nombreTentative = 1000;
         $cartePossibles = $this->rechercheCarte($tableau, true);
 
         while (($nombreStrike>0) && ($nombreTentative>0)) {
@@ -229,11 +243,16 @@ class Carte
             $Carte = isset($cartePossibles['Cartes'][$CarteChoisie]) ? $cartePossibles['Cartes'][$CarteChoisie] : null;
             if ($Carte !== null) {
                 $nombreExemplaire = rand(1,4);
-                while (($nombreExemplaire>0) && ($nombreStrike>0)) {
-                    $this->ajouterCarteDeck($Deck, $Carte);
-                    $nombreStrike--;
+                $erreur = '';
+                while (($nombreExemplaire>0) && ($nombreStrike>0) && ($erreur=='')) {
+                    $erreur = $this->ajouterCarteDeck($Deck, $Carte);
+                    if ($erreur=='') {
+                        $nombreStrike--;
+                        $nombreExemplaire--;                        
+                    }
                 }                
                 unset($cartePossibles['Cartes'][$CarteChoisie]);
+                sort($cartePossibles['Cartes']);
             }
             $nombreTentative--;
         }

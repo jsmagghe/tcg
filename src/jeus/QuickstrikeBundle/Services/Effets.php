@@ -522,6 +522,15 @@ class Effets
             }
         }
 
+        $effetNonExecutes = $this->Partie->getJoueurEffetNonExecutes();
+        foreach ($effetNonExecutes as $joueur => $effets) {
+            foreach ($effets as $idCarte => $effet) {
+                if ((isset($effet['typeEffet'])) && (isset($effet['effet'])) && ($effet['typeEffet'] == 'intercept')) {
+                    $bonus += $effet['effet'];
+                }
+            }
+        }
+
         return $bonus;
     }
 
@@ -2785,6 +2794,7 @@ class Effets
                     break;
             }
         }*/
+
         return $choix;
     }
 

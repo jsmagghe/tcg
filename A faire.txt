@@ -7,7 +7,7 @@ dans le controleur d'édition de deck faire en sorte que les cartes proposé ne 
 faire un refresh sur les dernière partie pour lancer une partie directement quand on vient d'être choisi
 finaliser le mode debug
 repasser sur tous les appels "deplacerCarte" pour ajouter le joueur à l'origine du déplacement
-prendre en compte également les cout deja payer dans les effets non executés pour les energies disponibles
+prendre en compte également les couts deja payer dans les effets non executés pour les energies disponibles
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;

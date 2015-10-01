@@ -188,7 +188,17 @@ class Partie
 
     public function payer($joueurConcerne,$chamber=false) {       
         $payable = false;
-        $Carte = null;
+        $Carte = null;       
+        $effetNonExecutes = $this->Partie->getJoueurEffetNonExecutes();
+
+        foreach ($effetNonExecutes as $joueur => $effets) {
+            foreach ($effets as $effet) {
+                if ($this->payerCout($joueur,array($effet['cout'])) {
+                    var_d
+                }
+            }
+        }
+
         if ($chamber) {
             if (isset($this->CarteEnJeus[$joueurConcerne]['CHAMBER'])) {
                 $CarteActive = $this->CarteEnJeus[$joueurConcerne]['CHAMBER'];

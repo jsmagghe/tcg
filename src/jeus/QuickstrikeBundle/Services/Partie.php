@@ -194,7 +194,7 @@ class Partie
         foreach ($effetNonExecutes as $joueur => $effets) {
             foreach ($effets as $effet) {
                 if ($this->payerCout($joueur,array($effet['cout'])) {
-                    var_d
+                    $this->interactions->ajoutEffet($joueur,$effet['idCarte'],$effet['type'],$effet['effet']);
                 }
             }
         }
@@ -262,6 +262,34 @@ class Partie
                 && ($Cartejeu->getCarte()->getNomCours()==$CarteActive->getCarte()->getNomCours()))
                 $this->effets->deplacerCarte($joueurConcerne,99,$zoneAControler,'DISCARD');
         }
+    }
+
+    public function energiedisponible($joueurConcerne,$zone) {
+        if (isset($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]))
+            return count($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]);
+        else 
+            return 0;
+    }
+
+    public function energieDisponible()
+    {
+        $energieVerteDisponible = $this->infos['energieVerteDisponibleDefenseur'];
+        $energieJauneDisponible = $this->infos['energieJauneDisponibleDefenseur'];
+        $energieRougeDisponible = $this->infos['energieRougeDisponibleDefenseur'];
+
+        $effetNonExecutes = $this->Partie->getJoueurEffetNonExecutes();
+
+        foreach ($effetNonExecutes as $joueur => $effets) {
+            foreach ($effets as $effet) {
+                if ($this->payerCout($joueur,array($effet['cout'])) {
+                    $this->interactions->ajoutEffet($joueur,$effet['idCarte'],$effet['type'],$effet['effet']);
+                }
+            }
+        }
+
+        var_d
+
+        return array($energieVerteDisponible,$energieJauneDisponible,$energieRougeDisponible);
     }
 
     public function jouer($joueurConcerne,$action) {
@@ -561,13 +589,6 @@ class Partie
         }
 
         return $defense+$this->effets->bonusDefense($joueurConcerne,($joueurConcerne == 1) ? 2 : 1);
-    }
-
-    public function energiedisponible($joueurConcerne,$zone) {
-        if (isset($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]))
-            return count($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]);
-        else 
-            return 0;
     }
 
     public function payerParEnergie($joueurConcerne,$couts) {

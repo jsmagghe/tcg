@@ -932,7 +932,6 @@ class Effets
         }
 
         return $signaturePossible;
-
     }
 
     public function reflipsPossible($joueurConcerne) {

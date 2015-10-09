@@ -271,23 +271,21 @@ class Partie
             return 0;
     }
 
-    public function energieDisponible()
+    public function energieDisponible($joueurConcerne)
     {
         $energieVerteDisponible = $this->infos['energieVerteDisponibleDefenseur'];
         $energieJauneDisponible = $this->infos['energieJauneDisponibleDefenseur'];
         $energieRougeDisponible = $this->infos['energieRougeDisponibleDefenseur'];
 
         $effetNonExecutes = $this->Partie->getJoueurEffetNonExecutes();
-
-        foreach ($effetNonExecutes as $joueur => $effets) {
-            foreach ($effets as $effet) {
-                if ($this->payerCout($joueur,array($effet['cout'])) {
-                    $this->interactions->ajoutEffet($joueur,$effet['idCarte'],$effet['type'],$effet['effet']);
-                }
+        if (isset($effetNonExecutes[$joueurConcerne])) {
+            $effets = $effetNonExecutes[$joueurConcerne];
+            foreach ($effets as $effet) {                
+                $energieVerteDisponible -= substr_count($effet['cout'], 'green');
+                $energieJauneDisponible -= substr_count($effet['cout'], 'yellow');
+                $energieRougeDisponible -= substr_count($effet['cout'], 'red');
             }
         }
-
-        var_d
 
         return array($energieVerteDisponible,$energieJauneDisponible,$energieRougeDisponible);
     }

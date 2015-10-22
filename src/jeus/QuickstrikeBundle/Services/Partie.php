@@ -264,7 +264,8 @@ class Partie
         }
     }
 
-    public function energiedisponible($joueurConcerne,$zone) {
+    public function isEnergieDisponible($joueurConcerne,$zone) {
+        $zone = strtoupper($zone);
         if (isset($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]))
             return count($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]);
         else 
@@ -273,9 +274,9 @@ class Partie
 
     public function energieDisponible($joueurConcerne)
     {
-        $energieVerteDisponible = $this->infos['energieVerteDisponibleDefenseur'];
-        $energieJauneDisponible = $this->infos['energieJauneDisponibleDefenseur'];
-        $energieRougeDisponible = $this->infos['energieRougeDisponibleDefenseur'];
+        $energieVerteDisponible = $this->isEnergieDisponible($joueurConcerne,'VERTE');
+        $energieJauneDisponible = $this->isEnergieDisponible($joueurConcerne,'JAUNE');
+        $energieRougeDisponible = $$this->isEnergieDisponible($joueurConcerne,'ROUGE');
 
         $effetNonExecutes = $this->Partie->getJoueurEffetNonExecutes();
         if (isset($effetNonExecutes[$joueurConcerne])) {
@@ -472,9 +473,9 @@ class Partie
             $nombreTeamworkDefenseur += 1;
         } 
 
-        $energieVerteDisponibleDefenseur = $this->energiedisponible($this->numeroDefenseur,'VERTE');
-        $energieJauneDisponibleDefenseur = $this->energiedisponible($this->numeroDefenseur,'JAUNE');
-        $energieRougeDisponibleDefenseur = $this->energiedisponible($this->numeroDefenseur,'ROUGE');
+        $energieVerteDisponibleDefenseur = $this->isEnergieDisponible($this->numeroDefenseur,'VERTE');
+        $energieJauneDisponibleDefenseur = $this->isEnergieDisponible($this->numeroDefenseur,'JAUNE');
+        $energieRougeDisponibleDefenseur = $this->isEnergieDisponible($this->numeroDefenseur,'ROUGE');
         $CartePartie = null;
         if (isset($this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)])) {
             $CartePartie = $this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
@@ -594,9 +595,9 @@ class Partie
         $coutJaune = (isset($couts['coutJaune'])) ? $couts['coutJaune'] : 0;
         $coutRouge = (isset($couts['coutRouge'])) ? $couts['coutRouge'] : 0;
 
-        $energieVerteDisponible = $this->energiedisponible($joueurConcerne,'VERTE');
-        $energieJauneDisponible = $this->energiedisponible($joueurConcerne,'JAUNE');
-        $energieRougeDisponible = $this->energiedisponible($joueurConcerne,'ROUGE');
+        $energieVerteDisponible = $this->isEnergieDisponible($joueurConcerne,'VERTE');
+        $energieJauneDisponible = $this->isEnergieDisponible($joueurConcerne,'JAUNE');
+        $energieRougeDisponible = $this->isEnergieDisponible($joueurConcerne,'ROUGE');
 
         if ($coutVert>0) {
             $this->effets->deplacerCarte($joueurConcerne,$coutVert,'ENERGIE_VERTE','DISCARD',true);
@@ -625,9 +626,9 @@ class Partie
         $coutJaune = $tab['coutJaune'];
         $coutRouge = $tab['coutRouge'];
 
-        $energieVerteDisponible = $this->energiedisponible($joueurConcerne,'VERTE');
-        $energieJauneDisponible = $this->energiedisponible($joueurConcerne,'JAUNE');
-        $energieRougeDisponible = $this->energiedisponible($joueurConcerne,'ROUGE');
+        $energieVerteDisponible = $this->isEnergieDisponible($joueurConcerne,'VERTE');
+        $energieJauneDisponible = $this->isEnergieDisponible($joueurConcerne,'JAUNE');
+        $energieRougeDisponible = $this->isEnergieDisponible($joueurConcerne,'ROUGE');
 
         if ($energieRougeDisponible>=$coutRouge) {
             $energieRougeDisponible-=$coutRouge;

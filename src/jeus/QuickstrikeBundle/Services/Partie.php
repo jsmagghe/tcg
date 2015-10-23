@@ -281,7 +281,7 @@ class Partie
         $effetNonExecutes = $this->Partie->getJoueurEffetNonExecutes();
         if (isset($effetNonExecutes[$joueurConcerne])) {
             $effets = $effetNonExecutes[$joueurConcerne];
-            foreach ($effets as $effet) {                
+            foreach ($effets as $idCarte => $effet) {                
                 $energieVerteDisponible -= substr_count($effet['cout'], 'green');
                 $energieJauneDisponible -= substr_count($effet['cout'], 'yellow');
                 $energieRougeDisponible -= substr_count($effet['cout'], 'red');

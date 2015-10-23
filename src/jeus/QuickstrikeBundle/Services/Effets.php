@@ -2757,6 +2757,9 @@ class Effets
         $energieJauneDisponible = $this->infos['energieJauneDisponibleDefenseur'] + $this->infos['energieRougeDisponibleDefenseur'];
         $energieRougeDisponible = $this->infos['energieRougeDisponibleDefenseur'];
 
+        $effetNonExecutes = $this->Partie->getJoueurEffetNonExecutes();
+        if (isset($effetNonExecutes[$joueurConcerne])) {
+            $effets = $effetNonExecutes[$joueurConcerne];
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
         foreach ((array)$CarteEnJeus as $Cartejeu) {
@@ -2767,9 +2770,12 @@ class Effets
             $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
                 case 2 : 
+                case 30 : 
                     if (
                         ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
                         && ($energieVerteDisponible>1)
+                        // une fois par tour
+                        && ($numeroEffet!=30 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                         ) {
                             $choix['choix_green_'.$Cartejeu->getId().'_intercept_+1'] = 'green => +1 intercept';
                     }

@@ -51,8 +51,6 @@ Effet 594;Reflip: eliminate one of your teamworks;;
 effets par choix simple du joueur
 => ajout intercept ou force
 ---intercept
-Effet 2;green ==> +1 Intercept.;;
-Effet 30;Green ==> +1 Intercept. Use only Once.;;
 Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force
 Effet 18;Red ==> +4 Intercept. Use only once.;;
 Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;

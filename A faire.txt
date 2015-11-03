@@ -1,4 +1,4 @@
-A faire
+﻿A faire
 pictos pour choix
 faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
 pour accélerer le temps faire décompte des effets en jeu pour ne parcourir que les fonctions utiles
@@ -8,6 +8,7 @@ faire un refresh sur les dernière partie pour lancer une partie directement qua
 finaliser le mode debug
 repasser sur tous les appels "deplacerCarte" pour ajouter le joueur à l'origine du déplacement
 prendre en compte également les couts deja payer dans les effets non executés pour les energies disponibles
+faire une fonction qui indique selon le type de carte si elle peut être prise en compte pour la zone en cours
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
@@ -51,17 +52,11 @@ Effet 594;Reflip: eliminate one of your teamworks;;
 effets par choix simple du joueur
 => ajout intercept ou force
 ---intercept
-Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force
-Effet 18;Red ==> +4 Intercept. Use only once.;;
 Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
 Effet 103;Green, -5 Force ==> +5 Intercept. Use only once.;;
-Effet 166;Red ==> +2 Intercept. Use only once.;;
 Effet 244;Green ==> In Gan Jin Treibe's zone, you strikes have +1 intercept. Use only once per turn.;;
-Effet 389;Two Yellow ==> +2 Intercept. Use only once.;;
-Effet 415;Yellow ==> +1 Intercept. Use only once.;;
 Effet 400;green ==> +1 Intercept. Use up to as many times as the number of allies you have.;;
 Effet 402;Yellow ==> +1 Intercept. Use up to as many times as the number of allies you have.;;
-Effet 553;green ==> +2 intercept;;
 Effet 564;-1 Force ==> +1 Intercept;;
 Effet 666;Yellow ==> +3 Intercept. When you counterattack with extensible criminal, uncharge an opponent's zone;;
 Effet 340;Your opponent's strikes have "Green==>+1 Intercept.";;

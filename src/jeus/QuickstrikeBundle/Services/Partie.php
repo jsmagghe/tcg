@@ -278,11 +278,24 @@ class Partie
         $energieJauneDisponible = $this->isEnergieDisponible($joueurConcerne,'JAUNE');
         $energieRougeDisponible = $$this->isEnergieDisponible($joueurConcerne,'ROUGE');
 
+
         if ($retirerCoutCarteActive) {
-            if (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) {
-                $couts = $this->effets->coutsCarte($joueurConcerne,$this->CarteEnJeus[$joueurConcerne]['ACTIVE']);
-                var_
-                if ($Carte->getCout)
+            $CartePartie = null;
+            if (isset($this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)])) {
+                $CartePartie = $this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
+                $couts = $this->effets->coutsCarte($joueurConcerne,$CartePartie);
+                $energieVerteDisponible -= $couts['coutVert'];
+                $energieJauneDisponible -= $couts['coutJaune'];
+                $energieRougeDisponible -= $couts['coutRouge'];
+
+                if ($energieVerteDisponible<0) {
+                    $energieJauneDisponible += $energieVerteDisponible;
+                    $energieVerteDisponible = 0;
+                }
+                if ($energieJauneDisponible<0) {
+                    $energieRougeDisponible += $energieJauneDisponible;
+                    $energieJauneDisponible = 0;
+                }                
             }
         }
 

@@ -2769,14 +2769,25 @@ class Effets
             }
             $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
+                // -1 force => +1 intercept
+                case 564 : 
+                    if ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                    {
+                        $choix['choix_force-1_'.$Cartejeu->getId().'_intercept_+1'] = '-1 force => +1 intercept';
+                    }
+                    break;                        
                 // vert => +1 intercept
                 case 2 : 
                 case 30 : 
+                case 244 : 
+                case 400 : 
                     if (
                         ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
                         && ($energieVerteDisponible>1)
                         // une fois par tour
-                        && ($numeroEffet!=30 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
+                        && (($numeroEffet!=30 && $numeroEffet != 244) || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
+                        // une fois par teamwork
+                        && ($numeroEffet!=400 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()]) || count($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])<$this->infos['nombreTeamworkDefenseur']) 
                         ) {
                             $choix['choix_green_'.$Cartejeu->getId().'_intercept_+1'] = 'green => +1 intercept';
                     }
@@ -2790,22 +2801,55 @@ class Effets
                             $choix['choix_green_'.$Cartejeu->getId().'_intercept_+2'] = 'green => +2 intercept';
                     }
                     break;                        
-                // jaune => +1 intercept
-                case 415 : 
+                // 2 verts => +1 intercept
+                case 477 : 
+                    if (
+                        ($energieVerteDisponible>1)
+                        // une fois par tour
+                        && ($numeroEffet!=477 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
+                        ) {
+                            $choix['choix_greengreen_'.$Cartejeu->getId().'_intercept_+1'] = '2 green => +1 intercept';
+                    }
+                    break;                        
+                // -5 force + vert => +2 intercept
+                case 103 : 
                     if (
                         ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
                         && ($energieVerteDisponible>1)
                         // une fois par tour
-                        && (!isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
+                        && ($numeroEffet!=103 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
+                        ) {
+                            $choix['choix_greenforce-5_'.$Cartejeu->getId().'_intercept_+2'] = 'green, -5 force => +2 intercept';
+                    }
+                    break;                        
+                // jaune => +1 intercept
+                case 415 : 
+                case 402 : 
+                    if (
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        && ($energieJauneDisponible>1)
+                        // une fois par tour
+                        && ($numeroEffet != 415 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
+                        // une fois par teamwork
+                        && ($numeroEffet!=402 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()]) || count($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])<$this->infos['nombreTeamworkDefenseur']) 
                         ) {
                             $choix['choix_yellow_'.$Cartejeu->getId().'_intercept_+1'] = 'yellow => +1 intercept';
+                    }
+                    break;                        
+                // jaune => +3 intercept
+                case 666 : 
+                    if (
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        && ($energieJauneDisponible>1)
+                        ) {
+                            $choix['choix_yellow_'.$Cartejeu->getId().'_intercept_+3'] = 'yellow => +3 intercept';
                     }
                     break;                        
                 // 2 jaunes => +2 intercept
                 case 389 : 
                     if (
                         ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
-                        && ($energieVerteDisponible>1)
+                        && ($energieJauneDisponible>2)
                         // une fois par tour
                         && (!isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                         ) {

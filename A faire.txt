@@ -6,8 +6,6 @@ http://symfony.com/fr/doc/current/cookbook/security/remember_me.html
 dans le controleur d'édition de deck faire en sorte que les cartes proposé ne correspondent pas à d'autre chamber et supprimer quickstrike des résultats et sélecteurs
 faire un refresh sur les dernière partie pour lancer une partie directement quand on vient d'être choisi
 finaliser le mode debug (passage à l'autre joueur par lien)
-prendre en compte également les couts deja payer dans les effets non executés pour les energies disponibles
-faire une fonction qui indique selon le type de carte si elle peut être prise en compte pour la zone en cours
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
@@ -52,14 +50,7 @@ effets par choix simple du joueur
 => ajout intercept ou force
 ---intercept
 Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
-Effet 103;Green, -5 Force ==> +5 Intercept. Use only once.;;
-Effet 244;Green ==> In Gan Jin Treibe's zone, you strikes have +1 intercept. Use only once per turn.;;
-Effet 400;green ==> +1 Intercept. Use up to as many times as the number of allies you have.;;
-Effet 402;Yellow ==> +1 Intercept. Use up to as many times as the number of allies you have.;;
-Effet 564;-1 Force ==> +1 Intercept;;
-Effet 666;Yellow ==> +3 Intercept. When you counterattack with extensible criminal, uncharge an opponent's zone;;
 Effet 340;Your opponent's strikes have "Green==>+1 Intercept.";;
-Effet 477;Two Green ==> In jack the monkey's zone, your strikes have +1 Intercept. Use only once per turn.;;
 Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
 ---force
 Effet 66;-1 Intercept ==> +1 Force.;;
@@ -292,6 +283,7 @@ Effet 660;Bane only. You may turn your chamber card on its other side;;
 Effet 690;When you flip a card in Hugo Strange's zone, show the top card of your opponent's deck. You may pay one green to discard this card.;;
 
 Effets
+Effet 666;. When you counterattack with extensible criminal, uncharge an opponent's zone;;
 Effet 584;Your opponent may uncharge all of his zone. 
 Effet 641;Inspector Yin only. When you counterattack with let's work together from a zone with a teamwork, you may charge any zone.;;
 Effet 5; Before flipping your next card, draw two cards. Place one on top of your deck and the other in your discard pile.;;

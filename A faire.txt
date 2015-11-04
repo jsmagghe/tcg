@@ -5,8 +5,7 @@ pour accélerer le temps faire décompte des effets en jeu pour ne parcourir que
 http://symfony.com/fr/doc/current/cookbook/security/remember_me.html
 dans le controleur d'édition de deck faire en sorte que les cartes proposé ne correspondent pas à d'autre chamber et supprimer quickstrike des résultats et sélecteurs
 faire un refresh sur les dernière partie pour lancer une partie directement quand on vient d'être choisi
-finaliser le mode debug
-repasser sur tous les appels "deplacerCarte" pour ajouter le joueur à l'origine du déplacement
+finaliser le mode debug (passage à l'autre joueur par lien)
 prendre en compte également les couts deja payer dans les effets non executés pour les energies disponibles
 faire une fonction qui indique selon le type de carte si elle peut être prise en compte pour la zone en cours
 

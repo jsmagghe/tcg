@@ -272,11 +272,19 @@ class Partie
             return 0;
     }
 
-    public function energieDisponible($joueurConcerne)
+    public function energieDisponible($joueurConcerne,$retirerCoutCarteActive = true)
     {
         $energieVerteDisponible = $this->isEnergieDisponible($joueurConcerne,'VERTE');
         $energieJauneDisponible = $this->isEnergieDisponible($joueurConcerne,'JAUNE');
         $energieRougeDisponible = $$this->isEnergieDisponible($joueurConcerne,'ROUGE');
+
+        if ($retirerCoutCarteActive) {
+            if (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) {
+                $couts = $this->effets->coutsCarte($joueurConcerne,$this->CarteEnJeus[$joueurConcerne]['ACTIVE']);
+                var_
+                if ($Carte->getCout)
+            }
+        }
 
         $effetNonExecutes = $this->Partie->getJoueurEffetNonExecutes();
         if (isset($effetNonExecutes[$joueurConcerne])) {

@@ -53,31 +53,12 @@ Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Interce
 Effet 340;Your opponent's strikes have "Green==>+1 Intercept.";;
 Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
 ---force
-Effet 66;-1 Intercept ==> +1 Force.;;
-Effet 40;-2 Intercept ==> +2 Force. Use only once.;;
-Effet 118;Green ==> +1 Force. use only once.;;
-Effet 141;Yellow ==> +4 Force. Use only once.;;
-Effet 186;Red ==> +5 Force. Use only once.;;
-Effet 246;Green ==> In zhang tribe's zone, your strikes have +1 Force. Use only once per turn.;;
 Effet 286;-1 Intercept ==>  or +1 Force.;;
 Effet 289;Your opponent gains one point ==> +3 Force.;;
-Effet 291;Yellow ==> +1 Force.;;
-Effet 292;Green ==> +1 Force. 
-Effet 300;-8 Intercept ==> +8 Force.;;
 Effet 318;Eliminate one of your opponent's teamworks ==> +2 Force. Use only once.;;
 Effet 319;Eliminate one of your opponent's teamworks ==> +2 Force.;;
 Effet 363;Eliminate one of your allies ==> +1 Force.;;
-Effet 403;-3 Intercept ==> +3 Force.;;
-Effet 404;-2 Intercept ==> +2 Force.;;
-Effet 419;Yellow ==> +2 Force. Use only once.;;
-Effet 543;Two Green ==> +1 Force;;
-Effet 565;Red ==> +2 Force.;;
-Effet 566;green ==> +1 Force.;;
-Effet 621;Red ==> +1 Force.;;
-Effet 674;-1 Intercept ==> +1 Force, use only once per turn;;
-Effet 676;Yellow ==> +1 Force. use max twice per turn.;;
 Effet 301;-1 Intercept ==> Put the top card of your deck in your discard pile. If it is a teamwork, +1 Force;;
-Effet 475;Yellow ==> In cotton's parrot's zone, your strikes have +1 Force. Use only once per turn.;;
 Effet 494;When you flip ready the long nines, you may move it to your red zone. Ready the long nines has +3 Force while in your red zone.;;
 Effet 689;Uncharge this zone ==> If you counterattack from Chief roja's zone, your strike hase +2 Force.;;
 ---les deux ou l'un ou l'autre

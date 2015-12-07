@@ -193,7 +193,7 @@ class Partie
 
         foreach ($effetNonExecutes as $joueur => $effets) {
             foreach ($effets as $effet) {
-                if ($this->payerCout($joueur,array($effet['cout'])) {
+                if ($this->payerCout($joueur,array($effet['cout']))) {
                     $this->interactions->ajoutEffet($joueur,$effet['idCarte'],$effet['type'],$effet['effet']);
                 }
             }
@@ -276,7 +276,7 @@ class Partie
     {
         $energieVerteDisponible = $this->isEnergieDisponible($joueurConcerne,'VERTE');
         $energieJauneDisponible = $this->isEnergieDisponible($joueurConcerne,'JAUNE');
-        $energieRougeDisponible = $$this->isEnergieDisponible($joueurConcerne,'ROUGE');
+        $energieRougeDisponible = $this->isEnergieDisponible($joueurConcerne,'ROUGE');
 
 
         if ($retirerCoutCarteActive) {

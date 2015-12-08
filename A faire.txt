@@ -1,10 +1,10 @@
 ﻿A faire
 pictos pour choix
-faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
+faire hériter les différents services d'une même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
 pour accélerer le temps faire décompte des effets en jeu pour ne parcourir que les fonctions utiles
 http://symfony.com/fr/doc/current/cookbook/security/remember_me.html
-dans le controleur d'édition de deck faire en sorte que les cartes proposé ne correspondent pas à d'autre chamber et supprimer quickstrike des résultats et sélecteurs
-faire un refresh sur les dernière partie pour lancer une partie directement quand on vient d'être choisi
+dans le controleur d'édition de deck faire en sorte que les cartes proposées ne correspondent pas à d'autres chambers et supprimer quickstrike des résultats et sélecteurs
+faire un refresh sur les dernières parties pour lancer une partie directement quand on vient d'être choisi
 finaliser le mode debug (passage à l'autre joueur par lien)
 
 ==> protection carte

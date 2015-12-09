@@ -3004,6 +3004,19 @@ class Effets
                             $choix['choix_red_'.$Cartejeu->getId().'_force_+5'] = 'red => +5 force';
                     }
                     break;                        
+                // vert => +1 intercept ou +1 force
+                case 16 : 
+                    if (
+                        ($energieVerteDisponible>1)
+                        ) {
+                            $choix['choix_green_'.$Cartejeu->getId().'_intercept_+1'] = 'green => +1 intercept';
+                            $choix['choix_green_'.$Cartejeu->getId().'_force_+1'] = 'green => +1 force';
+                    }
+                    break;                        
+                // 1 point => +3 force
+                case 289 : 
+                    $choix['choix_point_'.$Cartejeu->getId().'_force_+3'] = '1 point => +3 force';
+                    break;                        
             }
         }
 

@@ -240,6 +240,11 @@ class Partie
                     $coutRouge = ($coutRouge != '') ? $coutRouge : 1;
                     $this->payerParEnergie($joueurConcerne, array('coutRouge' => $coutRouge));
                     break;
+                case (strpos($cout,'point')!==false) : 
+                    $point = str_replace('point', '', $point);
+                    $point = ($point != '') ? $point : 1;
+                    $this->pointPourAdversaire($joueurConcerne,true);
+                    break;
                 case (is_int($cout)===true) : 
                     $CartePartie = $this->em->getRepository('jeusQuickstrikeBundle:CartePartie')->find($cout);
                     $CartePartie->setEmplacement('DISCARD');
@@ -453,10 +458,12 @@ class Partie
         }
     }
 
-    public function pointPourAdversaire($joueurConcerne){
+    public function pointPourAdversaire($joueurConcerne, $parEffet = false){
         $this->Partie->addPointAdversaire(($joueurConcerne==1) ? 2 : 1);
-        $this->Partie->setJoueurZoneEnCours($joueurConcerne,'STRIKE_VERT');
-        $this->setEtapeJoueur($joueurConcerne,'choixAttaquant');
+        if (!$parEffet) {
+            $this->Partie->setJoueurZoneEnCours($joueurConcerne,'STRIKE_VERT');
+            $this->setEtapeJoueur($joueurConcerne,'choixAttaquant');            
+        }
     }
 
     public function setEtapeJoueur($joueurConcerne,$etape) {

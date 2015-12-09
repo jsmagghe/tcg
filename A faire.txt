@@ -54,7 +54,6 @@ Effet 340;Your opponent's strikes have "Green==>+1 Intercept.";;
 Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
 ---force
 Effet 286;-1 Intercept ==>  or +1 Force.;;
-Effet 289;Your opponent gains one point ==> +3 Force.;;
 Effet 318;Eliminate one of your opponent's teamworks ==> +2 Force. Use only once.;;
 Effet 319;Eliminate one of your opponent's teamworks ==> +2 Force.;;
 Effet 363;Eliminate one of your allies ==> +1 Force.;;
@@ -63,7 +62,6 @@ Effet 494;When you flip ready the long nines, you may move it to your red zone. 
 Effet 689;Uncharge this zone ==> If you counterattack from Chief roja's zone, your strike hase +2 Force.;;
 ---les deux ou l'un ou l'autre
 Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
-Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
 Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
 Effet 54;Two Yellow ==> +2 Intercept, +2 Force. Use only once.;;
 Effet 80;Yellow ==> +4 Intercept and +1 Force. Use only once.;;

@@ -25,6 +25,16 @@ class CarteController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $tableau = array();
         $formSelecteur = $this->createForm(new SelecteurType());
+        $Joueur = $this->get('security.context')->getToken()->getUser();
+        if (($Joueur !== null) && ($Joueur !=='anon.')) {
+            $formSelecteur->add('deckAleatoire', 'submit', array(
+                'attr' => array(
+                    'class' => 'btn btn-success aleatoire',
+                ),
+                'label' => 'Deck aléatoire',
+            ));
+        }
+
         $filtre = array();
         $Request = $this->getRequest();
         if ($Request->getMethod() == 'POST') {
@@ -47,6 +57,10 @@ class CarteController extends Controller {
         $tableau['form'] = $formSelecteur;
 
         $serviceCarte = $this->get('jeus_quickstrike_carte');
+        if ((($Joueur !== null) && ($Joueur !=='anon.')) && ($formSelecteur->get('deckAleatoire')->isClicked())) {
+            $serviceCarte->deckAleatoire($tableau, $Joueur);
+        }
+
         $tableau = $serviceCarte->rechercheCarte($tableau);
         $filtre = $tableau['filtre'];
         $formSelecteur = $tableau['form'];

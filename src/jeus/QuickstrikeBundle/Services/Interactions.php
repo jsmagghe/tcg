@@ -157,6 +157,7 @@ class Interactions
             'idCarte' => $idCarte,
             'typeEffet' => $typeEffet,
             'effet' => $effet,
+            'cout' => $cout,
             );
 
         $this->Partie->$setJoueurEffetNonExecutes($effets);

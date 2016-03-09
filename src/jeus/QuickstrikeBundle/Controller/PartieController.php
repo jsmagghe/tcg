@@ -202,12 +202,14 @@ class PartieController extends Controller {
                 $emplacementChargeAdversaires['discard'] = 'chargee';
 
             $energiedisponibles = array();
-            $energiedisponibles['energie_verte_disponible'] = $servicePartie->energiedisponible($servicePartie->numeroJoueur,'VERTE');
-            $energiedisponibles['energie_jaune_disponible'] = $servicePartie->energiedisponible($servicePartie->numeroJoueur,'JAUNE');
-            $energiedisponibles['energie_rouge_disponible'] = $servicePartie->energiedisponible($servicePartie->numeroJoueur,'ROUGE');
-            $energiedisponibles['energie_verte_disponible-adverse'] = $servicePartie->energiedisponible($servicePartie->numeroAdversaire,'VERTE');
-            $energiedisponibles['energie_jaune_disponible-adverse'] = $servicePartie->energiedisponible($servicePartie->numeroAdversaire,'JAUNE');
-            $energiedisponibles['energie_rouge_disponible-adverse'] = $servicePartie->energiedisponible($servicePartie->numeroAdversaire,'ROUGE');
+            $energies = $servicePartie->energieDisponible($servicePartie->numeroJoueur);
+            $energiedisponibles['energie_verte_disponible'] = $energies[0];
+            $energiedisponibles['energie_jaune_disponible'] = $energies[1];
+            $energiedisponibles['energie_rouge_disponible'] = $energies[2];
+            $energies = $servicePartie->energieDisponible($servicePartie->numeroAdversaire);
+            $energiedisponibles['energie_verte_disponible-adverse'] = $energies[0];
+            $energiedisponibles['energie_jaune_disponible-adverse'] = $energies[1];
+            $energiedisponibles['energie_rouge_disponible-adverse'] = $energies[2];
             $choixPossibles = $servicePartie->actionPossibles();
 
             return $this->render('::partie.html.twig', array(

@@ -188,7 +188,17 @@ class Partie
 
     public function payer($joueurConcerne,$chamber=false) {       
         $payable = false;
-        $Carte = null;
+        $Carte = null;       
+        $effetNonExecutes = $this->Partie->getJoueurEffetNonExecutes();
+
+        foreach ($effetNonExecutes as $joueur => $effets) {
+            foreach ($effets as $effet) {
+                if ($this->payerCout($joueur,array($effet['cout']))) {
+                    $this->interactions->ajoutEffet($joueur,$effet['idCarte'],$effet['type'],$effet['effet']);
+                }
+            }
+        }
+
         if ($chamber) {
             if (isset($this->CarteEnJeus[$joueurConcerne]['CHAMBER'])) {
                 $CarteActive = $this->CarteEnJeus[$joueurConcerne]['CHAMBER'];
@@ -230,6 +240,11 @@ class Partie
                     $coutRouge = ($coutRouge != '') ? $coutRouge : 1;
                     $this->payerParEnergie($joueurConcerne, array('coutRouge' => $coutRouge));
                     break;
+                case (strpos($cout,'point')!==false) : 
+                    $point = str_replace('point', '', $point);
+                    $point = ($point != '') ? $point : 1;
+                    $this->pointPourAdversaire($joueurConcerne,true);
+                    break;
                 case (is_int($cout)===true) : 
                     $CartePartie = $this->em->getRepository('jeusQuickstrikeBundle:CartePartie')->find($cout);
                     $CartePartie->setEmplacement('DISCARD');
@@ -252,6 +267,54 @@ class Partie
                 && ($Cartejeu->getCarte()->getNomCours()==$CarteActive->getCarte()->getNomCours()))
                 $this->effets->deplacerCarte($joueurConcerne,99,$zoneAControler,'DISCARD');
         }
+    }
+
+    public function isEnergieDisponible($joueurConcerne,$zone) {
+        $zone = strtoupper($zone);
+        if (isset($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]))
+            return count($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]);
+        else 
+            return 0;
+    }
+
+    public function energieDisponible($joueurConcerne,$retirerCoutCarteActive = true)
+    {
+        $energieVerteDisponible = $this->isEnergieDisponible($joueurConcerne,'VERTE');
+        $energieJauneDisponible = $this->isEnergieDisponible($joueurConcerne,'JAUNE');
+        $energieRougeDisponible = $this->isEnergieDisponible($joueurConcerne,'ROUGE');
+
+
+        if ($retirerCoutCarteActive) {
+            $CartePartie = null;
+            if (isset($this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)])) {
+                $CartePartie = $this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
+                $couts = $this->effets->coutsCarte($joueurConcerne,$CartePartie);
+                $energieVerteDisponible -= $couts['coutVert'];
+                $energieJauneDisponible -= $couts['coutJaune'];
+                $energieRougeDisponible -= $couts['coutRouge'];
+
+                if ($energieVerteDisponible<0) {
+                    $energieJauneDisponible += $energieVerteDisponible;
+                    $energieVerteDisponible = 0;
+                }
+                if ($energieJauneDisponible<0) {
+                    $energieRougeDisponible += $energieJauneDisponible;
+                    $energieJauneDisponible = 0;
+                }                
+            }
+        }
+
+        $effetNonExecutes = $this->Partie->getJoueurEffetNonExecutes();
+        if (isset($effetNonExecutes[$joueurConcerne])) {
+            $effets = $effetNonExecutes[$joueurConcerne];
+            foreach ($effets as $idCarte => $effet) {                
+                $energieVerteDisponible -= substr_count($effet['cout'], 'green');
+                $energieJauneDisponible -= substr_count($effet['cout'], 'yellow');
+                $energieRougeDisponible -= substr_count($effet['cout'], 'red');
+            }
+        }
+
+        return array($energieVerteDisponible,$energieJauneDisponible,$energieRougeDisponible);
     }
 
     public function jouer($joueurConcerne,$action) {
@@ -302,17 +365,20 @@ class Partie
             $this->Partie->setJoueurZoneEnCours($joueurConcerne, 'STRIKE_VERT');
             $Chamber = $this->CarteEnJeus[$joueurConcerne]['CHAMBER'];
             $numeroChamber = $Chamber->getCarte()->getNumero();
-            if (strpos($numeroChamber,'v') === false) {
-                $numeroChamber .= 'v';
-            } else {
-                $numeroChamber = str_replace('v', '', $numeroChamber);
+            $numeroEffet = $this->numeroEffet($numeroAttaquant,$Chamber->getCarte());
+            if ($numeroEffet != 357) {
+                if (strpos($numeroChamber,'v') === false) {
+                    $numeroChamber .= 'v';
+                } else {
+                    $numeroChamber = str_replace('v', '', $numeroChamber);
+                }
+                $Carte = $this->em->getRepository('jeusQuickstrikeBundle:Carte')->findOneByNumero($numeroChamber);
+                if ($Carte!=null) {
+                    $Chamber->setCarte($Carte);
+                    $this->em->persist($Chamber);
+                    $this->em->flush();
+                }                
             }
-            $Carte = $this->em->getRepository('jeusQuickstrikeBundle:Carte')->findOneByNumero($numeroChamber);
-            if ($Carte!=null) {
-                $Chamber->setCarte($Carte);
-                $this->em->persist($Chamber);
-                $this->em->flush();
-            }           
         }
     }
 
@@ -395,10 +461,12 @@ class Partie
         }
     }
 
-    public function pointPourAdversaire($joueurConcerne){
+    public function pointPourAdversaire($joueurConcerne, $parEffet = false){
         $this->Partie->addPointAdversaire(($joueurConcerne==1) ? 2 : 1);
-        $this->Partie->setJoueurZoneEnCours($joueurConcerne,'STRIKE_VERT');
-        $this->setEtapeJoueur($joueurConcerne,'choixAttaquant');
+        if (!$parEffet) {
+            $this->Partie->setJoueurZoneEnCours($joueurConcerne,'STRIKE_VERT');
+            $this->setEtapeJoueur($joueurConcerne,'choixAttaquant');            
+        }
     }
 
     public function setEtapeJoueur($joueurConcerne,$etape) {
@@ -436,9 +504,9 @@ class Partie
             $nombreTeamworkDefenseur += 1;
         } 
 
-        $energieVerteDisponibleDefenseur = $this->energiedisponible($this->numeroDefenseur,'VERTE');
-        $energieJauneDisponibleDefenseur = $this->energiedisponible($this->numeroDefenseur,'JAUNE');
-        $energieRougeDisponibleDefenseur = $this->energiedisponible($this->numeroDefenseur,'ROUGE');
+        $energieVerteDisponibleDefenseur = $this->isEnergieDisponible($this->numeroDefenseur,'VERTE');
+        $energieJauneDisponibleDefenseur = $this->isEnergieDisponible($this->numeroDefenseur,'JAUNE');
+        $energieRougeDisponibleDefenseur = $this->isEnergieDisponible($this->numeroDefenseur,'ROUGE');
         $CartePartie = null;
         if (isset($this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)])) {
             $CartePartie = $this->CarteEnJeus[$this->numeroDefenseur][$this->Partie->getJoueurZoneEnCours($this->numeroDefenseur)];
@@ -553,21 +621,14 @@ class Partie
         return $defense+$this->effets->bonusDefense($joueurConcerne,($joueurConcerne == 1) ? 2 : 1);
     }
 
-    public function energiedisponible($joueurConcerne,$zone) {
-        if (isset($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]))
-            return count($this->CarteEnJeus[$joueurConcerne]['ENERGIE_'.$zone]);
-        else 
-            return 0;
-    }
-
     public function payerParEnergie($joueurConcerne,$couts) {
         $coutVert = (isset($couts['coutVert'])) ? $couts['coutVert'] : 0;
         $coutJaune = (isset($couts['coutJaune'])) ? $couts['coutJaune'] : 0;
         $coutRouge = (isset($couts['coutRouge'])) ? $couts['coutRouge'] : 0;
 
-        $energieVerteDisponible = $this->energiedisponible($joueurConcerne,'VERTE');
-        $energieJauneDisponible = $this->energiedisponible($joueurConcerne,'JAUNE');
-        $energieRougeDisponible = $this->energiedisponible($joueurConcerne,'ROUGE');
+        $energieVerteDisponible = $this->isEnergieDisponible($joueurConcerne,'VERTE');
+        $energieJauneDisponible = $this->isEnergieDisponible($joueurConcerne,'JAUNE');
+        $energieRougeDisponible = $this->isEnergieDisponible($joueurConcerne,'ROUGE');
 
         if ($coutVert>0) {
             $this->effets->deplacerCarte($joueurConcerne,$coutVert,'ENERGIE_VERTE','DISCARD',true);
@@ -596,9 +657,9 @@ class Partie
         $coutJaune = $tab['coutJaune'];
         $coutRouge = $tab['coutRouge'];
 
-        $energieVerteDisponible = $this->energiedisponible($joueurConcerne,'VERTE');
-        $energieJauneDisponible = $this->energiedisponible($joueurConcerne,'JAUNE');
-        $energieRougeDisponible = $this->energiedisponible($joueurConcerne,'ROUGE');
+        $energieVerteDisponible = $this->isEnergieDisponible($joueurConcerne,'VERTE');
+        $energieJauneDisponible = $this->isEnergieDisponible($joueurConcerne,'JAUNE');
+        $energieRougeDisponible = $this->isEnergieDisponible($joueurConcerne,'ROUGE');
 
         if ($energieRougeDisponible>=$coutRouge) {
             $energieRougeDisponible-=$coutRouge;

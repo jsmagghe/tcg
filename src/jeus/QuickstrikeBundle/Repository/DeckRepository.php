@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class DeckRepository extends EntityRepository
 {
+
+    public function findDeckByJoueurAndName($Joueur, $nom) {
+        return $this->createQueryBuilder('d')
+                ->where('d.joueur = :Joueur')
+                ->andWhere('d.nom = :nom')
+                ->setParameters(array('Joueur' => $Joueur, 'nom' => $nom))
+                ->getQuery()
+                ->getResult();        
+    }
+    
+
 }

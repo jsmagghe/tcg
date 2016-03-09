@@ -14,7 +14,8 @@ class CarteRepository extends EntityRepository {
 
     public function findByCritere(array $criteres) {
         $QueryBuilder = $this->createQueryBuilder('c')
-                ->where('c.numero not like \'%v\'');
+                ->where('c.numero not like \'%v\'')
+                ->andWhere('c.nom != \'opening attack\'');
 
 
         if (isset($criteres['extension'])) {
@@ -90,6 +91,12 @@ class CarteRepository extends EntityRepository {
             $QueryBuilder->setFirstResults((int) $criteres['page'] * 9 + 1);*/
 
         $QueryBuilder->orderBy('c.typeCarte, c.extension', 'ASC');
+
+        if (isset($criteres['test'])) {
+            /*var_dump($QueryBuilder->getQuery()->getSQL());
+            var_dump($QueryBuilder->getQuery()->getResult());
+            exit;*/
+        }
 
         return $QueryBuilder->getQuery()
                         ->getResult();

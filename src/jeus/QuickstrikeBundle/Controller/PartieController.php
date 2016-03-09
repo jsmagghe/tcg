@@ -147,8 +147,8 @@ class PartieController extends Controller {
                                     );
 
             $parametres = array(
-                'chamberVisible1' => ($Partie->getJoueurZoneEnCours(1) == 'CHAMBER'),
-                'chamberVisible2' => ($Partie->getJoueurZoneEnCours(2) == 'CHAMBER'),
+                'chamberVisible1' => ($Partie->getJoueurZoneEnCours(1) == 'CHAMBER') || $servicePartie->chamberVisible(1,$Partie->getJoueurActif()),
+                'chamberVisible2' => ($Partie->getJoueurZoneEnCours(2) == 'CHAMBER') || $servicePartie->chamberVisible(2,$Partie->getJoueurActif()),
                 'deckVisible1' => $servicePartie->deckVisible(1),
                 'deckVisible2' => $servicePartie->deckVisible(2),
                     );

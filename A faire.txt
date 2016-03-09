@@ -25,9 +25,6 @@ Effet 675;When this card leaves play, eliminate an opponent energy.;;
 Effet 572;If you celebrate, turn your chamber on it's back side.;;
 Effet 645;When you celebrate, shuffle all the teamworks in your discard into your deck.;;
 
-==> affichage carte du deck
-Effet 379;When you counterattack, your opponent reveals his or her current signature move.;;
-
 ==> suppression energie
 Effet 699;Joker only. When you play an advantage in Harley quinn's zone, eliminate an opponent's energy of any color you paid. When this card leaves play, gain a red energy.;;
 Effet 70; Eliminate one of your opponent's furyoku.;;

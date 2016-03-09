@@ -2749,6 +2749,45 @@ class Effets
         return $deckVisible;
     }
 
+    public function chamberVisible($joueurConcerne, $joueurActif) {
+        $chamberVisible = false;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        /*$CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
+            switch ($numeroEffet) {
+                case 673 : 
+                    $chamberVisible = true;
+                    break;
+            }
+        }*/
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
+            switch ($numeroEffet) {
+                case 379 : 
+                    if ($joueurAdverse != $joueurActif) {
+                        $chamberVisible = true;                        
+                    }
+                    break;
+            }
+        }
+
+        return $chamberVisible;
+    }
+
     public function choixPossible($joueurConcerne) {
         $choix = array();
         $joueurAdverse = ($joueurConcerne==1)?2:1;

@@ -1,18 +1,17 @@
-A faire
+﻿A faire
 pictos pour choix
-faire hériter les différents services d'un même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
+faire hériter les différents services d'une même classe pour les différents jeux (mettre carteEnJeu dans tools et un système de tableau pour indiquer les emplacements actifs et autres à prendre en compte)
 pour accélerer le temps faire décompte des effets en jeu pour ne parcourir que les fonctions utiles
 http://symfony.com/fr/doc/current/cookbook/security/remember_me.html
-dans le controleur d'édition de deck faire en sorte que les cartes proposé ne correspondent pas à d'autre chamber et supprimer quickstrike des résultats et sélecteurs
-faire un refresh sur les dernière partie pour lancer une partie directement quand on vient d'être choisi
-finaliser le mode debug
+dans le controleur d'édition de deck faire en sorte que les cartes proposées ne correspondent pas à d'autres chambers et supprimer quickstrike des résultats et sélecteurs
+faire un refresh sur les dernières parties pour lancer une partie directement quand on vient d'être choisi
+finaliser le mode debug (passage à l'autre joueur par lien)
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
 Effet 729;Your teamwork cannot be targeted by your opponent's effects.;;
 
 ==> ajout energie verte
-Effet 679;When you flip a card in Batgirl's zone, add a green energy.;;
 Effet 609;When you counterattack with leave this to me!, for each advantage in your area, add a green energy.;;
 
 ==> ajout quand la carte sort du jeu
@@ -37,7 +36,6 @@ Effet 348;When you counterattack, you may eliminate an energy.;;
 
 ==> effet exotique
 Effet 305;Your opponent must discard advantages.;;
-Effet 357;When you clean up Storms Without End. Leave your Chamber Card turned to the back.;;
 Effet 492;When you counterattack, move hull breach to your red zone;;
 Effet 556; send all the advantages in your discard pile in your deck and shuffle it;;
 Effet 747; Turn your chamber in its other side;;
@@ -50,55 +48,19 @@ Effet 594;Reflip: eliminate one of your teamworks;;
 effets par choix simple du joueur
 => ajout intercept ou force
 ---intercept
-Effet 2;green ==> +1 Intercept.;;
-Effet 30;Green ==> +1 Intercept. Use only Once.;;
-Effet 3;Red ==> +2 intercept or +2 Force.;Do you want to add 2 Intercept or 2 Force?;Intercept/Force
-Effet 18;Red ==> +4 Intercept. Use only once.;;
 Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
-Effet 103;Green, -5 Force ==> +5 Intercept. Use only once.;;
-Effet 166;Red ==> +2 Intercept. Use only once.;;
-Effet 244;Green ==> In Gan Jin Treibe's zone, you strikes have +1 intercept. Use only once per turn.;;
-Effet 389;Two Yellow ==> +2 Intercept. Use only once.;;
-Effet 415;Yellow ==> +1 Intercept. Use only once.;;
-Effet 400;green ==> +1 Intercept. Use up to as many times as the number of allies you have.;;
-Effet 402;Yellow ==> +1 Intercept. Use up to as many times as the number of allies you have.;;
-Effet 553;green ==> +2 intercept;;
-Effet 564;-1 Force ==> +1 Intercept;;
-Effet 666;Yellow ==> +3 Intercept. When you counterattack with extensible criminal, uncharge an opponent's zone;;
 Effet 340;Your opponent's strikes have "Green==>+1 Intercept.";;
-Effet 477;Two Green ==> In jack the monkey's zone, your strikes have +1 Intercept. Use only once per turn.;;
 Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
 ---force
-Effet 66;-1 Intercept ==> +1 Force.;;
-Effet 40;-2 Intercept ==> +2 Force. Use only once.;;
-Effet 118;Green ==> +1 Force. use only once.;;
-Effet 141;Yellow ==> +4 Force. Use only once.;;
-Effet 186;Red ==> +5 Force. Use only once.;;
-Effet 246;Green ==> In zhang tribe's zone, your strikes have +1 Force. Use only once per turn.;;
 Effet 286;-1 Intercept ==>  or +1 Force.;;
-Effet 289;Your opponent gains one point ==> +3 Force.;;
-Effet 291;Yellow ==> +1 Force.;;
-Effet 292;Green ==> +1 Force. 
-Effet 300;-8 Intercept ==> +8 Force.;;
 Effet 318;Eliminate one of your opponent's teamworks ==> +2 Force. Use only once.;;
 Effet 319;Eliminate one of your opponent's teamworks ==> +2 Force.;;
 Effet 363;Eliminate one of your allies ==> +1 Force.;;
-Effet 403;-3 Intercept ==> +3 Force.;;
-Effet 404;-2 Intercept ==> +2 Force.;;
-Effet 419;Yellow ==> +2 Force. Use only once.;;
-Effet 543;Two Green ==> +1 Force;;
-Effet 565;Red ==> +2 Force.;;
-Effet 566;green ==> +1 Force.;;
-Effet 621;Red ==> +1 Force.;;
-Effet 674;-1 Intercept ==> +1 Force, use only once per turn;;
-Effet 676;Yellow ==> +1 Force. use max twice per turn.;;
 Effet 301;-1 Intercept ==> Put the top card of your deck in your discard pile. If it is a teamwork, +1 Force;;
-Effet 475;Yellow ==> In cotton's parrot's zone, your strikes have +1 Force. Use only once per turn.;;
 Effet 494;When you flip ready the long nines, you may move it to your red zone. Ready the long nines has +3 Force while in your red zone.;;
 Effet 689;Uncharge this zone ==> If you counterattack from Chief roja's zone, your strike hase +2 Force.;;
 ---les deux ou l'un ou l'autre
 Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
-Effet 16;You may play Nergal's Roar only if you are Duncan. Green ==> +1 Force or +1 Intercept.;;
 Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
 Effet 54;Two Yellow ==> +2 Intercept, +2 Force. Use only once.;;
 Effet 80;Yellow ==> +4 Intercept and +1 Force. Use only once.;;
@@ -299,6 +261,7 @@ Effet 660;Bane only. You may turn your chamber card on its other side;;
 Effet 690;When you flip a card in Hugo Strange's zone, show the top card of your opponent's deck. You may pay one green to discard this card.;;
 
 Effets
+Effet 666;. When you counterattack with extensible criminal, uncharge an opponent's zone;;
 Effet 584;Your opponent may uncharge all of his zone. 
 Effet 641;Inspector Yin only. When you counterattack with let's work together from a zone with a teamwork, you may charge any zone.;;
 Effet 5; Before flipping your next card, draw two cards. Place one on top of your deck and the other in your discard pile.;;

@@ -1637,6 +1637,24 @@ class Effets
                     $nombre += $this->deplacerCarte($joueurAdverse,99,'ADVANTAGE','DISCARD');
                     $this->deplacerCarte($joueurConcerne,$nombre,'DISCARD','ENERGIE_VERTE');
                     break;
+                case 609 :
+                    if ($action == 'counter attack') {
+                        $nombre = 0;
+                        if (isset($this->CarteEnJeus[$numeroDefenseur]['ADVANTAGE'])) {
+                            foreach ($this->CarteEnJeus[$numeroDefenseur]['ADVANTAGE'] as $CarteJeu) {
+                                if (
+                                    ($CarteJeu->getCarte()!=null)
+                                    && ($CarteJeu->getCarte()->getTypeCarte()!=null)
+                                    && ($CarteJeu->getCarte()->getTypeCarte()->getTag()=='ADVANTAGE')
+                                    ) {
+                                    $nombre++;
+                                }
+                            }
+                        }
+
+                        $this->deplacerCarte($joueurConcerne,$nombre,'DISCARD','ENERGIE_VERTE');
+                    }
+                    break;
                 // +1 jaune \ joueur
                 case 38 :
                 case 211 :

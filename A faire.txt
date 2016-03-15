@@ -11,9 +11,6 @@ finaliser le mode debug (passage à l'autre joueur par lien)
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
 Effet 729;Your teamwork cannot be targeted by your opponent's effects.;;
 
-==> ajout energie verte
-Effet 609;When you counterattack with leave this to me!, for each advantage in your area, add a green energy.;;
-
 ==> ajout quand la carte sort du jeu
 Effet 677;When this card leaves play, add a yellow energy.;;
 Effet 694;When this card leaves play, add an energy to each of your zones.;;

@@ -12,9 +12,6 @@ Effet 550;This teamwork cannot be targeted by your opponent's effects;;
 Effet 729;Your teamwork cannot be targeted by your opponent's effects.;;
 
 ==> ajout quand la carte sort du jeu
-Effet 677;When this card leaves play, add a yellow energy.;;
-Effet 694;When this card leaves play, add an energy to each of your zones.;;
-Effet 697; When this card leaves play, gain 2 yellow energy.;;
 Effet 682;When you counterattack from scarface's zone, . When this card leaves play, discard all advantages.;;
 Effet 675;When this card leaves play, eliminate an opponent energy.;;
 

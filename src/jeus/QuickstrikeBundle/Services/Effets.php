@@ -3117,6 +3117,37 @@ class Effets
         return $effetVoulu;
     }
 
+    public function effetSortie($joueurConcerne,$CartePartie) 
+    {
+        if ($CartePartie!=null) {
+            if ($CartePartie instanceof \jeus\QuickstrikeBundle\Entity\CartePartie) {
+                $Carte = $CartePartie->getCarte();
+            } else {
+                $Carte = $CartePartie;
+            }
+
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
+            switch ($numeroEffet) {
+                // +1 jaune
+                case 677 : 
+                    $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
+                    break;
+                // +2 jaune
+                case 697 : 
+                    $this->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_JAUNE');
+                    break;
+                // +1 de chaque couleur
+                case 694 : 
+                    $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
+                    $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
+                    $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');
+                    break;
+            }
+        }
+
+        return true;
+    }
+
     /*public function effetVoulu($joueurConcerne) {
         $effetVoulu = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;

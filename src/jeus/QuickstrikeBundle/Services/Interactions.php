@@ -14,13 +14,16 @@ class Interactions
 
     protected $em;
     protected $tools;
+    protected $effets;
     private $Partie;
     private $CarteEnJeus;
+    private $emplacementEnJeu = array('STRIKE_VERT', 'STRIKE_JAUNE', 'STRIKE_ROUGE', 'TEAMWORK_VERTE', 'TEAMWORK_JAUNE', 'TEAMWORK_ROUGE', 'ADVANTAGE');
 
-    public function __construct(ObjectManager $em,$tools)
+    public function __construct(ObjectManager $em, $tools, $effets)
     {
         $this->em = $em;
         $this->tools = $tools;
+        $this->effets = $effets;
     }
 
     public function chargerCarteEnJeu($CarteEnJeus) {
@@ -69,6 +72,11 @@ class Interactions
                     $CartePartie->setPosition($position);
                     $nombreDejaDeplace++;
                     $position++;            
+
+                    // si une carte est envoyé dans un emplacement en dehors du jeu depuis une zone en jeu on déclenche l'effet de sortie
+                    if (!in_array($emplacementFinal, $this->emplacementEnJeu) && in_array($emplacementOrigine, $this->emplacementEnJeu)) {
+                        $this->effets->effetSortie($joueurConcerne,$CartePartie);
+                    } 
                 }
 
                 $nombre--;

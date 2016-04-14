@@ -11,10 +11,6 @@ finaliser le mode debug (passage à l'autre joueur par lien)
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
 Effet 729;Your teamwork cannot be targeted by your opponent's effects.;;
 
-==> ajout quand la carte sort du jeu
-Effet 682;When you counterattack from scarface's zone, . When this card leaves play, discard all advantages.;;
-Effet 675;When this card leaves play, eliminate an opponent energy.;;
-
 ==> effets celebration
 Effet 572;If you celebrate, turn your chamber on it's back side.;;
 Effet 645;When you celebrate, shuffle all the teamworks in your discard into your deck.;;

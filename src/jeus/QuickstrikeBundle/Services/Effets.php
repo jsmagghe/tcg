@@ -3119,6 +3119,7 @@ class Effets
 
     public function effetSortie($joueurConcerne,$CartePartie) 
     {
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
         if ($CartePartie!=null) {
             if ($CartePartie instanceof \jeus\QuickstrikeBundle\Entity\CartePartie) {
                 $Carte = $CartePartie->getCarte();
@@ -3141,6 +3142,17 @@ class Effets
                     $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
                     $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
                     $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');
+                    break;
+                // -1 energie adverse
+                case 675 : 
+                    $nombre = 1;
+                    $nombre -= $this->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_ROUGE','DISCARD');
+                    $nombre -= $this->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_JAUNE','DISCARD');
+                    $nombre -= $this->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_VERTE','DISCARD');
+                    break;
+                // discard des avantages
+                case 682 : 
+                    $this->deplacerCarte($joueurAdverse,99,'ADVANTAGE','DISCARD');
                     break;
             }
         }

@@ -22,13 +22,8 @@ Effet 343;When you counterattack, eliminate one of your opponent's energy and yo
 Effet 348;When you counterattack, you may eliminate an energy.;;
 
 ==> effet exotique
-Effet 305;Your opponent must discard advantages.;;
 Effet 492;When you counterattack, move hull breach to your red zone;;
-Effet 556; send all the advantages in your discard pile in your deck and shuffle it;;
 Effet 747; Turn your chamber in its other side;;
-Effet 243;Whenever you flip a card in canyon guide's zone, your opponent turns the top card of his or her deck face up.;;
-Effet 578;Your opponent uncharges every of his zone with a teamwork.;;
-Effet 594;Reflip: eliminate one of your teamworks;;
 
 ----------------------------------------------------------------------------------------
 

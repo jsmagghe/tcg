@@ -1022,7 +1022,7 @@ class Effets
                         $reflip['reflip_green'] = 'Reflip: green';
                     } 
                     break;
-                // defausser la carte donnabt le reflip
+                // defausser la carte donnant le reflip
                 case 203 : 
                     if ($Cartejeu->getEmplacement() == 'ADVANTAGE') {
                         $reflip['reflip_' . $Cartejeu->getId()] = 'Reflip: Eliminate Pai sho mastery';
@@ -1035,6 +1035,21 @@ class Effets
                         || ($Cartejeu->getEmplacement() == 'TEAMWORK_ROUGE')
                         ) {
                         $reflip['reflip_' . $Cartejeu->getId()] = 'Reflip: Eliminate bootstrap bill';
+                    }
+                    break;
+                // defausser un teamwork
+                case 594 : 
+                    if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
+                        $CarteTeamwork = $this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'];
+                        $reflip['reflip_' . $CarteTeamwork->getId()] = 'Reflip: ' . $CarteTeamwork->getNom();
+                    }
+                    if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
+                        $CarteTeamwork = $this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'];
+                        $reflip['reflip_' . $CarteTeamwork->getId()] = 'Reflip: ' . $CarteTeamwork->getNom();
+                    }
+                    if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
+                        $CarteTeamwork = $this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'];
+                        $reflip['reflip_' . $CarteTeamwork->getId()] = 'Reflip: ' . $CarteTeamwork->getNom();
                     }
                     break;
 
@@ -1496,6 +1511,18 @@ class Effets
                         $this->dechargerUneZone($joueurAdverse,'STRIKE_ROUGE');
                     }
                     break;
+                // decharger toutes les zones avec teamwork
+                case 578 : 
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_VERTE'])) {
+                        $this->dechargerUneZone($joueurAdverse,'STRIKE_VERT');
+                    }
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_JAUNE'])) {
+                        $this->dechargerUneZone($joueurAdverse,'STRIKE_JAUNE');
+                    }
+                    if (isset($this->CarteEnJeus[$numeroDefenseur]['TEAMWORK_ROUGE'])) {
+                        $this->dechargerUneZone($joueurAdverse,'STRIKE_ROUGE');
+                    }
+                    break;
 
                 // monte d'1 zone
                 case 105 :
@@ -1851,10 +1878,28 @@ class Effets
                     $this->deplacerCarte($joueurAdverse,1,'ENERGIE_ROUGE','DISCARD');
                     break;
                 // -1 vert -1 jaune -1 rouge \ adversaire
+                // deplacement des avantages dans le deck 
                 case 556 : 
-                    $this->deplacerCarte($joueurConcerne,1,'ENERGIE_VERTE','DISCARD');
-                    $this->deplacerCarte($joueurConcerne,1,'ENERGIE_JAUNE','DISCARD');                        
-                    $this->deplacerCarte($joueurConcerne,1,'ENERGIE_ROUGE','DISCARD');                        
+                    if ($action == 'counter attack')  {
+                        $this->deplacerCarte($joueurConcerne,1,'ENERGIE_VERTE','DISCARD');
+                        $this->deplacerCarte($joueurConcerne,1,'ENERGIE_JAUNE','DISCARD');
+                        $this->deplacerCarte($joueurConcerne,1,'ENERGIE_ROUGE','DISCARD');
+
+                        $nombre = 0;
+                        foreach ($this->CarteEnJeus[$numeroDefenseur]['DISCARD'] as $CarteJeu) {
+                            if (
+                                ($CarteJeu->getCarte()!=null)
+                                && ($CarteJeu->getCarte()->getTypeCarte()!=null)
+                                && ($CarteJeu->getCarte()->getTypeCarte()->getTag()=='ADVANTAGE')
+                                ) {
+                                $nombre++;
+                                $this->interactions->deplacerCarteVisee($joueurConcerne, $CarteJeu, 'DECK');
+                            }
+                        }
+                        if ($nombre > 0) {
+                            $this->interactions->melangerEmplacement($joueurConcerne,'DECK');                            
+                        }                        
+                    }
                     break;
                 // -1 energie \ adversaire pour chaque zone avec teamwork
                 case 331 :
@@ -1922,6 +1967,14 @@ class Effets
                     $this->deplacerCarte($joueurConcerne,1,'DISCARD',$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'));
                     $this->deplacerCarte($joueurAdverse,1,$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'ENERGIE'),'DISCARD');
                     break;
+
+                // discard tous les avantages
+                case 305 :
+                    if ($action == 'counter attack')  {
+                        $this->deplacerCarte($joueurAdverse,99,'ADVANTAGE','DISCARD');
+                    }
+                    break;
+
                 // +1 energie zone en cours \ joueur
                 case 590 :
                 case 608 :
@@ -2741,7 +2794,7 @@ class Effets
                     $deckVisible = false;
                     break;
                 case 720 : 
-                    if ($Cartejeu->getEmplacement()=='ADVANTAGE') {
+                    if ($Cartejeu->getEmplacement() == 'ADVANTAGE') {
                         $deckVisible = false;                        
                     }
                     break;
@@ -2760,6 +2813,14 @@ class Effets
                 case 465 : 
                 case 673 : 
                     $deckVisible = false;
+                    break;
+                case 243 :
+                    if (
+                        (($Cartejeu->getEmplacement() == $this->tools->zoneCorrespondante($this->infos['ZoneAttaquant'],'TEAMWORK')) && ($joueurConcerne == $this->infos['numeroAttaquant']))
+                        || (($Cartejeu->getEmplacement() == $this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')) && ($joueurConcerne == $this->infos['numeroDefenseur']))
+                    ) {
+                        $deckVisible = false;
+                    }
                     break;
             }
         }

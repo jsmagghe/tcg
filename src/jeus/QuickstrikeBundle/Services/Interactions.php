@@ -34,6 +34,50 @@ class Interactions
         $this->Partie = $Partie;
     }
 
+    protected function positionSuivante($joueurConcerne, $emplacementVise, $derniere = true)
+    {
+        $order = ($derniere) ? 'DESC' : 'ASC';
+        $CarteFinals = $this->em
+            ->getRepository('jeusQuickstrikeBundle:CartePartie')
+            ->findBy(array(
+                'Partie' => $this->Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementFinal
+                ),
+                array('position'=>$order),
+                1  // limit
+            );
+        $position = 0;
+        foreach($CarteFinals as $position=>$CartePartie) {
+            if ($CartePartie->getPosition()>=$position)
+                $position = $CartePartie->getPosition();
+        }
+        $position++;
+
+        return $position;
+    }
+
+    public function deplacerCarteVisee($joueurConcerne, $CartePartie, $emplacementVise, &$position = null) {
+        if ($position == null) {
+            $position = $this->positionSuivante($joueurConcerne, $emplacementVise);
+        }
+
+        $deplacee = false;
+        // l'opening ne peut êrte que dans la zone verte ou en attente dans la zone opening
+        if (($emplacementVise!='STRIKE_VERT') && ($CartePartie->getCarte()->getNom()=='opening attack')) {
+            $CartePartie->setEmplacement('OPENING');
+        } else {
+            $CartePartie->setEmplacement($emplacementVise);
+            $CartePartie->setPosition($position);
+            $deplacee = true
+            $position++;            
+
+            // si une carte est envoyé dans un emplacement en dehors du jeu depuis une zone en jeu on déclenche l'effet de sortie
+            if (!in_array($emplacementVise, $this->emplacementEnJeu) && in_array($emplacementOrigine, $this->emplacementEnJeu)) {
+                $this->effets->effetSortie($joueurConcerne,$CartePartie);
+            } 
+        }
+
+    }
+
     public function deplacerCarte($joueurConcerne,$nombre,$emplacementOrigine,$emplacementFinal='DISCARD',$melanderDestination=false,$nombreDejaDeplace=0) {
         if ($nombre >0) {
             $CarteParties = $this->em
@@ -43,40 +87,15 @@ class Interactions
                 )
                 ,array('position'=>'ASC')
             );
-            $order = 'DESC';
-            $CarteFinals = $this->em
-            ->getRepository('jeusQuickstrikeBundle:CartePartie')
-            ->findBy(array(
-                'Partie' => $this->Partie, 'numeroJoueur' => $joueurConcerne, 'emplacement' => $emplacementFinal
-                ),
-                array('position'=>$order),
-                1  // limit
-            );
 
-            $position = 0;
-            foreach($CarteFinals as $position=>$CartePartie) {
-                if ($CartePartie->getPosition()>=$position)
-                    $position = $CartePartie->getPosition();
-            }
-            $position++;
+            $position = $this->positionSuivante($joueurConcerne, $emplacementFinal);
 
             foreach($CarteParties as $CartePartie) {
                 if ($nombre<=0) 
                     break;
 
-                // l'opening ne peut êrte que dans la zone verte ou en attente dans la zone opening
-                if (($emplacementFinal!='STRIKE_VERT') && ($CartePartie->getCarte()->getNom()=='opening attack')) {
-                    $CartePartie->setEmplacement('OPENING');
-                } else {
-                    $CartePartie->setEmplacement($emplacementFinal);
-                    $CartePartie->setPosition($position);
+                if ($this->deplacerCarteVisee($joueurConcerne, $CartePartie, $position)) {
                     $nombreDejaDeplace++;
-                    $position++;            
-
-                    // si une carte est envoyé dans un emplacement en dehors du jeu depuis une zone en jeu on déclenche l'effet de sortie
-                    if (!in_array($emplacementFinal, $this->emplacementEnJeu) && in_array($emplacementOrigine, $this->emplacementEnJeu)) {
-                        $this->effets->effetSortie($joueurConcerne,$CartePartie);
-                    } 
                 }
 
                 $nombre--;

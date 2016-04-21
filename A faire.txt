@@ -31,7 +31,6 @@ effets par choix simple du joueur
 => ajout intercept ou force
 ---intercept
 Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
-Effet 340;Your opponent's strikes have "Green==>+1 Intercept.";;
 Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
 ---force
 Effet 286;-1 Intercept ==>  or +1 Force.;;

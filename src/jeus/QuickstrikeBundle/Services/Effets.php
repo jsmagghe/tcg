@@ -2879,6 +2879,7 @@ class Effets
         if (isset($effetNonExecutes[$joueurConcerne])) {
             $effets = $effetNonExecutes[$joueurConcerne];
         }
+
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
         foreach ((array)$CarteEnJeus as $Cartejeu) {
@@ -2890,7 +2891,7 @@ class Effets
             switch ($numeroEffet) {
                 // -1 force => +1 intercept
                 case 564 : 
-                    if ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                    if ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                     {
                         $choix['choix_force-1_'.$Cartejeu->getId().'_intercept_+1'] = '-1 force => +1 intercept';
                     }
@@ -2901,7 +2902,7 @@ class Effets
                 case 244 : 
                 case 400 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         && ($energieVerteDisponible>1)
                         // une fois par tour
                         && (($numeroEffet!=30 && $numeroEffet != 244) || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
@@ -2914,7 +2915,7 @@ class Effets
                 // vert => +2 intercept
                 case 553 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         && ($energieVerteDisponible>1)
                         ) {
                             $choix['choix_green_'.$Cartejeu->getId().'_intercept_+2'] = 'green => +2 intercept';
@@ -2923,7 +2924,7 @@ class Effets
                 // 2 verts => +1 intercept
                 case 477 : 
                     if (
-                        ($energieVerteDisponible>1)
+                        ($energieVerteDisponible>1 && $this->infos['typeCarteActive'] == 'STRIKE')
                         // une fois par tour
                         && ($numeroEffet!=477 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                         ) {
@@ -2933,7 +2934,7 @@ class Effets
                 // -5 force + vert => +2 intercept
                 case 103 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         && ($energieVerteDisponible>1)
                         // une fois par tour
                         && ($numeroEffet!=103 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
@@ -2945,7 +2946,7 @@ class Effets
                 case 415 : 
                 case 402 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         && ($energieJauneDisponible>1)
                         // une fois par tour
                         && ($numeroEffet != 415 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
@@ -2958,7 +2959,7 @@ class Effets
                 // jaune => +3 intercept
                 case 666 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         && ($energieJauneDisponible>1)
                         ) {
                             $choix['choix_yellow_'.$Cartejeu->getId().'_intercept_+3'] = 'yellow => +3 intercept';
@@ -2967,7 +2968,7 @@ class Effets
                 // 2 jaunes => +2 intercept
                 case 389 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         && ($energieJauneDisponible>2)
                         // une fois par tour
                         && (!isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
@@ -2979,7 +2980,7 @@ class Effets
                 case 3 : 
                 case 166 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         && ($energieRougeDisponible>1)
                         // une fois par tour
                         && ($numeroEffet!=166 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
@@ -2993,7 +2994,7 @@ class Effets
                 // rouge => +4 intercept
                 case 18 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         && ($energieRougeDisponible>1)
                         // une fois par tour
                         && (!isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
@@ -3005,7 +3006,7 @@ class Effets
                 case 66 : 
                 case 674 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         // une fois par tour
                         && ($numeroEffet!=674 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                     ) {
@@ -3016,7 +3017,7 @@ class Effets
                 case 40 : 
                 case 404 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         // une fois par tour
                         && ($numeroEffet!=40 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                     ) {
@@ -3026,7 +3027,7 @@ class Effets
                 //  -3 intercept => +3 force
                 case 403 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         // une fois par tour
                         && ($numeroEffet!=40 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                     ) {
@@ -3036,7 +3037,7 @@ class Effets
                 //  -8 intercept => +8 force
                 case 80 : 
                     if (
-                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'])
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                     ) {
                         $choix['choix_intercept-8_'.$Cartejeu->getId().'_force_+8'] = '-8 intercept => +8 force';
                     }
@@ -3047,7 +3048,7 @@ class Effets
                 case 292 : 
                 case 566 : 
                     if (
-                        ($energieVerteDisponible>1)
+                        ($energieVerteDisponible>1 && $this->infos['typeCarteActive'] == 'STRIKE')
                         // une fois par tour
                         && (($numeroEffet!=118 && $numeroEffet!=246) || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                         ) {
@@ -3057,7 +3058,7 @@ class Effets
                 // 2 vert => +1 force
                 case 543 : 
                     if (
-                        ($energieVerteDisponible>2)
+                        ($energieVerteDisponible>2 && $this->infos['typeCarteActive'] == 'STRIKE')
                         ) {
                             $choix['choix_greengreen_'.$Cartejeu->getId().'_force_+1'] = '2 green => +1 force';
                     }
@@ -3067,7 +3068,7 @@ class Effets
                 case 475 : 
                 case 676 : 
                     if (
-                        ($energieJauneDisponible>1)
+                        ($energieJauneDisponible>1 && $this->infos['typeCarteActive'] == 'STRIKE')
                         // une fois par tour
                         && (($numeroEffet!=475 ) || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                         // deux fois par tour
@@ -3079,7 +3080,7 @@ class Effets
                 // yellow => +2 force
                 case 419 : 
                     if (
-                        ($energieJauneDisponible>1)
+                        ($energieJauneDisponible>1 && $this->infos['typeCarteActive'] == 'STRIKE')
                         // une fois par tour
                         && (($numeroEffet!=419 ) || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                         ) {
@@ -3089,7 +3090,7 @@ class Effets
                 // yellow => +4 force
                 case 141 : 
                     if (
-                        ($energieJauneDisponible>1)
+                        ($energieJauneDisponible>1 && $this->infos['typeCarteActive'] == 'STRIKE')
                         // une fois par tour
                         && (($numeroEffet!=141 ) || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                         ) {
@@ -3099,7 +3100,7 @@ class Effets
                 // red => +1 force
                 case 621 : 
                     if (
-                        ($energieRougeDisponible>1)
+                        ($energieRougeDisponible>1 && $this->infos['typeCarteActive'] == 'STRIKE')
                         ) {
                             $choix['choix_red_'.$Cartejeu->getId().'_force_+1'] = 'red => +1 force';
                     }
@@ -3107,7 +3108,7 @@ class Effets
                 // red => +2 force
                 case 565 : 
                     if (
-                        ($energieRougeDisponible>1)
+                        ($energieRougeDisponible>1 && $this->infos['typeCarteActive'] == 'STRIKE')
                         ) {
                             $choix['choix_red_'.$Cartejeu->getId().'_force_+2'] = 'red => +2 force';
                     }
@@ -3115,7 +3116,7 @@ class Effets
                 // red => +5 force
                 case 186 : 
                     if (
-                        ($energieRougeDisponible>1)
+                        ($energieRougeDisponible>1 && $this->infos['typeCarteActive'] == 'STRIKE')
                         // une fois par tour
                         && (($numeroEffet!=186 ) || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                         ) {
@@ -3125,7 +3126,7 @@ class Effets
                 // vert => +1 intercept ou +1 force
                 case 16 : 
                     if (
-                        ($energieVerteDisponible>1)
+                        ($energieVerteDisponible>1 && $this->infos['typeCarteActive'] == 'STRIKE')
                         ) {
                             $choix['choix_green_'.$Cartejeu->getId().'_intercept_+1'] = 'green => +1 intercept';
                             $choix['choix_green_'.$Cartejeu->getId().'_force_+1'] = 'green => +1 force';
@@ -3133,10 +3134,31 @@ class Effets
                     break;                        
                 // 1 point => +3 force
                 case 289 : 
-                    $choix['choix_point_'.$Cartejeu->getId().'_force_+3'] = '1 point => +3 force';
+                    if ($this->infos['typeCarteActive'] == 'STRIKE') {
+                        $choix['choix_point_'.$Cartejeu->getId().'_force_+3'] = '1 point => +3 force';                        
+                    }
                     break;                        
             }
         }
+
+        // effet des cartes de l'adversaire
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($joueurAdverse,$Carte);
+            switch ($numeroEffet) {
+                // vert => +1 intercept
+                case 340 : 
+                    if ($energieVerteDisponible>1 && $this->infos['typeCarteActive'] == 'STRIKE') {
+                        $choix['choix_green_'.$Cartejeu->getId().'_intercept_+1'] = 'green => +1 intercept';
+                    }
+                    break;                        
+            }
+        }
+
 
         return $choix;
     }

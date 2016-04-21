@@ -2921,6 +2921,26 @@ class Effets
                             $choix['choix_green_'.$Cartejeu->getId().'_intercept_+2'] = 'green => +2 intercept';
                     }
                     break;                        
+                // vert => +2 intercept -2 force
+                case 25 : 
+                    if (
+                        ($energieVerteDisponible>1)
+                        // une fois par tour
+                        && (!isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
+                        && ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
+                        ) {
+                            $choix['choix_green_'.$Cartejeu->getId().'_intercept_+2_force_-2'] = 'green => +2 intercept -2 force';
+                    }
+                    break;                        
+                // vert => -2 intercept +2 force
+                case 90 : 
+                    if (
+                        ($energieVerteDisponible>1)
+                        && ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
+                        ) {
+                            $choix['choix_green_'.$Cartejeu->getId().'_intercept_-2_force_+2'] = 'green => -2 intercept +2 force';
+                    }
+                    break;                        
                 // 2 verts => +1 intercept
                 case 477 : 
                     if (

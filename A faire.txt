@@ -43,8 +43,6 @@ Effet 689;Uncharge this zone ==> If you counterattack from Chief roja's zone, yo
 ---les deux ou l'un ou l'autre
 Effet 11;When you put this in your advantage area, choose one: Your strikes have +1 Intercept and -1 Force, or your strikes have -1 Intercept and +1 Force.;;
 Effet 25;Green ==> Your strike in Venster's zone has +2 Intercept and -2 Force. Use only once.;;
-Effet 54;Two Yellow ==> +2 Intercept, +2 Force. Use only once.;;
-Effet 80;Yellow ==> +4 Intercept and +1 Force. Use only once.;;
 Effet 90;Green ==> Your strike in Venster's zone has -2 Intercept and +2 Force.;;
 Effet 94;Flip your Shaman from the back to the front ==> +3 Intercept and +3 Force.;;
 Effet 120;Uncharge this zone ==> +4 Intercept and +2 Force.;;

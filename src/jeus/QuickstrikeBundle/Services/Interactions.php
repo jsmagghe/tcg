@@ -179,13 +179,23 @@ class Interactions
         $typeEffet = $tab[3];
         $effet = $tab[4];
 
-
         $effets[$joueurConcerne][$idCarte][] = array(
             'idCarte' => $idCarte,
             'typeEffet' => $typeEffet,
             'effet' => $effet,
             'cout' => $cout,
             );
+
+        $numero = 5;
+        while (isset($tab[$numero]) && isset($tab[$numero+1])) {
+            $effets[$joueurConcerne][$idCarte][] = array(
+                'idCarte' => $idCarte,
+                'typeEffet' => $tab[$numero],
+                'effet' => $tab[$numero+1],
+                'cout' => 'free',
+                );
+            $numero += 2;
+        }
 
         $this->Partie->$setJoueurEffetNonExecutes($effets);
         $this->em->persist($this->Partie);

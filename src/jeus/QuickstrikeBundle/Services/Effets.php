@@ -2965,6 +2965,16 @@ class Effets
                             $choix['choix_yellow_'.$Cartejeu->getId().'_intercept_+3'] = 'yellow => +3 intercept';
                     }
                     break;                        
+                // 1 jaune => +4 intercept +1 force
+                case 80 : 
+                    if (
+                        ($energieJauneDisponible>1)
+                        // une fois par tour
+                        && (!isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
+                        ) {
+                            $choix['choix_yellow_'.$Cartejeu->getId().'_intercept_+4_force_+1'] = 'yellow => +4 intercept +1 force';
+                    }
+                    break;                        
                 // 2 jaunes => +2 intercept
                 case 389 : 
                     if (
@@ -2973,7 +2983,17 @@ class Effets
                         // une fois par tour
                         && (!isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                         ) {
-                            $choix['choix_yellowyellow_'.$Cartejeu->getId().'_intercept_+1'] = '2 yellow => +2 intercept';
+                            $choix['choix_yellowyellow_'.$Cartejeu->getId().'_intercept_+2'] = '2 yellow => +2 intercept';
+                    }
+                    break;                        
+                // 2 jaunes => +2 intercept +2 force
+                case 54 : 
+                    if (
+                        ($energieJauneDisponible>2)
+                        // une fois par tour
+                        && (!isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
+                        ) {
+                            $choix['choix_yellowyellow_'.$Cartejeu->getId().'_intercept_+2_force_+2'] = '2 yellow => +2 intercept +2 force';
                     }
                     break;                        
                 // rouge => +2 intercept

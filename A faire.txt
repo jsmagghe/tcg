@@ -46,7 +46,6 @@ Effet 94;Flip your Shaman from the back to the front ==> +3 Intercept and +3 For
 Effet 120;Uncharge this zone ==> +4 Intercept and +2 Force.;;
 Effet 128;You may play or pitch Baby Steps only if you are Matti. Pitch ==> Put this in your advantage area. Your strikes have +1 Force and +1 Intercept.;;
 Effet 142;Eliminates one of your allies ==> +1 Intercept. Use only once.;;
-Effet 146;Red ==> Choose one: Jagged Ground gets +2 Intercept; or Jagged Ground gets +2 Force.;;
 Effet 184;Two red ==> +3 Intercept and +3 Force. Use only once.;;
 Effet 189;Red, Green ==> +2 Intercept and +2 Force. Use only once.;;
 Effet 205;As you play sculpted flame, choose one: Your strikes have +1 Intercept and -1 Force; or your strikes have -1 Intercept and +1 Force.;;

@@ -6,6 +6,7 @@ http://symfony.com/fr/doc/current/cookbook/security/remember_me.html
 dans le controleur d'édition de deck faire en sorte que les cartes proposées ne correspondent pas à d'autres chambers et supprimer quickstrike des résultats et sélecteurs
 faire un refresh sur les dernières parties pour lancer une partie directement quand on vient d'être choisi
 finaliser le mode debug (passage à l'autre joueur par lien)
+Voir si un envoi de json plutôt que de la vue est plus performant
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
@@ -46,8 +47,6 @@ Effet 94;Flip your Shaman from the back to the front ==> +3 Intercept and +3 For
 Effet 120;Uncharge this zone ==> +4 Intercept and +2 Force.;;
 Effet 128;You may play or pitch Baby Steps only if you are Matti. Pitch ==> Put this in your advantage area. Your strikes have +1 Force and +1 Intercept.;;
 Effet 142;Eliminates one of your allies ==> +1 Intercept. Use only once.;;
-Effet 184;Two red ==> +3 Intercept and +3 Force. Use only once.;;
-Effet 189;Red, Green ==> +2 Intercept and +2 Force. Use only once.;;
 Effet 205;As you play sculpted flame, choose one: Your strikes have +1 Intercept and -1 Force; or your strikes have -1 Intercept and +1 Force.;;
 Effet 269;Exclusive - Katara. Uncharge Sokka's zone ==> If you have a strike in sokka's zone, choose one: That strike gets +1 Intercept; or that strikes gets +1 Force. Use only once per turn.;;
 Effet 275;Exclusive - Afiko. Turn your Chamber Card from the back to the front ==> +3 Intercept and +3 Force.;;

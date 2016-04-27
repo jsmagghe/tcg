@@ -52,10 +52,7 @@ Effet 269;Exclusive - Katara. Uncharge Sokka's zone ==> If you have a strike in 
 Effet 275;Exclusive - Afiko. Turn your Chamber Card from the back to the front ==> +3 Intercept and +3 Force.;;
 Effet 303;Put a teamwork you control on top of its owner's deck ==> +1 Force, +1 Intercept.;;
 Effet 371;Eliminate one of your allies ==> +1 Intercept and +1 Force. use only once.;;
-Effet 413;Red ==> +2 Intercept or +2 Force. Use only once.;;
-Effet 411;green ==> -3 Intercept and +3 Force. Use only once.;;
 Effet 508;Eliminate one of your allies ==> +1 Intercept and +1 Force.;;
-Effet 686;Green ==> -1 Force and +1 Intercept.;;
 Effet 680;Yellow ==> your strike in this zone have +1 Intercept and +1 Force. Use only once per turn.;;
 Effet 459;Green ==> In rachel darling's zone, your strike have +1 Intercept abd -1 Force. Use only oncer per turn.;;
 => chargement de zone

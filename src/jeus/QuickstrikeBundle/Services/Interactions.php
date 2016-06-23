@@ -149,8 +149,16 @@ class Interactions
         $this->em->flush();
     }
 
-    public function initialiserEffetNonExecutes($joueurConcerne) {
-        $this->Partie->$setJoueurEffetNonExecutes(array());
+    public function initialiserEffetNonExecutes($joueurConcerne = null) {
+        if ($joueurConcerne !== null) {
+            $effets = $this->Partie->$getJoueurEffetNonExecutes();
+            if (isset($effets[$joueurConcerne])) {
+                $effets[$joueurConcerne] = array();                
+            }
+        } else {
+            $effets = null;
+        }
+        $this->Partie->$setJoueurEffetNonExecutes($effets);
         $this->em->persist($this->Partie);
         $this->em->flush();
     }
@@ -201,6 +209,8 @@ class Interactions
         $this->em->persist($this->Partie);
         $this->em->flush();
     }
+
+    
 
 
 

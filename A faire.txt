@@ -34,7 +34,6 @@ effets par choix simple du joueur
 Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
 Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
 ---force
-Effet 286;-1 Intercept ==>  or +1 Force.;;
 Effet 318;Eliminate one of your opponent's teamworks ==> +2 Force. Use only once.;;
 Effet 319;Eliminate one of your opponent's teamworks ==> +2 Force.;;
 Effet 363;Eliminate one of your allies ==> +1 Force.;;
@@ -110,7 +109,6 @@ Effet 183;-2 Intercept ==> When you counterattack from a charged zone, add a yel
 Effet 242;When you counterattack from cabbage merchant's zone, you may eliminate cabbage merchant. If you do, add a green energy.;;
 Effet 248;Move chi absorption down one zone ==> add a yellow energy. (use only while defending in your green or yellow zone);;
 Effet 249;Move dust funnels down one zone ==> add two green energy. (use only while defending in your green or yellow zone.);;
-Effet 286;-1 Intercept ==> Add a red furyoku, 
 Effet 397;-4 Intercept ==> When you counterattack, add a yellow energy.;;
 Effet 460;In weatherby swann's zone, your strikes have -1 Intercept. Green ==> when your counterattack from weartherby swann's zone, add a yellow energy.;;
 Effet 499;exclusive - davy jones.  - choose one : charge your red zone, or add a red energy;;

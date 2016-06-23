@@ -1396,6 +1396,35 @@ class Effets
         return $deploy;
     }
 
+    private function appliquerEffetNonexecute($joueurConcerne){
+        $effets = $this->Partie->getJoueurEffetNonExecutes();
+        foreach ($effets[$joueurConcerne] as $idCarte => $effets) {
+            foreach ($effets as $effet) {
+                // cout traité dans Partie.php payer
+                switch ($effet['typeEffet']) {
+                    case 'force':
+                    case 'intercept':
+                        $this->interactions->ajoutEffet($joueurConcerne,$idCarte,$effet['typeEffet'],$effet['effet']);
+                        break;
+                    case 'green':
+                        $this->deplacerCarte($joueurAdverse,$effet['effet'],'DISCARD','ENERGIE_VERTE');
+                        break;
+                    case 'yellow':
+                        $this->deplacerCarte($joueurAdverse,$effet['effet'],'DISCARD','ENERGIE_JAUNE');
+                        break;
+                    case 'red':
+                        $this->deplacerCarte($joueurAdverse,$effet['effet'],'DISCARD','ENERGIE_ROUGE');
+                        break;
+                     
+                    default:
+                        # code...
+                        break;
+                 }
+            }
+        }
+        $this->Partie->initialiserEffetNonExecutes($joueurConcerne);
+    }
+
     public function effetJouer($joueurConcerne,$action) {
         $joueurAdverse = ($joueurConcerne==1)?2:1;
         if ($this->Partie->getEtape($joueurConcerne) == 'utilisationChamber') {
@@ -1414,6 +1443,8 @@ class Effets
 
         $numeroDefenseur = $this->infos['numeroDefenseur'];
         $numeroAttaquant = $this->infos['numeroAttaquant'];
+
+        $this->appliquerEffetNonexecute($joueurConcerne);
 
         // effet des cartes du joueur concerné
         $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
@@ -3133,6 +3164,16 @@ class Effets
                         ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                     ) {
                         $choix['choix_intercept-8_'.$Cartejeu->getId().'_force_+8'] = '-8 intercept => +8 force';
+                    }
+                    break;                        
+                //  -1 intercept => +1 force
+                //  -1 intercept => +1 red
+                case 286 : 
+                    if (
+                        ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
+                    ) {
+                        $choix['choix_intercept-1_'.$Cartejeu->getId().'_force_+1'] = '-1 intercept => +1 force';
+                        $choix['choix_intercept-1_'.$Cartejeu->getId().'_red_+1'] = '-1 intercept => +1 red';
                     }
                     break;                        
                 // vert => +1 force

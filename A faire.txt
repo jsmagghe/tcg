@@ -7,6 +7,7 @@ dans le controleur d'édition de deck faire en sorte que les cartes proposées n
 faire un refresh sur les dernières parties pour lancer une partie directement quand on vient d'être choisi
 finaliser le mode debug (passage à l'autre joueur par lien)
 Voir si un envoi de json plutôt que de la vue est plus performant
+remplacer l'ajax de mise à jour par https://github.com/GeniusesOfSymfony/WebSocketBundle#installation-instructions
 
 ==> protection carte
 Effet 550;This teamwork cannot be targeted by your opponent's effects;;
@@ -55,24 +56,16 @@ Effet 508;Eliminate one of your allies ==> +1 Intercept and +1 Force.;;
 Effet 680;Yellow ==> your strike in this zone have +1 Intercept and +1 Force. Use only once per turn.;;
 Effet 459;Green ==> In rachel darling's zone, your strike have +1 Intercept abd -1 Force. Use only oncer per turn.;;
 => chargement de zone
-Effet 14;-3 Force ==> If you counterattack from Lyserg's zone with this strike, charge it.;;
 Effet 35;Move a yellow furyoku to your green zone ==> If you counterattack with Rain of Bones, charge this zone.;;
 Effet 51; Instead of charging this zone, charge any zone instead.;;
-Effet 109;Red ==> If you counterattack with Ancestral Apparitions, charge any zone.;;
 Effet 129;Uncharge one of your other zones ==> when you counterattack from Toph's zone, charge her zone.;;
-Effet 135;-3 Intercept ==> when you counterattack, charge any zone.;;
-Effet 176;-2 Intercept ==> When you counterattack, charge this zone. Use only once.;;
 Effet 207;When you counterattack, you may uncharge one of your zones. If you do, charge one of your zones.;;
 Effet 210; You may charge any zone.;;
 Effet 214; If this zone is already charged, you may charge any zone.;;
-Effet 226;Yellow ==> When you counterattack from Katara's zone, charge this zone. Use only once per turn.;;
 Effet 265;When you counterattack from a charged zone, you may charge any zone.;;
-Effet 266;Red ==> when you counterattack, charge any zone. Use only once.;;
 Effet 267;Uncharge this zone ==> when you counterattack, charge any zone.;;
 Effet 290;charge a zone of your choice.;;
-Effet 326;When you counterattack, each player charges his or her red zone.;;
 Effet 336;Green ==> When you counterattack, each player charges one of his or her zones.;;
-Effet 406;. When you counterattack, you may charge any zone.;;
 Effet 407;-3 Intercept ==> When you counterattack, charge this zone.;;
 Effet 437;When you counterattack, you may charge any zone with an ally.;;
 Effet 455;You cannot celebrate in jackson hill's zone. Green ==> when you counterattack from jackson hill's zone, charge his zone. Use only once per turn.;;

@@ -12,6 +12,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 class Tools
 {
 
+    public $zone = array('chamber', 'deck', 'discard');
+
     public function zoneSuivante($zone) {
         $zoneSuivante = 'STRIKE_VERT';
         switch ($zone) {
@@ -44,6 +46,21 @@ class Tools
 
         $zoneCorrespondante = $type . $zoneCorrespondante;
         return $zoneCorrespondante;
+    }
+
+    public function nomZonePourEffet($zone) {
+        switch ($zone) {
+            case 'STRIKE_VERT':
+                $zone = 'chamber';
+                break;
+            case 'STRIKE_JAUNE':
+                $zone = 'deck';
+                break;
+            case 'STRIKE_ROUGE':
+                $zone = 'discard';
+                break;
+        }
+        return $zone;
     }
 
     public function joueurChoisi() {

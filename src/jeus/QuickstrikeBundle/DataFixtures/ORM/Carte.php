@@ -17,8 +17,11 @@ class Cartes implements FixtureInterface {
 
     // Dans l'argument de la méthode load, l'objet $manager est l'EntityManager
     public function load(ObjectManager $manager) {
-        if (file_exists('C:\wamp\www\cartes-online\src\jeus\QuickstrikeBundle\DataFixtures\ORM\base_quickstrike.csv')) {
-            $baseQuickstrike = fopen('C:\wamp\www\cartes-online\src\jeus\QuickstrikeBundle\DataFixtures\ORM\base_quickstrike.csv', 'r');
+        $nom_fichier = '.\src\jeus\QuickstrikeBundle\DataFixtures\ORM\base_quickstrike.csv';
+        if (!file_exists($nom_fichier)) {
+            die('fichier base non trouvé');
+        } else {
+            $baseQuickstrike = fopen($nom_fichier, 'r');
 
             $typeCartes = array();
             rewind($baseQuickstrike);
@@ -95,8 +98,11 @@ class Cartes implements FixtureInterface {
             // On déclenche l'enregistrement
             $manager->flush();
 
-            if (file_exists('C:\wamp\www\cartes-online\src\jeus\QuickstrikeBundle\DataFixtures\ORM\Effet_quickstrike.csv')) {
-                $effetQuickstrike = fopen('C:\wamp\www\cartes-online\src\jeus\QuickstrikeBundle\DataFixtures\ORM\Effet_quickstrike.csv', 'r');
+            $nom_fichier = '.\src\jeus\QuickstrikeBundle\DataFixtures\ORM\Effet_quickstrike.csv';
+            if (!file_exists($nom_fichier)) {
+                die('fichier effets non trouvé');
+            } else {
+                $effetQuickstrike = fopen($nom_fichier, 'r');
                 $effets = array();
                 $ligne = fgets($effetQuickstrike);
                 $iteration = 1;

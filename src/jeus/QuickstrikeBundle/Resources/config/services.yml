@@ -12,7 +12,7 @@ services:
 
     jeus_quickstrike_interactions:
         class: jeus\QuickstrikeBundle\Services\Interactions
-        arguments: [@doctrine.orm.entity_manager,@jeus_quickstrike_tools]
+        arguments: [@doctrine.orm.entity_manager,@jeus_quickstrike_tools,@jeus_quickstrike_effets]
 
     jeus_quickstrike_carte:
         class: jeus\QuickstrikeBundle\Services\Carte

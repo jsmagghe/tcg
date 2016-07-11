@@ -8,10 +8,7 @@ faire un refresh sur les dernières parties pour lancer une partie directement q
 finaliser le mode debug (passage à l'autre joueur par lien)
 Voir si un envoi de json plutôt que de la vue est plus performant
 remplacer l'ajax de mise à jour par https://github.com/GeniusesOfSymfony/WebSocketBundle#installation-instructions
-
-==> protection carte
-Effet 550;This teamwork cannot be targeted by your opponent's effects;;
-Effet 729;Your teamwork cannot be targeted by your opponent's effects.;;
+/!\ payerCout vs effet 189
 
 ==> effets celebration
 Effet 572;If you celebrate, turn your chamber on it's back side.;;
@@ -31,12 +28,7 @@ Effet 747; Turn your chamber in its other side;;
 
 effets par choix simple du joueur
 => ajout intercept ou force
----intercept
-Effet 43;Pitch ==> Put this in your advantage area. Your strikes have +1 Intercept.;;
-Effet 480;Yellow ==> Overtake has +1 Intercept while in your yellow zone.;;
 ---force
-Effet 318;Eliminate one of your opponent's teamworks ==> +2 Force. Use only once.;;
-Effet 319;Eliminate one of your opponent's teamworks ==> +2 Force.;;
 Effet 363;Eliminate one of your allies ==> +1 Force.;;
 Effet 301;-1 Intercept ==> Put the top card of your deck in your discard pile. If it is a teamwork, +1 Force;;
 Effet 494;When you flip ready the long nines, you may move it to your red zone. Ready the long nines has +3 Force while in your red zone.;;

@@ -126,27 +126,27 @@ class Effets
 
                 // zone verte
                 case 95 : 
-                    if ($this->infos['ZoneDefenseur']=='STRIKE_VERT') {
+                    if ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT') {
                         $bonus -= 3;
                     }
                     break;
                 case 112 : 
                 case 195 : 
-                    if ($this->infos['ZoneDefenseur']=='STRIKE_VERT') {
+                    if ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT') {
                         $bonus += 2;
                     }
                     break;
 
                 // zone rouge
                 case 10 : 
-                    if ($this->infos['ZoneDefenseur']=='STRIKE_ROUGE') {
+                    if ($this->infos['ZoneDefenseur'] == 'STRIKE_ROUGE') {
                         $bonus -= 4;
                     } else {
                         $bonus += 1;                        
                     }
                     break;
                 case 24 : 
-                    if ($this->infos['ZoneDefenseur']=='STRIKE_ROUGE') {
+                    if ($this->infos['ZoneDefenseur'] == 'STRIKE_ROUGE') {
                         $bonus -= 3;
                     }
                     break;
@@ -286,9 +286,9 @@ class Effets
                 case 279 : 
                 case 398 : 
                     if (
-                        (($this->infos['chamberChargeAttaquant']) && ($this->infos['ZoneAttaquant']=='STRIKE_VERT'))
-                        || (($this->infos['deckChargeAttaquant']) && ($this->infos['ZoneAttaquant']=='STRIKE_JAUNE'))
-                        || (($this->infos['discardChargeAttaquant']) && ($this->infos['ZoneAttaquant']=='STRIKE_ROUGE'))
+                        (($this->infos['chamberChargeAttaquant']) && ($this->infos['ZoneAttaquant'] == 'STRIKE_VERT'))
+                        || (($this->infos['deckChargeAttaquant']) && ($this->infos['ZoneAttaquant'] == 'STRIKE_JAUNE'))
+                        || (($this->infos['discardChargeAttaquant']) && ($this->infos['ZoneAttaquant'] == 'STRIKE_ROUGE'))
                     ) {
                         $bonus += 1;
                     }
@@ -343,7 +343,7 @@ class Effets
                     break;
                 // zone rouge
                 case 742 : 
-                    if ($this->infos['ZoneDefenseur']=='STRIKE_ROUGE') {
+                    if ($this->infos['ZoneDefenseur'] == 'STRIKE_ROUGE') {
                         $bonus -= 3;
                     }
                     break;
@@ -417,13 +417,19 @@ class Effets
 
                 // zone rouge
                 case 220 : 
-                    if (($this->infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
+                    if (($this->infos['ZoneDefenseur'] == 'STRIKE_ROUGE')) {
                         $bonus += 1;
                     }
                     break;
                 case 29 : 
-                    if (($this->infos['ZoneDefenseur']=='STRIKE_ROUGE')) {
+                    if (($this->infos['ZoneDefenseur'] == 'STRIKE_ROUGE')) {
                         $bonus += 2;
+                    }
+                    break;
+                // avantage
+                case 43 : 
+                    if (($Cartejeu->getEmplacement() == 'ADVANTAGE')) {
+                        $bonus += 1;
                     }
                     break;
 
@@ -459,9 +465,9 @@ class Effets
                 case 279 : 
                 case 399 : 
                     if (
-                        (($this->infos['chamberChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_VERT'))
-                        || (($this->infos['deckChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_JAUNE'))
-                        || (($this->infos['discardChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_ROUGE'))
+                        (($this->infos['chamberChargeDefenseur']) && ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT'))
+                        || (($this->infos['deckChargeDefenseur']) && ($this->infos['ZoneDefenseur'] == 'STRIKE_JAUNE'))
+                        || (($this->infos['discardChargeDefenseur']) && ($this->infos['ZoneDefenseur'] == 'STRIKE_ROUGE'))
                     ) {
                         $bonus += 1;
                     }
@@ -826,8 +832,8 @@ class Effets
             switch ($numeroEffet) {
                 case 64 : 
                     if (
-                        ($this->infos['typeCarteActive']=='STRIKE')
-                        && (($this->infos['ZoneDefenseur']=='STRIKE_VERT') || ($this->infos['ZoneDefenseur']=='STRIKE_JAUNE'))
+                        ($this->infos['typeCarteActive'] == 'STRIKE')
+                        && (($this->infos['ZoneDefenseur'] == 'STRIKE_VERT') || ($this->infos['ZoneDefenseur'] == 'STRIKE_JAUNE'))
                         ) {
                         $jouerPossible = false;                        
                     }
@@ -846,39 +852,39 @@ class Effets
             switch ($numeroEffet) {
                 case 132 : 
                     if (
-                        ($this->infos['ZoneDefenseur']=='STRIKE_VERT')
-                        && (($this->infos['typeCarteActive']=='TEAMWORK') || ($this->infos['typeCarteActive']=='ADVANTAGE'))
+                        ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT')
+                        && (($this->infos['typeCarteActive'] == 'TEAMWORK') || ($this->infos['typeCarteActive'] == 'ADVANTAGE'))
                         ) {
                         $jouerPossible = false;                        
                     }
                     break;
                 case 426 : 
                     if (
-                        ($this->infos['ZoneDefenseur']=='STRIKE_VERT')
-                        && (($this->infos['typeCarteActive']=='STRIKE') || ($this->infos['typeCarteActive']=='TEAMWORK'))
+                        ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT')
+                        && (($this->infos['typeCarteActive'] == 'STRIKE') || ($this->infos['typeCarteActive'] == 'TEAMWORK'))
                         ) {
                         $jouerPossible = false;                        
                     }
                     break;
                 case 490 : 
                     if (
-                        ($this->infos['ZoneDefenseur']=='STRIKE_VERT') && ($this->infos['typeCarteActive']=='STRIKE')
+                        ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT') && ($this->infos['typeCarteActive'] == 'STRIKE')
                         ) {
                         $jouerPossible = false;                        
                     }
                     break;
                 case 503 : 
-                    if ($this->infos['ZoneDefenseur']=='STRIKE_VERT') {
+                    if ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT') {
                         $jouerPossible = false;                        
                     }
                     break;
                 case 571 : 
-                    if (($this->infos['typeCarteActive']=='ADVANTAGE') || ($this->infos['typeCarteActive']=='TEAMWORK')) {
+                    if (($this->infos['typeCarteActive'] == 'ADVANTAGE') || ($this->infos['typeCarteActive'] == 'TEAMWORK')) {
                         $jouerPossible = false;                        
                     }
                     break;
                 case 606 : 
-                    if ($this->infos['typeCarteActive']=='ADVANTAGE') {
+                    if ($this->infos['typeCarteActive'] == 'ADVANTAGE') {
                         $jouerPossible = false;                        
                     }
                     break;
@@ -1133,7 +1139,7 @@ class Effets
 
                     // payer les jaunes en vertes pour les avantages et alliés
                     case 544 : 
-                        if (($this->infos['typeCarteActive']=='ADVANTAGE') || ($this->infos['typeCarteActive']=='TEAMWORK')) {
+                        if (($this->infos['typeCarteActive'] == 'ADVANTAGE') || ($this->infos['typeCarteActive'] == 'TEAMWORK')) {
                             $jauneEnVert = true;
                         }
                         break;
@@ -1144,7 +1150,7 @@ class Effets
                         break;
                     // -1 vert si strike
                     case 703 :
-                        if ($this->infos['typeCarteActive']=='STRIKE') {
+                        if ($this->infos['typeCarteActive'] == 'STRIKE') {
                             $coutVert--;
                         }
                         break;
@@ -1165,14 +1171,14 @@ class Effets
                         break;
                     // pas de cout de la zone en cours pour les strikes
                     case 697 : 
-                        if ($this->infos['typeCarteActive']=='STRIKE') {
-                            if ($this->infos['ZoneDefenseur']=='STRIKE_VERT') {
+                        if ($this->infos['typeCarteActive'] == 'STRIKE') {
+                            if ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT') {
                                 $pasVert = true;
                             }
-                            if ($this->infos['ZoneDefenseur']=='STRIKE_JAUNE') {
+                            if ($this->infos['ZoneDefenseur'] == 'STRIKE_JAUNE') {
                                 $pasJaune = true;
                             }
-                            if ($this->infos['ZoneDefenseur']=='STRIKE_ROUGE') {
+                            if ($this->infos['ZoneDefenseur'] == 'STRIKE_ROUGE') {
                                 $pasRouge = true;
                             }
                         }
@@ -1196,13 +1202,13 @@ class Effets
                     // +1 vert \ strike
                     case 380 :
                     case 639 :
-                        if ($this->infos['typeCarteActive']=='STRIKE') {
+                        if ($this->infos['typeCarteActive'] == 'STRIKE') {
                             $coutVert++;                            
                         }
                         break;
                     // +1 vert \ avantage
                     case 691 :
-                        if ($this->infos['typeCarteActive']=='ADVANTAGE') {
+                        if ($this->infos['typeCarteActive'] == 'ADVANTAGE') {
                             $coutVert++;                            
                         }
                         break;
@@ -1223,21 +1229,21 @@ class Effets
                     // +1 jaune \ strike
                     case 158 :
                     case 159 :
-                        if ($this->infos['typeCarteActive']=='STRIKE') {
+                        if ($this->infos['typeCarteActive'] == 'STRIKE') {
                             $coutJaune++;                            
                         }
                         break;
                     // +1 rouge \ strike
                     case 277 :
                     case 537 :
-                        if ($this->infos['typeCarteActive']=='STRIKE') {
+                        if ($this->infos['typeCarteActive'] == 'STRIKE') {
                             $coutRouge++;                            
                         }
                         break;
                     // +1 vert \ strike  si pas de teamwork
                     case 92 : 
                         if (
-                            ($this->infos['typeCarteActive']=='STRIKE')
+                            ($this->infos['typeCarteActive'] == 'STRIKE')
                             && (!isset($this->CarteEnJeus[$numeroDefenseur][$this->tools->zoneCorrespondante($this->infos['ZoneDefenseur'],'TEAMWORK')]))
                             ) {
                             $coutVert++;
@@ -1499,7 +1505,7 @@ class Effets
                     break;
                 // charge deck si zone jaune
                 case 482 : 
-                    if ($this->infos['ZoneDefenseur']=='STRIKE_JAUNE') {
+                    if ($this->infos['ZoneDefenseur'] == 'STRIKE_JAUNE') {
                         $this->chargerUneZone($joueurConcerne,'STRIKE_JAUNE');                        
                     }
                     break;
@@ -1741,9 +1747,9 @@ class Effets
                 // +1 jaune \ joueur si zone chargée
                 case 409 : 
                     if (
-                        (($this->infos['chamberChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_VERT'))
-                        || (($this->infos['deckChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_JAUNE'))
-                        || (($this->infos['discardChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_ROUGE'))
+                        (($this->infos['chamberChargeDefenseur']) && ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT'))
+                        || (($this->infos['deckChargeDefenseur']) && ($this->infos['ZoneDefenseur'] == 'STRIKE_JAUNE'))
+                        || (($this->infos['discardChargeDefenseur']) && ($this->infos['ZoneDefenseur'] == 'STRIKE_ROUGE'))
                     ) {
                         $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
                     }
@@ -1982,9 +1988,9 @@ class Effets
                 case 170 : 
                 case 175 : 
                     if (($action == 'counter attack') && (
-                        (($this->infos['chamberChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_VERT'))
-                        || (($this->infos['deckChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_JAUNE'))
-                        || (($this->infos['discardChargeDefenseur']) && ($this->infos['ZoneDefenseur']=='STRIKE_ROUGE'))
+                        (($this->infos['chamberChargeDefenseur']) && ($this->infos['ZoneDefenseur'] == 'STRIKE_VERT'))
+                        || (($this->infos['deckChargeDefenseur']) && ($this->infos['ZoneDefenseur'] == 'STRIKE_JAUNE'))
+                        || (($this->infos['discardChargeDefenseur']) && ($this->infos['ZoneDefenseur'] == 'STRIKE_ROUGE'))
                     )) {
                         $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
                     }
@@ -2196,6 +2202,7 @@ class Effets
     }
 
     public function effetPitcher($joueurConcerne) {
+        $zoneCorrespondante = 'DISCARD';
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
         // effet des cartes du joueur concerné
@@ -2207,6 +2214,9 @@ class Effets
             }
             $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
             switch ($numeroEffet) {
+                case 43 :
+                    $zoneCorrespondante = 'ADVANTAGE';
+                    break;
                 case 19 :
                 case 261 :
                     $this->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_VERTE');
@@ -2735,6 +2745,29 @@ class Effets
         return $eliminationPossible;
     }
 
+    public function ciblageTeamworkPossible($joueurConcerne) {
+        $ciblagePossible = true;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        // effet des cartes du joueur concerné
+        $CarteEnJeus = (isset($this->CarteEnJeus[$joueurConcerne]['ACTIVE'])) ? $this->CarteEnJeus[$joueurConcerne]['ACTIVE'] : null;
+        foreach ((array)$CarteEnJeus as $Cartejeu) {
+            $Carte = $Cartejeu->getCarte();
+            if ($Carte == null) {
+                continue;
+            }
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
+            switch ($numeroEffet) {
+                case 550 : 
+                case 729 : 
+                    $ciblagePossible = false;                        
+                    break;
+            }
+        }
+
+        return $ciblagePossible;
+    }
+
     public function deplacementPossible($joueurConcerne,$typeCarte) {
         $deplacementPossible = true;
         $joueurAdverse = ($joueurConcerne==1)?2:1;
@@ -2927,7 +2960,7 @@ class Effets
         return $chamberVisible;
     }
 
-    public function choixPossible($joueurConcerne) {
+    /*public function choixPossible($joueurConcerne) {
         $choix = array();
         $joueurAdverse = ($joueurConcerne==1)?2:1;
 
@@ -3045,13 +3078,20 @@ class Effets
                 // jaune => +1 intercept
                 case 415 : 
                 case 402 : 
+                case 480 : 
                     if (
                         ($Cartejeu->getEmplacement() == $this->infos['ZoneDefenseur'] && $this->infos['typeCarteActive'] == 'STRIKE')
                         && ($energieJauneDisponible>=1)
                         // une fois par tour
                         && ($numeroEffet != 415 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
                         // une fois par teamwork
-                        && ($numeroEffet!=402 || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()]) || count($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])<$this->infos['nombreTeamworkDefenseur']) 
+                        && (
+                            $numeroEffet!=402 
+                            || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()]) 
+                            || count($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])<$this->infos['nombreTeamworkDefenseur']
+                            ) 
+                        // uniquement en zone jaune
+                        && ($numeroEffet != 480 || $this->infos['ZoneDefenseur'] == 'STRIKE_JAUNE') 
                         ) {
                             $choix['choix_yellow_' . $Cartejeu->getId() . '_intercept_+1'] = 'yellow => +1 intercept';
                     }
@@ -3301,6 +3341,28 @@ class Effets
                         $choix['choix_point_' . $Cartejeu->getId() . '_force_+3'] = '1 point => +3 force';                        
                     }
                     break;
+                // eliminer 1 teamwork adverse => +2 force
+                case 318 : 
+                case 319 : 
+                    if (
+                        ($this->ciblageTeamworkPossible($joueurAdverse))
+                        && ($this->eliminationPossible($joueurAdverse))
+                        // une fois par tour
+                        && (($numeroEffet!=318 ) || !isset($effetNonExecutes[$joueurConcerne][$Cartejeu->getId()])) 
+                        ) {
+                        if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE'])) {
+                            $choix['choix_' . $this->CarteEnJeus[$joueurConcerne]['TEAMWORK_VERTE']->getId() . '_' . $Cartejeu->getId() . '_force_+2'] = 'eliminer teamwork vert => +2 force';
+                        }
+                        if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE'])) {
+                            $choix['choix_' . $this->CarteEnJeus[$joueurConcerne]['TEAMWORK_JAUNE']->getId() . '_' . $Cartejeu->getId() . '_force_+2'] = 'eliminer teamwork jaune => +2 force';
+                        }
+                        if (isset($this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE'])) {
+                            $choix['choix_' . $this->CarteEnJeus[$joueurConcerne]['TEAMWORK_ROUGE']->getId() . '_' . $Cartejeu->getId() . '_force_+2'] = 'eliminer teamwork rouge => +2 force';
+                        }
+                    }
+                    break;
+
+
                 // en contre attaquant => charger une zone
                 case 406 : 
                     if (
@@ -3398,7 +3460,7 @@ class Effets
 
 
         return $choix;
-    }
+    }*/
 
     public function effetsFlip($joueurConcerne) {
         $effetVoulu = true;

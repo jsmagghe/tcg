@@ -223,7 +223,7 @@ class Partie
         foreach($couts as $cout) {
             switch (true) {
                 case ($cout == 'free') :
-                    // rien
+                    // gratuit
                     break;
                 case (strpos($cout,'green')!==false) : 
                     $coutVert = str_replace('green', '', $cout);
@@ -247,7 +247,7 @@ class Partie
                     break;
                 case (is_int($cout)===true) : 
                     $CartePartie = $this->em->getRepository('jeusQuickstrikeBundle:CartePartie')->find($cout);
-                    $CartePartie->setEmplacement('DISCARD');
+                    $this->interactions->deplacerCarteVisee($CartePartie->getNumeroJoueur(), $CartePartie, 'DISCARD');
                     $this->em->flush();
                     break;
             }
@@ -387,7 +387,7 @@ class Partie
         $zoneSuivante = $this->tools->zoneSuivante($zoneEnCours);
         $zoneCorrespondante = 'DISCARD';
         if ($action=='pitch')              
-            $this->effets->effetPitcher($joueurConcerne);
+            $zoneCorrespondante = $this->effets->effetPitcher($joueurConcerne);
         if ($action=='focus') {
             $zoneCorrespondante = $this->tools->zoneCorrespondante($zoneEnCours,'ENERGIE');
             $this->effets->effetFocuser($joueurConcerne);

@@ -67,7 +67,7 @@ class Interactions
         } else {
             $CartePartie->setEmplacement($emplacementVise);
             $CartePartie->setPosition($position);
-            $deplacee = true
+            $deplacee = true;
             $position++;            
 
             // si une carte est envoyé dans un emplacement en dehors du jeu depuis une zone en jeu on déclenche l'effet de sortie

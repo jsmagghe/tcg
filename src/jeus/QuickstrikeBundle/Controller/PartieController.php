@@ -145,10 +145,9 @@ class PartieController extends Controller {
                                       )
                                       ,array('numeroJoueur'=>'ASC', 'emplacement'=>'ASC', 'position'=>'ASC')
                                     );
-
             $parametres = array(
-                'chamberVisible1' => ($Partie->getJoueurZoneEnCours(1) == 'CHAMBER') || $servicePartie->chamberVisible(1,$Partie->getJoueurActif()),
-                'chamberVisible2' => ($Partie->getJoueurZoneEnCours(2) == 'CHAMBER') || $servicePartie->chamberVisible(2,$Partie->getJoueurActif()),
+                'chamberVisible1' => ($Partie->getJoueurZoneEnCours(1) == 'CHAMBER') || $servicePartie->getEffets()->chamberVisible(1,$Partie->getJoueurActif()),
+                'chamberVisible2' => ($Partie->getJoueurZoneEnCours(2) == 'CHAMBER') || $servicePartie->getEffets()->chamberVisible(2,$Partie->getJoueurActif()),
                 'deckVisible1' => $servicePartie->deckVisible(1),
                 'deckVisible2' => $servicePartie->deckVisible(2),
                     );

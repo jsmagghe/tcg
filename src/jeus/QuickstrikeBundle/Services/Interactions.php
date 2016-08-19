@@ -14,16 +14,14 @@ class Interactions
 
     protected $em;
     protected $tools;
-    protected $effets;
     private $Partie;
     private $CarteEnJeus;
     private $emplacementEnJeu = array('STRIKE_VERT', 'STRIKE_JAUNE', 'STRIKE_ROUGE', 'TEAMWORK_VERTE', 'TEAMWORK_JAUNE', 'TEAMWORK_ROUGE', 'ADVANTAGE');
 
-    public function __construct(ObjectManager $em, $tools, $effets)
+    public function __construct(ObjectManager $em, $tools)
     {
         $this->em = $em;
         $this->tools = $tools;
-        $this->effets = $effets;
     }
 
     public function chargerCarteEnJeu($CarteEnJeus) {
@@ -70,7 +68,7 @@ class Interactions
             $deplacee = true;
             $position++;            
 
-            // si une carte est envoyé dans un emplacement en dehors du jeu depuis une zone en jeu on déclenche l'effet de sortie
+            // si une carte est envoyée dans un emplacement en dehors du jeu depuis une zone en jeu on déclenche l'effet de sortie
             if (!in_array($emplacementVise, $this->emplacementEnJeu) && in_array($emplacementOrigine, $this->emplacementEnJeu)) {
                 $this->effets->effetSortie($joueurConcerne,$CartePartie);
             } 
@@ -210,7 +208,77 @@ class Interactions
         $this->em->flush();
     }
 
-    
+    public function effetSortie($joueurConcerne,$CartePartie) 
+    {
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+        if ($CartePartie!=null) {
+            if ($CartePartie instanceof \jeus\QuickstrikeBundle\Entity\CartePartie) {
+                $Carte = $CartePartie->getCarte();
+            } else {
+                $Carte = $CartePartie;
+            }
+
+            $numeroEffet = $this->numeroEffet($joueurConcerne,$Carte);
+            switch ($numeroEffet) {
+                // +1 jaune
+                case 677 : 
+                    $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
+                    break;
+                // +2 jaune
+                case 697 : 
+                    $this->deplacerCarte($joueurConcerne,2,'DISCARD','ENERGIE_JAUNE');
+                    break;
+                // +1 de chaque couleur
+                case 694 : 
+                    $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_VERTE');
+                    $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_JAUNE');
+                    $this->deplacerCarte($joueurConcerne,1,'DISCARD','ENERGIE_ROUGE');
+                    break;
+                // -1 energie adverse
+                case 675 : 
+                    $nombre = 1;
+                    $nombre -= $this->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_ROUGE','DISCARD');
+                    $nombre -= $this->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_JAUNE','DISCARD');
+                    $nombre -= $this->deplacerCarte($joueurAdverse,$nombre,'ENERGIE_VERTE','DISCARD');
+                    break;
+                // discard des avantages
+                case 682 : 
+                    $this->deplacerCarte($joueurAdverse,99,'ADVANTAGE','DISCARD');
+                    break;
+            }
+        }
+
+        return true;
+    }
+
+    public function numeroEffet($joueurConcerne,$CarteVoulu) {
+        $numeroEffet = (($CarteVoulu!=null) && ($CarteVoulu->getEffet()!=null)) ? $CarteVoulu->getEffet()->getNumero(): 0;
+        $joueurAdverse = ($joueurConcerne==1)?2:1;
+
+        if ($numeroEffet != 0) {
+            // effet des cartes de l'adversaire
+            $CarteEnJeus = (isset($this->CarteEnJeus[$joueurAdverse]['ACTIVE'])) ? $this->CarteEnJeus[$joueurAdverse]['ACTIVE'] : null;
+            foreach ((array)$CarteEnJeus as $Cartejeu) {
+                $Carte = $Cartejeu->getCarte();
+                if ($Carte == null) {
+                    continue;
+                }
+                $numeroEffetCarte = ($Carte->getEffet()!=null) ? $Carte->getEffet()->getNumero(): 0;
+                switch ($numeroEffetCarte) {
+                    case 698 : 
+                    case 619 : 
+                        if ($Carte->getTypeCarte()->getTag()=='TEAMWORK') {
+                            $numeroEffet = 0;                        
+                        }
+                        break;
+                }
+            }
+        }
+
+        return $numeroEffet;
+    }
+
+ 
 
 
 

@@ -41,6 +41,10 @@ class Partie
         $this->router = $router;
     }
 
+    public function getEffets(){
+        return $this->effets;
+    }
+
     public function chargement($Partie,$Joueur) {
         $this->Partie = $Partie;
         $this->Joueur = $Joueur;
